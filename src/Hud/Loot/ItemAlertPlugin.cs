@@ -84,7 +84,7 @@ namespace PoeHUD.Hud.Loot
 
         protected override void OnEntityAdded(EntityWrapper entity)
         {
-            if (Settings.Enable && !currentAlerts.ContainsKey(entity) && entity.HasComponent<WorldItem>())
+            if (!GameController.Area.CurrentArea.IsTown && Settings.Enable && !currentAlerts.ContainsKey(entity) && entity.HasComponent<WorldItem>())
             {
                 IEntity item = entity.GetComponent<WorldItem>().ItemEntity;
                 // Check if we should alert WHILE loading item to preven useless compute
