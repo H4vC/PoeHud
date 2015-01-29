@@ -57,7 +57,7 @@ namespace PoeHUD.Hud.XpRate
 
             float boxWidth = MathHepler.Max(xpRateSize.Width, xpLeftSize.Width, areaNameSize.Width + timerSize.Width + 20) + 15;
             float boxHeight = xpRateSize.Height + xpLeftSize.Height + areaNameSize.Height;
-            var bounds = new RectangleF(position.X - boxWidth + 5, position.Y - 5, boxWidth, boxHeight + 10);
+            var bounds = new RectangleF(position.X - boxWidth + 5, position.Y - 5, boxWidth + 5, boxHeight + 10);
 
             string systemTime = string.Format("{0} ({1})", nowTime.ToShortTimeString(), GameController.Game.IngameState.CurFps);
             Graphics.DrawText(systemTime, fontSize, new Vector2(bounds.X + 5, position.Y), Color.White);

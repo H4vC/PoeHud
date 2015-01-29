@@ -5,128 +5,138 @@ using System.Linq;
 using PoeHUD.Models.Enums;
 using PoeHUD.Models.Interfaces;
 using PoeHUD.Poe.Components;
+using PoeHUD.Poe;
 
 namespace PoeHUD.Hud.Loot
 {
     public class ItemUsefulProperties
     {
-        private readonly bool isCurrency, isSkillGem, isRgb, isVaalFragment, isWeapon, isArmour, isFlask;
+        private readonly string _name;
 
-        private readonly int numSockets, numLinks, mapLevel, itemLevel, quality;
+        private readonly IEntity _item;
 
-        private readonly ItemRarity rarity;
+        private readonly CraftingBase _craftingBase;
 
-        private bool isCraftingBase;
+        private ItemRarity rarity;
 
-        public ItemUsefulProperties(string name, IEntity item)
+        private int quality = 0, alertWidth = 0, alertIcon = -1;
+
+        private string alertText;
+
+        private SharpDX.Color color = SharpDX.Color.Black; // Fully qualify to prevent confusion on Component
+
+        public ItemUsefulProperties(string name, IEntity item, CraftingBase craftingBase)
         {
-            var mods = item.GetComponent<Mods>();
-            var socks = item.GetComponent<Sockets>();
-            Map map = item.HasComponent<Map>() ? item.GetComponent<Map>() : null;
-            Quality qualityComponent = item.HasComponent<Quality>() ? item.GetComponent<Quality>() : null;
-
-            Name = name;
-            itemLevel = mods.ItemLevel;
-            numLinks = socks.LargestLinkSize;
-            numSockets = socks.NumberOfSockets;
-            rarity = mods.ItemRarity;
-            mapLevel = map == null ? 0 : 1;
-            isCurrency = item.Path.Contains("Currency");
-            isSkillGem = item.HasComponent<SkillGem>();
-            quality = qualityComponent == null ? 0 : qualityComponent.ItemQuality;
-            isRgb = socks.IsRGB;
-            isWeapon = item.HasComponent<Weapon>();
-            isArmour = item.HasComponent<Armour>();
-            isFlask = item.HasComponent<Flask>();
-            isVaalFragment = item.Path.Contains("VaalFragment");
+            _name = name;
+            alertText = _name; // initialize alertText to be just it's name for now
+            _item = item;
+            _craftingBase = craftingBase;
         }
-
-        public string Name { get; private set; }
 
         public AlertDrawStyle GetDrawStyle()
         {
-            int iconIndex = -1;
-            if (isRgb)
-            {
-                iconIndex = 1;
-            }
-            if (numSockets == 6)
-            {
-                iconIndex = 0;
-            }
-            if (isCraftingBase)
-            {
-                iconIndex = 2;
-            }
-            if (numLinks == 6)
-            {
-                iconIndex = 3;
-            }
-
-            return new AlertDrawStyle(rarity, isSkillGem, isCurrency)
-            {
-                FrameWidth = mapLevel > 0 || isVaalFragment ? 1 : 0,
-                Text = string.Concat(quality > 0 ? "Superior " : String.Empty, Name),
-                IconIndex = iconIndex
-            };
+            return new AlertDrawStyle(color, rarity, alertWidth, alertText, alertIcon);
         }
 
-        public bool IsWorthAlertingPlayer(HashSet<string> currencyNames, ItemAlertSettings settings)
+        public bool ShouldAlert(HashSet<string> currencyNames, ItemAlertSettings settings)
         {
-            if (rarity == ItemRarity.Rare && settings.Rares)
+            Mods mods = _item.GetComponent<Mods>();
+            Sockets sockets = _item.GetComponent<Sockets>();
+            QualityItemsSettings qualitySettings = settings.QualityItems;
+
+            rarity = mods.ItemRarity; // set rarity
+
+            // If quality > 0 concat 'Superior ' to item name
+            if (_item.HasComponent<Quality>()) 
             {
-                return true;
+                quality = _item.GetComponent<Quality>().ItemQuality; // update quality variable
+                alertText = string.Concat("Superior ", _name);
             }
-            if (rarity == ItemRarity.Unique && settings.Uniques)
+
+            // Check if Map/Vaal Frag
+            if (_item.HasComponent<Map>() || _item.Path.Contains("VaalFragment"))
             {
-                return true;
+                alertWidth = 1;
+                return settings.Maps;
             }
-            if ((mapLevel > 0 || isVaalFragment) && settings.Maps)
+
+            // Check if Currency
+            if (_item.Path.Contains("Currency"))
             {
-                return true;
+                color = HudSkin.CurrencyColor;
+                return (settings.Currency && ((currencyNames != null && currencyNames.Contains(_name)) || !_name.Contains("Scroll")));
             }
-            if (numLinks >= settings.MinLinks)
+
+            // Check link REQ.
+            if (sockets.LargestLinkSize >= settings.MinLinks)
             {
-                return true;
-            }
-            if (isCurrency && settings.Currency)
-            {
-                if (currencyNames == null)
+                if (sockets.LargestLinkSize == 6) // If 6 link change icon
                 {
-                    if (!Name.Contains("Portal") && Name.Contains("Wisdom")) // TODO it's need to check
-                    {
-                        return true;
-                    }
+                    alertIcon = 3;
                 }
-                else if (currencyNames.Contains(Name))
+                return true;
+            }
+
+            // Check if Crafting Base
+            if (IsCraftingBase(mods.ItemLevel))
+            {
+                alertIcon = 2;
+                return true;
+            }
+
+            // Check # socket REQ.
+            if (sockets.NumberOfSockets >= settings.MinSockets)
+            {
+                alertIcon = 0;
+                return true;
+            }
+
+            // RGB
+            if (sockets.IsRGB)
+            {
+                alertIcon = 1;
+                return true;
+            }
+
+            // meets rarity conidtions
+            switch (rarity)
+            {
+                case ItemRarity.Rare:
+                    return settings.Rares;
+                case ItemRarity.Unique:
+                    return settings.Uniques;
+                default:
+                    break;
+            }
+
+            // Other (no icon change)
+            if (qualitySettings.Enable)
+            {
+                if (_item.HasComponent<Flask>())
                 {
-                    return true;
+                    return (qualitySettings.Flask.Enable && quality >= qualitySettings.Flask.MinQuality);
+                }
+                else if (_item.HasComponent<SkillGem>())
+                {
+                    color = HudSkin.SkillGemColor;
+                    return (qualitySettings.SkillGem.Enable && quality >= qualitySettings.SkillGem.MinQuality);
+                }
+                else if (_item.HasComponent<Weapon>())
+                {
+                    return (qualitySettings.Weapon.Enable && quality >= qualitySettings.Weapon.MinQuality);
+                }
+                else if (_item.HasComponent<Armour>())
+                {
+                    return (qualitySettings.Armour.Enable && quality >= qualitySettings.Armour.MinQuality);
                 }
             }
 
-            if (isRgb && settings.Rgb)
-            {
-                return true;
-            }
-            if (settings.QualityItems.Enable)
-            {
-                QualityItemsSettings qualitySettings = settings.QualityItems;
-                if (qualitySettings.Weapon.Enable && isWeapon && quality >= qualitySettings.Weapon.MinQuality
-                    || qualitySettings.Armour.Enable && isArmour && quality >= qualitySettings.Armour.MinQuality
-                    || qualitySettings.Flask.Enable && isFlask && quality >= qualitySettings.Flask.MinQuality
-                    || qualitySettings.SkillGem.Enable && isSkillGem && quality >= qualitySettings.SkillGem.MinQuality)
-                {
-                    return true;
-                }
-            }
-            return numSockets >= settings.MinSockets || isCraftingBase;
+            return false; // Meets no checks
         }
 
-        public void SetCraftingBase(CraftingBase craftingBase)
+        private bool IsCraftingBase(int itemLevel)
         {
-            isCraftingBase = itemLevel >= craftingBase.MinItemLevel
-                && quality >= craftingBase.MinQuality
-                && (craftingBase.Rarities == null || craftingBase.Rarities.Contains(rarity));
+            return (!String.IsNullOrEmpty(_craftingBase.Name) && itemLevel >= _craftingBase.MinItemLevel && quality >= _craftingBase.MinQuality && (_craftingBase.Rarities == null || _craftingBase.Rarities.Contains(rarity)));
         }
     }
 }

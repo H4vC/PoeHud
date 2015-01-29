@@ -16,29 +16,29 @@ namespace PoeHUD.Hud.Loot
             { ItemRarity.Unique, HudSkin.UniqueColor },
         };
 
-        public AlertDrawStyle(ItemRarity rarity, bool isSkillGem, bool isCurrency)
+        public AlertDrawStyle(Color color, ItemRarity rarity, int frameWidth, string text, int iconIndex)
         {
-            if (isSkillGem)
+            FrameWidth = frameWidth;
+            Text = text;
+            IconIndex = iconIndex;
+
+            if (color != Color.Black) // Checking against default of black as Color is a struct and I doubt anyone would use this color
             {
-                Color = HudSkin.SkillGemColor;
-            }
-            else if (isCurrency)
-            {
-                Color = HudSkin.CurrencyColor;
+                AlertColor = color;
             }
             else
             {
-                Color color;
-                Color = colors.TryGetValue(rarity, out color) ? color : Color.White;
+                Color tempColor;
+                AlertColor = colors.TryGetValue(rarity, out tempColor) ? tempColor : Color.White;
             }
         }
 
-        public Color Color { get; private set; }
+        public Color AlertColor { get; private set; }
 
-        public int FrameWidth { get; set; }
+        public int FrameWidth { get; private set; }
 
-        public string Text { get; set; }
+        public string Text { get; private set; }
 
-        public int IconIndex { get; set; }
+        public int IconIndex { get; private set; }
     }
 }
