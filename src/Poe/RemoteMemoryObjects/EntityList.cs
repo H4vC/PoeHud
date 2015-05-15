@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace PoeHUD.Poe.RemoteMemoryObjects
 {
@@ -16,9 +17,12 @@ namespace PoeHUD.Poe.RemoteMemoryObjects
         {
             get
             {
-                var dictionary = new Dictionary<int, Entity>();
-                CollectEntities(M.ReadInt(Address + 12), dictionary);
-                return dictionary;
+                return Task.Factory.StartNew(() =>
+                {
+                    var dictionary = new Dictionary<int, Entity>();
+                    CollectEntities(M.ReadInt(Address + 12), dictionary);
+                    return dictionary;
+                }).Result;
             }
         }
 
