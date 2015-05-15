@@ -30,13 +30,13 @@ namespace PoeHUD.Poe.RemoteMemoryObjects
             get { return new Vector3(M.ReadFloat(Address + 256), M.ReadFloat(Address + 260), M.ReadFloat(Address + 264)); }
         }
 
-   
+
         static Vector2 oldplayerCord;
         public unsafe Vector2 WorldToScreen(Vector3 vec3, EntityWrapper entityWrapper)
         {
-
-            var isplayer = Game.IngameState.Data.LocalPlayer.IsValid && Game.IngameState.Data.LocalPlayer.Address == entityWrapper.Address;
-            var isMoving = Game.IngameState.Data.LocalPlayer.GetComponent<Actor>().isMoving;
+            Entity localPlayer = Game.IngameState.Data.LocalPlayer;
+            var isplayer = localPlayer.Address == entityWrapper.Address && localPlayer.IsValid;
+            var playerMoving = isplayer && localPlayer.GetComponent<Actor>().isMoving;
             float x, y;
             int addr = base.Address + 0xbc;
             fixed (byte* numRef = base.M.ReadBytes(addr, 0x40))
@@ -50,7 +50,7 @@ namespace PoeHUD.Poe.RemoteMemoryObjects
                 y = ((1.0f - cord.Y) * 0.5f) * Height;
             }
             var resultCord = new Vector2(x, y);
-            if (isMoving && isplayer)
+            if (playerMoving)
             {
                 if (Math.Abs(oldplayerCord.X - resultCord.X) < 40 || (Math.Abs(oldplayerCord.X - resultCord.Y) < 40))
                     resultCord = oldplayerCord;
