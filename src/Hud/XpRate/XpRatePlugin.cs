@@ -60,6 +60,11 @@ namespace PoeHUD.Hud.XpRate
             var bounds = new RectangleF(position.X - boxWidth + 5, position.Y - 5, boxWidth, boxHeight + 10);
 
             string systemTime = string.Format("{0} ({1})", nowTime.ToShortTimeString(), GameController.Game.IngameState.CurFps);
+            Size2 timeFpsSize = Graphics.MeasureText(systemTime, fontSize);
+            var dif =bounds.Width - (12 + timeFpsSize.Width + xpRateSize.Width);
+            if (dif < 0)
+                bounds.X += dif;
+            
             Graphics.DrawText(systemTime, fontSize, new Vector2(bounds.X + 5, position.Y), Color.White);
             Graphics.DrawText(timer, fontSize, new Vector2(bounds.X + 5, thirdLine.Y), Color.White);
 
