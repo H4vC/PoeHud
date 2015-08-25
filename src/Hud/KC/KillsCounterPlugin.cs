@@ -66,12 +66,12 @@ namespace PoeHUD.Hud.KC
             {
                 size = DrawCounters(position);
             }
-            Size2 size2 = Graphics.DrawText(string.Format("Total kills {0}", summaryCounter), 14,
-                position.Translate(-size.Width / 2f, size.Height),
-                Settings.ShowDetail ? FontDrawFlags.Center : FontDrawFlags.Right);
+            Size2 size2 = Graphics.DrawText($"Kills {summaryCounter}", Settings.FontSize, position.Translate(-size.Width / 2f, size.Height), Settings.FontColor, Settings.ShowDetail ? FontDrawFlags.Center : FontDrawFlags.Right);
             int width = Math.Max(size.Width, size2.Width);
-            var bounds = new RectangleF(position.X - width - 5, position.Y - 5, width + 10, size.Height + size2.Height + 10);
-            Graphics.DrawBox(bounds, new ColorBGRA(0, 0, 0, 180));
+            var bounds = new RectangleF(position.X - width - 5, position.Y - 5, width + 15, size.Height + size2.Height + 10);
+            Graphics.DrawImage("preload-end.png", bounds, Settings.BackgroundColor);
+            Graphics.DrawImage("preload-start.png", bounds, Settings.BackgroundColor);
+            //Graphics.DrawBox(bounds, new ColorBGRA(0, 0, 0, 180));
             Size = bounds.Size;
             Margin = new Vector2(5, 0);
         }
@@ -119,20 +119,20 @@ namespace PoeHUD.Hud.KC
 
         private Size2 DrawCounter(Vector2 position, string label, string counterValue, Color color)
         {
-            Size2 measuredSize1 = Graphics.MeasureText(counterValue, 25, FontDrawFlags.Right);
+            Size2 measuredSize1 = Graphics.MeasureText(counterValue, 20, FontDrawFlags.Right);
             Size2 measuredSize2 = Graphics.MeasureText(label, 11, FontDrawFlags.Right);
             if (measuredSize1.Width > measuredSize2.Width)
             {
-                Size2 size = Graphics.DrawText(counterValue, 25, position, color, FontDrawFlags.Right);
+                Size2 size = Graphics.DrawText(counterValue, 20, position, color, FontDrawFlags.Right);
                 Size2 size2 = Graphics.DrawText(label, 11, position.Translate(-size.Width / 2f, size.Height), Color.White,
                     FontDrawFlags.Center);
                 return new Size2(size.Width, size.Height + size2.Height);
             }
             else
             {
-                Size2 size2 = Graphics.DrawText(label, 11, position.Translate(0, measuredSize1.Height), Color.White,
+                Size2 size2 = Graphics.DrawText(label, 11, position.Translate(0, measuredSize1.Height), Settings.FontColor,
                     FontDrawFlags.Right);
-                Size2 size = Graphics.DrawText(counterValue, 25, position.Translate(-size2.Width / 2f, 0), color,
+                Size2 size = Graphics.DrawText(counterValue, 20, position.Translate(-size2.Width / 2f, 0), color,
                     FontDrawFlags.Center);
                 return new Size2(size2.Width, size.Height + size2.Height);
             }
@@ -141,19 +141,13 @@ namespace PoeHUD.Hud.KC
         private Size2 DrawCounters(Vector2 position)
         {
             const int INNER_MARGIN = 7;
-            Size2 size = DrawCounter(position, "white", counters[MonsterRarity.White].ToString(), Color.White);
-            size =
-                new Size2(
-                    DrawCounter(position.Translate(-size.Width - INNER_MARGIN, 0), "magic",
+            Size2 size = DrawCounter(position, "", counters[MonsterRarity.White].ToString(), Settings.FontColor);
+            size = new Size2( DrawCounter(position.Translate(-size.Width - INNER_MARGIN, 0), "",
                         counters[MonsterRarity.Magic].ToString(), HudSkin.MagicColor).Width + size.Width + INNER_MARGIN,
                     size.Height);
-            size =
-                new Size2(
-                    DrawCounter(position.Translate(-size.Width - INNER_MARGIN, 0), "rare", counters[MonsterRarity.Rare].ToString(),
+            size = new Size2( DrawCounter(position.Translate(-size.Width - INNER_MARGIN, 0), "", counters[MonsterRarity.Rare].ToString(),
                         HudSkin.RareColor).Width + size.Width + INNER_MARGIN, size.Height);
-            size =
-                new Size2(
-                    DrawCounter(position.Translate(-size.Width - INNER_MARGIN, 0), "uniq",
+            size =new Size2( DrawCounter(position.Translate(-size.Width - INNER_MARGIN, 0), "",
                         counters[MonsterRarity.Unique].ToString(), HudSkin.UniqueColor).Width + size.Width + INNER_MARGIN,
                     size.Height);
             return size;

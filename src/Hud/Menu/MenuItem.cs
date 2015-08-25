@@ -72,14 +72,14 @@ namespace PoeHUD.Hud.Menu
                 {
                     HandleEvent(id, pos);
                 }
-                else if (currentHover != null)
+                else
                 {
-                    currentHover.OnEvent(id, pos);
+                    currentHover?.OnEvent(id, pos);
                 }
             }
         }
 
-        public abstract void Render(Graphics graphics);
+        public abstract void Render(Graphics graphics, MenuSettings settings);
 
         public void SetHovered(bool hover)
         {

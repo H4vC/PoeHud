@@ -2,6 +2,6 @@
 {
     public class MonsterConfigLine : ConfigLineBase
     {
-        public string SoundFile { get; set; }
+        
     }
 }

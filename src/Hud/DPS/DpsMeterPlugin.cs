@@ -67,14 +67,16 @@ namespace PoeHUD.Hud.Dps
 
             string dpsText = dps + " DPS";
             string peakText = maxDps + " peak DPS";
-            Size2 dpsSize = Graphics.DrawText(dpsText, Settings.DpsTextSize, position, FontDrawFlags.Right);
+            Size2 dpsSize = Graphics.DrawText(dpsText, Settings.DpsTextSize, position, Settings.DpsFontColor, FontDrawFlags.Right);
             Size2 peakSize = Graphics.DrawText(peakText, Settings.PeakDpsTextSize, position.Translate(0, dpsSize.Height),
-                FontDrawFlags.Right);
+                Settings.PeakFontColor, FontDrawFlags.Right);
 
             int width = Math.Max(peakSize.Width, dpsSize.Width);
             int height = dpsSize.Height + peakSize.Height;
             var bounds = new RectangleF(position.X - 5 - width, position.Y - 5, width + 10, height + 10);
-            Graphics.DrawBox(bounds, Settings.BackgroundColor);
+            Graphics.DrawImage("preload-end.png", bounds, Settings.BackgroundColor);
+            Graphics.DrawImage("preload-start.png", bounds, Settings.BackgroundColor);
+            //Graphics.DrawBox(bounds, Settings.BackgroundColor);
 
             Size = bounds.Size;
             Margin = new Vector2(5, 0);
