@@ -10,6 +10,7 @@ namespace PoeHUD.Models
         public string Name { get; private set; }
         public int Act { get; private set; }
         public bool IsTown { get; private set; }
+        //public bool IsHideout { get; private set; }
         public bool HasWaypoint { get; private set; }
         public int Hash { get; private set; }
         public DateTime TimeEntered = DateTime.Now;
@@ -21,15 +22,16 @@ namespace PoeHUD.Models
             Name = area.Name;
             Act = area.Act;
             IsTown = area.IsTown;
+            //IsHideout = area.IsHideout;
             HasWaypoint = area.HasWaypoint;
         }
 
         public override string ToString()
         {
-            return String.Format("{0} ({1}) #{2}", Name, RealLevel, Hash);
+            return $"{Name} ({RealLevel}) #{Hash}";
         }
 
-        public string DisplayName { get { return String.Concat(Name, " (", RealLevel, ")"); } }
+        public string DisplayName => String.Concat(Name, " (", RealLevel, ")");
 
         public static string GetTimeString(TimeSpan timeSpent)
         {

@@ -21,7 +21,7 @@ namespace PoeHUD.Controllers
         
 		public void RefreshState()
 		{
-			var igsd = this.Root.Game.IngameState.Data;
+			var igsd = Root.Game.IngameState.Data;
 			AreaTemplate clientsArea = igsd.CurrentArea;
 			int curAreaHash = igsd.CurrentAreaHash;
 
@@ -29,7 +29,7 @@ namespace PoeHUD.Controllers
 				return;
 
             CurrentArea = new AreaInstance(clientsArea, curAreaHash, igsd.CurrentAreaLevel);
-			this.OnAreaChange(this);
+		    OnAreaChange?.Invoke(this);
 		}
 	}
 }

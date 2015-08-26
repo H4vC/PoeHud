@@ -57,36 +57,56 @@ namespace PoeHUD.Hud.XpRate
                 lastTime = nowTime;
             }
 
-            Vector2 position = StartDrawPointFunc();
-
-            Size2 xpRateSize = Graphics.DrawText(xpRate, Settings.FontSize, position, Settings.XphFontColor, FontDrawFlags.Right);
-            Vector2 secondLine = position.Translate(0, xpRateSize.Height);
-            Size2 xpLeftSize = Graphics.DrawText(timeLeft, Settings.FontSize, secondLine, Settings.TimeLeftColor, FontDrawFlags.Right);
-            Vector2 thirdLine = secondLine.Translate(0, xpLeftSize.Height);
-            string areaName = GameController.Area.CurrentArea.DisplayName;
-            Size2 areaNameSize = Graphics.DrawText(areaName, Settings.FontSize, thirdLine, Settings.AreaFontColor, FontDrawFlags.Right);
-
-            string timer = AreaInstance.GetTimeString(nowTime - GameController.Area.CurrentArea.TimeEntered);
-            Size2 timerSize = Graphics.MeasureText(timer, Settings.FontSize);
-
-            float boxWidth = MathHepler.Max(xpRateSize.Width, xpLeftSize.Width, areaNameSize.Width + timerSize.Width + 20) + 10;
-            float boxHeight = xpRateSize.Height + xpLeftSize.Height + areaNameSize.Height;
-            var bounds = new RectangleF(position.X - boxWidth - 45, position.Y - 5, boxWidth + 53, boxHeight + 13);
-
-            string fps = $"fps:({GameController.Game.IngameState.CurFps})";
-            Size2 timeFpsSize = Graphics.MeasureText(fps, Settings.FontSize);
-            var dif =bounds.Width - (12 + timeFpsSize.Width + xpRateSize.Width);
-            if (dif < 0)
+            //this should be simplified or combined with xph
+            if (Settings.onlyArea)
             {
-                bounds.X += dif;
-                bounds.Width -= dif;
+                var position = StartDrawPointFunc();
+                string areaName = $" {GameController.Area.CurrentArea.DisplayName}";
+                var areaNameSize = Graphics.MeasureText(areaName, Settings.FontSize);
+                float boxHeight = areaNameSize.Height;
+                float boxWidth = MathHepler.Max(areaNameSize.Width + 13);
+                var bounds = new RectangleF(position.X - boxWidth - 22, position.Y - 5, boxWidth + 30, boxHeight + 10);
+
+                Graphics.DrawText(areaName, Settings.FontSize, new Vector2(bounds.X + 34, position.Y - 1), Settings.AreaFontColor);
+                Graphics.DrawImage("preload-start.png", bounds, Settings.BackgroundColor);
+                Graphics.DrawImage("preload-end.png", bounds, Settings.BackgroundColor);
+                Size = bounds.Size;
+                Margin = new Vector2(0, 5);
             }
-            Graphics.DrawText(fps, Settings.FontSize, new Vector2(bounds.X + 40, position.Y),Settings.FpsFontColor);
-            Graphics.DrawText(timer, Settings.FontSize, new Vector2(bounds.X + 40, thirdLine.Y), Settings.TimerFontColor);
-            Graphics.DrawImage("preload-start.png", bounds, Settings.BackgroundColor);
-            Graphics.DrawImage("preload-end.png", bounds, Settings.BackgroundColor);
-            Size = bounds.Size;
-            Margin = new Vector2(0, 5);
+
+            if (!Settings.onlyArea)
+            {
+                Vector2 position = StartDrawPointFunc();
+
+                Size2 xpRateSize = Graphics.DrawText(xpRate, Settings.FontSize, position, Settings.XphFontColor, FontDrawFlags.Right);
+                Vector2 secondLine = position.Translate(0, xpRateSize.Height);
+                Size2 xpLeftSize = Graphics.DrawText(timeLeft, Settings.FontSize, secondLine, Settings.TimeLeftColor, FontDrawFlags.Right);
+                Vector2 thirdLine = secondLine.Translate(0, xpLeftSize.Height);
+                string areaName = GameController.Area.CurrentArea.DisplayName;
+                Size2 areaNameSize = Graphics.DrawText(areaName, Settings.FontSize, thirdLine, Settings.AreaFontColor, FontDrawFlags.Right);
+
+                string timer = AreaInstance.GetTimeString(nowTime - GameController.Area.CurrentArea.TimeEntered);
+                Size2 timerSize = Graphics.MeasureText(timer, Settings.FontSize);
+
+                float boxWidth = MathHepler.Max(xpRateSize.Width, xpLeftSize.Width, areaNameSize.Width + timerSize.Width + 20) + 10;
+                float boxHeight = xpRateSize.Height + xpLeftSize.Height + areaNameSize.Height;
+                var bounds = new RectangleF(position.X - boxWidth - 45, position.Y - 5, boxWidth + 53, boxHeight + 13);
+
+                string fps = $"fps:({GameController.Game.IngameState.CurFps})";
+                Size2 timeFpsSize = Graphics.MeasureText(fps, Settings.FontSize);
+                var dif = bounds.Width - (12 + timeFpsSize.Width + xpRateSize.Width);
+                if (dif < 0)
+                {
+                    bounds.X += dif;
+                    bounds.Width -= dif;
+                }
+                Graphics.DrawText(fps, Settings.FontSize, new Vector2(bounds.X + 40, position.Y), Settings.FpsFontColor);
+                Graphics.DrawText(timer, Settings.FontSize, new Vector2(bounds.X + 40, thirdLine.Y), Settings.TimerFontColor);
+                Graphics.DrawImage("preload-start.png", bounds, Settings.BackgroundColor);
+                Graphics.DrawImage("preload-end.png", bounds, Settings.BackgroundColor);
+                Size = bounds.Size;
+                Margin = new Vector2(0, 5);
+            }
         }
 
         private void CalculateXp(DateTime nowTime)

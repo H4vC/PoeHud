@@ -272,6 +272,7 @@
   },
   "XP per hour": {
     "Enable": true,
+    "onlyArea": true,
     "FontSize": {
       "Value": 16,
       "Min": 10,
@@ -469,12 +470,12 @@
       "Max": 10
     },
     "PositionX": {
-      "Value": 27.0,
+      "Value": 11.0,
       "Min": 0.0,
       "Max": 100.0
     },
     "PositionY": {
-      "Value": 88.0,
+      "Value": 77.0,
       "Min": 0.0,
       "Max": 100.0
     }

@@ -225,7 +225,8 @@ namespace PoeHUD.Hud.Menu
             AddChild(warningTextMenu, "Position Y", settingsHub.MonsterTrackerSettings.TextPositionY);
 
             // Xph Display
-            MenuItem xpRateMenu = AddChild(root, "Exp per hour", settingsHub.XpRateSettings.Enable, "F10");
+            MenuItem xpRateMenu = AddChild(root, "Experience", settingsHub.XpRateSettings.Enable, "F10");
+            AddChild(xpRateMenu, "Show only area name", settingsHub.XpRateSettings.onlyArea);
             AddChild(xpRateMenu, "Font size", settingsHub.XpRateSettings.FontSize);
             AddChild(xpRateMenu, "Fps font color", settingsHub.XpRateSettings.FpsFontColor);
             AddChild(xpRateMenu, "Xph font color", settingsHub.XpRateSettings.XphFontColor);
@@ -233,6 +234,7 @@ namespace PoeHUD.Hud.Menu
             AddChild(xpRateMenu, "Time left color", settingsHub.XpRateSettings.TimeLeftColor);
             AddChild(xpRateMenu, "Timer font color", settingsHub.XpRateSettings.TimerFontColor);
             AddChild(xpRateMenu, "Background color", settingsHub.XpRateSettings.BackgroundColor);
+            
 
             // Preload Alert
             var preloadMenu = AddChild(root, "Preload Alert", settingsHub.PreloadAlertSettings.Enable);

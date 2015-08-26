@@ -2,35 +2,18 @@ namespace PoeHUD.Poe.RemoteMemoryObjects
 {
     public class AreaTemplate : RemoteMemoryObject
     {
-        public string RawName
-        {
-            get { return M.ReadStringU(M.ReadInt(Address)); }
-        }
+        public string RawName => M.ReadStringU(M.ReadInt(Address));
 
-        public string Name
-        {
-            get { return M.ReadStringU(M.ReadInt(Address + 4)); }
-        }
+        public string Name => M.ReadStringU(M.ReadInt(Address + 4));
 
-        public int Act
-        {
-            get { return M.ReadInt(Address + 8); }
-        }
+        public int Act => M.ReadInt(Address + 8);
 
-        public bool IsTown
-        {
-            get { return (M.ReadInt(Address + 12) & 1) == 1; }
-        }
+        public bool IsTown => (M.ReadInt(Address + 12) & 1) == 1;
+        //public bool IsHideout => (M.ReadInt(Address + 12) & 1) == 1;
 
-        public bool HasWaypoint
-        {
-            get { return (M.ReadInt(Address + 13) & 1) == 1; }
-        }
+        public bool HasWaypoint => (M.ReadInt(Address + 13) & 1) == 1;
 
-        public int NominalLevel
-        {
-            get { return (M.ReadInt(Address + 0x16)); }
-        }
+        public int NominalLevel => (M.ReadInt(Address + 0x16));
     }
 
 
