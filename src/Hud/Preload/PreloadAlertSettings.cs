@@ -9,6 +9,9 @@ namespace PoeHUD.Hud.Preload
         public PreloadAlertSettings()
         {
             Enable = true;
+            EnableMasters = true;
+            EnableExiles = true;
+            EnableStrongboxes = true;
             FontSize = new RangeNode<int>(16, 10, 20);
             BackgroundColor = new ColorBGRA(255, 255, 255, 220);
             FastColor = CorruptedColor = new ColorBGRA(254, 192, 118, 255);
@@ -56,6 +59,9 @@ namespace PoeHUD.Hud.Preload
             AugustinaSolaria = new ColorBGRA(254, 192, 118, 255);
         }
 
+        public ToggleNode EnableMasters { get; set; }
+        public ToggleNode EnableExiles { get; set; }
+        public ToggleNode EnableStrongboxes { get; set; }
         public RangeNode<int> FontSize { get; set; }
         public ColorNode BackgroundColor { get; set; }
         public ColorNode FastColor { get; set; }

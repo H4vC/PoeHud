@@ -46,7 +46,7 @@
   "Map icons": {
     "Enable": true,
     "IconsOnMinimap": true,
-    "IconsOnLargeMap": false
+    "IconsOnLargeMap": true
   },
   "Item alert": {
     "Enable": true,
@@ -222,6 +222,9 @@
   },
   "Preload alert": {
     "Enable": true,
+    "EnableMasters": true,
+    "EnableExiles": true,
+    "EnableStrongboxes": true,
     "FontSize": {
       "Value": 16,
       "Min": 10,
@@ -247,6 +250,9 @@
     "ArmourerStrongbox": "fec076ff",
     "OrnateStrongbox": "fec076ff",
     "LargeStrongbox": "fec076ff",
+    "PerandusStrongbox": "af6025ff",
+    "KaomStrongbox": "af6025ff",
+    "MalachaiStrongbox": "af6025ff",
     "OrraGreengate": "fec076ff",
     "ThenaMoga": "fec076ff",
     "AntalieNapora": "fec076ff",
@@ -269,14 +275,14 @@
   },
   "XP per hour": {
     "Enable": true,
+    "onlyArea": false,
     "FontSize": {
       "Value": 16,
       "Min": 10,
       "Max": 20
     },
-    "FontColor": "fec076ff",
     "BackgroundColor": "ffffffdc",
-    "AreaFontColor": "8cc8ffff",
+    "AreaFontColor": "80b8f8ff",
     "XphFontColor": "fec076ff",
     "TimeLeftColor": "fec076ff",
     "FpsFontColor": "8cc8ffff",
@@ -452,17 +458,17 @@
     }
   },
   "Inventory preview": {
-    "Enable": false,
+    "Enable": true,
     "AutoUpdate": true,
-    "CellUsedColor": "80000050",
-    "CellFreeColor": "c0c0c050",
+    "CellUsedColor": "808080dc",
+    "CellFreeColor": "c0c0c096",
     "CellSize": {
       "Value": 20,
       "Min": 1,
       "Max": 100
     },
     "CellPadding": {
-      "Value": 2,
+      "Value": 0,
       "Min": 0,
       "Max": 10
     },
@@ -482,7 +488,12 @@
     "ShowDetail": true,
     "FontColor": "fec076ff",
     "BackgroundColor": "ffffffff",
-    "FontSize": {
+    "LabelFontSize": {
+      "Value": 16,
+      "Min": 10,
+      "Max": 20
+    },
+    "KillsFontSize": {
       "Value": 16,
       "Min": 10,
       "Max": 20

@@ -46,7 +46,7 @@
   "Map icons": {
     "Enable": true,
     "IconsOnMinimap": true,
-    "IconsOnLargeMap": false
+    "IconsOnLargeMap": true
   },
   "Item alert": {
     "Enable": true,
@@ -222,6 +222,9 @@
   },
   "Preload alert": {
     "Enable": true,
+    "EnableMasters": true,
+    "EnableExiles": true,
+    "EnableStrongboxes": true,
     "FontSize": {
       "Value": 16,
       "Min": 10,
@@ -279,7 +282,7 @@
       "Max": 20
     },
     "BackgroundColor": "ffffffdc",
-    "AreaFontColor": "8cc8ffff",
+    "AreaFontColor": "80b8f8ff",
     "XphFontColor": "fec076ff",
     "TimeLeftColor": "fec076ff",
     "FpsFontColor": "8cc8ffff",

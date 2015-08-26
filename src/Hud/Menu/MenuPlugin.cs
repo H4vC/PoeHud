@@ -238,7 +238,7 @@ namespace PoeHUD.Hud.Menu
 
             // Preload Alert
             var preloadMenu = AddChild(root, "Preload Alert", settingsHub.PreloadAlertSettings.Enable);
-            var masters = AddChild(preloadMenu, "Masters", settingsHub.PreloadAlertSettings.Enable);
+            var masters = AddChild(preloadMenu, "Masters", settingsHub.PreloadAlertSettings.EnableMasters);
             AddChild(masters, "Zana", settingsHub.PreloadAlertSettings.MasterZana);
             AddChild(masters, "Tora", settingsHub.PreloadAlertSettings.MasterTora);
             AddChild(masters, "Haku", settingsHub.PreloadAlertSettings.MasterHaku);
@@ -248,7 +248,7 @@ namespace PoeHUD.Hud.Menu
             AddChild(masters, "Catarina", settingsHub.PreloadAlertSettings.MasterCatarina);
             AddChild(masters, "Krillson", settingsHub.PreloadAlertSettings.MasterKrillson);
 
-            var exiles = AddChild(preloadMenu, "Exiles", settingsHub.PreloadAlertSettings.Enable);
+            var exiles = AddChild(preloadMenu, "Exiles", settingsHub.PreloadAlertSettings.EnableExiles);
             AddChild(exiles, "Orra Greengate", settingsHub.PreloadAlertSettings.OrraGreengate);
             AddChild(exiles, "Thena Moga", settingsHub.PreloadAlertSettings.ThenaMoga);
             AddChild(exiles, "Antalie Napora", settingsHub.PreloadAlertSettings.AntalieNapora);
@@ -269,7 +269,7 @@ namespace PoeHUD.Hud.Menu
             AddChild(exiles, "Wilorin Demontamer", settingsHub.PreloadAlertSettings.WilorinDemontamer);
             AddChild(exiles, "Augustina Solaria", settingsHub.PreloadAlertSettings.AugustinaSolaria);
 
-            var strongboxes = AddChild(preloadMenu, "Strongboxes", settingsHub.PreloadAlertSettings.Enable);
+            var strongboxes = AddChild(preloadMenu, "Strongboxes", settingsHub.PreloadAlertSettings.EnableStrongboxes);
             AddChild(strongboxes, "Arcanist", settingsHub.PreloadAlertSettings.ArcanistStrongbox);
             AddChild(strongboxes, "Artisan", settingsHub.PreloadAlertSettings.ArtisanStrongbox);
             AddChild(strongboxes, "Cartograph", settingsHub.PreloadAlertSettings.CartographerStrongbox);

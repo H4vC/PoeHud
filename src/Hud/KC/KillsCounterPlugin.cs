@@ -63,7 +63,7 @@ namespace PoeHUD.Hud.KC
             {
                 size = DrawCounters(position - 4);
             }
-            Size2 size2 = Graphics.DrawText($"kills - {summaryCounter}", Settings.KillsFontSize, position.Translate(-size.Width / 2f - 3, size.Height + 4), Settings.FontColor, Settings.ShowDetail ? FontDrawFlags.Center : FontDrawFlags.Right);
+            Size2 size2 = Graphics.DrawText($"kills -{summaryCounter}", Settings.KillsFontSize, position.Translate(-size.Width / 2f - 3, size.Height + 4), Settings.FontColor, Settings.ShowDetail ? FontDrawFlags.Center : FontDrawFlags.Right);
             int width = Math.Max(size.Width, size2.Width);
             var bounds = new RectangleF(position.X - width - 30, position.Y - 1, width + 30, size.Height + size2.Height + 10);
             Graphics.DrawImage("preload-end.png", bounds, Settings.BackgroundColor);
