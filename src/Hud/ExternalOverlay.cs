@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
 using PoeHUD.Controllers;
 using PoeHUD.Framework;
 using PoeHUD.Framework.Helpers;
@@ -20,13 +19,10 @@ using PoeHUD.Hud.Preload;
 using PoeHUD.Hud.Settings;
 using PoeHUD.Hud.Trackers;
 using PoeHUD.Hud.XpRate;
-using PoeHUD.Poe.UI;
-using PoeHUD.Hud.ICounter;
 using PoeHUD.Models.Enums;
-using PoeHUD.Poe.RemoteMemoryObjects;
+using PoeHUD.Poe.UI;
 using SharpDX;
 using SharpDX.Windows;
-
 using Color = System.Drawing.Color;
 using Graphics2D = PoeHUD.Hud.UI.Graphics;
 using Rectangle = System.Drawing.Rectangle;
@@ -65,6 +61,18 @@ namespace PoeHUD.Hud
             TopMost = true;
             ResumeLayout(false);
             Load += OnLoad;
+        }
+
+        public override sealed string Text
+        {
+            get { return base.Text; }
+            set { base.Text = value; }
+        }
+
+        public override sealed Color BackColor
+        {
+            get { return base.BackColor; }
+            set { base.BackColor = value; }
         }
 
         private async void CheckGameState()
@@ -152,10 +160,9 @@ namespace PoeHUD.Hud
             var leftPanel = new PluginPanel(GetLeftCornerMap);
             leftPanel.AddChildren(new XpRatePlugin(gameController, graphics, settings.XpRateSettings));
             leftPanel.AddChildren(new PreloadAlertPlugin(gameController, graphics, settings.PreloadAlertSettings));
+            leftPanel.AddChildren(new KillsCounterPlugin(gameController, graphics, settings.KillsCounterSettings));
+            leftPanel.AddChildren(new DpsMeterPlugin(gameController, graphics, settings.DpsMeterSettings));
             var horizontalPanel = new PluginPanel(Direction.Left);
-            horizontalPanel.AddChildren(new DpsMeterPlugin(gameController, graphics, settings.DpsMeterSettings));
-            horizontalPanel.AddChildren(new KillsCounterPlugin(gameController, graphics, settings.KillsCounterSettings));
-            //horizontalPanel.AddChildren(new ItemCounterPlugin(gameController, graphics, settings.ItemCounterSettings)); // Doesnt work yet
             leftPanel.AddChildren(horizontalPanel);
             plugins.AddRange(leftPanel.GetPlugins());
 

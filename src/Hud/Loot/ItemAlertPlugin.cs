@@ -125,7 +125,7 @@ namespace PoeHUD.Hud.Loot
                 {
                     AlertDrawStyle drawStyle = props.GetDrawStyle();
                     currentAlerts.Add(entity, drawStyle);
-                    CurrentIcons[entity] = new MapIcon(entity, new HudTexture("minimap_default_icon.png", drawStyle.AlertColor), () => Settings.ShowItemOnMap, 8);
+                    CurrentIcons[entity] = new MapIcon(entity, new HudTexture("currency.png", drawStyle.AlertColor), () => Settings.ShowItemOnMap, 7);
 
                     if (Settings.PlaySound && !playedSoundsCache.Contains(entity.LongId))
                     {
@@ -154,7 +154,7 @@ namespace PoeHUD.Hud.Loot
             string[] array = File.ReadAllLines("config/crafting_bases.txt");
             foreach (string text in array.Select(x => x.Trim()).Where(x => !string.IsNullOrWhiteSpace(x) && !x.StartsWith("#")))
             {
-                string[] parts = text.Split(new[] { ',' });
+                string[] parts = text.Split(',');
                 string itemName = parts[0].Trim();
 
                 var item = new CraftingBase { Name = itemName };
@@ -226,7 +226,7 @@ namespace PoeHUD.Hud.Loot
                     RectangleF rect = entityLabel.Label.GetClientRect();
                     if ((ui.OpenLeftPanel.IsVisible && ui.OpenLeftPanel.GetClientRect().Intersects(rect)) || (ui.OpenRightPanel.IsVisible && ui.OpenRightPanel.GetClientRect().Intersects(rect)))
                     {
-                        return shouldUpdate;
+                        return false;
                     }
 
                     ColorNode borderColor = Settings.BorderSettings.BorderColor;
@@ -287,7 +287,7 @@ namespace PoeHUD.Hud.Loot
             }
             if (drawStyle.FrameWidth > 0)
             {
-                Graphics.DrawFrame(boxRect, drawStyle.FrameWidth, drawStyle.AlertColor);
+                Graphics.DrawFrame(boxRect, drawStyle.FrameWidth, drawStyle.FrameColor);
             }
             return new Vector2(fullWidth, fullHeight);
         }

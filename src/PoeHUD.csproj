@@ -128,9 +128,9 @@
     <Compile Include="Hud\InventoryPreview\InventoryPreviewPlugin.cs" />
     <Compile Include="Hud\ItemCounterPlugin.cs" />
     <Compile Include="Hud\ItemCounterSettings.cs" />
-    <Compile Include="Hud\Loot\BorderSettings.cs" />
     <Compile Include="Hud\KC\KillCounterSettings.cs" />
     <Compile Include="Hud\KC\KillsCounterPlugin.cs" />
+    <Compile Include="Hud\Loot\BorderSettings.cs" />
     <Compile Include="Hud\Loot\ItemAlertSettings.cs" />
     <Compile Include="Hud\AdvancedTooltip\ItemLevelSettings.cs" />
     <Compile Include="Hud\Loot\QualityItemSettings.cs" />
@@ -166,7 +166,7 @@
     <Compile Include="Hud\XpRate\XpRateSettings.cs" />
     <Compile Include="Models\Enums\DamageType.cs" />
     <Compile Include="Hud\XpRate\XpRatePlugin.cs" />
-    <Compile Include="Models\PreloadAlerConfigLine.cs" />
+    <Compile Include="Models\PreloadConfigLine.cs" />
     <Compile Include="Models\StatTranslator.cs" />
     <Compile Include="Framework\Enums\ProcessAccessFlags.cs" />
     <Compile Include="Models\Enums\InventoryIndex.cs" />

@@ -1,7 +1,6 @@
 ﻿using System.Linq;
 using PoeHUD.Framework.Helpers;
 using PoeHUD.Hud.UI;
-
 using SharpDX;
 using SharpDX.Direct3D9;
 
@@ -9,23 +8,15 @@ namespace PoeHUD.Hud.Menu
 {
     public sealed class RootButton : MenuItem
     {
-        private MenuItem currentHover;
-
         private bool visible;
+        private MenuItem currentHover;
+        public override int DesiredWidth => 100;
+        public override int DesiredHeight => 25;
 
         public RootButton(Vector2 position)
         {
-            Bounds = new RectangleF(position.X, position.Y, DesiredWidth, DesiredHeight);
-        }
+            Bounds = new RectangleF(position.X - 5, position.Y, DesiredWidth, DesiredHeight);
 
-        public override int DesiredWidth
-        {
-            get { return 80; }
-        }
-
-        public override int DesiredHeight
-        {
-            get { return 24; }
         }
 
         public override void AddChild(MenuItem item)
@@ -49,10 +40,7 @@ namespace PoeHUD.Hud.Menu
                 MenuItem button = Children.FirstOrDefault(b => b.TestHit(pos));
                 if (button != null)
                 {
-                    if (currentHover != null)
-                    {
-                        currentHover.SetHovered(false);
-                    }
+                    currentHover?.SetHovered(false);
                     currentHover = button;
                     button.SetHovered(true);
                 }
@@ -70,17 +58,13 @@ namespace PoeHUD.Hud.Menu
             return false;
         }
 
-        public override void Render(Graphics graphics)
+        public override void Render(Graphics graphics, MenuSettings settings)
         {
-            // TODO move to settings
-            Color boxColor = Color.Gray;
-            boxColor.A = 100;
-            graphics.DrawBox(new RectangleF(Bounds.X, Bounds.Y, DesiredWidth, DesiredHeight), boxColor);
-            var textColor = new ColorBGRA(255, 255, 255, 200);
-            graphics.DrawText("Menu [F12]", 15, Bounds.TopLeft.Translate(40, 12), textColor, FontDrawFlags.VerticalCenter | FontDrawFlags.Center);
-            Children.ForEach(x => x.Render(graphics));
+            graphics.DrawText("Menu", settings.TitleFontSize, Bounds.TopLeft.Translate(25, 12), settings.TitleFontColor, FontDrawFlags.VerticalCenter | FontDrawFlags.Center);
+            graphics.DrawImage("menu-background.png", Bounds, settings.BackgroundColor);
+            Children.ForEach(x => x.Render(graphics, settings));
         }
 
-        protected override void HandleEvent(MouseEventID id, Vector2 pos) {}
+        protected override void HandleEvent(MouseEventID id, Vector2 pos) { }
     }
 }

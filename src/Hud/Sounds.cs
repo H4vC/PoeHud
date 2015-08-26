@@ -7,9 +7,10 @@ namespace PoeHUD.Hud
     public static class Sounds
     {
         public static SoundPlayer AlertSound;
-        public static SoundPlayer DangerSoundDefault;
+        public static SoundPlayer DangerSound;
+        public static SoundPlayer TreasureSound;
         private static readonly Dictionary<string, SoundPlayer> soundLib = new Dictionary<string, SoundPlayer>();
-        
+
         public static void AddSound(string name)
         {
             if (!soundLib.ContainsKey(name))
@@ -22,7 +23,7 @@ namespace PoeHUD.Hud
                 }
                 catch (Exception ex)
                 {
-                    throw new Exception($"Error when loading {name}| {ex.Message}:", ex);
+                    throw new Exception($"Error when loading {name} | {ex.Message}:", ex);
                 }
             }
         }
@@ -36,8 +37,10 @@ namespace PoeHUD.Hud
         {
             AddSound("alert.wav");
             AddSound("danger.wav");
+            AddSound("treasure.wav");
             AlertSound = GetSound("alert.wav");
-            DangerSoundDefault = GetSound("danger.wav");
+            DangerSound = GetSound("danger.wav");
+            TreasureSound = GetSound("treasure.wav");
         }
     }
 }

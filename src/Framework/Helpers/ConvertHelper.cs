@@ -15,9 +15,9 @@ namespace PoeHUD.Framework.Helpers
             }
 
             if (abs >= 1000)
-			{
-				return string.Concat((value / 1000).ToString("F1"), "K");
-			}
+            {
+                return string.Concat((value / 1000).ToString("F1"), "K");
+            }
 
             return value.ToString(format);
         }
@@ -33,12 +33,17 @@ namespace PoeHUD.Framework.Helpers
 
         public static Color? ConfigColorValueExtractor(this string[] line, int index)
         {
-            return line.Length > index && !string.IsNullOrEmpty(line[index]) ? (Color?) line[index].ToBGRAColor() : null;
+            return IsNotNull(line, index) ? (Color?)line[index].ToBGRAColor() : null;
         }
 
         public static string ConfigValueExtractor(this string[] line, int index)
         {
-            return line.Length > index ? line[index] : null;
+            return IsNotNull(line, index) ? line[index] : null;
+        }
+
+        private static bool IsNotNull(string[] line, int index)
+        {
+            return line.Length > index && !string.IsNullOrEmpty(line[index]);
         }
     }
 }

@@ -1,10 +1,8 @@
-using System;
-
 using PoeHUD.Hud.Settings;
 using PoeHUD.Hud.UI;
-
 using SharpDX;
 using SharpDX.Direct3D9;
+using System;
 
 namespace PoeHUD.Hud.Menu
 {
@@ -22,33 +20,23 @@ namespace PoeHUD.Hud.Menu
             this.node = node;
         }
 
-        public override int DesiredWidth
-        {
-            get { return 210; }
-        }
+        public override int DesiredWidth => 170;
 
-        public override int DesiredHeight
-        {
-            get { return 30; }
-        }
+        public override int DesiredHeight => 25;
 
-        public override void Render(Graphics graphics)
+        public override void Render(Graphics graphics, MenuSettings settings)
         {
             if (!IsVisible)
             {
                 return;
             }
-            Color gray = Color.Gray;
-            var textPosition = new Vector2(Bounds.X + Bounds.Width / 2, Bounds.Y + Bounds.Height / 3);
-            string textValue = string.Format("{0}: {1}", name, node.Value);
-            // TODO textSize to Settings
-            graphics.DrawText(textValue, 18, textPosition, Color.White, FontDrawFlags.VerticalCenter | FontDrawFlags.Center);
-            graphics.DrawBox(Bounds, Color.Black);
-            graphics.DrawBox(new RectangleF(Bounds.X + 1, Bounds.Y + 1, Bounds.Width - 2, Bounds.Height - 2), gray);
-            graphics.DrawBox(new RectangleF(Bounds.X + 5, Bounds.Y + 3 * Bounds.Height / 4, Bounds.Width - 10, 5), Color.Black);
+            var textValue = $"{name} : {node.Value}";
+            var textPosition = new Vector2(Bounds.X - 45 + Bounds.Width / 3, Bounds.Y + Bounds.Height / 2);
+            graphics.DrawText(textValue, settings.PickerFontSize, textPosition, settings.MenuFontColor, FontDrawFlags.VerticalCenter | FontDrawFlags.Left);
+            graphics.DrawImage("menu-background.png", new RectangleF(Bounds.X, Bounds.Y, Bounds.Width, Bounds.Height), settings.BackgroundColor);
+            graphics.DrawImage("menu-slider.png", new RectangleF(Bounds.X + 5, Bounds.Y + 3 * Bounds.Height / 4 + 2, Bounds.Width - 10, 3), settings.SliderColor);
             float sliderPosition = (Bounds.Width - 10) * MinusFloat(node.Value, node.Min) / MinusFloat(node.Max, node.Min);
-            graphics.DrawBox(new RectangleF(Bounds.X + 5 + sliderPosition - 2, Bounds.Y + 3 * Bounds.Height / 4 - 4, 4, 8),
-                Color.White);
+            graphics.DrawImage("menu-picker.png", new RectangleF(Bounds.X + 5 + sliderPosition - 2, Bounds.Y + 3 * Bounds.Height / 4 + 2, 4, 4));
         }
 
         protected override void HandleEvent(MouseEventID id, Vector2 pos)
@@ -58,10 +46,12 @@ namespace PoeHUD.Hud.Menu
                 case MouseEventID.LeftButtonDown:
                     isHolding = true;
                     break;
+
                 case MouseEventID.LeftButtonUp:
                     CalcValue(pos.X);
                     isHolding = false;
                     break;
+
                 default:
                     if (isHolding && id == MouseEventID.MouseMove)
                     {

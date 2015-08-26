@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-
 using PoeHUD.Controllers;
 using PoeHUD.Framework.Helpers;
 using PoeHUD.Hud.UI;
@@ -9,22 +5,20 @@ using PoeHUD.Models;
 using PoeHUD.Models.Enums;
 using PoeHUD.Models.Interfaces;
 using PoeHUD.Poe.Components;
-
 using SharpDX;
 using SharpDX.Direct3D9;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace PoeHUD.Hud.Trackers
 {
     public class MonsterTracker : PluginWithMapIcons<MonsterTrackerSettings>
     {
         private readonly HashSet<int> alreadyAlertedOf;
-
         private readonly Dictionary<EntityWrapper, MonsterConfigLine> alertTexts;
-
-        private readonly Dictionary<MonsterRarity, Func<EntityWrapper, CreatureMapIcon>> iconCreators;
-
+        private readonly Dictionary<MonsterRarity, Func<EntityWrapper, Func<string, string>, CreatureMapIcon>> iconCreators;
         private readonly Dictionary<string, MonsterConfigLine> modAlerts, typeAlerts;
-
         public MonsterTracker(GameController gameController, Graphics graphics, MonsterTrackerSettings settings)
             : base(gameController, graphics, settings)
         {
@@ -33,12 +27,12 @@ namespace PoeHUD.Hud.Trackers
             modAlerts = LoadConfig("config/monster_mod_alerts.txt");
             typeAlerts = LoadConfig("config/monster_name_alerts.txt");
             Func<bool> monsterSettings = () => Settings.Monsters;
-            iconCreators = new Dictionary<MonsterRarity, Func<EntityWrapper, CreatureMapIcon>>
+            iconCreators = new Dictionary<MonsterRarity, Func<EntityWrapper, Func<string, string>, CreatureMapIcon>>
             {
-                { MonsterRarity.White, e => new CreatureMapIcon(e, "monster_enemy.png", monsterSettings, 6) },
-                { MonsterRarity.Magic, e => new CreatureMapIcon(e, "monster_enemy_blue.png", monsterSettings, 8) },
-                { MonsterRarity.Rare, e => new CreatureMapIcon(e, "monster_enemy_yellow.png", monsterSettings, 10) },
-                { MonsterRarity.Unique, e => new CreatureMapIcon(e, "monster_enemy_orange.png", monsterSettings, 10) },
+                { MonsterRarity.White,  (e,f) => new CreatureMapIcon(e,f ("ms-red.png"), monsterSettings, 4) },
+                { MonsterRarity.Magic,  (e,f) => new CreatureMapIcon(e,f ("ms-blue.png"), monsterSettings, 4) },
+                { MonsterRarity.Rare,   (e,f) => new CreatureMapIcon(e,f ("ms-yellow.png"), monsterSettings, 8) },
+                { MonsterRarity.Unique, (e,f) => new CreatureMapIcon(e,f ("ms-purple.png"), monsterSettings, 8) }
             };
             GameController.Area.OnAreaChange += area =>
             {
@@ -47,15 +41,21 @@ namespace PoeHUD.Hud.Trackers
             };
         }
 
-        new public Dictionary<string, MonsterConfigLine> LoadConfig(string path)
+        public Dictionary<string, MonsterConfigLine> LoadConfig(string path)
         {
-            return LoadConfigBase(path, 4).ToDictionary(line => line[0], line =>
-             {
-                 var monsterConfigLine = new MonsterConfigLine { Text = line[1], SoundFile = line.ConfigValueExtractor(2), Color =line.ConfigColorValueExtractor(3)};
-                 if (!String.IsNullOrEmpty(monsterConfigLine.SoundFile))
-                     Sounds.AddSound(monsterConfigLine.SoundFile);
-                 return monsterConfigLine;
-             });
+            return LoadConfigBase(path, 5).ToDictionary(line => line[0], line =>
+            {
+                var monsterConfigLine = new MonsterConfigLine
+                {
+                    Text = line[1],
+                    SoundFile = line.ConfigValueExtractor(2),
+                    Color = line.ConfigColorValueExtractor(3),
+                    MinimapIcon = line.ConfigValueExtractor(4)
+                };
+                if (monsterConfigLine.SoundFile != null)
+                    Sounds.AddSound(monsterConfigLine.SoundFile);
+                return monsterConfigLine;
+            });
         }
 
         public override void Render()
@@ -82,12 +82,12 @@ namespace PoeHUD.Hud.Trackers
             })
                 .OrderBy(y => y.Distance)
                 .GroupBy(y => y.Dic.Value)
-                .Select(y => new {y.Key.Text, y.Key.Color, Monster = y.First(), Count = y.Count() }).ToList();
+                .Select(y => new { y.Key.Text, y.Key.Color, Monster = y.First(), Count = y.Count() }).ToList();
 
             foreach (var group in groupedAlerts)
             {
                 RectangleF uv = GetDirectionsUV(group.Monster.Phi, group.Monster.Distance);
-                string text = String.Format("{0} {1}", group.Text, group.Count > 1 ? "(" + group.Count + ")" : string.Empty);
+                string text = $"{@group.Text} {(@group.Count > 1 ? "(" + @group.Count + ")" : string.Empty)}";
                 var color = group.Color ?? Settings.DefaultTextColor;
                 Size2 textSize = Graphics.DrawText(text, Settings.TextSize, new Vector2(xPos, yPos), color,
                     FontDrawFlags.Center);
@@ -100,22 +100,20 @@ namespace PoeHUD.Hud.Trackers
                 var rectDirection = new RectangleF(rectBackground.X + 3, rectBackground.Y, rectBackground.Height,
                     rectBackground.Height);
 
-                if (first) // vertical padding above
+                if (first)
                 {
-                    rectBackground.Y -= 5;
+                    rectBackground.Y -= 2;
                     rectBackground.Height += 5;
                     first = false;
                 }
-                Graphics.DrawBox(rectBackground, Settings.BackgroundColor);
+                Graphics.DrawImage("preload-start.png", rectBackground, Settings.BackgroundColor);
                 Graphics.DrawImage("directions.png", rectDirection, uv, color);
                 yPos += textSize.Height;
             }
-            if (!first) // vertical padding below
-            {
-                rectBackground.Y = rectBackground.Y + rectBackground.Height;
-                rectBackground.Height = 5;
-                Graphics.DrawBox(rectBackground, Settings.BackgroundColor);
-            }
+            if (first) return;
+            rectBackground.Y = rectBackground.Y + rectBackground.Height;
+            rectBackground.Height = 5;
+            Graphics.DrawImage("preload-start.png", rectBackground, Settings.BackgroundColor);
         }
 
         protected override void OnEntityAdded(EntityWrapper entity)
@@ -126,31 +124,38 @@ namespace PoeHUD.Hud.Trackers
             }
             if (entity.IsAlive && entity.HasComponent<Monster>())
             {
-                MapIcon mapIcon = GetMapIconForMonster(entity);
-                if (mapIcon != null)
-                {
-                    CurrentIcons[entity] = mapIcon;
-                }
                 string text = entity.Path;
                 if (text.Contains('@'))
                 {
                     text = text.Split('@')[0];
                 }
+                MonsterConfigLine monsterConfigLine = null;
                 if (typeAlerts.ContainsKey(text))
                 {
-                    var monsterConfigLine = typeAlerts[text];
-                    alertTexts.Add(entity, monsterConfigLine);
-                    PlaySound(entity, monsterConfigLine.SoundFile);
-                    return;
+                    monsterConfigLine = typeAlerts[text];
+                    AlertHandler(monsterConfigLine, entity);
                 }
-                string modAlert = entity.GetComponent<ObjectMagicProperties>().Mods.FirstOrDefault(x => modAlerts.ContainsKey(x));
-                if (modAlert != null)
+                else
                 {
-                    var monsterConfigLine = modAlerts[modAlert];
-                    alertTexts.Add(entity, monsterConfigLine);
-                    PlaySound(entity, monsterConfigLine.SoundFile);
+                    string modAlert = entity.GetComponent<ObjectMagicProperties>().Mods.FirstOrDefault(x => modAlerts.ContainsKey(x));
+                    if (modAlert != null)
+                    {
+                        monsterConfigLine = modAlerts[modAlert];
+                        AlertHandler(monsterConfigLine, entity);
+                    }
+                }
+                MapIcon mapIcon = GetMapIconForMonster(entity, monsterConfigLine);
+                if (mapIcon != null)
+                {
+                    CurrentIcons[entity] = mapIcon;
                 }
             }
+        }
+
+        private void AlertHandler(MonsterConfigLine monsterConfigLine, EntityWrapper entity)
+        {
+            alertTexts.Add(entity, monsterConfigLine);
+            PlaySound(entity, monsterConfigLine.SoundFile);
         }
 
         protected override void OnEntityRemoved(EntityWrapper entity)
@@ -159,26 +164,27 @@ namespace PoeHUD.Hud.Trackers
             alertTexts.Remove(entity);
         }
 
-        private MapIcon GetMapIconForMonster(EntityWrapper entity)
+        private MapIcon GetMapIconForMonster(EntityWrapper entity, MonsterConfigLine monsterConfigLine)
         {
             if (!entity.IsHostile)
             {
-                return new CreatureMapIcon(entity, "monster_ally.png", () => Settings.Minions, 6);
+                return new CreatureMapIcon(entity, "ms-cyan.png", () => Settings.Minions, 4);
             }
 
             MonsterRarity monsterRarity = entity.GetComponent<ObjectMagicProperties>().Rarity;
-            Func<EntityWrapper, CreatureMapIcon> iconCreator;
-            return iconCreators.TryGetValue(monsterRarity, out iconCreator) ? iconCreator(entity) : null;
+            Func<EntityWrapper, Func<string, string>, CreatureMapIcon> iconCreator;
+
+            return iconCreators.TryGetValue(monsterRarity, out iconCreator) ? iconCreator(entity, text => monsterConfigLine?.MinimapIcon ?? text) : null;
         }
 
-        private void PlaySound(IEntity entity,string soundFile)
+        private void PlaySound(IEntity entity, string soundFile)
         {
             if (Settings.PlaySound && !alreadyAlertedOf.Contains(entity.Id))
             {
                 if (!string.IsNullOrEmpty(soundFile))
                     Sounds.GetSound(soundFile).Play();
                 else
-                    Sounds.DangerSoundDefault.Play();
+                    Sounds.DangerSound.Play();
                 alreadyAlertedOf.Add(entity.Id);
             }
         }

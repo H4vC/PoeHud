@@ -43,35 +43,33 @@ namespace PoeHUD.Hud.XpRate
             }
 
             Vector2 position = StartDrawPointFunc();
-            int fontSize = Settings.TextSize;
 
-            Size2 xpRateSize = Graphics.DrawText(xpRate, fontSize, position, FontDrawFlags.Right);
+            Size2 xpRateSize = Graphics.DrawText(xpRate, Settings.FontSize, position, Settings.XphFontColor, FontDrawFlags.Right);
             Vector2 secondLine = position.Translate(0, xpRateSize.Height);
-            Size2 xpLeftSize = Graphics.DrawText(timeLeft, fontSize, secondLine, FontDrawFlags.Right);
+            Size2 xpLeftSize = Graphics.DrawText(timeLeft, Settings.FontSize, secondLine, Settings.TimeLeftColor, FontDrawFlags.Right);
             Vector2 thirdLine = secondLine.Translate(0, xpLeftSize.Height);
             string areaName = GameController.Area.CurrentArea.DisplayName;
-            Size2 areaNameSize = Graphics.DrawText(areaName, fontSize, thirdLine, FontDrawFlags.Right);
+            Size2 areaNameSize = Graphics.DrawText(areaName, Settings.FontSize, thirdLine, Settings.AreaFontColor, FontDrawFlags.Right);
 
             string timer = AreaInstance.GetTimeString(nowTime - GameController.Area.CurrentArea.TimeEntered);
-            Size2 timerSize = Graphics.MeasureText(timer, fontSize);
+            Size2 timerSize = Graphics.MeasureText(timer, Settings.FontSize);
 
-            float boxWidth = MathHepler.Max(xpRateSize.Width, xpLeftSize.Width, areaNameSize.Width + timerSize.Width + 20) + 15;
+            float boxWidth = MathHepler.Max(xpRateSize.Width, xpLeftSize.Width, areaNameSize.Width + timerSize.Width + 20) + 10;
             float boxHeight = xpRateSize.Height + xpLeftSize.Height + areaNameSize.Height;
-            var bounds = new RectangleF(position.X - boxWidth + 5, position.Y - 5, boxWidth, boxHeight + 10);
+            var bounds = new RectangleF(position.X - boxWidth - 45, position.Y - 5, boxWidth + 53, boxHeight + 13);
 
-            string systemTime = string.Format("{0} ({1})", nowTime.ToShortTimeString(), GameController.Game.IngameState.CurFps);
-            Size2 timeFpsSize = Graphics.MeasureText(systemTime, fontSize);
+            string fps = $"fps:({GameController.Game.IngameState.CurFps})";
+            Size2 timeFpsSize = Graphics.MeasureText(fps, Settings.FontSize);
             var dif =bounds.Width - (12 + timeFpsSize.Width + xpRateSize.Width);
             if (dif < 0)
             {
                 bounds.X += dif;
                 bounds.Width -= dif;
             }
-
-            Graphics.DrawText(systemTime, fontSize, new Vector2(bounds.X + 5, position.Y), Color.White);
-            Graphics.DrawText(timer, fontSize, new Vector2(bounds.X + 5, thirdLine.Y), Color.White);
-
-            Graphics.DrawBox(bounds, Settings.BackgroundColor);
+            Graphics.DrawText(fps, Settings.FontSize, new Vector2(bounds.X + 40, position.Y),Settings.FpsFontColor);
+            Graphics.DrawText(timer, Settings.FontSize, new Vector2(bounds.X + 40, thirdLine.Y), Settings.TimerFontColor);
+            Graphics.DrawImage("preload-start.png", bounds, Settings.BackgroundColor);
+            Graphics.DrawImage("preload-end.png", bounds, Settings.BackgroundColor);
             Size = bounds.Size;
             Margin = new Vector2(0, 5);
         }
@@ -80,13 +78,13 @@ namespace PoeHUD.Hud.XpRate
         {
             long currentXp = GameController.Player.GetComponent<Player>().XP;
             double rate = (currentXp - startXp) / (nowTime - startTime).TotalHours;
-            xpRate = string.Format("{0} XP/h", ConvertHelper.ToShorten(rate, "0.00"));
+            xpRate = $"{ConvertHelper.ToShorten(rate, "0.00")} xp/h";
             int level = GameController.Player.GetComponent<Player>().Level;
             if (level >= 0 && level + 1 < Constants.PlayerXpLevels.Length && rate > 1)
             {
                 long xpLeft = Constants.PlayerXpLevels[level + 1] - currentXp;
                 TimeSpan time = TimeSpan.FromHours(xpLeft / rate);
-                timeLeft = string.Format("{0}h {1}M {2}s until level up", time.Hours, time.Minutes, time.Seconds);
+                timeLeft = string.Format("{0}h {1}m {2}s to level up", time.Hours, time.Minutes, time.Seconds);
             }
         }
 
@@ -98,8 +96,8 @@ namespace PoeHUD.Hud.XpRate
             }
 
             startTime = lastTime = DateTime.Now;
-            xpRate = "0.00 XP/h";
-            timeLeft = "--h --m --s until level up";
+            xpRate = "0.00 xp/h";
+            timeLeft = "--h --m --s to level up";
         }
     }
 }
