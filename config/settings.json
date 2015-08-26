@@ -272,7 +272,7 @@
   },
   "XP per hour": {
     "Enable": true,
-    "onlyArea": true,
+    "onlyArea": false,
     "FontSize": {
       "Value": 16,
       "Min": 10,
@@ -457,8 +457,8 @@
   "Inventory preview": {
     "Enable": true,
     "AutoUpdate": true,
-    "CellUsedColor": "808080b4",
-    "CellFreeColor": "ffffffff",
+    "CellUsedColor": "808080dc",
+    "CellFreeColor": "c0c0c096",
     "CellSize": {
       "Value": 20,
       "Min": 1,
@@ -470,7 +470,7 @@
       "Max": 10
     },
     "PositionX": {
-      "Value": 11.0,
+      "Value": 13.0,
       "Min": 0.0,
       "Max": 100.0
     },
