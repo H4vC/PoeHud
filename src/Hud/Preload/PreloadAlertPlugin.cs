@@ -113,13 +113,9 @@ namespace PoeHUD.Hud.Preload
                     {
                         text = text.Split('@')[0];
                     }
-                    if (text.Contains("human_heart"))
+                    if (text.Contains("human_heart") || text.Contains("Demonic_NoRain.ogg"))
                     {
-                        alerts.Add(new PreloadConfigLine
-                        {
-                            Text = "Corrupted Area",
-                            FastColor = () => Settings.CorruptedColor
-                        });
+                        alerts.Add(new PreloadConfigLine { Text = "Corrupted Area", FastColor = () => Settings.CorruptedColor});
                     }
                     if (alertStrings.ContainsKey(text))
                     {
@@ -220,35 +216,35 @@ namespace PoeHUD.Hud.Preload
                         alerts.Add(new PreloadConfigLine { Text = "Vagan, (CastOnHit)", FastColor = () => Settings.MasterVagan });
                     }
 
-                    if (text.Contains("ArcanistStrongBox"))
+                    if (text.Contains("Arcanist"))
                     {
                         alerts.Add(new PreloadConfigLine { Text = "Arcanist Strongbox", FastColor = () => Settings.ArcanistStrongbox });
                     }
-                    if (text.Contains("ArtisanStrongBox"))
+                    if (text.Contains("Artisan"))
                     {
                         alerts.Add(new PreloadConfigLine { Text = "Artisan Strongbox", FastColor = () => Settings.ArtisanStrongbox });
                     }
-                    if (text.Contains("CartographerStrongBox"))
+                    if (text.Contains("Cartographer"))
                     {
                         alerts.Add(new PreloadConfigLine { Text = "Cartographer Strongbox", FastColor = () => Settings.CartographerStrongbox });
                     }
-                    if (text.Contains("GemcutterStrongBox"))
+                    if (text.Contains("Gemcutter"))
                     {
                         alerts.Add(new PreloadConfigLine { Text = "Gemcutter Strongbox", FastColor = () => Settings.GemcutterStrongbox });
                     }
-                    if (text.Contains("JewellerStrongBox"))
+                    if (text.Contains("Jeweller"))
                     {
                         alerts.Add(new PreloadConfigLine { Text = "Jeweller Strongbox", FastColor = () => Settings.JewellerStrongbox });
                     }
-                    if (text.Contains("ArsenalStrongBox"))
+                    if (text.Contains("Arsenal"))
                     {
                         alerts.Add(new PreloadConfigLine { Text = "Blacksmith Strongbox", FastColor = () => Settings.BlacksmithStrongbox });
                     }
-                    if (text.Contains("ArmoryStrongBox"))
+                    if (text.Contains("Armory"))
                     {
                         alerts.Add(new PreloadConfigLine { Text = "Armourer Strongbox", FastColor = () => Settings.ArmourerStrongbox });
                     }
-                    if (text.Contains("OrnateStrongbox"))
+                    if (text.Contains("Ornate"))
                     {
                         alerts.Add(new PreloadConfigLine { Text = "Ornate Strongbox", FastColor = () => Settings.OrnateStrongbox });
                     }
@@ -256,7 +252,18 @@ namespace PoeHUD.Hud.Preload
                     {
                         alerts.Add(new PreloadConfigLine { Text = "Large Strongbox", FastColor = () => Settings.LargeStrongbox });
                     }
-
+                    if (text.Contains("PerandusBox"))
+                    {
+                        alerts.Add(new PreloadConfigLine { Text = "Perandus Strongbox", FastColor = () => Settings.PerandusStrongbox });
+                    }
+                    if (text.Contains("KaomBox"))
+                    {
+                        alerts.Add(new PreloadConfigLine { Text = "Kaom Strongbox", FastColor = () => Settings.KaomStrongbox });
+                    }
+                    if (text.Contains("MalachaisBox"))
+                    {
+                        alerts.Add(new PreloadConfigLine { Text = "Malachai Strongbox", FastColor = () => Settings.MalachaiStrongbox });
+                    }
                     if (text.Contains("ExileRanger1"))
                     {
                         alerts.Add(new PreloadConfigLine { Text = "Orra Greengate", FastColor = () => Settings.OrraGreengate });

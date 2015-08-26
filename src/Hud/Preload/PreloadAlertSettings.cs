@@ -31,6 +31,9 @@ namespace PoeHUD.Hud.Preload
             ArmourerStrongbox = new ColorBGRA(254, 192, 118, 255);
             OrnateStrongbox = new ColorBGRA(254, 192, 118, 255);
             LargeStrongbox = new ColorBGRA(254, 192, 118, 255);
+            PerandusStrongbox = new ColorBGRA(175, 96, 37, 255);
+            KaomStrongbox = new ColorBGRA(175, 96, 37, 255);
+            MalachaiStrongbox = new ColorBGRA(175, 96, 37, 255);
 
             OrraGreengate = new ColorBGRA(254, 192, 118, 255);
             ThenaMoga = new ColorBGRA(254, 192, 118, 255);
@@ -74,8 +77,9 @@ namespace PoeHUD.Hud.Preload
         public ColorNode ArmourerStrongbox { get; set; }
         public ColorNode OrnateStrongbox { get; set; }
         public ColorNode LargeStrongbox { get; set; }
-        //public ColorNode SimpleStrongbox { get; set; }
-
+        public ColorNode PerandusStrongbox { get; set; }
+        public ColorNode KaomStrongbox { get; set; }
+        public ColorNode MalachaiStrongbox { get; set; }
         public ColorNode OrraGreengate { get; set; }
         public ColorNode ThenaMoga { get; set; }
         public ColorNode AntalieNapora { get; set; }

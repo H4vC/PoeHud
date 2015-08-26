@@ -76,10 +76,8 @@ namespace PoeHUD.Hud.Dps
             var bounds = new RectangleF(position.X - 5 - width, position.Y - 5, width + 10, height + 10);
             Graphics.DrawImage("preload-end.png", bounds, Settings.BackgroundColor);
             Graphics.DrawImage("preload-start.png", bounds, Settings.BackgroundColor);
-            //Graphics.DrawBox(bounds, Settings.BackgroundColor);
-
             Size = bounds.Size;
-            Margin = new Vector2(5, 0);
+            Margin = new Vector2(7, 0);
         }
 
         private double CalculateDps(TimeSpan elapsedTime)

@@ -11,8 +11,6 @@ Metadata/Chests/StrongBoxes/Strongbox.ao; Simple Strongbox;FFFEC076
 #Metadata/Chests/StrongBoxes/JewellerStrongBox.ao; Jeweler's Strongbox
 #Metadata/Chests/StrongBoxes/Gemcutter; Gemcutter's Strongbox
 #Metadata/Chests/StrongBoxes/GemcutterStrongBox.ao; Gemcutter's Strongbox
-#Metadata/Chests/StrongBoxes/Chemist; Chemist's Strongbox
-#Metadata/Chests/StrongBoxes/ChemistStrongBox.ao; Chemist's Strongbox
 #Metadata/Chests/StrongBoxes/Cartographer; Cartographer's Strongbox
 #Metadata/Chests/StrongBoxes/CartographerStrongBox.ao; Cartographer's Strongbox
 #Metadata/Chests/StrongBoxes/Artisan; Artisan's Strongbox
