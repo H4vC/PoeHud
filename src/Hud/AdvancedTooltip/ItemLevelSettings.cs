@@ -7,7 +7,7 @@ namespace PoeHUD.Hud.AdvancedTooltip
         public ItemLevelSettings()
         {
             Enable = true;
-            TextSize = new RangeNode<int>(27, 10, 50);
+            TextSize = new RangeNode<int>(15, 10, 50);
         }
 
         public RangeNode<int> TextSize { get; set; }

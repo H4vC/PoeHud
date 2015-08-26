@@ -65,7 +65,8 @@ namespace PoeHUD.Hud.InventoryPreview
                     float cellWidth = GetCellSize(cells[i, j].ExtendsX);
                     float cellHeight = GetCellSize(cells[i, j].ExtendsY);
                     var rectangleF = new RectangleF(d.X, d.Y, cellWidth, cellHeight);
-                    Graphics.DrawBox(rectangleF, cells[i, j].Used ? Settings.CellUsedColor : Settings.CellFreeColor);
+                    //Graphics.DrawBox(rectangleF, cells[i, j].Used ? Settings.CellUsedColor : Settings.CellFreeColor);
+                    Graphics.DrawImage("cell.png", rectangleF, cells[i, j].Used ? Settings.CellUsedColor : Settings.CellFreeColor);
                 }
             }
         }

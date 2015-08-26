@@ -46,7 +46,7 @@
   "Map icons": {
     "Enable": true,
     "IconsOnMinimap": true,
-    "IconsOnLargeMap": true
+    "IconsOnLargeMap": false
   },
   "Item alert": {
     "Enable": true,
@@ -77,7 +77,7 @@
     "Crafting": true,
     "ShowText": true,
     "HideOthers": false,
-    "PlaySound": false,
+    "PlaySound": true,
     "TextSize": {
       "Value": 16,
       "Min": 10,
@@ -454,27 +454,27 @@
     }
   },
   "Inventory preview": {
-    "Enable": false,
+    "Enable": true,
     "AutoUpdate": true,
-    "CellUsedColor": "8000003c",
-    "CellFreeColor": "c0c0c032",
+    "CellUsedColor": "808080b4",
+    "CellFreeColor": "ffffffff",
     "CellSize": {
       "Value": 20,
       "Min": 1,
       "Max": 100
     },
     "CellPadding": {
-      "Value": 2,
+      "Value": 0,
       "Min": 0,
       "Max": 10
     },
     "PositionX": {
-      "Value": 13.0,
+      "Value": 27.0,
       "Min": 0.0,
       "Max": 100.0
     },
     "PositionY": {
-      "Value": 77.0,
+      "Value": 88.0,
       "Min": 0.0,
       "Max": 100.0
     }

@@ -10,12 +10,12 @@ namespace PoeHUD.Hud.InventoryPreview
         {
             Enable = false;
             AutoUpdate = true;
-            CellUsedColor = new Color(255, 0, 0, 80);
-            CellFreeColor = new Color(0, 255, 0, 80);
+            CellUsedColor = new Color(128, 128, 128, 180);
+            CellFreeColor = new Color(255, 255, 255, 255);
             CellSize = new RangeNode<int>(20, 1, 100);
-            CellPadding = new RangeNode<int>(2, 0, 10);
-            PositionX = new RangeNode<float>(13.0f, 0.0f, 100.0f);
-            PositionY = new RangeNode<float>(76.0f, 0.0f, 100.0f);
+            CellPadding = new RangeNode<int>(0, 0, 10);
+            PositionX = new RangeNode<float>(27.0f, 0.0f, 100.0f);
+            PositionY = new RangeNode<float>(88.0f, 0.0f, 100.0f);
         }
 
         public ToggleNode AutoUpdate { get; set; }

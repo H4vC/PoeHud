@@ -81,7 +81,7 @@ namespace PoeHUD.Hud.AdvancedTooltip
             if (Settings.ItemLevel.Enable)
             {
                 string itemLevel = Convert.ToString(modsComponent.ItemLevel);
-                Graphics.DrawText(itemLevel, Settings.ItemLevel.TextSize, tooltipRect.TopLeft.Translate(2, 2));
+                Graphics.DrawText(itemLevel, Settings.ItemLevel.TextSize, tooltipRect.TopLeft.Translate(1, -3), Color.Yellow);
             }
 
             if (Settings.ItemMods.Enable)
