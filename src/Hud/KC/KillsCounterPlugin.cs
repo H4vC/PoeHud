@@ -48,7 +48,7 @@ namespace PoeHUD.Hud.KC
         public override void Render()
         {
             base.Render();
-            if (!Settings.Enable)
+            if (!Settings.Enable || GameController.Area.CurrentArea.IsTown)
             {
                 return;
             }

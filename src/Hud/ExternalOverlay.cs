@@ -158,7 +158,7 @@ namespace PoeHUD.Hud
             plugins.Add(new PoiTracker(gameController, graphics, settings.PoiTrackerSettings));
 
             var leftPanel = new PluginPanel(GetLeftCornerMap);
-            leftPanel.AddChildren(new XpRatePlugin(gameController, graphics, settings.XpRateSettings));
+            leftPanel.AddChildren(new XpRatePlugin(gameController, graphics, settings.XpRateSettings, settings));
             leftPanel.AddChildren(new PreloadAlertPlugin(gameController, graphics, settings.PreloadAlertSettings));
             leftPanel.AddChildren(new DpsMeterPlugin(gameController, graphics, settings.DpsMeterSettings));
             leftPanel.AddChildren(new KillsCounterPlugin(gameController, graphics, settings.KillsCounterSettings));

@@ -43,7 +43,7 @@ namespace PoeHUD.Hud.Dps
         public override void Render()
         {
             base.Render();
-            if (!Settings.Enable)
+            if (!Settings.Enable || GameController.Area.CurrentArea.IsTown)
             {
                 return;
             }
@@ -65,8 +65,8 @@ namespace PoeHUD.Hud.Dps
             var dps = (int)damageMemory.Average();
             maxDps = Math.Max(dps, maxDps);
 
-            string dpsText = dps + " Dps";
-            string peakText = maxDps + " peak Dps";
+            string dpsText = dps + " dps";
+            string peakText = maxDps + " top dps";
             Size2 dpsSize = Graphics.DrawText(dpsText, Settings.DpsTextSize, position, Settings.DpsFontColor, FontDrawFlags.Right);
             Size2 peakSize = Graphics.DrawText(peakText, Settings.PeakDpsTextSize, position.Translate(0, dpsSize.Height),
                 Settings.PeakFontColor, FontDrawFlags.Right);

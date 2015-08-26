@@ -1,7 +1,9 @@
 ﻿using System;
-
+using System.Windows.Forms;
 using PoeHUD.Controllers;
+using PoeHUD.Framework;
 using PoeHUD.Framework.Helpers;
+using PoeHUD.Hud.Settings;
 using PoeHUD.Hud.UI;
 using PoeHUD.Models;
 using PoeHUD.Poe.Components;
@@ -14,21 +16,34 @@ namespace PoeHUD.Hud.XpRate
     public class XpRatePlugin : SizedPlugin<XpRateSettings>
     {
         private string xpRate, timeLeft;
-
+        private bool _holdKey;
         private DateTime startTime, lastTime;
-
         private long startXp;
-
-        public XpRatePlugin(GameController gameController, Graphics graphics, XpRateSettings settings)
+        private readonly SettingsHub _settingsHub;
+        public XpRatePlugin(GameController gameController, Graphics graphics, XpRateSettings settings, SettingsHub settingsHub)
             : base(gameController, graphics, settings)
         {
             Reset();
+            _settingsHub = settingsHub;
             GameController.Area.OnAreaChange += area => Reset();
         }
 
         public override void Render()
         {
             base.Render();
+            if (!_holdKey && WinApi.IsKeyDown(Keys.F10))
+            {
+                _holdKey = true;
+                Settings.Enable.Value = !Settings.Enable.Value;
+                if (!Settings.Enable.Value)
+                {
+                    SettingsHub.Save(_settingsHub);
+                }
+            }
+            else if (_holdKey && !WinApi.IsKeyDown(Keys.F10))
+            {
+                _holdKey = false;
+            }
             if (!Settings.Enable || (GameController.Player != null && GameController.Player.GetComponent<Player>().Level >= 100))
             {
                 return;
@@ -84,7 +99,7 @@ namespace PoeHUD.Hud.XpRate
             {
                 long xpLeft = Constants.PlayerXpLevels[level + 1] - currentXp;
                 TimeSpan time = TimeSpan.FromHours(xpLeft / rate);
-                timeLeft = string.Format("{0}h {1}m {2}s to level up", time.Hours, time.Minutes, time.Seconds);
+                timeLeft = $"{time.Hours}h {time.Minutes}m {time.Seconds}s to level up";
             }
         }
 

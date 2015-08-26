@@ -1,8 +1,4 @@
-﻿using System;
-using System.IO;
-
-using Newtonsoft.Json;
-
+﻿using Newtonsoft.Json;
 using PoeHUD.Hud.AdvancedTooltip;
 using PoeHUD.Hud.Dps;
 using PoeHUD.Hud.Health;
@@ -15,7 +11,8 @@ using PoeHUD.Hud.Preload;
 using PoeHUD.Hud.Settings.Converters;
 using PoeHUD.Hud.Trackers;
 using PoeHUD.Hud.XpRate;
-using PoeHUD.Hud.ICounter;
+using System;
+using System.IO;
 
 namespace PoeHUD.Hud.Settings
 {
@@ -52,8 +49,8 @@ namespace PoeHUD.Hud.Settings
             HealthBarSettings = new HealthBarSettings();
             InventoryPreviewSettings = new InventoryPreviewSettings();
             KillsCounterSettings = new KillCounterSettings();
-            //ItemCounterSettings = new ItemCounterSettings();
         }
+
         [JsonProperty("Menu")]
         public MenuSettings TitleSettings { get; private set; }
 
@@ -95,8 +92,6 @@ namespace PoeHUD.Hud.Settings
 
         //[JsonProperty("ItemCounter")]
         //public ItemCounterSettings ItemCounterSettings { get; private set; }
-
-
 
         public static SettingsHub Load()
         {

@@ -195,7 +195,7 @@ namespace PoeHUD.Hud.Health
 
 			string curHp = ConvertHelper.ToShorten(life.CurHP);
 			string maxHp = ConvertHelper.ToShorten(life.MaxHP);
-			string text = string.Format("{0}/{1}", curHp, maxHp);
+			string text = $"{curHp}/{maxHp}";
 			Color color = hpPercent <= 0.1f ? settings.HealthTextColorUnder10Percent : 
 				settings.HealthTextColor;
 			var position = new Vector2(bg.X + bg.Width / 2, bg.Y);
@@ -211,14 +211,14 @@ namespace PoeHUD.Hud.Health
 		private float DrawFlatESAmount(Life life, UnitSettings settings, 
 			RectangleF bg)
 		{
-			if (!settings.ShowHealthText || (int)life.MaxES == 0)
+			if (!settings.ShowHealthText || life.MaxES == 0)
 			{
 				return bg.Y;
 			}
 
 			string curES = ConvertHelper.ToShorten(life.CurES);
 			string maxES = ConvertHelper.ToShorten(life.MaxES);
-			string text = string.Format("{0}/{1}", curES, maxES);
+			string text = $"{curES}/{maxES}";
 			Color color = settings.HealthTextColor;
 			var position = new Vector2(bg.X + bg.Width / 2, (bg.Y - 12));
 			Size2 size = Graphics.DrawText(text, settings.TextSize, position, 
