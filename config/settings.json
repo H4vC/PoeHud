@@ -77,7 +77,7 @@
     "Crafting": true,
     "ShowText": true,
     "HideOthers": false,
-    "PlaySound": true,
+    "PlaySound": false,
     "TextSize": {
       "Value": 16,
       "Min": 10,

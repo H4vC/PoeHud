@@ -64,14 +64,13 @@ namespace PoeHUD.Hud.KC
             var size = new Size2();
             if (Settings.ShowDetail)
             {
-                size = DrawCounters(position);
+                size = DrawCounters(position - 4);
             }
-            Size2 size2 = Graphics.DrawText($"kills - {summaryCounter}", Settings.KillsFontSize, position.Translate(-size.Width / 2f, size.Height), Settings.FontColor, Settings.ShowDetail ? FontDrawFlags.Center : FontDrawFlags.Right);
+            Size2 size2 = Graphics.DrawText($"kills - {summaryCounter}", Settings.KillsFontSize, position.Translate(-size.Width / 2f - 3, size.Height), Settings.FontColor, Settings.ShowDetail ? FontDrawFlags.Center : FontDrawFlags.Right);
             int width = Math.Max(size.Width, size2.Width);
-            var bounds = new RectangleF(position.X - width - 5, position.Y - 5, width + 15, size.Height + size2.Height + 10);
+            var bounds = new RectangleF(position.X - width - 5, position.Y - 5, width + 5, size.Height + size2.Height + 10);
             Graphics.DrawImage("preload-end.png", bounds, Settings.BackgroundColor);
             Graphics.DrawImage("preload-start.png", bounds, Settings.BackgroundColor);
-            //Graphics.DrawBox(bounds, new ColorBGRA(0, 0, 0, 180));
             Size = bounds.Size;
             Margin = new Vector2(5, 0);
         }
@@ -140,7 +139,7 @@ namespace PoeHUD.Hud.KC
 
         private Size2 DrawCounters(Vector2 position)
         {
-            const int INNER_MARGIN = 7;
+            const int INNER_MARGIN = 6;
             Size2 size = DrawCounter(position, "", counters[MonsterRarity.White].ToString(), Settings.FontColor);
             size = new Size2( DrawCounter(position.Translate(-size.Width - INNER_MARGIN, 0), "",
                         counters[MonsterRarity.Magic].ToString(), HudSkin.MagicColor).Width + size.Width + INNER_MARGIN,
