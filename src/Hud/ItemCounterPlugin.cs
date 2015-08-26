@@ -9,20 +9,17 @@
 
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.IO;
-
 using PoeHUD.Controllers;
 using PoeHUD.Framework.Helpers;
-using PoeHUD.Models.Interfaces;
+using PoeHUD.Hud.Settings;
 using PoeHUD.Hud.UI;
 using PoeHUD.Models;
 using PoeHUD.Models.Enums;
+using PoeHUD.Models.Interfaces;
 using PoeHUD.Poe.Components;
-
 using SharpDX;
 using SharpDX.Direct3D9;
-
 
 namespace PoeHUD.Hud.ICounter
 {
@@ -32,8 +29,8 @@ namespace PoeHUD.Hud.ICounter
         private readonly HashSet<long> countedIds;
         private int totalDrops;
 
-        public ItemCounterPlugin(GameController gameController, Graphics graphics, ItemCounterSettings settings)
-            : base(gameController, graphics, settings)
+        public ItemCounterPlugin(GameController gameController, Graphics graphics, ItemCounterSettings settings, SettingsHub settingsHub)
+            : base(gameController, graphics, settings, settingsHub)
         {
             countedIds = new HashSet<long>();
             counters = new Dictionary<ItemRarity, int>();
@@ -70,7 +67,7 @@ namespace PoeHUD.Hud.ICounter
             {
                 size = DrawDetail(position);
             }
-            Size2 size2 = Graphics.DrawText(string.Format("Items {0}", totalDrops), 14,
+            Size2 size2 = Graphics.DrawText($"Items {totalDrops}", 14,
                 position.Translate(-size.Width / 2f, size.Height),
                 Settings.ShowDetail ? FontDrawFlags.Center : FontDrawFlags.Right);
             int width = Math.Max(size.Width, size2.Width);
@@ -94,7 +91,8 @@ namespace PoeHUD.Hud.ICounter
                 ItemRarity rarity = mods.ItemRarity;
                 counters[rarity] += 1;
                 totalDrops += 1;
-                File.AppendAllText(Environment.CurrentDirectory+"\\drops.txt",String.Format ("{0} -> {1}{2}",item.Id,item.ToString(),Environment.NewLine));
+                File.AppendAllText(Environment.CurrentDirectory+"\\drops.txt",
+                    $"{item.Id} -> {item}{Environment.NewLine}");
             }
         }
 

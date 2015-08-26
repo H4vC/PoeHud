@@ -30,9 +30,7 @@ namespace PoeHUD.Models
         {
             return $"{Name} ({RealLevel}) #{Hash}";
         }
-
         public string DisplayName => String.Concat(Name, " (", RealLevel, ")");
-
         public static string GetTimeString(TimeSpan timeSpent)
         {
             int allsec = (int)timeSpent.TotalSeconds;

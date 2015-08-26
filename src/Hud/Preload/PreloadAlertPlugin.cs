@@ -1,6 +1,7 @@
 using PoeHUD.Controllers;
 using PoeHUD.Framework;
 using PoeHUD.Framework.Helpers;
+using PoeHUD.Hud.Settings;
 using PoeHUD.Hud.UI;
 using PoeHUD.Models;
 using SharpDX;
@@ -19,8 +20,8 @@ namespace PoeHUD.Hud.Preload
         private DateTime maxParseTime = DateTime.Now;
         private int lastCount;
 
-        public PreloadAlertPlugin(GameController gameController, Graphics graphics, PreloadAlertSettings settings)
-            : base(gameController, graphics, settings)
+        public PreloadAlertPlugin(GameController gameController, Graphics graphics, PreloadAlertSettings settings, SettingsHub settingsHub)
+            : base(gameController, graphics, settings, settingsHub)
         {
             alerts = new HashSet<PreloadConfigLine>();
             alertStrings = LoadConfig("config/preload_alerts.txt");
@@ -42,7 +43,8 @@ namespace PoeHUD.Hud.Preload
 
         public override void Render()
         {
-            base.Render();
+            base.Render(); HideAll();
+
             if (!Settings.Enable)
             {
                 return;
@@ -68,7 +70,7 @@ namespace PoeHUD.Hud.Preload
 
                 foreach (var preloadConfigLine in alerts)
                 {
-                    Size2 size = Graphics.DrawText( preloadConfigLine.Text, Settings.FontSize, position + 1,
+                    Size2 size = Graphics.DrawText(preloadConfigLine.Text, Settings.FontSize, position + 1,
                         preloadConfigLine.FastColor?.Invoke() ?? preloadConfigLine.Color ?? Settings.FastColor, FontDrawFlags.Right);
                     maxWidth = Math.Max(size.Width, maxWidth);
                     position.Y += size.Height;
@@ -115,7 +117,7 @@ namespace PoeHUD.Hud.Preload
                     }
                     if (text.Contains("human_heart") || text.Contains("Demonic_NoRain.ogg"))
                     {
-                        alerts.Add(new PreloadConfigLine { Text = "Corrupted Area", FastColor = () => Settings.CorruptedColor});
+                        alerts.Add(new PreloadConfigLine { Text = "Corrupted Area", FastColor = () => Settings.CorruptedColor });
                     }
                     if (alertStrings.ContainsKey(text))
                     {

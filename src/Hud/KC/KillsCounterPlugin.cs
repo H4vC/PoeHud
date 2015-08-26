@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-
 using PoeHUD.Controllers;
 using PoeHUD.Framework.Helpers;
+using PoeHUD.Hud.Settings;
 using PoeHUD.Hud.UI;
 using PoeHUD.Models;
 using PoeHUD.Models.Enums;
 using PoeHUD.Poe.Components;
-
 using SharpDX;
 using SharpDX.Direct3D9;
 
@@ -17,15 +16,12 @@ namespace PoeHUD.Hud.KC
     public class KillsCounterPlugin : SizedPlugin<KillCounterSettings>
     {
         private readonly HashSet<EntityWrapper> aliveEntities;
-
         private readonly HashSet<long> countedIds;
-
         private readonly Dictionary<MonsterRarity, int> counters;
-
         private int summaryCounter;
 
-        public KillsCounterPlugin(GameController gameController, Graphics graphics, KillCounterSettings settings)
-            : base(gameController, graphics, settings)
+        public KillsCounterPlugin(GameController gameController, Graphics graphics, KillCounterSettings settings, SettingsHub settingsHub)
+            : base(gameController, graphics, settings, settingsHub)
         {
             aliveEntities = new HashSet<EntityWrapper>();
             countedIds = new HashSet<long>();
@@ -47,8 +43,9 @@ namespace PoeHUD.Hud.KC
 
         public override void Render()
         {
-            base.Render();
-            if (!Settings.Enable || GameController.Area.CurrentArea.IsTown)
+            base.Render(); HideAll();
+
+            if (!Settings.Enable || GameController.Area.CurrentArea.Name.Contains("Hideout") || GameController.Area.CurrentArea.IsTown)
             {
                 return;
             }
@@ -66,7 +63,7 @@ namespace PoeHUD.Hud.KC
             {
                 size = DrawCounters(position - 4);
             }
-            Size2 size2 = Graphics.DrawText($"kills - {summaryCounter}", Settings.KillsFontSize, position.Translate(-size.Width / 2f - 3, size.Height+4), Settings.FontColor, Settings.ShowDetail ? FontDrawFlags.Center : FontDrawFlags.Right);
+            Size2 size2 = Graphics.DrawText($"kills - {summaryCounter}", Settings.KillsFontSize, position.Translate(-size.Width / 2f - 3, size.Height + 4), Settings.FontColor, Settings.ShowDetail ? FontDrawFlags.Center : FontDrawFlags.Right);
             int width = Math.Max(size.Width, size2.Width);
             var bounds = new RectangleF(position.X - width - 30, position.Y - 1, width + 30, size.Height + size2.Height + 10);
             Graphics.DrawImage("preload-end.png", bounds, Settings.BackgroundColor);
@@ -141,11 +138,11 @@ namespace PoeHUD.Hud.KC
         {
             const int INNER_MARGIN = 6;
             Size2 size = DrawCounter(position.Translate(INNER_MARGIN - 6, 6), "", counters[MonsterRarity.White].ToString(), Settings.FontColor);
-            size = new Size2( DrawCounter(position.Translate(-size.Width - INNER_MARGIN, 6), "", counters[MonsterRarity.Magic].ToString(), HudSkin.MagicColor).Width + size.Width + INNER_MARGIN,
+            size = new Size2(DrawCounter(position.Translate(-size.Width - INNER_MARGIN, 6), "", counters[MonsterRarity.Magic].ToString(), HudSkin.MagicColor).Width + size.Width + INNER_MARGIN,
                     size.Height);
-            size = new Size2( DrawCounter(position.Translate(-size.Width - INNER_MARGIN, 6), "", counters[MonsterRarity.Rare].ToString(),
+            size = new Size2(DrawCounter(position.Translate(-size.Width - INNER_MARGIN, 6), "", counters[MonsterRarity.Rare].ToString(),
                         HudSkin.RareColor).Width + size.Width + INNER_MARGIN, size.Height);
-            size =new Size2( DrawCounter(position.Translate(-size.Width - INNER_MARGIN, 6), "",
+            size = new Size2(DrawCounter(position.Translate(-size.Width - INNER_MARGIN, 6), "",
                         counters[MonsterRarity.Unique].ToString(), HudSkin.UniqueColor).Width + size.Width + INNER_MARGIN,
                     size.Height);
             return size;
