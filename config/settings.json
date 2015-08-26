@@ -46,7 +46,7 @@
   "Map icons": {
     "Enable": true,
     "IconsOnMinimap": true,
-    "IconsOnLargeMap": false
+    "IconsOnLargeMap": true
   },
   "Item alert": {
     "Enable": true,
@@ -274,7 +274,6 @@
       "Min": 10,
       "Max": 20
     },
-    "FontColor": "fec076ff",
     "BackgroundColor": "ffffffdc",
     "AreaFontColor": "8cc8ffff",
     "XphFontColor": "fec076ff",
@@ -452,10 +451,10 @@
     }
   },
   "Inventory preview": {
-    "Enable": false,
+    "Enable": true,
     "AutoUpdate": true,
-    "CellUsedColor": "80000050",
-    "CellFreeColor": "c0c0c050",
+    "CellUsedColor": "8000003c",
+    "CellFreeColor": "c0c0c032",
     "CellSize": {
       "Value": 20,
       "Min": 1,
@@ -479,10 +478,15 @@
   },
   "Kills Counter": {
     "Enable": true,
-    "ShowDetail": false,
+    "ShowDetail": true,
     "FontColor": "fec076ff",
     "BackgroundColor": "ffffffff",
-    "FontSize": {
+    "LabelFontSize": {
+      "Value": 16,
+      "Min": 10,
+      "Max": 20
+    },
+    "KillsFontSize": {
       "Value": 16,
       "Min": 10,
       "Max": 20

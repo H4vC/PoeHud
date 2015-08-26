@@ -66,7 +66,7 @@ namespace PoeHUD.Hud.KC
             {
                 size = DrawCounters(position);
             }
-            Size2 size2 = Graphics.DrawText($"Kills {summaryCounter}", Settings.FontSize, position.Translate(-size.Width / 2f, size.Height), Settings.FontColor, Settings.ShowDetail ? FontDrawFlags.Center : FontDrawFlags.Right);
+            Size2 size2 = Graphics.DrawText($"kills - {summaryCounter}", Settings.KillsFontSize, position.Translate(-size.Width / 2f, size.Height), Settings.FontColor, Settings.ShowDetail ? FontDrawFlags.Center : FontDrawFlags.Right);
             int width = Math.Max(size.Width, size2.Width);
             var bounds = new RectangleF(position.X - width - 5, position.Y - 5, width + 15, size.Height + size2.Height + 10);
             Graphics.DrawImage("preload-end.png", bounds, Settings.BackgroundColor);
@@ -119,20 +119,20 @@ namespace PoeHUD.Hud.KC
 
         private Size2 DrawCounter(Vector2 position, string label, string counterValue, Color color)
         {
-            Size2 measuredSize1 = Graphics.MeasureText(counterValue, 20, FontDrawFlags.Right);
-            Size2 measuredSize2 = Graphics.MeasureText(label, 11, FontDrawFlags.Right);
+            Size2 measuredSize1 = Graphics.MeasureText(counterValue, Settings.LabelFontSize, FontDrawFlags.Right);
+            Size2 measuredSize2 = Graphics.MeasureText(label, 10, FontDrawFlags.Right);
             if (measuredSize1.Width > measuredSize2.Width)
             {
-                Size2 size = Graphics.DrawText(counterValue, 20, position, color, FontDrawFlags.Right);
-                Size2 size2 = Graphics.DrawText(label, 11, position.Translate(-size.Width / 2f, size.Height), Color.White,
+                Size2 size = Graphics.DrawText(counterValue, Settings.LabelFontSize, position, color, FontDrawFlags.Right);
+                Size2 size2 = Graphics.DrawText(label, 10, position.Translate(-size.Width / 2f, size.Height), Settings.FontColor,
                     FontDrawFlags.Center);
                 return new Size2(size.Width, size.Height + size2.Height);
             }
             else
             {
-                Size2 size2 = Graphics.DrawText(label, 11, position.Translate(0, measuredSize1.Height), Settings.FontColor,
+                Size2 size2 = Graphics.DrawText(label, 10, position.Translate(0, measuredSize1.Height), Settings.FontColor,
                     FontDrawFlags.Right);
-                Size2 size = Graphics.DrawText(counterValue, 20, position.Translate(-size2.Width / 2f, 0), color,
+                Size2 size = Graphics.DrawText(counterValue, Settings.LabelFontSize, position.Translate(-size2.Width / 2f, 0), color,
                     FontDrawFlags.Center);
                 return new Size2(size2.Width, size.Height + size2.Height);
             }

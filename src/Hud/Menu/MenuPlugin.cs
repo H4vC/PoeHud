@@ -92,7 +92,7 @@ namespace PoeHUD.Hud.Menu
             MenuItem minionsMenu = AddChild(healthMenu, "Minions", healthBarPlugin.Minions.Enable);
             AddChild(healthMenu, "Show ES", healthBarPlugin.ShowES);
             AddChild(healthMenu, "Show in town", healthBarPlugin.ShowInTown);
-            MenuItem debuffPanelMenu = AddChild(healthMenu, "Show debuff panel", healthBarPlugin.ShowDebuffPanel);
+            MenuItem debuffPanelMenu = AddChild(healthMenu, "Debuff panel", healthBarPlugin.ShowDebuffPanel);
             AddChild(debuffPanelMenu, "Icon size", healthBarPlugin.DebuffPanelIconSize);
             AddChild(playersMenu, "Print percents", healthBarPlugin.Players.ShowPercents);
             AddChild(playersMenu, "Print health text", healthBarPlugin.Players.ShowHealthText);
@@ -125,9 +125,9 @@ namespace PoeHUD.Hud.Menu
 
             // Map icons
             MenuItem mapIconsMenu = AddChild(root, "Map icons", settingsHub.MapIconsSettings.Enable);
-            AddChild(mapIconsMenu, "Icons on minimap", settingsHub.MapIconsSettings.IconsOnMinimap);
-            AddChild(mapIconsMenu, "Icons on large map", settingsHub.MapIconsSettings.IconsOnLargeMap);
-            AddChild(mapIconsMenu, "Precious items", settingsHub.ItemAlertSettings.ShowItemOnMap);
+            AddChild(mapIconsMenu, "Minimap icons", settingsHub.MapIconsSettings.IconsOnMinimap);
+            AddChild(mapIconsMenu, "Large map icons", settingsHub.MapIconsSettings.IconsOnLargeMap);
+            AddChild(mapIconsMenu, "Drop items", settingsHub.ItemAlertSettings.ShowItemOnMap);
             AddChild(mapIconsMenu, "Monsters", settingsHub.MonsterTrackerSettings.Monsters);
             AddChild(mapIconsMenu, "Minions", settingsHub.MonsterTrackerSettings.Minions);
             AddChild(mapIconsMenu, "Strongboxes", settingsHub.PoiTrackerSettings.Strongboxes);
@@ -205,14 +205,14 @@ namespace PoeHUD.Hud.Menu
 
             // Advanced tooltip
             AdvancedTooltipSettings tooltipSettings = settingsHub.AdvancedTooltipSettings;
-            MenuItem tooltipMenu = AddChild(root, "Adv. tooltip", tooltipSettings.Enable);
+            MenuItem tooltipMenu = AddChild(root, "Tooltips", tooltipSettings.Enable);
             MenuItem itemLevelMenu = AddChild(tooltipMenu, "Item level", tooltipSettings.ItemLevel.Enable);
             AddChild(itemLevelMenu, "Font size", tooltipSettings.ItemLevel.TextSize);
             MenuItem itemModsMenu = AddChild(tooltipMenu, "Item mods", tooltipSettings.ItemMods.Enable, "F9");
             AddChild(itemModsMenu, "Mods size", tooltipSettings.ItemMods.ModTextSize);
-            MenuItem weaponDpsMenu = AddChild(tooltipMenu, "Weapon DPS", tooltipSettings.WeaponDps.Enable);
-            AddChild(weaponDpsMenu, "DPS size", tooltipSettings.WeaponDps.DpsTextSize);
-            AddChild(weaponDpsMenu, "DPS name size", tooltipSettings.WeaponDps.DpsNameTextSize);
+            MenuItem weaponDpsMenu = AddChild(tooltipMenu, "Weapon Dps", tooltipSettings.WeaponDps.Enable);
+            AddChild(weaponDpsMenu, "Dps size", tooltipSettings.WeaponDps.DpsTextSize);
+            AddChild(weaponDpsMenu, "Dps name size", tooltipSettings.WeaponDps.DpsNameTextSize);
 
             // Boss warnings
             MenuItem bossWarningsMenu = AddChild(root, "Boss warnings", settingsHub.MonsterTrackerSettings.Enable);
@@ -225,9 +225,8 @@ namespace PoeHUD.Hud.Menu
             AddChild(warningTextMenu, "Position Y", settingsHub.MonsterTrackerSettings.TextPositionY);
 
             // Xph Display
-            MenuItem xpRateMenu = AddChild(root, "Show Xph", settingsHub.XpRateSettings.Enable);
+            MenuItem xpRateMenu = AddChild(root, "Exp per hour", settingsHub.XpRateSettings.Enable);
             AddChild(xpRateMenu, "Font size", settingsHub.XpRateSettings.FontSize);
-            AddChild(xpRateMenu, "Font color", settingsHub.XpRateSettings.FontColor);
             AddChild(xpRateMenu, "Fps font color", settingsHub.XpRateSettings.FpsFontColor);
             AddChild(xpRateMenu, "Xph font color", settingsHub.XpRateSettings.XphFontColor);
             AddChild(xpRateMenu, "Area font color", settingsHub.XpRateSettings.AreaFontColor);
@@ -285,21 +284,23 @@ namespace PoeHUD.Hud.Menu
             AddChild(preloadMenu, "Font size", settingsHub.PreloadAlertSettings.FontSize);
 
             // Show DPS
-            MenuItem showDpsMenu = AddChild(root, "Show dps", settingsHub.DpsMeterSettings.Enable);
+            MenuItem showDpsMenu = AddChild(root, "Show Dps", settingsHub.DpsMeterSettings.Enable);
             AddChild(showDpsMenu, "Dps font size", settingsHub.DpsMeterSettings.DpsTextSize);
-            AddChild(showDpsMenu, "Peak font size", settingsHub.DpsMeterSettings.PeakDpsTextSize);
+            AddChild(showDpsMenu, "Peak dps font size", settingsHub.DpsMeterSettings.PeakDpsTextSize);
             AddChild(showDpsMenu, "Background color", settingsHub.DpsMeterSettings.BackgroundColor);
             AddChild(showDpsMenu, "Dps font color", settingsHub.DpsMeterSettings.DpsFontColor);
             AddChild(showDpsMenu, "Dps peak color", settingsHub.DpsMeterSettings.PeakFontColor);
 
             // Show monster kills
-            MenuItem showMonsterKillsMenu = AddChild(root, "Show MK", settingsHub.KillsCounterSettings.Enable);
+            MenuItem showMonsterKillsMenu = AddChild(root, "Monster kills", settingsHub.KillsCounterSettings.Enable);
             AddChild(showMonsterKillsMenu, "Show details", settingsHub.KillsCounterSettings.ShowDetail);
-            AddChild(showDpsMenu, "BFont color", settingsHub.KillsCounterSettings.FontColor);
-            AddChild(showDpsMenu, "Background color", settingsHub.KillsCounterSettings.BackgroundColor);
+            AddChild(showMonsterKillsMenu, "Font color", settingsHub.KillsCounterSettings.FontColor);
+            AddChild(showMonsterKillsMenu, "Background color", settingsHub.KillsCounterSettings.BackgroundColor);
+            AddChild(showMonsterKillsMenu, "Label font size", settingsHub.KillsCounterSettings.LabelFontSize);
+            AddChild(showMonsterKillsMenu, "Kills font size", settingsHub.KillsCounterSettings.KillsFontSize);
 
             // Show inventory preview
-            MenuItem showInventoryPreviewMenu = AddChild(root, "Show inv preview", settingsHub.InventoryPreviewSettings.Enable);
+            MenuItem showInventoryPreviewMenu = AddChild(root, "Inventory preview", settingsHub.InventoryPreviewSettings.Enable);
             AddChild(showInventoryPreviewMenu, "Auto update", settingsHub.InventoryPreviewSettings.AutoUpdate);
             AddChild(showInventoryPreviewMenu, "Free cell color", settingsHub.InventoryPreviewSettings.CellFreeColor);
             AddChild(showInventoryPreviewMenu, "Used cell color", settingsHub.InventoryPreviewSettings.CellUsedColor);

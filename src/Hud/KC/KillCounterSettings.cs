@@ -11,7 +11,8 @@ namespace PoeHUD.Hud.KC
             ShowDetail = true;
             FontColor = new ColorBGRA(254, 192, 118, 255);
             BackgroundColor = new ColorBGRA(255, 255, 255, 255);
-            FontSize = new RangeNode<int>(16, 10, 20);
+            LabelFontSize = new RangeNode<int>(16, 10, 20);
+            KillsFontSize = new RangeNode<int>(16, 10, 20);
         }
 
         public ToggleNode ShowDetail { get; set; }
@@ -20,6 +21,8 @@ namespace PoeHUD.Hud.KC
 
         public ColorNode BackgroundColor { get; set; }
 
-        public RangeNode<int> FontSize { get; set; }
+        public RangeNode<int> LabelFontSize { get; set; }
+
+        public RangeNode<int> KillsFontSize { get; set; }
     }
 }

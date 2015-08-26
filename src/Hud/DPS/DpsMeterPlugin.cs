@@ -65,8 +65,8 @@ namespace PoeHUD.Hud.Dps
             var dps = (int)damageMemory.Average();
             maxDps = Math.Max(dps, maxDps);
 
-            string dpsText = dps + " DPS";
-            string peakText = maxDps + " peak DPS";
+            string dpsText = dps + " Dps";
+            string peakText = maxDps + " peak Dps";
             Size2 dpsSize = Graphics.DrawText(dpsText, Settings.DpsTextSize, position, Settings.DpsFontColor, FontDrawFlags.Right);
             Size2 peakSize = Graphics.DrawText(peakText, Settings.PeakDpsTextSize, position.Translate(0, dpsSize.Height),
                 Settings.PeakFontColor, FontDrawFlags.Right);
