@@ -23,8 +23,8 @@ Metadata/Chests/StrongBoxes/Strongbox.ao; Simple Strongbox;FFFEC076
 #Metadata/Chests/StrongBoxes/ArmoryStrongBox.ao; Armourer's Strongbox
 #Metadata/Chests/StrongBoxes/Arcanist; Arcanist's Strongbox
 #Metadata/Chests/StrongBoxes/ArcanistStrongBox.ao; Arcanist's Strongbox
-#Metadata/Chests/CopperChestEpic3; Large Chest
-#Metadata/Chests/CopperChests/CopperChestEpic3.ao; Large Chest
+Metadata/Chests/CopperChestEpic3; Large Chest
+Metadata/Chests/CopperChests/CopperChestEpic3.ao; Large Chest
 Metadata/Chests/StrongBoxes/PerandusBox.ao; Perandus Strongbox
 Metadata/Chests/StrongBoxes/KaomBox.ao; Kaom Strongbox
 Metadata/Chests/StrongBoxes/MalachaisBox.ao; Malachai Strongbox

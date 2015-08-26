@@ -479,7 +479,7 @@
   },
   "Kills Counter": {
     "Enable": true,
-    "ShowDetail": true,
+    "ShowDetail": false,
     "FontColor": "fec076ff",
     "BackgroundColor": "ffffffff",
     "FontSize": {

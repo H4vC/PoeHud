@@ -7,8 +7,8 @@ namespace PoeHUD.Hud
     public static class Sounds
     {
         public static SoundPlayer AlertSound;
-        public static SoundPlayer TreasureSound;
         public static SoundPlayer DangerSound;
+        public static SoundPlayer TreasureSound;
         private static readonly Dictionary<string, SoundPlayer> soundLib = new Dictionary<string, SoundPlayer>();
 
         public static void AddSound(string name)

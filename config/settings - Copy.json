@@ -1,46 +1,21 @@
 {
-  "X": {
-    "Enable": true,
-    "X": 10.0,
-    "Y": 100.0,
-    "ShowIncrements": true,
-    "TitleFontColor": "ffffffff",
-    "TitleFontSize": {
-      "Value": 16,
-      "Min": 10,
-      "Max": 50
-    },
-    "EnabledBoxColor": "808080ff",
-    "DisabledBoxColor": "dc143cff",
-    "MenuFontColor": "ffffffff",
-    "SliderColor": "808080ff",
-    "MenuFontSize": {
-      "Value": 16,
-      "Min": 10,
-      "Max": 50
-    },
-    "PickerFontSize": {
-      "Value": 16,
-      "Min": 10,
-      "Max": 50
-    },
-    "BackgroundColor": "000000aa"
-  },
+  "Menu": null,
   "Menu Settings": {
     "Enable": true,
     "X": 10.0,
     "Y": 100.0,
     "ShowIncrements": true,
     "TitleFontColor": "ff8000ff",
+    "EnabledBoxColor": "000000ff",
+    "DisabledBoxColor": "800000b4",
+    "MenuFontColor": "fec076ff",
+    "SliderColor": "000000ff",
+    "BackgroundColor": "ffffffdc",
     "TitleFontSize": {
       "Value": 16,
       "Min": 10,
       "Max": 50
     },
-    "EnabledBoxColor": "000000ff",
-    "DisabledBoxColor": "800000b4",
-    "MenuFontColor": "fec076ff",
-    "SliderColor": "000000ff",
     "MenuFontSize": {
       "Value": 16,
       "Min": 10,
@@ -50,8 +25,23 @@
       "Value": 16,
       "Min": 10,
       "Max": 50
+    }
+  },
+  "DPS meter": {
+    "Enable": true,
+    "DpsTextSize": {
+      "Value": 16,
+      "Min": 10,
+      "Max": 50
     },
-    "BackgroundColor": "ffffffdc"
+    "PeakDpsTextSize": {
+      "Value": 16,
+      "Min": 10,
+      "Max": 50
+    },
+    "DpsFontColor": "fec076ff",
+    "PeakFontColor": "fec076ff",
+    "BackgroundColor": "c0c0c0ff"
   },
   "Map icons": {
     "Enable": true,
@@ -224,7 +214,7 @@
       "Max": 100
     }
   },
-  "Masters tracker": {
+  "Poi tracker": {
     "Enable": true,
     "Masters": true,
     "Strongboxes": true,
@@ -238,7 +228,7 @@
       "Max": 50
     },
     "BackgroundColor": "ffffffff",
-    "FontColor": "fec076ff",
+    "FastColor": "fec076ff",
     "CorruptedColor": "cc0000ff",
     "MasterZana": "ffff00ff",
     "MasterCatarina": "fec076ff",
@@ -256,17 +246,41 @@
     "BlacksmithStrongbox": "fec076ff",
     "ArmourerStrongbox": "fec076ff",
     "OrnateStrongbox": "fec076ff",
-    "LargeStrongbox": "fec076ff"
+    "LargeStrongbox": "fec076ff",
+    "OrraGreengate": "fec076ff",
+    "ThenaMoga": "fec076ff",
+    "AntalieNapora": "fec076ff",
+    "TorrOlgosso": "fec076ff",
+    "ArmiosBell": "fec076ff",
+    "ZacharieDesmarais": "fec076ff",
+    "MinaraAnenima": "fec076ff",
+    "IgnaPhoenix": "fec076ff",
+    "JonahUnchained": "fec076ff",
+    "DamoiTui": "fec076ff",
+    "XandroBlooddrinker": "fec076ff",
+    "VickasGiantbone": "fec076ff",
+    "EoinGreyfur": "fec076ff",
+    "TinevinHighdove": "fec076ff",
+    "MagnusStonethorn": "fec076ff",
+    "IonDarkshroud": "fec076ff",
+    "AshLessard": "fec076ff",
+    "WilorinDemontamer": "fec076ff",
+    "AugustinaSolaria": "fec076ff"
   },
-  "Area Name & Level": {
+  "XP per hour": {
     "Enable": true,
-    "TextSize": {
+    "FontSize": {
       "Value": 16,
       "Min": 10,
-      "Max": 50
+      "Max": 20
     },
-    "AreaFontColor": "50c8ffff",
-    "BackgroundColor": "ffffffff"
+    "FontColor": "fec076ff",
+    "BackgroundColor": "ffffffdc",
+    "AreaFontColor": "8cc8ffff",
+    "XphFontColor": "fec076ff",
+    "TimeLeftColor": "fec076ff",
+    "FpsFontColor": "8cc8ffff",
+    "TimerFontColor": "8cc8ffff"
   },
   "Health bar": {
     "Enable": true,
@@ -438,7 +452,7 @@
     }
   },
   "Inventory preview": {
-    "Enable": true,
+    "Enable": false,
     "AutoUpdate": true,
     "CellUsedColor": "80000050",
     "CellFreeColor": "c0c0c050",
@@ -461,6 +475,17 @@
       "Value": 77.0,
       "Min": 0.0,
       "Max": 100.0
+    }
+  },
+  "Kills Counter": {
+    "Enable": true,
+    "ShowDetail": true,
+    "FontColor": "fec076ff",
+    "BackgroundColor": "ffffffff",
+    "FontSize": {
+      "Value": 16,
+      "Min": 10,
+      "Max": 20
     }
   }
 }
