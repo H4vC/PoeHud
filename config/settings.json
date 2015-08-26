@@ -454,7 +454,7 @@
     }
   },
   "Inventory preview": {
-    "Enable": true,
+    "Enable": false,
     "AutoUpdate": true,
     "CellUsedColor": "8000003c",
     "CellFreeColor": "c0c0c032",

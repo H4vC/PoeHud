@@ -68,14 +68,14 @@ namespace PoeHUD.Hud.Preload
 
                 foreach (var preloadConfigLine in alerts)
                 {
-                    Size2 size = Graphics.DrawText( preloadConfigLine.Text, Settings.FontSize, position - 1,
+                    Size2 size = Graphics.DrawText( preloadConfigLine.Text, Settings.FontSize, position + 1,
                         preloadConfigLine.FastColor?.Invoke() ?? preloadConfigLine.Color ?? Settings.FastColor, FontDrawFlags.Right);
                     maxWidth = Math.Max(size.Width, maxWidth);
                     position.Y += size.Height;
                 }
                 if (maxWidth <= 0) return;
                 var bounds = new RectangleF(startPosition.X - 42 - maxWidth, startPosition.Y - 4,
-                    maxWidth + 50, position.Y - startPosition.Y + 10);
+                    maxWidth + 50, position.Y - startPosition.Y + 11);
                 Graphics.DrawImage("preload-end.png", bounds, Settings.BackgroundColor);
                 Graphics.DrawImage("preload-start.png", bounds, Settings.BackgroundColor);
                 Size = bounds.Size;
