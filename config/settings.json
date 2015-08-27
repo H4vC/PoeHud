@@ -460,8 +460,8 @@
   "Inventory preview": {
     "Enable": true,
     "AutoUpdate": true,
-    "CellUsedColor": "808080dc",
-    "CellFreeColor": "c0c0c096",
+    "CellUsedColor": "808080c8",
+    "CellFreeColor": "80ffffff",
     "CellSize": {
       "Value": 20,
       "Min": 1,

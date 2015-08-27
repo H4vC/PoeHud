@@ -38,7 +38,7 @@ namespace PoeHUD.Hud
             if (!holdKey && WinApi.IsKeyDown(Keys.F10))
             {
                 holdKey = true;
-                Settings.Enable.Value = !Settings.Enable;
+                Settings.Enable.Value = !Settings.Enable.Value;
                 if (!Settings.Enable.Value)
                 {
                     SettingsHub.Save(_settingsHub);
