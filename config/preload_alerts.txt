@@ -5,8 +5,8 @@ Metadata/Chests/StrongBoxes/Strongbox; Simple Strongbox;FFFEC076
 Metadata/Chests/StrongBoxes/Strongbox.ao; Simple Strongbox;FFFEC076
 #Metadata/Chests/StrongBoxes/Ornate; Ornate Strongbox
 #Metadata/Chests/StrongBoxes/OrnateStrongbox.ao; Ornate Strongbox
-#Metadata/Chests/StrongBoxes/Large; Large Strongbox
-#Metadata/Chests/StrongBoxes/LargeStrongbox.ao; Large Strongbox
+Metadata/Chests/StrongBoxes/Large; Large Strongbox;FFFEC076
+Metadata/Chests/StrongBoxes/LargeStrongbox.ao; Large Strongbox;FFFEC076
 #Metadata/Chests/StrongBoxes/Jeweller; Jeweler's Strongbox
 #Metadata/Chests/StrongBoxes/JewellerStrongBox.ao; Jeweler's Strongbox
 #Metadata/Chests/StrongBoxes/Gemcutter; Gemcutter's Strongbox
