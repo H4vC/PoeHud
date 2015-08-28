@@ -1,2 +1,3 @@
+#Gold Ring,10,0,White
 Vaal Regalia,78
 Corsair Sword,78

@@ -179,53 +179,53 @@ namespace PoeHUD.Hud.Health
             }
         }
 
-	
 
-		/**
+
+        /**
 		 * Draw actual life amount over the life bar. Numbers over 1000 are 
 		 * truncated to 1k
 		 */
-		private float DrawFlatLifeAmount(Life life, float hpPercent,
-			UnitSettings settings, RectangleF bg)
-		{
-			if (!settings.ShowHealthText)
-			{
-				return bg.Y;
-			}
+        private float DrawFlatLifeAmount(Life life, float hpPercent,
+            UnitSettings settings, RectangleF bg)
+        {
+            if (!settings.ShowHealthText)
+            {
+                return bg.Y;
+            }
 
-			string curHp = ConvertHelper.ToShorten(life.CurHP);
-			string maxHp = ConvertHelper.ToShorten(life.MaxHP);
-			string text = $"{curHp}/{maxHp}";
-			Color color = hpPercent <= 0.1f ? settings.HealthTextColorUnder10Percent : 
-				settings.HealthTextColor;
-			var position = new Vector2(bg.X + bg.Width / 2, bg.Y);
-			Size2 size = Graphics.DrawText(text, settings.TextSize, position, color,
-				FontDrawFlags.Center);
-			return (int)bg.Y + (size.Height - bg.Height) / 2;
-		}
+            string curHp = ConvertHelper.ToShorten(life.CurHP);
+            string maxHp = ConvertHelper.ToShorten(life.MaxHP);
+            string text = string.Format("{0}/{1}", curHp, maxHp);
+            Color color = hpPercent <= 0.1f ? settings.HealthTextColorUnder10Percent :
+                settings.HealthTextColor;
+            var position = new Vector2(bg.X + bg.Width / 2, bg.Y);
+            Size2 size = Graphics.DrawText(text, settings.TextSize, position, color,
+                FontDrawFlags.Center);
+            return (int)bg.Y + (size.Height - bg.Height) / 2;
+        }
 
-		/**
+        /**
 		 * I didn't bother to have ES change colour as it gets low, sorry CI
 		 * players!
 		 */
-		private float DrawFlatESAmount(Life life, UnitSettings settings, 
-			RectangleF bg)
-		{
-			if (!settings.ShowHealthText || life.MaxES == 0)
-			{
-				return bg.Y;
-			}
+        private float DrawFlatESAmount(Life life, UnitSettings settings,
+            RectangleF bg)
+        {
+            if (!settings.ShowHealthText || (int)life.MaxES == 0)
+            {
+                return bg.Y;
+            }
 
-			string curES = ConvertHelper.ToShorten(life.CurES);
-			string maxES = ConvertHelper.ToShorten(life.MaxES);
-			string text = $"{curES}/{maxES}";
-			Color color = settings.HealthTextColor;
-			var position = new Vector2(bg.X + bg.Width / 2, (bg.Y - 12));
-			Size2 size = Graphics.DrawText(text, settings.TextSize, position, 
-				color, FontDrawFlags.Center);
-			return (int)bg.Y + (size.Height - bg.Height) / 2;
-		}
-		
+            string curES = ConvertHelper.ToShorten(life.CurES);
+            string maxES = ConvertHelper.ToShorten(life.MaxES);
+            string text = string.Format("{0}/{1}", curES, maxES);
+            Color color = settings.HealthTextColor;
+            var position = new Vector2(bg.X + bg.Width / 2, (bg.Y - 12));
+            Size2 size = Graphics.DrawText(text, settings.TextSize, position,
+                color, FontDrawFlags.Center);
+            return (int)bg.Y + (size.Height - bg.Height) / 2;
+        }
+
         private void DrawPercents(UnitSettings settings, float hpPercent, RectangleF bg)
         {
             if (settings.ShowPercents)

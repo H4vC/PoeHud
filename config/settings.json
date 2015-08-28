@@ -5,43 +5,43 @@
     "X": 10.0,
     "Y": 100.0,
     "ShowIncrements": true,
-    "TitleFontColor": "ff8000ff",
-    "EnabledBoxColor": "000000ff",
-    "DisabledBoxColor": "800000b4",
+    "TitleFontColor": "c86400ff",
+    "EnabledBoxColor": "808080ff",
+    "DisabledBoxColor": "dc143cff",
     "MenuFontColor": "fec076ff",
-    "SliderColor": "000000ff",
+    "SliderColor": "808080ff",
     "BackgroundColor": "ffffffdc",
     "TitleFontSize": {
       "Value": 16,
       "Min": 10,
-      "Max": 50
+      "Max": 20
     },
     "MenuFontSize": {
       "Value": 16,
       "Min": 10,
-      "Max": 50
+      "Max": 20
     },
     "PickerFontSize": {
       "Value": 16,
       "Min": 10,
-      "Max": 50
+      "Max": 20
     }
   },
   "DPS meter": {
-    "Enable": true,
+    "Enable": false,
     "DpsTextSize": {
       "Value": 16,
       "Min": 10,
-      "Max": 50
+      "Max": 20
     },
     "PeakDpsTextSize": {
       "Value": 16,
       "Min": 10,
-      "Max": 50
+      "Max": 20
     },
     "DpsFontColor": "fec076ff",
     "PeakFontColor": "fec076ff",
-    "BackgroundColor": "c0c0c0ff"
+    "BackgroundColor": "ffffffff"
   },
   "Map icons": {
     "Enable": true,
@@ -51,21 +51,21 @@
   "Item alert": {
     "Enable": true,
     "ScrollsColor": "aa9e82ff",
-    "BackgroundColor": "000000dc",
+    "BackgroundColor": "000000b4",
     "FrameExaltedColor": "dc0000ff",
     "ExaltedColor": "dc0000ff",
     "FrameJewelsColor": "4ae63aff",
     "JewelsColor": "99ff99ff",
     "FrameCardsColor": "dc0000ff",
-    "CardsColor": "ff0000ff",
-    "FrameCurrencyColor": "e100e1ff",
+    "CardsColor": "dc0000ff",
+    "FrameCurrencyColor": "990099ff",
     "CurrencyColor": "aa9e82ff",
     "FrameMapsColor": "deb887ff",
     "MapsColor": "deb887ff",
     "FrameRGBColor": "dc0000ff",
     "RGBColor": "ffffffff",
     "FrameCraftingColor": "0096e1ff",
-    "CraftingColor": "ffffffff",
+    "CraftingColor": "ffffe1ff",
     "FrameSocketsColor": "4ae63aff",
     "SocketsColor": "32ff00ff",
     "FrameLinkedColor": "1e90ffff",
@@ -81,7 +81,7 @@
     "TextSize": {
       "Value": 16,
       "Min": 10,
-      "Max": 50
+      "Max": 20
     },
     "Rares": true,
     "Uniques": true,
@@ -141,7 +141,7 @@
     },
     "BorderSettings": {
       "Enable": false,
-      "BorderColor": "00ff40ff",
+      "BorderColor": "0bb252ff",
       "CantPickUpBorderColor": "ff0000ff",
       "NotMyItemBorderColor": "ffff00ff",
       "ShowTimer": true,
@@ -162,7 +162,7 @@
     "Item level": {
       "Enable": true,
       "TextSize": {
-        "Value": 18,
+        "Value": 15,
         "Min": 10,
         "Max": 50
       }
@@ -197,19 +197,19 @@
     "PlaySound": false,
     "ShowText": true,
     "TextSize": {
-      "Value": 20,
+      "Value": 27,
       "Min": 10,
       "Max": 50
     },
     "DefaultTextColor": "ff0000ff",
-    "BackgroundColor": "ffffffff",
+    "BackgroundColor": "00000080",
     "TextPositionX": {
       "Value": 50,
       "Min": 0,
       "Max": 100
     },
     "TextPositionY": {
-      "Value": 85,
+      "Value": 15,
       "Min": 0,
       "Max": 100
     }
@@ -228,11 +228,11 @@
     "FontSize": {
       "Value": 16,
       "Min": 10,
-      "Max": 50
+      "Max": 20
     },
-    "BackgroundColor": "ffffffff",
+    "BackgroundColor": "ffffffdc",
     "FastColor": "fec076ff",
-    "CorruptedColor": "cc0000ff",
+    "CorruptedColor": "fec076ff",
     "MasterZana": "ffff00ff",
     "MasterCatarina": "fec076ff",
     "MasterTora": "fec076ff",
@@ -243,7 +243,7 @@
     "MasterKrillson": "f000f0ff",
     "ArcanistStrongbox": "ff00ffff",
     "ArtisanStrongbox": "00ff00ff",
-    "CartographerStrongbox": "deb887ff",
+    "CartographerStrongbox": "ff00ffff",
     "GemcutterStrongbox": "1ba29bff",
     "JewellerStrongbox": "fec076ff",
     "BlacksmithStrongbox": "fec076ff",
@@ -282,22 +282,22 @@
       "Max": 20
     },
     "BackgroundColor": "ffffffdc",
-    "AreaFontColor": "80b8f8ff",
+    "AreaFontColor": "8cc8ffff",
     "XphFontColor": "fec076ff",
     "TimeLeftColor": "fec076ff",
     "FpsFontColor": "8cc8ffff",
     "TimerFontColor": "8cc8ffff"
   },
   "Health bar": {
-    "Enable": true,
+    "Enable": false,
     "ShowInTown": false,
     "ShowES": true,
     "ShowIncrements": true,
-    "ShowEnemies": true,
+    "ShowEnemies": false,
     "Players": {
-      "Enable": true,
+      "Enable": false,
       "Width": {
-        "Value": 160.0,
+        "Value": 140.0,
         "Min": 50.0,
         "Max": 180.0
       },
@@ -349,7 +349,7 @@
     "NormalEnemy": {
       "Enable": false,
       "Width": {
-        "Value": 120.0,
+        "Value": 140.0,
         "Min": 50.0,
         "Max": 180.0
       },
@@ -375,7 +375,7 @@
     "MagicEnemy": {
       "Enable": false,
       "Width": {
-        "Value": 120.0,
+        "Value": 140.0,
         "Min": 50.0,
         "Max": 180.0
       },
@@ -399,9 +399,9 @@
       }
     },
     "RareEnemy": {
-      "Enable": true,
+      "Enable": false,
       "Width": {
-        "Value": 160.0,
+        "Value": 140.0,
         "Min": 50.0,
         "Max": 180.0
       },
@@ -416,8 +416,8 @@
       "PercentTextColor": "66ff99ff",
       "HealthTextColor": "ffffffff",
       "HealthTextColorUnder10Percent": "ffff00ff",
-      "ShowPercents": false,
-      "ShowHealthText": false,
+      "ShowPercents": true,
+      "ShowHealthText": true,
       "TextSize": {
         "Value": 15,
         "Min": 10,
@@ -425,9 +425,9 @@
       }
     },
     "UniqueEnemy": {
-      "Enable": true,
+      "Enable": false,
       "Width": {
-        "Value": 180.0,
+        "Value": 140.0,
         "Min": 50.0,
         "Max": 180.0
       },
@@ -442,15 +442,15 @@
       "PercentTextColor": "66ff99ff",
       "HealthTextColor": "ffffffff",
       "HealthTextColorUnder10Percent": "ffff00ff",
-      "ShowPercents": false,
-      "ShowHealthText": false,
+      "ShowPercents": true,
+      "ShowHealthText": true,
       "TextSize": {
         "Value": 15,
         "Min": 10,
         "Max": 50
       }
     },
-    "ShowDebuffPanel": false,
+    "ShowDebuffPanel": true,
     "DebuffPanelIconSize": {
       "Value": 20,
       "Min": 15,
@@ -458,10 +458,10 @@
     }
   },
   "Inventory preview": {
-    "Enable": true,
+    "Enable": false,
     "AutoUpdate": true,
-    "CellUsedColor": "808080c8",
-    "CellFreeColor": "80ffffff",
+    "CellUsedColor": "808080dc",
+    "CellFreeColor": "a0dca0ff",
     "CellSize": {
       "Value": 20,
       "Min": 1,
@@ -484,7 +484,7 @@
     }
   },
   "Kills Counter": {
-    "Enable": true,
+    "Enable": false,
     "ShowDetail": true,
     "FontColor": "fec076ff",
     "BackgroundColor": "ffffffff",

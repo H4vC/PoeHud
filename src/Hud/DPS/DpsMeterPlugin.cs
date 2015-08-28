@@ -67,7 +67,7 @@ namespace PoeHUD.Hud.Dps
 
             int width = Math.Max(peakSize.Width, dpsSize.Width);
             int height = dpsSize.Height + peakSize.Height;
-            var bounds = new RectangleF(position.X - 5 - width, position.Y - 5, width + 10, height + 10);
+            var bounds = new RectangleF(position.X - 15 - width, position.Y - 5, width + 20, height + 10);
             Graphics.DrawImage("preload-end.png", bounds, Settings.BackgroundColor);
             Graphics.DrawImage("preload-start.png", bounds, Settings.BackgroundColor);
             Size = bounds.Size;

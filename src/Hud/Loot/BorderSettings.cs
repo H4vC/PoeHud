@@ -8,12 +8,12 @@ namespace PoeHUD.Hud.Loot
     {
         public BorderSettings()
         {
-            Enable = true;
+            Enable = false;
             BorderColor = Color.FromAbgr(0xbb252ff);
             CantPickUpBorderColor = Color.Red;
             NotMyItemBorderColor = Color.Yellow;
             ShowTimer = true;
-            BorderWidth = new RangeNode<int>(3, 1, 10);
+            BorderWidth = new RangeNode<int>(1, 1, 10);
             TimerTextSize = new RangeNode<int>(10, 8, 40);
         }
 

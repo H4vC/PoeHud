@@ -91,12 +91,18 @@ namespace PoeHUD.Hud.Menu
             MenuItem enemiesMenu = AddChild(healthMenu, "Enemies", healthBarPlugin.ShowEnemies);
             MenuItem minionsMenu = AddChild(healthMenu, "Minions", healthBarPlugin.Minions.Enable);
             AddChild(healthMenu, "Show ES", healthBarPlugin.ShowES);
+            //AddChild(healthMenu, "Show BK", healthBarPlugin.ShowBK);
+            AddChild(healthMenu, "Show increments", healthBarPlugin.ShowIncrements);
             AddChild(healthMenu, "Show in town", healthBarPlugin.ShowInTown);
             MenuItem debuffPanelMenu = AddChild(healthMenu, "Debuff panel", healthBarPlugin.ShowDebuffPanel);
             AddChild(debuffPanelMenu, "Icon size", healthBarPlugin.DebuffPanelIconSize);
+            //AddChild(playersMenu, "HP Color", healthBarPlugin.HpColor);
+            //AddChild(playersMenu, "ES Color", healthBarPlugin.EsColor);
+            //AddChild(playersMenu, "BK color", healthBarPlugin.BkColor);
             AddChild(playersMenu, "Print percents", healthBarPlugin.Players.ShowPercents);
             AddChild(playersMenu, "Print health text", healthBarPlugin.Players.ShowHealthText);
             AddChild(playersMenu, "Width", healthBarPlugin.Players.Width);
+            //AddChild(playersMenu, "ES Width", healthBarPlugin.EsWidth);
             AddChild(playersMenu, "Height", healthBarPlugin.Players.Height);
             AddChild(minionsMenu, "Print percents", healthBarPlugin.Minions.ShowPercents);
             AddChild(minionsMenu, "Print health text", healthBarPlugin.Minions.ShowHealthText);
@@ -136,16 +142,20 @@ namespace PoeHUD.Hud.Menu
 
             // Item Alert
             var itemAlertMenu = AddChild(root, "Item alert", settingsHub.ItemAlertSettings.Enable);
-            AddChild(itemAlertMenu, "Uniques", settingsHub.ItemAlertSettings.Uniques);
-            AddChild(itemAlertMenu, "Rares", settingsHub.ItemAlertSettings.Rares);
+            //AddChild(itemAlertMenu, "Uniques", settingsHub.ItemAlertSettings.Uniques);
+            //AddChild(itemAlertMenu, "Rares", settingsHub.ItemAlertSettings.Rares);
 
-            var exaltedColor = AddChild(itemAlertMenu, "Exalted", settingsHub.ItemAlertSettings.Exalted);
+            var exaltedColor = AddChild(itemAlertMenu, "Expensive Currency", settingsHub.ItemAlertSettings.Exalted);
             AddChild(exaltedColor, "font", settingsHub.ItemAlertSettings.ExaltedColor);
             AddChild(exaltedColor, "border", settingsHub.ItemAlertSettings.FrameExaltedColor);
 
-            var chaosColor = AddChild(itemAlertMenu, "Chaos", settingsHub.ItemAlertSettings.Chaos);
+            var chaosColor = AddChild(itemAlertMenu, "Normal Currency", settingsHub.ItemAlertSettings.Chaos);
             AddChild(chaosColor, "font", settingsHub.ItemAlertSettings.ChaosColor);
             AddChild(chaosColor, "border", settingsHub.ItemAlertSettings.FrameChaosColor);
+
+            var currencyColor = AddChild(itemAlertMenu, "Cheap Currency", settingsHub.ItemAlertSettings.Currency);
+            AddChild(currencyColor, "font", settingsHub.ItemAlertSettings.CurrencyColor);
+            AddChild(currencyColor, "border", settingsHub.ItemAlertSettings.FrameCurrencyColor);
 
             var jewelsColor = AddChild(itemAlertMenu, "Jewels", settingsHub.ItemAlertSettings.Jewels);
             AddChild(jewelsColor, "font", settingsHub.ItemAlertSettings.JewelsColor);
@@ -154,10 +164,6 @@ namespace PoeHUD.Hud.Menu
             var cardsColor = AddChild(itemAlertMenu, "Cards", settingsHub.ItemAlertSettings.Cards);
             AddChild(cardsColor, "font", settingsHub.ItemAlertSettings.CardsColor);
             AddChild(cardsColor, "border", settingsHub.ItemAlertSettings.FrameCardsColor);
-
-            var currencyColor = AddChild(itemAlertMenu, "Currency", settingsHub.ItemAlertSettings.Currency);
-            AddChild(currencyColor, "font", settingsHub.ItemAlertSettings.CurrencyColor);
-            AddChild(currencyColor, "border", settingsHub.ItemAlertSettings.FrameCurrencyColor);
 
             var mapsColor = AddChild(itemAlertMenu, "Maps", settingsHub.ItemAlertSettings.Maps);
             AddChild(mapsColor, "font", settingsHub.ItemAlertSettings.MapsColor);
@@ -291,10 +297,10 @@ namespace PoeHUD.Hud.Menu
             // Show DPS
             MenuItem showDpsMenu = AddChild(root, "Show Dps", settingsHub.DpsMeterSettings.Enable);
             AddChild(showDpsMenu, "Dps font size", settingsHub.DpsMeterSettings.DpsTextSize);
-            AddChild(showDpsMenu, "Peak dps font size", settingsHub.DpsMeterSettings.PeakDpsTextSize);
+            AddChild(showDpsMenu, "Top dps font size", settingsHub.DpsMeterSettings.PeakDpsTextSize);
             AddChild(showDpsMenu, "Background color", settingsHub.DpsMeterSettings.BackgroundColor);
             AddChild(showDpsMenu, "Dps font color", settingsHub.DpsMeterSettings.DpsFontColor);
-            AddChild(showDpsMenu, "Dps peak color", settingsHub.DpsMeterSettings.PeakFontColor);
+            AddChild(showDpsMenu, "Top dps font color", settingsHub.DpsMeterSettings.PeakFontColor);
 
             // Show monster kills
             MenuItem showMonsterKillsMenu = AddChild(root, "Monster kills", settingsHub.KillsCounterSettings.Enable);

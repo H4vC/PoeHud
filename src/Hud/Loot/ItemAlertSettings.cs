@@ -53,7 +53,7 @@ namespace PoeHUD.Hud.Loot
             FrameChaosColor = new ColorBGRA(170, 0, 170, 255);
             ChaosColor = new ColorBGRA(220, 0, 220, 255);
             ScrollsColor = new ColorBGRA(170, 158, 130, 255);
-            BackgroundColor = new ColorBGRA(0, 0, 0, 220);
+            BackgroundColor = new ColorBGRA(0, 0, 0, 180);
         }
 
         public ColorNode ScrollsColor { get; set; }
