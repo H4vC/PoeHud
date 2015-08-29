@@ -1,1 +1,297 @@
 
+#Metadata;Text;colour (ARGB)
+#Example Metadata/Chests/StrongBoxes/Strongbox; Strongbox; FFFEC076
+
+
+Metadata/Chests/StrongBoxes/Strongbox; Simple Strongbox; FFFEC076
+Metadata/Chests/StrongBoxes/Strongbox.ao; Simple Strongbox; FFFEC076
+Metadata/Chests/StrongBoxes/Ornate; Ornate Strongbox; FFFEC076
+Metadata/Chests/StrongBoxes/OrnateStrongbox.ao; Ornate Strongbox; FFFEC076
+Metadata/Chests/StrongBoxes/Large; Large Strongbox; FFFEC076
+Metadata/Chests/StrongBoxes/LargeStrongbox.ao; Large Strongbox; FFFEC076
+Metadata/Chests/StrongBoxes/Jeweller; Jeweler's Strongbox; FFFEC076
+Metadata/Chests/StrongBoxes/JewellerStrongBox.ao; Jeweler's Strongbox; FFFEC076
+Metadata/Chests/StrongBoxes/Gemcutter; Gemcutter's Strongbox; FF1BA29B
+Metadata/Chests/StrongBoxes/GemcutterStrongBox.ao; Gemcutter's Strongbox; FF1BA29B
+Metadata/Chests/StrongBoxes/Cartographer; Cartographer's Strongbox; FFFF00FF
+Metadata/Chests/StrongBoxes/CartographerStrongBox.ao; Cartographer's Strongbox; FFFF00FF
+Metadata/Chests/StrongBoxes/Artisan; Artisan's Strongbox; FF00FF00
+Metadata/Chests/StrongBoxes/ArtisanStrongBox.ao; Artisan's Strongbox; FF00FF00
+Metadata/Chests/StrongBoxes/Arsenal; Blacksmith's Strongbox; FFFEC076
+Metadata/Chests/StrongBoxes/ArsenalStrongBox.ao; Blacksmith's Strongbox; FFFEC076
+Metadata/Chests/StrongBoxes/Armory; Armourer's Strongbox; FFFEC076
+Metadata/Chests/StrongBoxes/ArmoryStrongBox.ao; Armourer's Strongbox; FFFEC076
+Metadata/Chests/StrongBoxes/Arcanist; Arcanist's Strongbox; FFFF00FF
+Metadata/Chests/StrongBoxes/ArcanistStrongBox.ao; Arcanist's Strongbox; FFFF00FF
+Metadata/Chests/CopperChestEpic3; Large Chest; FFFEC076
+Metadata/Chests/CopperChests/CopperChestEpic3.ao; Large Chest; FFFEC076
+Metadata/Chests/StrongBoxes/PerandusBox.ao; Perandus Strongbox; FFFEC076
+Metadata/Chests/StrongBoxes/KaomBox.ao; Kaom Strongbox; FFFEC076
+Metadata/Chests/StrongBoxes/MalachaisBox.ao; Malachai Strongbox; FFFEC076
+
+
+Metadata/Monsters/Exiles/ExileRanger1; Orra Greengate
+Metadata/Monsters/Exiles/ExileRanger2; Thena Moga
+Metadata/Monsters/Exiles/ExileRanger3; Antalie Napora
+Metadata/Monsters/Exiles/ExileDuelist1; Torr Olgosso
+Metadata/Monsters/Exiles/ExileDuelist2; Armios Bell
+Metadata/Monsters/Exiles/ExileDuelist4; Zacharie Desmarais
+Metadata/Monsters/Exiles/ExileWitch1; Minara Anenima
+Metadata/Monsters/Exiles/ExileWitch2; Igna Phoenix
+Metadata/Monsters/Exiles/ExileMarauder1; Jonah Unchained
+Metadata/Monsters/Exiles/ExileMarauder2; Damoi Tui
+Metadata/Monsters/Exiles/ExileMarauder3; Xandro Blooddrinker
+Metadata/Monsters/Exiles/ExileMarauder5; Vickas Giantbone
+Metadata/Monsters/Exiles/ExileTemplar1; Eoin Greyfur
+Metadata/Monsters/Exiles/ExileTemplar2; Tinevin Highdove
+Metadata/Monsters/Exiles/ExileTemplar4; Magnus Stonethorn
+Metadata/Monsters/Exiles/ExileShadow1_; Ion Darkshroud
+Metadata/Monsters/Exiles/ExileShadow2; Ash Lessard
+Metadata/Monsters/Exiles/ExileShadow4; Wilorin Demontamer
+Metadata/Monsters/Exiles/ExileScion2; Augustina Solaria
+
+
+Metadata/Monsters/Squid/SquidBossSideArea; The All-seeing Eye
+Metadata/Monsters/Goatman/GoatmanLeapBossSideArea; Konu, Maker of Wind
+Metadata/Monsters/GhostPirates/GhostPirateBossSideArea; Coniraya, Shadow of Malice
+Metadata/Monsters/DemonModular/DemonModularElementsBossSideArea; Atziri's Pride
+Metadata/Monsters/Goatman/GoatmanShamanBossSideArea; Sheaq, Maker of Floods
+Metadata/Monsters/Skeleton/SkeletonMeleeLargeBossSideArea; Ossecati, Boneshaper
+Metadata/Monsters/RootSpiders/RootSpiderBossSideArea; Kamaq, Soilmaker
+Metadata/Monsters/Kiweth/KiwethBossSideArea; Inti of the Blood Moon
+Metadata/Monsters/incaminion/FragmentBossSideArea; Shrapnelbearer
+Metadata/Monsters/Snake/SnakeRoboBossSideArea; Wiraqucha, Ancient Guardian
+Metadata/Monsters/DemonFemale/WhipDemonBossSideArea; Cava, Artist of Pain
+Metadata/Monsters/Pyromaniac/PyromaniacBossSideArea; Curator Miem
+Metadata/Monsters/BloodChieftain/MonkeyChiefBossSideArea; Simi, the Nature Touched
+Metadata/Monsters/InsectSpawner/CarrionQueenBossSideArea; The Sunburst Queen
+Metadata/Monsters/Totems/TotemBossSideArea; M'gaska, the Living Pyre
+Metadata/Monsters/Spiders/SpiderBossSideArea; Cintiq, the Inescapable
+Metadata/Monsters/Snake/SnakeScorpionBossSideArea; Thornrunner
+Metadata/Monsters/Cannibal/CannibalBossSideArea; Perquil the Lucky
+Metadata/Monsters/Skeletons/ConstructMeleeBossSideArea; Haviri, Vaal Metalsmith
+Metadata/Monsters/Skeletons/ConstructRangedBossSideArea; Kutec, Vaal Fleshsmith
+Metadata/Monsters/AnimatedItem/AnimatedArmourBossSideArea; Shadow of Vengeance
+Metadata/Monsters/DemonBosses/DemonBoss1/Demon1BossSideArea; Beheader Ataguchu
+Metadata/Monsters/DemonBosses/DemonBoss2/Demon2BossSideArea; Wiraq, the Impaler
+Metadata/Monsters/DemonBosses/DemonBoss3/Demon3BossSideArea; Ch'aska, Maker of Rain
+Metadata/Monsters/SandSpitterEmerge/SandSpitterBossSideArea; Mother of the Hive
+Metadata/Monsters/Seawitch/SeaWitchBossSideArea; Rima, Deep Temptress
+Metadata/Monsters/Axis/AxisCasterBossInvasion; Evocata Apocalyptica
+Metadata/Monsters/Axis/AxisExperimenterBossInvasion; Docere Incarnatis
+Metadata/Monsters/Axis/AxisSoldierBossInvasion; Corrector Draconides
+Metadata/Monsters/Bandits/BanditMeleeBossInvasion; Balus Stoneskull
+Metadata/Monsters/Bandits/BanditBowBossInvasion; Kall Foxfly
+Metadata/Monsters/Beasts/BeastBossInvasion; Marrowcrush
+Metadata/Monsters/Rhoas/RhoaBossInvasion; The Cadaver Bull
+Metadata/Monsters/BloodChieftain/BloodChieftainBossInvasion; Junglemare
+Metadata/Monsters/BloodElemental/BloodElementalBossInvasion; The Sanguine Wave
+Metadata/Monsters/Cannibal/CannibalMaleBossInvasion; Graveblood
+Metadata/Monsters/Cannibal/CannibalFemaleBossInvasion; Nighteater
+Metadata/Monsters/Undying/CityStalkerMaleBossInvasion; The Book Burner
+Metadata/Monsters/Undying/CityStalkerFemaleBossInvasion; The Bolt Juggler
+Metadata/Monsters/DemonFemale/DemonFemaleBossInvasion; Avatar of Pain
+Metadata/Monsters/DemonModular/DemonModularBossInvasion; Rancor
+Metadata/Monsters/DemonModular/DemonFemaleRangedBossInvasion; Hatespitter
+Metadata/Monsters/MossMonster/FireMonsterBossInvasion; Bluntslag
+Metadata/Monsters/Monkeys/FlameBearerBossInvasion; The Revenant
+Metadata/Monsters/incaminion/FragmentBossInvasion; Judgement Apparatus
+Metadata/Monsters/Frog/FrogBossInvasion; Spinesnap
+Metadata/Monsters/GemMonster/GemFrogBossInvasion; Genesis Paradisae
+Metadata/Monsters/Goatman/GoatmanBossInvasion; Death from Above
+Metadata/Monsters/Goatman/GoatmanShamanBossInvasion; Guardian of the Mound
+Metadata/Monsters/Grappler/GrapplerBossInvasion; Wonderwalker
+Metadata/Monsters/Guardians/GuardianFireBossInvasion; The Raging Mask
+Metadata/Monsters/Guardians/GuardianLightningBossInvasion; The Teetering Mask
+Metadata/Monsters/Guardians/GuardianHeadFireBossInvasion; The Furious Mask
+Metadata/Monsters/Guardians/GuardianHeadColdBossInvasion; The Callous Mask
+Metadata/Monsters/Guardians/GuardianHeadLightningBossInvasion; The Capricious Mask
+Metadata/Monsters/GemMonster/IguanaBossInvasion; Alpha Paradisae
+Metadata/Monsters/InsectSpawner/CarrionQueenBossInvasion; Mother of the Swarm
+Metadata/Monsters/Kiweth/KiwethBossInvasion; Deathflutter
+Metadata/Monsters/Lion/LionBossInvasion; Bladetooth
+Metadata/Monsters/MossMonster/MossMonsterBossInvasion; Granitecrush
+Metadata/Monsters/Necromancer/NecromancerBossInvasion; Corpsestitch
+Metadata/Monsters/Pyromaniac/PyromaniacBossInvasion; The Firestarter
+Metadata/Monsters/RootSpiders/RootSpiderBossInvasion; Wrigglechaw
+Metadata/Monsters/SandSpitterEmerge/SandSpitterBossInvasion; Blinkflame
+Metadata/Monsters/Seawitch/SeaWitchBossInvasion; The Duchess
+Metadata/Monsters/ShieldCrabs/ShieldCrabBossInvasion; Shivershell
+Metadata/Monsters/SandSpitters/SandSpitterFromCrabBossInvasion; Shivershell
+Metadata/Monsters/Beasts/BeastSkeletonBossInvasion; Mammothcage
+Metadata/Monsters/Skeletons/SkeletonElementalBossInvasion; Harbinger of Elements
+Metadata/Monsters/Skeletons/SkeletonBowBossInvasion; Nightsight
+Metadata/Monsters/Snake/SnakeMeleeBossInvasion; Tailsinger
+Metadata/Monsters/Snake/SnakeRangedBossInvasion; Razorleaf
+Metadata/Monsters/Spawn/SpawnBossInvasion; Stranglecreep
+Metadata/Monsters/Spiders/SpiderBossInvasion; Pewterfang
+Metadata/Monsters/Spikers/SpikerBossInvasion; Bladeback Guardian
+Metadata/Monsters/Squid/SquidBossInvasion; Strangledrift
+Metadata/Monsters/Totems/TotemBossInvasion; Jikeji
+Metadata/Monsters/Rhoas/RhoaUndeadBossInvasion; Ghostram
+Metadata/Monsters/Undying/UndyingBossInvasion; Stranglecrawl
+Metadata/Monsters/WaterElemental/WaterElementalBossInvasion; Mirageblast
+Metadata/Monsters/ZombieDismember/ZombieBossInvasion; The Walking Waste
+Metadata/Monsters/Monkeys/MonkeyBossInvasion1; Blood Stasis 
+Metadata/Monsters/Monkeys/MonkeyBossInvasion2; Blood Morpher
+Metadata/Monsters/Skeletons/SkeletonMeleeBossInvasion; Glassmaul
+Metadata/Monsters/Skeletons/SkeletonLargeBossInvasion; Grath
+Metadata/Monsters/Skeletons/ConstructBossInvasion; The Spiritless
+Metadata/Monsters/GhostPirates/GhostPirateBossInvasion; Droolscar
+Metadata/Monsters/Rhoas/RhoaAlbino; Albino Rhoa
+
+
+Metadata/NPC/Missions/Wild/Dex; Tora, Master of the Hunt; FFFEC076
+Metadata/NPC/Missions/Wild/DexInt; Vorici, Master Assassin; FFFEC076
+Metadata/NPC/Missions/Wild/Int; Catarina, Master of the Dead; FFFEC076
+Metadata/NPC/Missions/Wild/Str; Haku, Armourmaster; FFFEC076
+Metadata/NPC/Missions/Wild/StrDex; Vagan, Weaponmaster; FFFEC076
+Metadata/Monsters/Missions/MasterStrDex1; Vagan, Weaponmaster (2HSword); FFFEC076
+Metadata/Monsters/Missions/MasterStrDex2; Vagan, Weaponmaster (Staff); FFFEC076
+Metadata/Monsters/Missions/MasterStrDex3; Vagan, Weaponmaster (Bow); FFFEC076
+Metadata/Monsters/Missions/MasterStrDex4; Vagan, Weaponmaster (DaggerRapier); FFFEC076
+Metadata/Monsters/Missions/MasterStrDex5; Vagan, Weaponmaster (Blunt); FFFEC076
+Metadata/Monsters/Missions/MasterStrDex6; Vagan, Weaponmaster (Blades); FFFEC076
+Metadata/Monsters/Missions/MasterStrDex7; Vagan, Weaponmaster (SwordAxe); FFFEC076
+Metadata/Monsters/Missions/MasterStrDex8; Vagan, Weaponmaster (Punching); FFFEC076
+Metadata/Monsters/Missions/MasterStrDex9; Vagan, Weaponmaster (Flickerstrike); FFFEC076
+Metadata/Monsters/Missions/MasterStrDex10; Vagan, Weaponmaster (Elementalist); FFFEC076
+Metadata/Monsters/Missions/MasterStrDex11; Vagan, Weaponmaster (Cyclone); FFFEC076
+Metadata/Monsters/Missions/MasterStrDex12; Vagan, Weaponmaster (PhysSpells); FFFEC076
+Metadata/Monsters/Missions/MasterStrDex13; Vagan, Weaponmaster (Traps); FFFEC076
+Metadata/Monsters/Missions/MasterStrDex14; Vagan, Weaponmaster (RighteousFire); FFFEC076
+Metadata/Monsters/Missions/MasterStrDex15; Vagan, Weaponmaster (CastOnHit); FFFEC076
+Metadata/NPC/Missions/Wild/StrDexInt; Zana, Master Cartographer; FFFEC076
+Metadata/NPC/Missions/Wild/StrInt; Elreon, Loremaster; FFFEC076
+Metadata/NPC/Missions/Wild/Fish; Krillson, Master Fisherman; FFFF00FF
+Metadata/Monsters/Spirit/TormentedArsonist; Tormented Arsonist
+Metadata/Monsters/Spirit/TormentedFreezer; Tormented Aurora Cultist
+Metadata/Monsters/Spirit/TormentedBlasphemer; Tormented Blasphemer
+Metadata/Monsters/Spirit/TormentedCannibal; Tormented Cannibal
+Metadata/Monsters/Spirit/TormentedCharlatan; Tormented Charlatan
+Metadata/Monsters/Spirit/TormentedCutthroat; Tormented Cutthroat
+Metadata/Monsters/Spirit/TormentedEmbezzler; Tormented Embezzler; FFFF00FF
+Metadata/Monsters/Spirit/TormentedCounterfeiter; Tormented Forger
+Metadata/Monsters/Spirit/TormentedMartyr; Tormented Martyr
+Metadata/Monsters/Spirit/TormentedMutilator; Tormented Mutilator
+Metadata/Monsters/Spirit/TormentedNecromancer; Tormented Necromancer
+Metadata/Monsters/Spirit/TormentedPoisoner; Tormented Poisoner
+Metadata/Monsters/Spirit/TormentedRogue; Tormented Rogue
+Metadata/Monsters/Spirit/TormentedLibrarian; Tormented Seditionist
+Metadata/Monsters/Spirit/TormentedSmuggler; Tormented Smuggler
+Metadata/Monsters/Spirit/TormentedSpy; Tormented Spy
+Metadata/Monsters/Spirit/TormentedExperimenter; Tormented Storm Cultist
+Metadata/Monsters/Spirit/TormentedThief; Tormented Thief
+Metadata/Monsters/Spirit/TormentedThug; Tormented Thug
+Metadata/Monsters/Spirit/TormentedCorrupter; Tormented Vaal Cultist
+Metadata/Monsters/Spirit/TormentedWarlord; Tormented Warlord
+Metadata/Monsters/Spirit/TormentedFisherman; Tormented Illegal Fisherman
+
+
+Metadata/Monsters/Wb/WbLightningGrunt1; Brinerot Raider
+Metadata/Monsters/Wb/WbLightningGrunt2; Brinerot Raider
+Metadata/Monsters/Wb/WbLightningGrunt3; Brinerot Raider
+Metadata/Monsters/Wb/WbLightningGrunt4; Brinerot Raider
+Metadata/Monsters/Wb/WbLightningGrunt5; Brinerot Raider
+Metadata/Monsters/Wb/WbLightningGrunt6; Brinerot Raider
+Metadata/Monsters/Wb/WbLightningSupport1; Brinerot Soothesayer
+Metadata/Monsters/Wb/WbLightningSupport2; Brinerot Soothesayer
+Metadata/Monsters/Wb/WbLightningSupport3; Brinerot Soothesayer
+Metadata/Monsters/Wb/WbLightningSupport4; Brinerot Soothesayer
+Metadata/Monsters/Wb/WbLightningSupport4Clone; Brinerot Soothesayer
+Metadata/Monsters/Wb/WbLightningElite1; Brinerot Stormhand
+Metadata/Monsters/Wb/WbLightningElite2; Brinerot Stormhand
+Metadata/Monsters/Wb/WbLightningElite3; Brinerot Stormhand
+Metadata/Monsters/Wb/WbLightningLeader1; Musky "Two-Eyes" Grenn
+Metadata/Monsters/Wb/WbLightningLeader2; Susara, Siren of Pondium
+Metadata/Monsters/Wb/WbLightningLeader3; Lussi "Rotmother" Roth
+Metadata/Monsters/Wb/WbColdGrunt1; Mutewind Wildrunner
+Metadata/Monsters/Wb/WbColdGrunt2; Mutewind Wildrunner
+Metadata/Monsters/Wb/WbColdGrunt3; Mutewind Wildrunner
+Metadata/Monsters/Wb/WbColdGrunt4; Mutewind Wildrunner
+Metadata/Monsters/Wb/WbColdGrunt5; Mutewind Wildrunner
+Metadata/Monsters/Wb/WbColdGrunt6; Mutewind Wildrunner
+Metadata/Monsters/Wb/WbColdGrunt7; Mutewind Wildrunner
+Metadata/Monsters/Wb/WbColdLynx1; Mutewind Lynx
+Metadata/Monsters/Wb/WbColdSupport1; Mutewind Hexbinder
+Metadata/Monsters/Wb/WbColdSupport2; Mutewind Hexbinder
+Metadata/Monsters/Wb/WbColdSupport3; Mutewind Hexbinder
+Metadata/Monsters/Wb/WbColdSupport4; Mutewind Hexbinder
+Metadata/Monsters/Wb/WbColdElite1; Mutewind Snow-singer
+Metadata/Monsters/Wb/WbColdElite2; Mutewind Snow-singer
+Metadata/Monsters/Wb/WbColdElite3; Mutewind Snow-singer
+Metadata/Monsters/Wb/WbColdElite4; Mutewind Snow-singer
+Metadata/Monsters/Wb/WbColdElite4Clone; Mutewind Snow-singer
+Metadata/Monsters/Wb/WbColdLeader1; Yorishi, Aurora-sage
+Metadata/Monsters/Wb/WbColdLeader2; Jeinei Yuushu
+Metadata/Monsters/Wb/WbColdLeader2Clone; Jeinei Yuushu
+Metadata/Monsters/Wb/WbColdLeader3; Otesha, the Giantslayer
+Metadata/Monsters/Wb/WbFireGrunt1; Redblade Skullbreaker
+Metadata/Monsters/Wb/WbFireGrunt2_; Redblade Skullbreaker
+Metadata/Monsters/Wb/WbFireGrunt3; Redblade Skullbreaker
+Metadata/Monsters/Wb/WbFireGrunt4; Redblade Skullbreaker
+Metadata/Monsters/Wb/WbFireGrunt5; Redblade Skullbreaker
+Metadata/Monsters/Wb/WbFireGrunt6_; Redblade Skullbreaker
+Metadata/Monsters/Wb/WbFireSupport1; Redblade Flamelord
+Metadata/Monsters/Wb/WbFireSupport2; Redblade Flamelord
+Metadata/Monsters/Wb/WbFireSupport3; Redblade Flamelord
+Metadata/Monsters/Wb/WbFireSupport4; Redblade Flamelord
+Metadata/Monsters/Wb/WbFireElite1; Redblade Warmonger
+Metadata/Monsters/Wb/WbFireElite2_; Redblade Warmonger
+Metadata/Monsters/Wb/WbFireElite3; Redblade Warmonger
+Metadata/Monsters/Wb/WbFireElite4; Redblade Warmonger
+Metadata/Monsters/Wb/WbFireLeader1; Uruk Baleh
+Metadata/Monsters/Wb/WbFireLeader2; El'Abin, Bloodeater
+Metadata/Monsters/Wb/WbFireLeader3; Leli Goya, Daughter of Ash
+Metadata/Monsters/Wb/WbFireLeader4; Bin'aia, Crimson Rain
+Metadata/Monsters/Wb/WbChaosLeader1; Rama, The Kinslayer
+Metadata/Monsters/Wb/WbChaosLeader2; Kalria, The Fallen
+Metadata/Monsters/Wb/WbChaosLeader2Skeleton; Kalria, The Risen
+Metadata/Monsters/Skeletons/WbSkeletonMinionMelee; Risen Legionnaire
+Metadata/Monsters/Skeletons/WbSkeletonMinionRanged; Risen Archer
+Metadata/Monsters/Skeletons/WbSkeletonMinionCasterFire; Risen Battlemage
+Metadata/Monsters/Skeletons/WbSkeletonMinionCasterCold; Risen Battlemage
+Metadata/Monsters/Skeletons/WbSkeletonMinionCasterLightning; Risen Battlemage
+Metadata/Monsters/Wb/WbChaosLeader3; Invari, The Bloodshaper
+Metadata/Monsters/Wb/WbChaosLeader4; Lokan, The Deceiver
+Metadata/Monsters/Wb/WbChaosLeader4Minion; Lokan, The Deceiver
+Metadata/Monsters/Wb/WbChaosLeader5; Marchak, The Betrayer
+Metadata/Monsters/Wb/WbChaosLeader6; Berrots, The Breaker
+Metadata/Monsters/Wb/WbChaosLeader7; Vessider, The Unrivaled
+Metadata/Monsters/Wb/WbChaosLeader8; Morgrants, The Defeaning
+Metadata/Monsters/GemlingLegionnaire/GemlingLegionnaire1; Gemling Legionnaire
+Metadata/Monsters/GemlingLegionnaire/GemlingLegionnaire2; Gemling Legionnaire
+Metadata/Monsters/GemlingLegionnaire/GemlingLegionnaire3; Gemling Legionnaire
+Metadata/Monsters/GemlingLegionnaire/GemlingLegionnaire4; Gemling Legionnaire
+Metadata/Monsters/GemlingLegionnaire/GemlingLegionnaire5; Gemling Legionnaire
+Metadata/Monsters/GemlingLegionnaire/GemlingLegionnaire6; Gemling Legionnaire
+Metadata/Monsters/GemlingLegionnaire/GemlingLegionnaire7; Gemling Legionnaire
+Metadata/Monsters/Revenant/RevenantBoss; The Bone Queen
+Metadata/Monsters/Revenant/RevenantMapBoss; Thraxia
+Metadata/Monsters/DaressoExiles/ExileArenaMarauder; Dimachaeri Cassius
+Metadata/Monsters/DaressoExiles/ExileArenaWitch; Mevia
+Metadata/Monsters/DaressoExiles/ExileArenaRanger; Rudiarius Felix
+Metadata/Monsters/GladiatorBosses/GladiatorBossSupport; Rudiarius Felix
+Metadata/Monsters/GladiatorBosses/GladiatorBossLeader; Mevion
+Metadata/Monsters/GladiatorBosses/GladiatorBossElite; Dimachaeri Cassius
+Metadata/Monsters/GladiatorBosses/GladiatorBossSupportMap; Avatar of the Huntress
+Metadata/Monsters/GladiatorBosses/GladiatorBossLeaderMap; Avatar of the Skies
+Metadata/Monsters/GladiatorBosses/GladiatorBossEliteMap; Avatar of the Forge
+Metadata/Monsters/Daemon/TempestDaemonSmokeTrail_; Tempest Daemon
+Metadata/Monsters/Daemon/TempestDaemonDevourCorpses; Tempest Daemon
+Metadata/Monsters/Daemon/TempestDaemonCharges; Tempest Daemon
+Metadata/Monsters/Skeletons/WbLightningEliteSummon1; Thunder Guardian
+Metadata/Monsters/Skeletons/WbLightningEliteSummon2; Flayed Archer
+Metadata/Monsters/Skeletons/WbLightningEliteSummon3; Thunder Champion
+Metadata/Monsters/Daemon/TempestDaemonEnvironmentalFire; Tempest Daemon
+Metadata/Monsters/Daemon/TempestDaemonEnvironmentalUberFire; Tempest Daemon
+Metadata/Monsters/Daemon/TempestDaemonEnvironmentalCold; Tempest Daemon
+Metadata/Monsters/Daemon/TempestDaemonEnvironmentalUberCold; Tempest Daemon
+Metadata/Monsters/Daemon/TempestDaemonEnvironmentalLightning; Tempest Daemon
+Metadata/Monsters/Daemon/TempestDaemonEnvironmentalUberLightning; Tempest Daemon
+Metadata/Monsters/Daemon/TempestDaemonEnvironmentalNecromancy; Tempest Daemon
+Metadata/Monsters/Daemon/TempestDaemonEnvironmentalUberNecromancy; Tempest Daemon
+Metadata/Monsters/Daemon/TempestDaemonEnvironmentalPhysical; Tempest Daemon
+Metadata/Monsters/Daemon/TempestDaemonEnvironmentalUberPhysical; Tempest Daemon
+Metadata/Monsters/Daemon/TempestDaemonEnvironmentalCurses; Tempest Daemon
+Metadata/Monsters/Daemon/TempestDaemonEnvironmentalSmoke; Tempest Daemon
