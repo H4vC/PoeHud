@@ -105,13 +105,9 @@ namespace PoeHUD.Hud.AdvancedTooltip
         private static Element GetTooltip(InventoryItemIcon inventoryItemIcon)
         {
             Element tooltip = inventoryItemIcon.Tooltip;
-            if (tooltip == null)
-            {
-                return null;
-            }
 
-            Element child = tooltip.GetChildAtIndex(0);
-            return child == null ? null : child.GetChildAtIndex(1);
+            Element child = tooltip?.GetChildAtIndex(0);
+            return child?.GetChildAtIndex(1);
         }
 
         private Vector2 DrawMod(ModValue item, Vector2 position)
@@ -129,7 +125,7 @@ namespace PoeHUD.Hud.AdvancedTooltip
             {
                 if (item.CouldHaveTiers())
                 {
-                    prefix += string.Format(" T{0} ", item.Tier);
+                    prefix += $" T{item.Tier} ";
                 }
 
                 Graphics.DrawText(prefix, settings.ModTextSize, position.Translate(5 - MARGIN_LEFT, 0));

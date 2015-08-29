@@ -9,7 +9,7 @@ namespace PoeHUD.Hud.Health
         public UnitSettings(uint color, uint outline)
         {
             Enable = true;
-            Width = new RangeNode<float>(160, 50, 180);
+            Width = new RangeNode<float>(140, 50, 180);
             Height = new RangeNode<float>(20, 10, 50);
             Color = color;
             Outline = outline;
