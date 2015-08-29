@@ -183,8 +183,8 @@ namespace PoeHUD.Hud.Trackers
             {
                 if (!string.IsNullOrEmpty(soundFile))
                     Sounds.GetSound(soundFile).Play();
-                //else
-                    //Sounds.DangerSound.Play();
+                else
+                    Sounds.DangerSound.Play();
                 alreadyAlertedOf.Add(entity.Id);
             }
         }
