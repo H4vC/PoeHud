@@ -26,6 +26,7 @@ namespace PoeHUD.Framework
                 }
                 catch
                 {
+                    // ignored
                 }
             };
         }
@@ -42,6 +43,7 @@ namespace PoeHUD.Framework
             }
             catch
             {
+                // ignored
             }
         }
 
@@ -56,6 +58,7 @@ namespace PoeHUD.Framework
             }
             catch
             {
+                // ignored
             }
         }
     }

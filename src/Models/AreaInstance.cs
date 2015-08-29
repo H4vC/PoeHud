@@ -10,7 +10,6 @@ namespace PoeHUD.Models
         public string Name { get; private set; }
         public int Act { get; private set; }
         public bool IsTown { get; private set; }
-        //public bool IsHideout { get; private set; }
         public bool HasWaypoint { get; private set; }
         public int Hash { get; private set; }
         public DateTime TimeEntered = DateTime.Now;
@@ -22,7 +21,6 @@ namespace PoeHUD.Models
             Name = area.Name;
             Act = area.Act;
             IsTown = area.IsTown;
-            //IsHideout = area.IsHideout;
             HasWaypoint = area.HasWaypoint;
         }
 

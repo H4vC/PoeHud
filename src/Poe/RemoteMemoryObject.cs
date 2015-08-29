@@ -10,10 +10,7 @@ namespace PoeHUD.Poe
         protected Memory M { get;  set; }
 
 
-        protected Offsets Offsets
-        {
-            get { return M.offsets; }
-        }
+        protected Offsets Offsets => M.offsets;
 
 
         public T ReadObjectAt<T>(int offset) where T : RemoteMemoryObject, new()

@@ -35,32 +35,17 @@ namespace PoeHUD.Models
 
         public string Path { get; private set; }
 
-        public bool IsValid
-        {
-            get { return internalEntity.IsValid && IsInList && cachedId == internalEntity.Id; }
-        }
+        public bool IsValid => internalEntity.IsValid && IsInList && cachedId == internalEntity.Id;
 
-        public int Address
-        {
-            get { return internalEntity.Address; }
-        }
+        public int Address => internalEntity.Address;
 
-        public int Id
-        {
-            get { return cachedId; }
-        }
+        public int Id => cachedId;
 
-        public bool IsHostile
-        {
-            get { return internalEntity.IsHostile; }
-        }
+        public bool IsHostile => internalEntity.IsHostile;
 
         public long LongId { get; private set; }
 
-        public bool IsAlive
-        {
-            get { return GetComponent<Life>().CurHP > 0; }
-        }
+        public bool IsAlive => GetComponent<Life>().CurHP > 0;
 
         public Vector3 Pos
         {

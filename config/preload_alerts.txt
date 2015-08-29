@@ -1,4 +1,3 @@
-
 #Metadata;Text;colour (ARGB)
 #Example Metadata/Chests/StrongBoxes/Strongbox; Strongbox; FFFEC076
 

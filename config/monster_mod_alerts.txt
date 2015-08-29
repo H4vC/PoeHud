@@ -7,20 +7,20 @@
 
 MonsterNemesisUniqueDrop; Inner Treasure nearby;treasure.wav;FF00CC00;treasure.png
 MonsterImplicitNemesisUniqueDrop; Inner Treasure nearby;treasure.wav;FF00CC00;treasure.png
-MonsterAuraPhysicalThorns1; Physical Reflect nearby;;;pReflect.png
-MonsterPhysicalThorns; Physical Reflect nearby;;;pReflect.png
+MonsterAuraPhysicalThorns1; Physical Reflect nearby;danger.wav;;pReflect.png
+MonsterPhysicalThorns; Physical Reflect nearby;danger.wav;;pReflect.png
 MonsterAuraElementalThorns1; Elemental Reflect nearby;danger.wav;;eReflect.png
 MonsterElementalThorns; Elemental Reflect nearby;danger.wav;;eReflect.png
 MonsterNemesisCorruptedBlood; Corrupting Blood nearby;danger.wav;;corrupted.png
 MonsterItems1; Wealth monsters nearby;;FF00CC00;wealth.png
-MonsterExplodesOnDeathFire1; Volatile Flameblood nearby;;;volatile.png
-MonsterExplodesOnDeathLightning1; Volatile Stormblood nearby;;;volatile.png
-MonsterExplodesOnDeathCold1; Volatile Iceblood nearby;;;volatile.png
-MonsterBloodlinesThorns; Thornflesh nearby;;;corrupted.png
-MonsterBloodlinesThornsLargeModel; Thornflesh nearby;;;corrupted.png
-MonsterThornsPhysical1; Physical Reflect nearby;;;pReflect.png
+MonsterExplodesOnDeathFire1; Volatile Flameblood nearby;danger.wav;;volatile.png
+MonsterExplodesOnDeathLightning1; Volatile Stormblood nearby;danger.wav;;volatile.png
+MonsterExplodesOnDeathCold1; Volatile Iceblood nearby;danger.wav;;volatile.png
+MonsterBloodlinesThorns; Thornflesh nearby;danger.wav;;corrupted.png
+MonsterBloodlinesThornsLargeModel; Thornflesh nearby;danger.wav;;corrupted.png
+MonsterThornsPhysical1; Physical Reflect nearby;danger.wav;;pReflect.png
 MonsterThornsElemental1; Elemental Reflect nearby;danger.wav;;eReflect.png
-MonsterThornsPhysical1Large; Physical Reflect nearby;;;pReflect.png
+MonsterThornsPhysical1Large; Physical Reflect nearby;danger.wav;;pReflect.png
 MonsterThornsElemental1Large; Elemental Reflect nearby;danger.wav;;eReflect.png
 
 MonsterBloodlinesDamageCharges; Legacy of Zeal DMG

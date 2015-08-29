@@ -2,9 +2,6 @@ namespace PoeHUD.Poe
 {
     public abstract class Component : RemoteMemoryObject
     {
-        protected Entity Owner
-        {
-            get { return base.ReadObject<Entity>(Address + 4); }
-        }
+        protected Entity Owner => base.ReadObject<Entity>(Address + 4);
     }
 }

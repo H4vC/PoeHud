@@ -15,61 +15,31 @@ namespace PoeHUD.Poe.UI
         // 16 dup <128-bytes structure>
         // then the rest is
 
-        public int vTable
-        {
-            get { return M.ReadInt(Address + 0); }
-        }
+        public int vTable => M.ReadInt(Address + 0);
 
-        public Element Root
-        {
-            get { return base.ReadObject<Element>(Address + 0x5c + OffsetBuffers); }
-        }
+        public Element Root => base.ReadObject<Element>(Address + 0x5c + OffsetBuffers);
 
-        public Element Parent
-        {
-            get { return base.ReadObject<Element>(Address + 0x60 + OffsetBuffers); }
-        }
+        public Element Parent => base.ReadObject<Element>(Address + 0x60 + OffsetBuffers);
 
-        public float X
-        {
-            get { return M.ReadFloat(Address + 0x64 + OffsetBuffers); }
-        }
+        public float X => M.ReadFloat(Address + 0x64 + OffsetBuffers);
 
-        public float Y
-        {
-            get { return M.ReadFloat(Address + 0x68 + OffsetBuffers); }
-        }
+        public float Y => M.ReadFloat(Address + 0x68 + OffsetBuffers);
 
-        public float Width
-        {
-            get { return M.ReadFloat(Address + 0xFC + OffsetBuffers); } 
-        }
+        public float Width => M.ReadFloat(Address + 0xFC + OffsetBuffers);
 
-        public float Height
-        {
-            get { return M.ReadFloat(Address + 0x100 + OffsetBuffers); }
-        }
+        public float Height => M.ReadFloat(Address + 0x100 + OffsetBuffers);
 
-        public int ChildCount
-        {
-            get { return (M.ReadInt(Address + 20 + OffsetBuffers) - M.ReadInt(Address + 16 + OffsetBuffers))/4; } 
-        }
+        public int ChildCount => (M.ReadInt(Address + 20 + OffsetBuffers) - M.ReadInt(Address + 16 + OffsetBuffers))/4;
 
-        public bool IsVisibleLocal
-        {
-            get { return (M.ReadInt(Address + 0x7e0) & 1) == 1; }
-        }
+        public bool IsVisibleLocal => (M.ReadInt(Address + 0x7e0) & 1) == 1;
 
         public bool IsVisible
         {
             get { return IsVisibleLocal && GetParentChain().All(current => current.IsVisibleLocal); }
         }
 
-        public List<Element> Children
-        {
-            get { return GetChildren<Element>(); }
-        }
-        
+        public List<Element> Children => GetChildren<Element>();
+
 
         protected List<T> GetChildren<T> () where T: Element,new()
         {

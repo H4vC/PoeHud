@@ -42,10 +42,7 @@ namespace PoeHUD.Poe.Components
             }
         }
 
-        public Vector3 Pos
-        {
-            get { return new Vector3(X, Y, Z); }
-        }
+        public Vector3 Pos => new Vector3(X, Y, Z);
 
         public string DisplayName
         {
@@ -64,9 +61,6 @@ namespace PoeHUD.Poe.Components
             }
         }
 
-        public int UknownValue
-        {
-            get { return M.ReadInt(Address + 4, 4, 8); }
-        }
+        public int UknownValue => M.ReadInt(Address + 4, 4, 8);
     }
 }

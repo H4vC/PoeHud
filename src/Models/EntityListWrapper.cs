@@ -98,10 +98,7 @@ namespace PoeHUD.Models
                     continue;
                 }
 
-                if (EntityAdded != null)
-                {
-                    EntityAdded(entity);
-                }
+                EntityAdded?.Invoke(entity);
                 newCache.Add(entityAddress, entity);
             }
             RemoveOldEntitiesFromCache();

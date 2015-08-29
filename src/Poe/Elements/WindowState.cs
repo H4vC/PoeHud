@@ -3,12 +3,6 @@
 {
     public class WindowState : Element
     {
-        public bool IsVisibleLocal
-        {
-            get
-            {
-                return M.ReadInt(this.Address + 0x860) == 1;
-            }
-        }
+        public bool IsVisibleLocal => M.ReadInt(this.Address + 0x860) == 1;
     }
 }

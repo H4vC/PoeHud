@@ -14,10 +14,7 @@ namespace PoeHUD.Poe
         public Memory M { get; private set; }
         public int Address { get; private set; }
 
-        private int NumberOfRecords
-        {
-            get { return M.ReadInt(Address + 0x44); }
-        }
+        private int NumberOfRecords => M.ReadInt(Address + 0x44);
 
         protected IEnumerable<int> RecordAddresses()
         {

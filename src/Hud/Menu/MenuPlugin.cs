@@ -91,18 +91,13 @@ namespace PoeHUD.Hud.Menu
             MenuItem enemiesMenu = AddChild(healthMenu, "Enemies", healthBarPlugin.ShowEnemies);
             MenuItem minionsMenu = AddChild(healthMenu, "Minions", healthBarPlugin.Minions.Enable);
             AddChild(healthMenu, "Show ES", healthBarPlugin.ShowES);
-            //AddChild(healthMenu, "Show BK", healthBarPlugin.ShowBK);
             AddChild(healthMenu, "Show increments", healthBarPlugin.ShowIncrements);
             AddChild(healthMenu, "Show in town", healthBarPlugin.ShowInTown);
             MenuItem debuffPanelMenu = AddChild(healthMenu, "Debuff panel", healthBarPlugin.ShowDebuffPanel);
             AddChild(debuffPanelMenu, "Icon size", healthBarPlugin.DebuffPanelIconSize);
-            //AddChild(playersMenu, "HP Color", healthBarPlugin.HpColor);
-            //AddChild(playersMenu, "ES Color", healthBarPlugin.EsColor);
-            //AddChild(playersMenu, "BK color", healthBarPlugin.BkColor);
             AddChild(playersMenu, "Print percents", healthBarPlugin.Players.ShowPercents);
             AddChild(playersMenu, "Print health text", healthBarPlugin.Players.ShowHealthText);
             AddChild(playersMenu, "Width", healthBarPlugin.Players.Width);
-            //AddChild(playersMenu, "ES Width", healthBarPlugin.EsWidth);
             AddChild(playersMenu, "Height", healthBarPlugin.Players.Height);
             AddChild(minionsMenu, "Print percents", healthBarPlugin.Minions.ShowPercents);
             AddChild(minionsMenu, "Print health text", healthBarPlugin.Minions.ShowHealthText);
@@ -232,13 +227,14 @@ namespace PoeHUD.Hud.Menu
 
             // Xph Display
             MenuItem xpRateMenu = AddChild(root, "Experience", settingsHub.XpRateSettings.Enable, "F10");
-            AddChild(xpRateMenu, "Show only area name", settingsHub.XpRateSettings.onlyArea);
+            AddChild(xpRateMenu, "Show only area name", settingsHub.XpRateSettings.OnlyArea);
             AddChild(xpRateMenu, "Font size", settingsHub.XpRateSettings.FontSize);
             AddChild(xpRateMenu, "Fps font color", settingsHub.XpRateSettings.FpsFontColor);
             AddChild(xpRateMenu, "Xph font color", settingsHub.XpRateSettings.XphFontColor);
             AddChild(xpRateMenu, "Area font color", settingsHub.XpRateSettings.AreaFontColor);
             AddChild(xpRateMenu, "Time left color", settingsHub.XpRateSettings.TimeLeftColor);
             AddChild(xpRateMenu, "Timer font color", settingsHub.XpRateSettings.TimerFontColor);
+            AddChild(xpRateMenu, "Ping font color", settingsHub.XpRateSettings.PingFontColor);
             AddChild(xpRateMenu, "Background color", settingsHub.XpRateSettings.BackgroundColor);
             
 
@@ -275,19 +271,20 @@ namespace PoeHUD.Hud.Menu
             AddChild(exiles, "Wilorin Demontamer", settingsHub.PreloadAlertSettings.WilorinDemontamer);
             AddChild(exiles, "Augustina Solaria", settingsHub.PreloadAlertSettings.AugustinaSolaria);
 
-            var strongboxes = AddChild(preloadMenu, "Strongboxes", settingsHub.PreloadAlertSettings.EnableStrongboxes);
-            AddChild(strongboxes, "Arcanist", settingsHub.PreloadAlertSettings.ArcanistStrongbox);
-            AddChild(strongboxes, "Artisan", settingsHub.PreloadAlertSettings.ArtisanStrongbox);
-            AddChild(strongboxes, "Cartograph", settingsHub.PreloadAlertSettings.CartographerStrongbox);
-            AddChild(strongboxes, "Gemcutter", settingsHub.PreloadAlertSettings.GemcutterStrongbox);
-            AddChild(strongboxes, "Jeweller", settingsHub.PreloadAlertSettings.JewellerStrongbox);
-            AddChild(strongboxes, "Blacksmith", settingsHub.PreloadAlertSettings.BlacksmithStrongbox);
-            AddChild(strongboxes, "Armourer", settingsHub.PreloadAlertSettings.ArmourerStrongbox);
-            AddChild(strongboxes, "Ornate", settingsHub.PreloadAlertSettings.OrnateStrongbox);
-            AddChild(strongboxes, "Large", settingsHub.PreloadAlertSettings.LargeStrongbox);
-            AddChild(strongboxes, "Perandus", settingsHub.PreloadAlertSettings.PerandusStrongbox);
-            AddChild(strongboxes, "Kaom", settingsHub.PreloadAlertSettings.KaomStrongbox);
-            AddChild(strongboxes, "Malachai", settingsHub.PreloadAlertSettings.MalachaiStrongbox);
+            //var strongboxes = AddChild(preloadMenu, "Strongboxes", settingsHub.PreloadAlertSettings.EnableStrongboxes);
+            //AddChild(strongboxes, "Arcanist", settingsHub.PreloadAlertSettings.ArcanistStrongbox);
+            //AddChild(strongboxes, "Artisan", settingsHub.PreloadAlertSettings.ArtisanStrongbox);
+            //AddChild(strongboxes, "Cartographer", settingsHub.PreloadAlertSettings.CartographerStrongbox);
+            //AddChild(strongboxes, "Gemcutter", settingsHub.PreloadAlertSettings.GemcutterStrongbox);
+            //AddChild(strongboxes, "Jeweller", settingsHub.PreloadAlertSettings.JewellerStrongbox);
+            //AddChild(strongboxes, "Blacksmith", settingsHub.PreloadAlertSettings.BlacksmithStrongbox);
+            //AddChild(strongboxes, "Armourer", settingsHub.PreloadAlertSettings.ArmourerStrongbox);
+            //AddChild(strongboxes, "Ornate", settingsHub.PreloadAlertSettings.OrnateStrongbox);
+            //AddChild(strongboxes, "Large", settingsHub.PreloadAlertSettings.LargeStrongbox);
+            //AddChild(strongboxes, "Perandus", settingsHub.PreloadAlertSettings.PerandusStrongbox);
+            //AddChild(strongboxes, "Kaom", settingsHub.PreloadAlertSettings.KaomStrongbox);
+            //AddChild(strongboxes, "Malachai", settingsHub.PreloadAlertSettings.MalachaiStrongbox);
+            //AddChild(strongboxes, "Simple", settingsHub.PreloadAlertSettings.SimpleStrongbox);
 
             AddChild(preloadMenu, "Corrupted color", settingsHub.PreloadAlertSettings.CorruptedColor);
             AddChild(preloadMenu, "Background color", settingsHub.PreloadAlertSettings.BackgroundColor);

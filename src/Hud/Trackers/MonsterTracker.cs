@@ -19,6 +19,7 @@ namespace PoeHUD.Hud.Trackers
         private readonly Dictionary<EntityWrapper, MonsterConfigLine> alertTexts;
         private readonly Dictionary<MonsterRarity, Func<EntityWrapper, Func<string, string>, CreatureMapIcon>> iconCreators;
         private readonly Dictionary<string, MonsterConfigLine> modAlerts, typeAlerts;
+
         public MonsterTracker(GameController gameController, Graphics graphics, MonsterTrackerSettings settings)
             : base(gameController, graphics, settings)
         {
@@ -179,12 +180,10 @@ namespace PoeHUD.Hud.Trackers
 
         private void PlaySound(IEntity entity, string soundFile)
         {
-            if (Settings.PlaySound && !alreadyAlertedOf.Contains(entity.Id))
-            {
-                if (!string.IsNullOrEmpty(soundFile))
-                    Sounds.GetSound(soundFile).Play();
-                alreadyAlertedOf.Add(entity.Id);
-            }
+            if (!Settings.PlaySound || alreadyAlertedOf.Contains(entity.Id)) return;
+            if (!string.IsNullOrEmpty(soundFile))
+                Sounds.GetSound(soundFile).Play();
+            alreadyAlertedOf.Add(entity.Id);
         }
     }
 }

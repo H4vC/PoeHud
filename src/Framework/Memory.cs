@@ -72,12 +72,7 @@ namespace PoeHUD.Framework
         public int ReadInt(int addr, params int[] offsets)
         {
             int num = ReadInt(addr);
-            for (int i = 0; i < offsets.Length; i++)
-            {
-                int num2 = offsets[i];
-                num = ReadInt(num + num2);
-            }
-            return num;
+            return offsets.Aggregate(num, (current, num2) => ReadInt(current + num2));
         }
 
         public float ReadFloat(int addr)

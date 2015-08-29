@@ -27,20 +27,11 @@ namespace PoeHUD.Controllers
 
         public Memory Memory { get; private set; }
 
-        public IEnumerable<EntityWrapper> Entities
-        {
-            get { return EntityListWrapper.Entities; }
-        }
+        public IEnumerable<EntityWrapper> Entities => EntityListWrapper.Entities;
 
-        public EntityWrapper Player
-        {
-            get { return EntityListWrapper.Player; }
-        }
+        public EntityWrapper Player => EntityListWrapper.Player;
 
-        public bool InGame
-        {
-            get { return Game.IngameState.InGame; }
-        }
+        public bool InGame => Game.IngameState.InGame;
 
         public FsController Files { get; private set; }
 

@@ -11,12 +11,12 @@ namespace PoeHUD.Hud.Trackers
             Enable = true;
             Monsters = true;
             Minions = true;
-            PlaySound = false;
+            PlaySound = true;
             ShowText = true;
-            TextSize = new RangeNode<int>(27, 10, 50);
-            BackgroundColor = new ColorBGRA(0, 0, 0, 128);
+            TextSize = new RangeNode<int>(20, 10, 50);
+            BackgroundColor = new ColorBGRA(255, 255, 255, 255);
             TextPositionX = new RangeNode<int>(50, 0, 100);
-            TextPositionY = new RangeNode<int>(15, 0, 100);
+            TextPositionY = new RangeNode<int>(85, 0, 100);
             DefaultTextColor = Color.Red;
         }
 

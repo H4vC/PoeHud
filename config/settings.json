@@ -5,7 +5,7 @@
     "X": 10.0,
     "Y": 100.0,
     "ShowIncrements": true,
-    "TitleFontColor": "c86400ff",
+    "TitleFontColor": "f27900ff",
     "EnabledBoxColor": "808080ff",
     "DisabledBoxColor": "dc143cff",
     "MenuFontColor": "fec076ff",
@@ -194,22 +194,22 @@
     "Enable": true,
     "Monsters": true,
     "Minions": true,
-    "PlaySound": false,
+    "PlaySound": true,
     "ShowText": true,
     "TextSize": {
-      "Value": 27,
+      "Value": 20,
       "Min": 10,
       "Max": 50
     },
     "DefaultTextColor": "ff0000ff",
-    "BackgroundColor": "00000080",
+    "BackgroundColor": "ffffffff",
     "TextPositionX": {
       "Value": 50,
       "Min": 0,
       "Max": 100
     },
     "TextPositionY": {
-      "Value": 15,
+      "Value": 85,
       "Min": 0,
       "Max": 100
     }
@@ -246,13 +246,14 @@
     "CartographerStrongbox": "ff00ffff",
     "GemcutterStrongbox": "1ba29bff",
     "JewellerStrongbox": "fec076ff",
-    "BlacksmithStrongbox": "fec076ff",
-    "ArmourerStrongbox": "fec076ff",
-    "OrnateStrongbox": "fec076ff",
-    "LargeStrongbox": "fec076ff",
-    "PerandusStrongbox": "af6025ff",
-    "KaomStrongbox": "af6025ff",
-    "MalachaiStrongbox": "af6025ff",
+    "BlacksmithStrongbox": "c0c0c0ff",
+    "ArmourerStrongbox": "c0c0c0ff",
+    "OrnateStrongbox": "c0c0c0ff",
+    "LargeStrongbox": "c0c0c0ff",
+    "PerandusStrongbox": "c0c0c0ff",
+    "KaomStrongbox": "c0c0c0ff",
+    "MalachaiStrongbox": "c0c0c0ff",
+    "SimpleStrongbox": "c0c0c0ff",
     "OrraGreengate": "fec076ff",
     "ThenaMoga": "fec076ff",
     "AntalieNapora": "fec076ff",
@@ -285,8 +286,9 @@
     "AreaFontColor": "8cc8ffff",
     "XphFontColor": "fec076ff",
     "TimeLeftColor": "fec076ff",
-    "FpsFontColor": "8cc8ffff",
-    "TimerFontColor": "8cc8ffff"
+    "FpsFontColor": "fec076ff",
+    "TimerFontColor": "fec076ff",
+    "PingFontColor": "fec076ff"
   },
   "Health bar": {
     "Enable": false,

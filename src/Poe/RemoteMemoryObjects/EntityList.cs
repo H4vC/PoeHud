@@ -7,10 +7,7 @@ namespace PoeHUD.Poe.RemoteMemoryObjects
     public  class EntityList : RemoteMemoryObject
     {
         
-        public List<Entity> Entities
-        {
-            get { return EntitiesAsDictionary.Values.ToList(); }
-        }
+        public List<Entity> Entities => EntitiesAsDictionary.Values.ToList();
 
         public Dictionary<int, Entity> EntitiesAsDictionary
         {

@@ -9,7 +9,6 @@ namespace PoeHUD.Poe.RemoteMemoryObjects
         public int Act => M.ReadInt(Address + 8);
 
         public bool IsTown => (M.ReadInt(Address + 12) & 1) == 1;
-        //public bool IsHideout => (M.ReadInt(Address + 12) & 1) == 1;
 
         public bool HasWaypoint => (M.ReadInt(Address + 13) & 1) == 1;
 

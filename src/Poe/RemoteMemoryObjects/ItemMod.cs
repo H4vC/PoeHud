@@ -6,25 +6,13 @@ namespace PoeHUD.Poe.RemoteMemoryObjects
         private string name;
         private string rawName;
 
-        public int Value1
-        {
-            get { return M.ReadInt(Address, 0); }
-        }
+        public int Value1 => M.ReadInt(Address, 0);
 
-        public int Value2
-        {
-            get { return M.ReadInt(Address, 4); }
-        }
+        public int Value2 => M.ReadInt(Address, 4);
 
-        public int Value3
-        {
-            get { return M.ReadInt(Address, 8); }
-        }
+        public int Value3 => M.ReadInt(Address, 8);
 
-        public int Value4
-        {
-            get { return M.ReadInt(Address, 12); }
-        }
+        public int Value4 => M.ReadInt(Address, 12);
 
         public string RawName
         {

@@ -26,10 +26,15 @@ namespace PoeHUD.Framework
         private String StartProcessAndWait(string filename, string arguments, int seconds, ref Boolean bExited)
         {
             String msg = String.Empty;
-            Process p = new Process();
-            p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
-            p.StartInfo.FileName = filename;
-            p.StartInfo.Arguments = arguments;
+            Process p = new Process
+            {
+                StartInfo =
+                {
+                    WindowStyle = ProcessWindowStyle.Minimized,
+                    FileName = filename,
+                    Arguments = arguments
+                }
+            };
             p.Start();
 
             bExited = false;
