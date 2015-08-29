@@ -303,12 +303,12 @@ namespace PoeHUD.Hud.Menu
             AddChild(showDpsMenu, "Top dps font color", settingsHub.DpsMeterSettings.PeakFontColor);
 
             // Show monster kills
-            MenuItem showMonsterKillsMenu = AddChild(root, "Monster kills", settingsHub.KillsCounterSettings.Enable);
-            AddChild(showMonsterKillsMenu, "Show details", settingsHub.KillsCounterSettings.ShowDetail);
-            AddChild(showMonsterKillsMenu, "Font color", settingsHub.KillsCounterSettings.FontColor);
-            AddChild(showMonsterKillsMenu, "Background color", settingsHub.KillsCounterSettings.BackgroundColor);
-            AddChild(showMonsterKillsMenu, "Label font size", settingsHub.KillsCounterSettings.LabelFontSize);
-            AddChild(showMonsterKillsMenu, "Kills font size", settingsHub.KillsCounterSettings.KillsFontSize);
+            MenuItem showMonsterKillsMenu = AddChild(root, "Monster kills", settingsHub.KillCounterSettings.Enable);
+            AddChild(showMonsterKillsMenu, "Show details", settingsHub.KillCounterSettings.ShowDetail);
+            AddChild(showMonsterKillsMenu, "Font color", settingsHub.KillCounterSettings.FontColor);
+            AddChild(showMonsterKillsMenu, "Background color", settingsHub.KillCounterSettings.BackgroundColor);
+            AddChild(showMonsterKillsMenu, "Label font size", settingsHub.KillCounterSettings.LabelFontSize);
+            AddChild(showMonsterKillsMenu, "Kills font size", settingsHub.KillCounterSettings.KillsFontSize);
 
             // Show inventory preview
             MenuItem showInventoryPreviewMenu = AddChild(root, "Inventory preview", settingsHub.InventoryPreviewSettings.Enable);

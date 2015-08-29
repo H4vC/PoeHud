@@ -1,0 +1,506 @@
+{
+  "Menu": null,
+  "Menu Settings": {
+    "Enable": true,
+    "X": 10.0,
+    "Y": 100.0,
+    "ShowIncrements": true,
+    "TitleFontColor": "c86400ff",
+    "EnabledBoxColor": "808080ff",
+    "DisabledBoxColor": "dc143cff",
+    "MenuFontColor": "fec076ff",
+    "SliderColor": "808080ff",
+    "BackgroundColor": "ffffffdc",
+    "TitleFontSize": {
+      "Value": 16,
+      "Min": 10,
+      "Max": 20
+    },
+    "MenuFontSize": {
+      "Value": 16,
+      "Min": 10,
+      "Max": 20
+    },
+    "PickerFontSize": {
+      "Value": 16,
+      "Min": 10,
+      "Max": 20
+    }
+  },
+  "DPS meter": {
+    "Enable": false,
+    "DpsTextSize": {
+      "Value": 16,
+      "Min": 10,
+      "Max": 20
+    },
+    "PeakDpsTextSize": {
+      "Value": 16,
+      "Min": 10,
+      "Max": 20
+    },
+    "DpsFontColor": "fec076ff",
+    "PeakFontColor": "fec076ff",
+    "BackgroundColor": "ffffffff"
+  },
+  "Map icons": {
+    "Enable": true,
+    "IconsOnMinimap": true,
+    "IconsOnLargeMap": true
+  },
+  "Item alert": {
+    "Enable": true,
+    "ScrollsColor": "aa9e82ff",
+    "BackgroundColor": "000000b4",
+    "FrameExaltedColor": "dc0000ff",
+    "ExaltedColor": "dc0000ff",
+    "FrameJewelsColor": "4ae63aff",
+    "JewelsColor": "99ff99ff",
+    "FrameCardsColor": "dc0000ff",
+    "CardsColor": "dc0000ff",
+    "FrameCurrencyColor": "990099ff",
+    "CurrencyColor": "aa9e82ff",
+    "FrameMapsColor": "deb887ff",
+    "MapsColor": "deb887ff",
+    "FrameRGBColor": "dc0000ff",
+    "RGBColor": "ffffffff",
+    "FrameCraftingColor": "0096e1ff",
+    "CraftingColor": "ffffe1ff",
+    "FrameSocketsColor": "4ae63aff",
+    "SocketsColor": "32ff00ff",
+    "FrameLinkedColor": "1e90ffff",
+    "LinkedColor": "1e90ffff",
+    "FrameChaosColor": "aa00aaff",
+    "ChaosColor": "dc00dcff",
+    "ShowItemOnMap": true,
+    "ShowScrolls": true,
+    "Crafting": true,
+    "ShowText": true,
+    "HideOthers": false,
+    "PlaySound": true,
+    "TextSize": {
+      "Value": 16,
+      "Min": 10,
+      "Max": 20
+    },
+    "Rares": true,
+    "Uniques": true,
+    "Maps": true,
+    "Currency": true,
+    "Jewels": true,
+    "Cards": true,
+    "Chaos": true,
+    "Exalted": true,
+    "RGB": true,
+    "MinLinks": {
+      "Value": 5,
+      "Min": 0,
+      "Max": 6
+    },
+    "Linked": true,
+    "MinSockets": {
+      "Value": 6,
+      "Min": 0,
+      "Max": 6
+    },
+    "Sockets": true,
+    "Show quality items": {
+      "Enable": true,
+      "Weapon": {
+        "Enable": false,
+        "MinQuality": {
+          "Value": 12,
+          "Min": 0,
+          "Max": 20
+        }
+      },
+      "Armour": {
+        "Enable": false,
+        "MinQuality": {
+          "Value": 12,
+          "Min": 0,
+          "Max": 20
+        }
+      },
+      "Flask": {
+        "Enable": false,
+        "MinQuality": {
+          "Value": 10,
+          "Min": 0,
+          "Max": 20
+        }
+      },
+      "SkillGem": {
+        "Enable": true,
+        "MinQuality": {
+          "Value": 0,
+          "Min": 0,
+          "Max": 20
+        }
+      }
+    },
+    "BorderSettings": {
+      "Enable": false,
+      "BorderColor": "0bb252ff",
+      "CantPickUpBorderColor": "ff0000ff",
+      "NotMyItemBorderColor": "ffff00ff",
+      "ShowTimer": true,
+      "BorderWidth": {
+        "Value": 1,
+        "Min": 1,
+        "Max": 10
+      },
+      "TimerTextSize": {
+        "Value": 10,
+        "Min": 8,
+        "Max": 40
+      }
+    }
+  },
+  "Advanced tooltip": {
+    "Enable": true,
+    "Item level": {
+      "Enable": true,
+      "TextSize": {
+        "Value": 15,
+        "Min": 10,
+        "Max": 50
+      }
+    },
+    "Item mods": {
+      "Enable": false,
+      "ModTextSize": {
+        "Value": 13,
+        "Min": 10,
+        "Max": 50
+      },
+      "BackgroundColor": "000000dc"
+    },
+    "Weapon DPS": {
+      "Enable": true,
+      "FontColor": "fec076ff",
+      "FontSize": {
+        "Value": 13,
+        "Min": 10,
+        "Max": 50
+      },
+      "DamageFontSize": {
+        "Value": 20,
+        "Min": 10,
+        "Max": 50
+      }
+    }
+  },
+  "Monster tracker": {
+    "Enable": true,
+    "Monsters": true,
+    "Minions": true,
+    "PlaySound": true,
+    "ShowText": true,
+    "TextSize": {
+      "Value": 20,
+      "Min": 10,
+      "Max": 50
+    },
+    "DefaultTextColor": "ff0000ff",
+    "BackgroundColor": "ffffffff",
+    "TextPositionX": {
+      "Value": 50,
+      "Min": 0,
+      "Max": 100
+    },
+    "TextPositionY": {
+      "Value": 85,
+      "Min": 0,
+      "Max": 100
+    }
+  },
+  "Poi tracker": {
+    "Enable": true,
+    "Masters": true,
+    "Strongboxes": true,
+    "Chests": true
+  },
+  "Preload alert": {
+    "Enable": true,
+    "Masters": true,
+    "Exiles": true,
+    "Strongboxes": true,
+    "FontSize": {
+      "Value": 16,
+      "Min": 10,
+      "Max": 20
+    },
+    "BackgroundColor": "ffffffdc",
+    "DefaultFontColor": "fec076ff",
+    "CorruptedColor": "ff0000ff",
+    "MasterZana": "ffff00ff",
+    "MasterCatarina": "fec076ff",
+    "MasterTora": "fec076ff",
+    "MasterVorici": "fec076ff",
+    "MasterHaku": "fec076ff",
+    "MasterElreon": "fec076ff",
+    "MasterVagan": "fec076ff",
+    "MasterKrillson": "f000f0ff",
+    "ArcanistStrongbox": "ff00ffff",
+    "ArtisanStrongbox": "00ff00ff",
+    "CartographerStrongbox": "ff00ffff",
+    "GemcutterStrongbox": "1ba29bff",
+    "JewellerStrongbox": "fec076ff",
+    "BlacksmithStrongbox": "fec076ff",
+    "ArmourerStrongbox": "fec076ff",
+    "OrnateStrongbox": "fec076ff",
+    "LargeStrongbox": "fec076ff",
+    "PerandusStrongbox": "af6025ff",
+    "KaomStrongbox": "af6025ff",
+    "MalachaiStrongbox": "af6025ff",
+    "EpicStrongbox": "af6025ff",
+    "SimpleStrongbox": "fec076ff",
+    "OrraGreengate": "fec076ff",
+    "ThenaMoga": "fec076ff",
+    "AntalieNapora": "fec076ff",
+    "TorrOlgosso": "fec076ff",
+    "ArmiosBell": "fec076ff",
+    "ZacharieDesmarais": "fec076ff",
+    "MinaraAnenima": "fec076ff",
+    "IgnaPhoenix": "fec076ff",
+    "JonahUnchained": "fec076ff",
+    "DamoiTui": "fec076ff",
+    "XandroBlooddrinker": "fec076ff",
+    "VickasGiantbone": "fec076ff",
+    "EoinGreyfur": "fec076ff",
+    "TinevinHighdove": "fec076ff",
+    "MagnusStonethorn": "fec076ff",
+    "IonDarkshroud": "fec076ff",
+    "AshLessard": "fec076ff",
+    "WilorinDemontamer": "fec076ff",
+    "AugustinaSolaria": "fec076ff"
+  },
+  "XP per hour": {
+    "Enable": true,
+    "OnlyArea": false,
+    "FontSize": {
+      "Value": 16,
+      "Min": 10,
+      "Max": 20
+    },
+    "BackgroundColor": "ffffffff",
+    "AreaFontColor": "8cc8ffff",
+    "XphFontColor": "fec076ff",
+    "TimeLeftColor": "fec076ff",
+    "FpsFontColor": "fec076ff",
+    "TimerFontColor": "fec076ff",
+    "PingFontColor": "fec076ff"
+  },
+  "Health bar": {
+    "Enable": true,
+    "ShowInTown": true,
+    "ShowES": true,
+    "ShowIncrements": true,
+    "ShowEnemies": true,
+    "Players": {
+      "Enable": true,
+      "Width": {
+        "Value": 160.0,
+        "Min": 50.0,
+        "Max": 180.0
+      },
+      "Height": {
+        "Value": 20.0,
+        "Min": 10.0,
+        "Max": 50.0
+      },
+      "Color": "008000ff",
+      "Outline": "00000000",
+      "Under10Percent": "ffffffff",
+      "PercentTextColor": "ffffffff",
+      "HealthTextColor": "ffffffff",
+      "HealthTextColorUnder10Percent": "ffff00ff",
+      "ShowPercents": false,
+      "ShowHealthText": false,
+      "TextSize": {
+        "Value": 15,
+        "Min": 10,
+        "Max": 50
+      }
+    },
+    "Minions": {
+      "Enable": false,
+      "Width": {
+        "Value": 140.0,
+        "Min": 50.0,
+        "Max": 180.0
+      },
+      "Height": {
+        "Value": 20.0,
+        "Min": 10.0,
+        "Max": 50.0
+      },
+      "Color": "90ee90ff",
+      "Outline": "00000000",
+      "Under10Percent": "ffffffff",
+      "PercentTextColor": "ffffffff",
+      "HealthTextColor": "ffffffff",
+      "HealthTextColorUnder10Percent": "ffff00ff",
+      "ShowPercents": false,
+      "ShowHealthText": false,
+      "TextSize": {
+        "Value": 15,
+        "Min": 10,
+        "Max": 50
+      }
+    },
+    "NormalEnemy": {
+      "Enable": false,
+      "Width": {
+        "Value": 140.0,
+        "Min": 50.0,
+        "Max": 180.0
+      },
+      "Height": {
+        "Value": 20.0,
+        "Min": 10.0,
+        "Max": 50.0
+      },
+      "Color": "ff0000ff",
+      "Outline": "00000000",
+      "Under10Percent": "ffffffff",
+      "PercentTextColor": "66ff66ff",
+      "HealthTextColor": "ffffffff",
+      "HealthTextColorUnder10Percent": "ffff00ff",
+      "ShowPercents": false,
+      "ShowHealthText": false,
+      "TextSize": {
+        "Value": 15,
+        "Min": 10,
+        "Max": 50
+      }
+    },
+    "MagicEnemy": {
+      "Enable": false,
+      "Width": {
+        "Value": 140.0,
+        "Min": 50.0,
+        "Max": 180.0
+      },
+      "Height": {
+        "Value": 20.0,
+        "Min": 10.0,
+        "Max": 50.0
+      },
+      "Color": "ff0000ff",
+      "Outline": "8888ffff",
+      "Under10Percent": "ffffffff",
+      "PercentTextColor": "66ff99ff",
+      "HealthTextColor": "ffffffff",
+      "HealthTextColorUnder10Percent": "ffff00ff",
+      "ShowPercents": false,
+      "ShowHealthText": false,
+      "TextSize": {
+        "Value": 15,
+        "Min": 10,
+        "Max": 50
+      }
+    },
+    "RareEnemy": {
+      "Enable": true,
+      "Width": {
+        "Value": 160.0,
+        "Min": 50.0,
+        "Max": 180.0
+      },
+      "Height": {
+        "Value": 20.0,
+        "Min": 10.0,
+        "Max": 50.0
+      },
+      "Color": "ff0000ff",
+      "Outline": "ffff77ff",
+      "Under10Percent": "ffffffff",
+      "PercentTextColor": "66ff99ff",
+      "HealthTextColor": "ffffffff",
+      "HealthTextColorUnder10Percent": "ffff00ff",
+      "ShowPercents": false,
+      "ShowHealthText": false,
+      "TextSize": {
+        "Value": 15,
+        "Min": 10,
+        "Max": 50
+      }
+    },
+    "UniqueEnemy": {
+      "Enable": true,
+      "Width": {
+        "Value": 180.0,
+        "Min": 50.0,
+        "Max": 180.0
+      },
+      "Height": {
+        "Value": 20.0,
+        "Min": 10.0,
+        "Max": 50.0
+      },
+      "Color": "ff0000ff",
+      "Outline": "ffa500ff",
+      "Under10Percent": "ffffffff",
+      "PercentTextColor": "66ff99ff",
+      "HealthTextColor": "ffffffff",
+      "HealthTextColorUnder10Percent": "ffff00ff",
+      "ShowPercents": false,
+      "ShowHealthText": false,
+      "TextSize": {
+        "Value": 15,
+        "Min": 10,
+        "Max": 50
+      }
+    },
+    "ShowDebuffPanel": true,
+    "DebuffPanelIconSize": {
+      "Value": 20,
+      "Min": 15,
+      "Max": 40
+    }
+  },
+  "Inventory preview": {
+    "Enable": false,
+    "AutoUpdate": true,
+    "CellUsedColor": "808080dc",
+    "CellFreeColor": "a0dca0ff",
+    "CellSize": {
+      "Value": 20,
+      "Min": 1,
+      "Max": 100
+    },
+    "CellPadding": {
+      "Value": 0,
+      "Min": 0,
+      "Max": 10
+    },
+    "PositionX": {
+      "Value": 13.0,
+      "Min": 0.0,
+      "Max": 100.0
+    },
+    "PositionY": {
+      "Value": 77.0,
+      "Min": 0.0,
+      "Max": 100.0
+    }
+  },
+  "Kills Counter": {
+    "Enable": false,
+    "ShowDetail": true,
+    "FontColor": "fec076ff",
+    "BackgroundColor": "ffffffff",
+    "LabelFontSize": {
+      "Value": 16,
+      "Min": 10,
+      "Max": 20
+    },
+    "KillsFontSize": {
+      "Value": 16,
+      "Min": 10,
+      "Max": 20
+    }
+  }
+}

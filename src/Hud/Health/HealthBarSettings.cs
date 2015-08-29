@@ -21,29 +21,18 @@ namespace PoeHUD.Hud.Health
             ShowDebuffPanel = true;
             DebuffPanelIconSize = new RangeNode<int>(20, 15, 40);
         }
+
         public ToggleNode ShowInTown { get; set; }
-
         public ToggleNode ShowES { get; set; }
-
         public ToggleNode ShowIncrements { get; set; }
-
         public ToggleNode ShowEnemies { get; set; }
-
         public UnitSettings Players { get; set; }
-
         public UnitSettings Minions { get; set; }
-
         public UnitSettings NormalEnemy { get; set; }
-
         public UnitSettings MagicEnemy { get; set; }
-
         public UnitSettings RareEnemy { get; set; }
-
         public UnitSettings UniqueEnemy { get; set; }
-
         public ToggleNode ShowDebuffPanel { get; set; }
-
         public RangeNode<int> DebuffPanelIconSize { get; set; }
-
     }
 }

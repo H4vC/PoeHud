@@ -11,16 +11,16 @@ using PoeHUD.Poe.Components;
 using SharpDX;
 using SharpDX.Direct3D9;
 
-namespace PoeHUD.Hud.KC
+namespace PoeHUD.Hud.KillCounter
 {
-    public class KillsCounterPlugin : SizedPlugin<KillCounterSettings>
+    public class KillCounterPlugin : SizedPlugin<KillCounterSettings>
     {
         private readonly HashSet<EntityWrapper> aliveEntities;
         private readonly HashSet<long> countedIds;
         private readonly Dictionary<MonsterRarity, int> counters;
         private int summaryCounter;
 
-        public KillsCounterPlugin(GameController gameController, Graphics graphics, KillCounterSettings settings, SettingsHub settingsHub)
+        public KillCounterPlugin(GameController gameController, Graphics graphics, KillCounterSettings settings, SettingsHub settingsHub)
             : base(gameController, graphics, settings, settingsHub)
         {
             aliveEntities = new HashSet<EntityWrapper>();

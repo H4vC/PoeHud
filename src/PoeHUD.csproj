@@ -128,8 +128,8 @@
     <Compile Include="Hud\InventoryPreview\InventoryPreviewPlugin.cs" />
     <Compile Include="Hud\ItemCounterPlugin.cs" />
     <Compile Include="Hud\ItemCounterSettings.cs" />
-    <Compile Include="Hud\KC\KillCounterSettings.cs" />
-    <Compile Include="Hud\KC\KillsCounterPlugin.cs" />
+    <Compile Include="Hud\KillCounter\KillCounterSettings.cs" />
+    <Compile Include="Hud\KillCounter\KillCounterPlugin.cs" />
     <Compile Include="Hud\Loot\BorderSettings.cs" />
     <Compile Include="Hud\Loot\ItemAlertSettings.cs" />
     <Compile Include="Hud\AdvancedTooltip\ItemLevelSettings.cs" />

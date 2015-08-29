@@ -30,18 +30,16 @@ namespace PoeHUD.Hud.UI.Renderers
 
         public Size2 DrawText(string text, string fontName, int height, Vector2 position, Color color, FontDrawFlags align)
         {
-            Font font;
-            Rectangle fontDimension;
             try
             {
-                font = GetFont(fontName, height);
+                var font = GetFont(fontName, height);
                 var rectangle = new Rectangle((int)position.X, (int)position.Y, 0, 0);
-                fontDimension = font.MeasureText(null, text, rectangle, align);
+                var fontDimension = font.MeasureText(null, text, rectangle, align);
                 if (!sprite.IsDisposed)
                     font.DrawText(sprite, text, fontDimension, align, color);
                 return new Size2(fontDimension.Width, fontDimension.Height);
             }
-            catch (Exception exception)
+            catch (Exception)
             {
                 //Console.WriteLine("Exception! X: " + position.X + ", Y: " + position.Y + ", Text: " + text);
                 //Console.WriteLine(exception.StackTrace);
@@ -56,8 +54,14 @@ namespace PoeHUD.Hud.UI.Renderers
 
         public void Flush()
         {
-            fonts.ForEach((key, font) => font.Dispose());
-            fonts.Clear();
+            lock (fonts)
+            {
+                fonts.ForEach((key, font) => font.Dispose());
+            }
+            lock (fonts)
+            {
+                fonts.Clear();
+            }
         }
 
         public Size2 MeasureText(string text, string fontName, int height, FontDrawFlags align)

@@ -12,7 +12,7 @@ using PoeHUD.Hud.Health;
 using PoeHUD.Hud.Icons;
 using PoeHUD.Hud.Interfaces;
 using PoeHUD.Hud.InventoryPreview;
-using PoeHUD.Hud.KC;
+using PoeHUD.Hud.KillCounter;
 using PoeHUD.Hud.Loot;
 using PoeHUD.Hud.Menu;
 using PoeHUD.Hud.Preload;
@@ -161,7 +161,7 @@ namespace PoeHUD.Hud
             leftPanel.AddChildren(new XpRatePlugin(gameController, graphics, settings.XpRateSettings, settings));
             leftPanel.AddChildren(new PreloadAlertPlugin(gameController, graphics, settings.PreloadAlertSettings, settings));
             leftPanel.AddChildren(new DpsMeterPlugin(gameController, graphics, settings.DpsMeterSettings, settings));
-            leftPanel.AddChildren(new KillsCounterPlugin(gameController, graphics, settings.KillsCounterSettings, settings));
+            leftPanel.AddChildren(new KillCounterPlugin(gameController, graphics, settings.KillCounterSettings, settings));
             var horizontalPanel = new PluginPanel(Direction.Left);
             leftPanel.AddChildren(horizontalPanel);
             plugins.AddRange(leftPanel.GetPlugins());

@@ -1,17 +1,16 @@
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
 using Newtonsoft.Json;
 using PoeHUD.Controllers;
 using PoeHUD.Framework.Helpers;
 using PoeHUD.Models;
 using PoeHUD.Poe.Components;
 using PoeHUD.Poe.RemoteMemoryObjects;
-
 using SharpDX;
 using SharpDX.Direct3D9;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Threading.Tasks;
 using Color = SharpDX.Color;
 using Graphics = PoeHUD.Hud.UI.Graphics;
 using RectangleF = SharpDX.RectangleF;
@@ -21,7 +20,8 @@ namespace PoeHUD.Hud.Health
     public class HealthBarPlugin : Plugin<HealthBarSettings>
     {
         private readonly Dictionary<CreatureType, List<HealthBar>> healthBars;
-        private DebuffPanelConfig debuffPanelConfig;
+        private readonly DebuffPanelConfig debuffPanelConfig;
+
         public HealthBarPlugin(GameController gameController, Graphics graphics, HealthBarSettings settings)
             : base(gameController, graphics, settings)
         {
@@ -34,7 +34,6 @@ namespace PoeHUD.Hud.Health
 
             string json = File.ReadAllText("config/debuffPanel.json");
             debuffPanelConfig = JsonConvert.DeserializeObject<DebuffPanelConfig>(json);
-
         }
 
         public override void Render()
@@ -56,7 +55,6 @@ namespace PoeHUD.Hud.Health
                 Vector2 mobScreenCoords = camera.WorldToScreen(worldCoords.Translate(0, 0, -170), healthBar.Entity);
                 if (mobScreenCoords != new Vector2())
                 {
-
                     /**
                      * Render the health bar including the colours showing the proportion of life lost,
                     * and the flat numbers which overlay it.
@@ -179,12 +177,11 @@ namespace PoeHUD.Hud.Health
             }
         }
 
-
-
         /**
-		 * Draw actual life amount over the life bar. Numbers over 1000 are 
+		 * Draw actual life amount over the life bar. Numbers over 1000 are
 		 * truncated to 1k
 		 */
+
         private float DrawFlatLifeAmount(Life life, float hpPercent,
             UnitSettings settings, RectangleF bg)
         {
@@ -195,7 +192,7 @@ namespace PoeHUD.Hud.Health
 
             string curHp = ConvertHelper.ToShorten(life.CurHP);
             string maxHp = ConvertHelper.ToShorten(life.MaxHP);
-            string text = string.Format("{0}/{1}", curHp, maxHp);
+            string text = $"{curHp}/{maxHp}";
             Color color = hpPercent <= 0.1f ? settings.HealthTextColorUnder10Percent :
                 settings.HealthTextColor;
             var position = new Vector2(bg.X + bg.Width / 2, bg.Y);
@@ -208,22 +205,21 @@ namespace PoeHUD.Hud.Health
 		 * I didn't bother to have ES change colour as it gets low, sorry CI
 		 * players!
 		 */
-        private float DrawFlatESAmount(Life life, UnitSettings settings,
-            RectangleF bg)
+
+        private void DrawFlatESAmount(Life life, UnitSettings settings, RectangleF bg)
         {
-            if (!settings.ShowHealthText || (int)life.MaxES == 0)
+            if (!settings.ShowHealthText || life.MaxES == 0)
             {
-                return bg.Y;
+                return;
             }
 
             string curES = ConvertHelper.ToShorten(life.CurES);
             string maxES = ConvertHelper.ToShorten(life.MaxES);
-            string text = string.Format("{0}/{1}", curES, maxES);
+            string text = $"{curES}/{maxES}";
             Color color = settings.HealthTextColor;
             var position = new Vector2(bg.X + bg.Width / 2, (bg.Y - 12));
-            Size2 size = Graphics.DrawText(text, settings.TextSize, position,
+            Graphics.DrawText(text, settings.TextSize, position,
                 color, FontDrawFlags.Center);
-            return (int)bg.Y + (size.Height - bg.Height) / 2;
         }
 
         private void DrawPercents(UnitSettings settings, float hpPercent, RectangleF bg)

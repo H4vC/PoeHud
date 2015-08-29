@@ -1,7 +1,7 @@
 ﻿using PoeHUD.Hud.Settings;
 using SharpDX;
 
-namespace PoeHUD.Hud.KC
+namespace PoeHUD.Hud.KillCounter
 {
     public sealed class KillCounterSettings : SettingsBase
     {
