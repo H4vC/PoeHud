@@ -2,10 +2,8 @@ using System.Collections.Generic;
 using System.Linq;
 using PoeHUD.Framework;
 using PoeHUD.Models;
-using PoeHUD.Poe;
 using PoeHUD.Poe.Components;
 using PoeHUD.Poe.RemoteMemoryObjects;
-using PoeHUD.Poe.UI;
 
 namespace PoeHUD.Controllers
 {

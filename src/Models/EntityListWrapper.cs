@@ -50,10 +50,7 @@ namespace PoeHUD.Models
         {
             foreach (var current in Entities)
             {
-                if (EntityRemoved != null)
-                {
-                    EntityRemoved(current);
-                }
+                EntityRemoved?.Invoke(current);
                 current.IsInList = false;
             }
             entityCache.Clear();
@@ -91,13 +88,11 @@ namespace PoeHUD.Models
                 }
 
                 var entity = new EntityWrapper(gameController, keyEntity.Value);
-                if ((entity.Path.StartsWith("Metadata/Effects") || ((entityAddress & 0x80000000L) != 0L)) ||
-                    entity.Path.StartsWith("Metadata/Monsters/Daemon"))
+                if ((entity.Path.StartsWith("Metadata/Effects") || ((entityAddress & 0x80000000L) != 0L)) || entity.Path.StartsWith("Metadata/Monsters/Daemon"))
                 {
                     ignoredEntities.Add(uniqueEntityName);
                     continue;
                 }
-
                 EntityAdded?.Invoke(entity);
                 newCache.Add(entityAddress, entity);
             }

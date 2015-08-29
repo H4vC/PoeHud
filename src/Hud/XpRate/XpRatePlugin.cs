@@ -1,5 +1,4 @@
-﻿using System;
-using PoeHUD.Controllers;
+﻿using PoeHUD.Controllers;
 using PoeHUD.Framework.Helpers;
 using PoeHUD.Hud.Settings;
 using PoeHUD.Hud.UI;
@@ -7,6 +6,7 @@ using PoeHUD.Models;
 using PoeHUD.Poe.Components;
 using SharpDX;
 using SharpDX.Direct3D9;
+using System;
 
 namespace PoeHUD.Hud.XpRate
 {
@@ -44,7 +44,7 @@ namespace PoeHUD.Hud.XpRate
             if (Settings.OnlyArea)
             {
                 var position = StartDrawPointFunc();
-                string areaName = $"{ GameController.Area.CurrentArea.DisplayName}";
+                string areaName = $"{GameController.Area.CurrentArea.DisplayName}";
                 var areaNameSize = Graphics.MeasureText(areaName, Settings.FontSize);
                 float boxHeight = areaNameSize.Height;
                 float boxWidth = MathHepler.Max(areaNameSize.Width + 13);
@@ -113,7 +113,7 @@ namespace PoeHUD.Hud.XpRate
                 startXp = GameController.Player.GetComponent<Player>().XP;
             }
             startTime = lastTime = DateTime.Now;
-            xpRate = "0.00 xp /h";
+            xpRate = "0.00 xp/h";
             timeLeft = "--h --m --s to level up";
         }
     }

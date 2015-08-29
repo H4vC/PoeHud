@@ -3,7 +3,7 @@ using PoeHUD.Framework;
 using PoeHUD.Framework.InputHooks;
 using PoeHUD.Hud.AdvancedTooltip;
 using PoeHUD.Hud.Health;
-using PoeHUD.Hud.Loot;
+//using PoeHUD.Hud.Loot;
 using PoeHUD.Hud.Settings;
 using PoeHUD.Hud.UI;
 using SharpDX;
@@ -212,9 +212,11 @@ namespace PoeHUD.Hud.Menu
             MenuItem itemModsMenu = AddChild(tooltipMenu, "Item mods", tooltipSettings.ItemMods.Enable, "F9");
             AddChild(itemModsMenu, "Mods size", tooltipSettings.ItemMods.ModTextSize);
             MenuItem weaponDpsMenu = AddChild(tooltipMenu, "Weapon Dps", tooltipSettings.WeaponDps.Enable);
-            AddChild(weaponDpsMenu, "Dps size", tooltipSettings.WeaponDps.DpsTextSize);
-            AddChild(weaponDpsMenu, "Dps name size", tooltipSettings.WeaponDps.DpsNameTextSize);
-
+            AddChild(weaponDpsMenu, "Font color", tooltipSettings.WeaponDps.FontColor);
+            AddChild(weaponDpsMenu, "Font size", tooltipSettings.WeaponDps.FontSize);
+            AddChild(weaponDpsMenu, "Damage size", tooltipSettings.WeaponDps.DamageFontSize);
+            
+            
             // Boss warnings
             MenuItem bossWarningsMenu = AddChild(root, "Boss warnings", settingsHub.MonsterTrackerSettings.Enable);
             AddChild(bossWarningsMenu, "Sound warning", settingsHub.MonsterTrackerSettings.PlaySound);
@@ -240,7 +242,7 @@ namespace PoeHUD.Hud.Menu
 
             // Preload Alert
             var preloadMenu = AddChild(root, "Preload Alert", settingsHub.PreloadAlertSettings.Enable);
-            var masters = AddChild(preloadMenu, "Masters", settingsHub.PreloadAlertSettings.EnableMasters);
+            var masters = AddChild(preloadMenu, "Masters", settingsHub.PreloadAlertSettings.Masters);
             AddChild(masters, "Zana", settingsHub.PreloadAlertSettings.MasterZana);
             AddChild(masters, "Tora", settingsHub.PreloadAlertSettings.MasterTora);
             AddChild(masters, "Haku", settingsHub.PreloadAlertSettings.MasterHaku);
@@ -250,7 +252,7 @@ namespace PoeHUD.Hud.Menu
             AddChild(masters, "Catarina", settingsHub.PreloadAlertSettings.MasterCatarina);
             AddChild(masters, "Krillson", settingsHub.PreloadAlertSettings.MasterKrillson);
 
-            var exiles = AddChild(preloadMenu, "Exiles", settingsHub.PreloadAlertSettings.EnableExiles);
+            var exiles = AddChild(preloadMenu, "Exiles", settingsHub.PreloadAlertSettings.Exiles);
             AddChild(exiles, "Orra Greengate", settingsHub.PreloadAlertSettings.OrraGreengate);
             AddChild(exiles, "Thena Moga", settingsHub.PreloadAlertSettings.ThenaMoga);
             AddChild(exiles, "Antalie Napora", settingsHub.PreloadAlertSettings.AntalieNapora);
@@ -271,24 +273,25 @@ namespace PoeHUD.Hud.Menu
             AddChild(exiles, "Wilorin Demontamer", settingsHub.PreloadAlertSettings.WilorinDemontamer);
             AddChild(exiles, "Augustina Solaria", settingsHub.PreloadAlertSettings.AugustinaSolaria);
 
-            //var strongboxes = AddChild(preloadMenu, "Strongboxes", settingsHub.PreloadAlertSettings.EnableStrongboxes);
-            //AddChild(strongboxes, "Arcanist", settingsHub.PreloadAlertSettings.ArcanistStrongbox);
-            //AddChild(strongboxes, "Artisan", settingsHub.PreloadAlertSettings.ArtisanStrongbox);
-            //AddChild(strongboxes, "Cartographer", settingsHub.PreloadAlertSettings.CartographerStrongbox);
-            //AddChild(strongboxes, "Gemcutter", settingsHub.PreloadAlertSettings.GemcutterStrongbox);
-            //AddChild(strongboxes, "Jeweller", settingsHub.PreloadAlertSettings.JewellerStrongbox);
-            //AddChild(strongboxes, "Blacksmith", settingsHub.PreloadAlertSettings.BlacksmithStrongbox);
-            //AddChild(strongboxes, "Armourer", settingsHub.PreloadAlertSettings.ArmourerStrongbox);
-            //AddChild(strongboxes, "Ornate", settingsHub.PreloadAlertSettings.OrnateStrongbox);
-            //AddChild(strongboxes, "Large", settingsHub.PreloadAlertSettings.LargeStrongbox);
-            //AddChild(strongboxes, "Perandus", settingsHub.PreloadAlertSettings.PerandusStrongbox);
-            //AddChild(strongboxes, "Kaom", settingsHub.PreloadAlertSettings.KaomStrongbox);
-            //AddChild(strongboxes, "Malachai", settingsHub.PreloadAlertSettings.MalachaiStrongbox);
-            //AddChild(strongboxes, "Simple", settingsHub.PreloadAlertSettings.SimpleStrongbox);
+            var strongboxes = AddChild(preloadMenu, "Strongboxes", settingsHub.PreloadAlertSettings.Strongboxes);
+            AddChild(strongboxes, "Arcanist's", settingsHub.PreloadAlertSettings.ArcanistStrongbox);
+            AddChild(strongboxes, "Artisan's", settingsHub.PreloadAlertSettings.ArtisanStrongbox);
+            AddChild(strongboxes, "Cartographer's", settingsHub.PreloadAlertSettings.CartographerStrongbox);
+            AddChild(strongboxes, "Gemcutter's", settingsHub.PreloadAlertSettings.GemcutterStrongbox);
+            AddChild(strongboxes, "Jeweller's", settingsHub.PreloadAlertSettings.JewellerStrongbox);
+            AddChild(strongboxes, "Blacksmith's", settingsHub.PreloadAlertSettings.BlacksmithStrongbox);
+            AddChild(strongboxes, "Armourer's", settingsHub.PreloadAlertSettings.ArmourerStrongbox);
+            AddChild(strongboxes, "Ornate", settingsHub.PreloadAlertSettings.OrnateStrongbox);
+            AddChild(strongboxes, "Large", settingsHub.PreloadAlertSettings.LargeStrongbox);
+            AddChild(strongboxes, "Perandus", settingsHub.PreloadAlertSettings.PerandusStrongbox);
+            AddChild(strongboxes, "Kaom", settingsHub.PreloadAlertSettings.KaomStrongbox);
+            AddChild(strongboxes, "Malachai", settingsHub.PreloadAlertSettings.MalachaiStrongbox);
+            AddChild(strongboxes, "Epic", settingsHub.PreloadAlertSettings.EpicStrongbox);
+            AddChild(strongboxes, "Simple", settingsHub.PreloadAlertSettings.SimpleStrongbox);
 
             AddChild(preloadMenu, "Corrupted color", settingsHub.PreloadAlertSettings.CorruptedColor);
             AddChild(preloadMenu, "Background color", settingsHub.PreloadAlertSettings.BackgroundColor);
-            AddChild(preloadMenu, "Font color", settingsHub.PreloadAlertSettings.FastColor);
+            AddChild(preloadMenu, "Font color", settingsHub.PreloadAlertSettings.DefaultFontColor);
             AddChild(preloadMenu, "Font size", settingsHub.PreloadAlertSettings.FontSize);
 
             // Show DPS

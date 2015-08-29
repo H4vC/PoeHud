@@ -265,14 +265,14 @@ namespace PoeHUD.Hud.AdvancedTooltip
             WeaponDpsSettings settings = Settings.WeaponDps;
             var textPosition = new Vector2(clientRect.Right - 2, clientRect.Y + 1);
             Size2 pDpsSize = pDps > 0
-                ? Graphics.DrawText(pDps.ToString("#.#"), settings.DpsTextSize, textPosition, FontDrawFlags.Right)
+                ? Graphics.DrawText(pDps.ToString("#.#"), settings.DamageFontSize, textPosition, FontDrawFlags.Right)
                 : new Size2();
             Size2 eDpsSize = eDps > 0
-                ? Graphics.DrawText(eDps.ToString("#.#"), settings.DpsTextSize,
+                ? Graphics.DrawText(eDps.ToString("#.#"), settings.DamageFontSize,
                     textPosition.Translate(0, pDpsSize.Height), eDpsColor, FontDrawFlags.Right)
                 : new Size2();
             Vector2 dpsTextPosition = textPosition.Translate(0, pDpsSize.Height + eDpsSize.Height);
-            Graphics.DrawText("DPS", settings.DpsNameTextSize, dpsTextPosition, Color.White, FontDrawFlags.Right);
+            Graphics.DrawText("dps", settings.FontSize, dpsTextPosition, settings.FontColor, FontDrawFlags.Right);
         }
     }
 }

@@ -21,19 +21,12 @@ namespace PoeHUD.Hud.XpRate
             PingFontColor = new ColorBGRA(254, 192, 118, 255);
         }
         public ToggleNode OnlyArea { get; set; }
-
         public RangeNode<int> FontSize { get; set; }
-
         public ColorNode BackgroundColor { get; set; }
-
         public ColorNode AreaFontColor { get; set; }
-
         public ColorNode XphFontColor { get; set; }
-
         public ColorNode TimeLeftColor { get; set; }
-
         public ColorNode FpsFontColor { get; set; }
-
         public ColorNode TimerFontColor { get; set; }
         public ColorNode PingFontColor { get; set; }
     }

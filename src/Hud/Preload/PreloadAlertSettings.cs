@@ -9,12 +9,13 @@ namespace PoeHUD.Hud.Preload
         public PreloadAlertSettings()
         {
             Enable = true;
-            EnableMasters = true;
-            EnableExiles = true;
-            EnableStrongboxes = true;
+            Masters = true;
+            Exiles = true;
+            Strongboxes = true;
             FontSize = new RangeNode<int>(16, 10, 20);
             BackgroundColor = new ColorBGRA(255, 255, 255, 220);
-            FastColor = CorruptedColor = new ColorBGRA(254, 192, 118, 255);
+            DefaultFontColor = new ColorBGRA(254, 192, 118, 255);
+            CorruptedColor = new ColorBGRA(255, 0, 0, 255);
 
             MasterZana = new ColorBGRA(255, 255, 0, 255);
             MasterCatarina = new ColorBGRA(254, 192, 118, 255);
@@ -37,6 +38,7 @@ namespace PoeHUD.Hud.Preload
             PerandusStrongbox = new ColorBGRA(175, 96, 37, 255);
             KaomStrongbox = new ColorBGRA(175, 96, 37, 255);
             MalachaiStrongbox = new ColorBGRA(175, 96, 37, 255);
+            EpicStrongbox = new ColorBGRA(175, 96, 37, 255);
             SimpleStrongbox = new ColorBGRA(254, 192, 118, 255);
 
             OrraGreengate = new ColorBGRA(254, 192, 118, 255);
@@ -60,12 +62,12 @@ namespace PoeHUD.Hud.Preload
             AugustinaSolaria = new ColorBGRA(254, 192, 118, 255);
         }
 
-        public ToggleNode EnableMasters { get; set; }
-        public ToggleNode EnableExiles { get; set; }
-        public ToggleNode EnableStrongboxes { get; set; }
+        public ToggleNode Masters { get; set; }
+        public ToggleNode Exiles { get; set; }
+        public ToggleNode Strongboxes { get; set; }
         public RangeNode<int> FontSize { get; set; }
         public ColorNode BackgroundColor { get; set; }
-        public ColorNode FastColor { get; set; }
+        public ColorNode DefaultFontColor { get; set; }
         public ColorNode CorruptedColor { get; set; }
         public ColorNode MasterZana { get; set; }
         public ColorNode MasterCatarina { get; set; }
@@ -87,6 +89,7 @@ namespace PoeHUD.Hud.Preload
         public ColorNode PerandusStrongbox { get; set; }
         public ColorNode KaomStrongbox { get; set; }
         public ColorNode MalachaiStrongbox { get; set; }
+        public ColorNode EpicStrongbox { get; set; }
         public ColorNode SimpleStrongbox { get; set; }
         public ColorNode OrraGreengate { get; set; }
         public ColorNode ThenaMoga { get; set; }

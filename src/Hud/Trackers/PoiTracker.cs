@@ -1,9 +1,8 @@
-using System.Collections.Generic;
-
 using PoeHUD.Controllers;
 using PoeHUD.Hud.UI;
 using PoeHUD.Models;
 using PoeHUD.Poe.Components;
+using System.Collections.Generic;
 
 namespace PoeHUD.Hud.Trackers
 {
@@ -21,11 +20,12 @@ namespace PoeHUD.Hud.Trackers
         };
 
         public PoiTracker(GameController gameController, Graphics graphics, PoiTrackerSettings settings)
-            : base(gameController, graphics, settings) {}
+            : base(gameController, graphics, settings)
+        { }
 
         public override void Render()
         {
-            if (!Settings.Enable) {}
+            if (!Settings.Enable) { }
         }
 
         protected override void OnEntityAdded(EntityWrapper entity)

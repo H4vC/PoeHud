@@ -5,7 +5,7 @@
     "X": 10.0,
     "Y": 100.0,
     "ShowIncrements": true,
-    "TitleFontColor": "f27900ff",
+    "TitleFontColor": "c86400ff",
     "EnabledBoxColor": "808080ff",
     "DisabledBoxColor": "dc143cff",
     "MenuFontColor": "fec076ff",
@@ -28,7 +28,7 @@
     }
   },
   "DPS meter": {
-    "Enable": false,
+    "Enable": true,
     "DpsTextSize": {
       "Value": 16,
       "Min": 10,
@@ -178,13 +178,14 @@
     },
     "Weapon DPS": {
       "Enable": true,
-      "DpsTextSize": {
-        "Value": 20,
+      "FontColor": "fec076ff",
+      "FontSize": {
+        "Value": 13,
         "Min": 10,
         "Max": 50
       },
-      "DpsNameTextSize": {
-        "Value": 13,
+      "DamageFontSize": {
+        "Value": 20,
         "Min": 10,
         "Max": 50
       }
@@ -222,17 +223,17 @@
   },
   "Preload alert": {
     "Enable": true,
-    "EnableMasters": true,
-    "EnableExiles": true,
-    "EnableStrongboxes": true,
+    "Masters": true,
+    "Exiles": true,
+    "Strongboxes": true,
     "FontSize": {
       "Value": 16,
       "Min": 10,
       "Max": 20
     },
     "BackgroundColor": "ffffffdc",
-    "FastColor": "fec076ff",
-    "CorruptedColor": "fec076ff",
+    "DefaultFontColor": "fec076ff",
+    "CorruptedColor": "ff0000ff",
     "MasterZana": "ffff00ff",
     "MasterCatarina": "fec076ff",
     "MasterTora": "fec076ff",
@@ -246,14 +247,15 @@
     "CartographerStrongbox": "ff00ffff",
     "GemcutterStrongbox": "1ba29bff",
     "JewellerStrongbox": "fec076ff",
-    "BlacksmithStrongbox": "c0c0c0ff",
-    "ArmourerStrongbox": "c0c0c0ff",
-    "OrnateStrongbox": "c0c0c0ff",
-    "LargeStrongbox": "c0c0c0ff",
-    "PerandusStrongbox": "c0c0c0ff",
-    "KaomStrongbox": "c0c0c0ff",
-    "MalachaiStrongbox": "c0c0c0ff",
-    "SimpleStrongbox": "c0c0c0ff",
+    "BlacksmithStrongbox": "fec076ff",
+    "ArmourerStrongbox": "fec076ff",
+    "OrnateStrongbox": "fec076ff",
+    "LargeStrongbox": "fec076ff",
+    "PerandusStrongbox": "af6025ff",
+    "KaomStrongbox": "af6025ff",
+    "MalachaiStrongbox": "af6025ff",
+    "EpicStrongbox": "af6025ff",
+    "SimpleStrongbox": "fec076ff",
     "OrraGreengate": "fec076ff",
     "ThenaMoga": "fec076ff",
     "AntalieNapora": "fec076ff",
@@ -276,13 +278,13 @@
   },
   "XP per hour": {
     "Enable": true,
-    "onlyArea": false,
+    "OnlyArea": false,
     "FontSize": {
       "Value": 16,
       "Min": 10,
       "Max": 20
     },
-    "BackgroundColor": "ffffffdc",
+    "BackgroundColor": "ffffffff",
     "AreaFontColor": "8cc8ffff",
     "XphFontColor": "fec076ff",
     "TimeLeftColor": "fec076ff",
@@ -291,15 +293,15 @@
     "PingFontColor": "fec076ff"
   },
   "Health bar": {
-    "Enable": false,
-    "ShowInTown": false,
+    "Enable": true,
+    "ShowInTown": true,
     "ShowES": true,
     "ShowIncrements": true,
-    "ShowEnemies": false,
+    "ShowEnemies": true,
     "Players": {
-      "Enable": false,
+      "Enable": true,
       "Width": {
-        "Value": 140.0,
+        "Value": 160.0,
         "Min": 50.0,
         "Max": 180.0
       },
@@ -323,9 +325,9 @@
       }
     },
     "Minions": {
-      "Enable": false,
+      "Enable": true,
       "Width": {
-        "Value": 140.0,
+        "Value": 160.0,
         "Min": 50.0,
         "Max": 180.0
       },
@@ -349,9 +351,9 @@
       }
     },
     "NormalEnemy": {
-      "Enable": false,
+      "Enable": true,
       "Width": {
-        "Value": 140.0,
+        "Value": 160.0,
         "Min": 50.0,
         "Max": 180.0
       },
@@ -375,9 +377,9 @@
       }
     },
     "MagicEnemy": {
-      "Enable": false,
+      "Enable": true,
       "Width": {
-        "Value": 140.0,
+        "Value": 160.0,
         "Min": 50.0,
         "Max": 180.0
       },
@@ -401,9 +403,9 @@
       }
     },
     "RareEnemy": {
-      "Enable": false,
+      "Enable": true,
       "Width": {
-        "Value": 140.0,
+        "Value": 160.0,
         "Min": 50.0,
         "Max": 180.0
       },
@@ -418,8 +420,8 @@
       "PercentTextColor": "66ff99ff",
       "HealthTextColor": "ffffffff",
       "HealthTextColorUnder10Percent": "ffff00ff",
-      "ShowPercents": true,
-      "ShowHealthText": true,
+      "ShowPercents": false,
+      "ShowHealthText": false,
       "TextSize": {
         "Value": 15,
         "Min": 10,
@@ -427,9 +429,9 @@
       }
     },
     "UniqueEnemy": {
-      "Enable": false,
+      "Enable": true,
       "Width": {
-        "Value": 140.0,
+        "Value": 160.0,
         "Min": 50.0,
         "Max": 180.0
       },
@@ -444,8 +446,8 @@
       "PercentTextColor": "66ff99ff",
       "HealthTextColor": "ffffffff",
       "HealthTextColorUnder10Percent": "ffff00ff",
-      "ShowPercents": true,
-      "ShowHealthText": true,
+      "ShowPercents": false,
+      "ShowHealthText": false,
       "TextSize": {
         "Value": 15,
         "Min": 10,
@@ -460,7 +462,7 @@
     }
   },
   "Inventory preview": {
-    "Enable": false,
+    "Enable": true,
     "AutoUpdate": true,
     "CellUsedColor": "808080dc",
     "CellFreeColor": "a0dca0ff",
@@ -486,7 +488,7 @@
     }
   },
   "Kills Counter": {
-    "Enable": false,
+    "Enable": true,
     "ShowDetail": true,
     "FontColor": "fec076ff",
     "BackgroundColor": "ffffffff",

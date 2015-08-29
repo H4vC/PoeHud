@@ -8,7 +8,7 @@ namespace PoeHUD.Hud.InventoryPreview
     {
         public InventoryPreviewSettings()
         {
-            Enable = false;
+            Enable = true;
             AutoUpdate = true;
             CellUsedColor = new Color(128, 128, 128, 220);
             CellFreeColor = new Color(160, 220, 160, 255);

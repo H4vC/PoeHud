@@ -1,6 +1,79 @@
 #Metadata;Text;colour (ARGB)
 #Example Metadata/Chests/StrongBoxes/Strongbox; Strongbox; FFFEC076
 
+Metadata/Chests/StrongBoxes/Strongbox; Simple Strongbox
+Metadata/Chests/StrongBoxes/Strongbox.ao; Simple Strongbox
+Metadata/Chests/StrongBoxes/Ornate; Ornate Strongbox
+Metadata/Chests/StrongBoxes/OrnateStrongbox.ao; Ornate Strongbox
+Metadata/Chests/StrongBoxes/Large; Large Strongbox
+Metadata/Chests/StrongBoxes/LargeStrongbox.ao; Large Strongbox
+Metadata/Chests/StrongBoxes/Jeweller; Jeweler's Strongbox
+Metadata/Chests/StrongBoxes/JewellerStrongBox.ao; Jeweler's Strongbox
+Metadata/Chests/StrongBoxes/Gemcutter; Gemcutter's Strongbox
+Metadata/Chests/StrongBoxes/GemcutterStrongBox.ao; Gemcutter's Strongbox
+Metadata/Chests/StrongBoxes/Cartographer; Cartographer's Strongbox
+Metadata/Chests/StrongBoxes/CartographerStrongBox.ao; Cartographer's Strongbox
+Metadata/Chests/StrongBoxes/Artisan; Artisan's Strongbox
+Metadata/Chests/StrongBoxes/ArtisanStrongBox.ao; Artisan's Strongbox
+Metadata/Chests/StrongBoxes/Arsenal; Blacksmith's Strongbox
+Metadata/Chests/StrongBoxes/ArsenalStrongBox.ao; Blacksmith's Strongbox
+Metadata/Chests/StrongBoxes/Armory; Armourer's Strongbox
+Metadata/Chests/StrongBoxes/ArmoryStrongBox.ao; Armourer's Strongbox
+Metadata/Chests/StrongBoxes/Arcanist; Arcanist's Strongbox
+Metadata/Chests/StrongBoxes/ArcanistStrongBox.ao; Arcanist's Strongbox
+Metadata/Chests/CopperChestEpic3; Large Chest
+Metadata/Chests/CopperChests/CopperChestEpic3.ao; Large Chest
+Metadata/Chests/StrongBoxes/PerandusBox.ao; Perandus Strongbox
+Metadata/Chests/StrongBoxes/KaomBox.ao; Kaom Strongbox
+Metadata/Chests/StrongBoxes/MalachaisBox.ao; Malachai Strongbox
+
+Metadata/Chests/StrongBoxes/Strongbox; Simple Strongbox; FFFEC076
+Metadata/Chests/StrongBoxes/Strongbox.ao; Simple Strongbox; FFFEC076
+Metadata/Chests/StrongBoxes/Ornate; Ornate Strongbox; FFFEC076
+Metadata/Chests/StrongBoxes/OrnateStrongbox.ao; Ornate Strongbox; FFFEC076
+Metadata/Chests/StrongBoxes/Large; Large Strongbox; FFFEC076
+Metadata/Chests/StrongBoxes/LargeStrongbox.ao; Large Strongbox; FFFEC076
+Metadata/Chests/StrongBoxes/Jeweller; Jeweler's Strongbox; FFFEC076
+Metadata/Chests/StrongBoxes/JewellerStrongBox.ao; Jeweler's Strongbox; FFFEC076
+Metadata/Chests/StrongBoxes/Gemcutter; Gemcutter's Strongbox; FF1BA29B
+Metadata/Chests/StrongBoxes/GemcutterStrongBox.ao; Gemcutter's Strongbox; FF1BA29B
+Metadata/Chests/StrongBoxes/Cartographer; Cartographer's Strongbox; FFFF00FF
+Metadata/Chests/StrongBoxes/CartographerStrongBox.ao; Cartographer's Strongbox; FFFF00FF
+Metadata/Chests/StrongBoxes/Artisan; Artisan's Strongbox; FF00FF00
+Metadata/Chests/StrongBoxes/ArtisanStrongBox.ao; Artisan's Strongbox; FF00FF00
+Metadata/Chests/StrongBoxes/Arsenal; Blacksmith's Strongbox; FFFEC076
+Metadata/Chests/StrongBoxes/ArsenalStrongBox.ao; Blacksmith's Strongbox; FFFEC076
+Metadata/Chests/StrongBoxes/Armory; Armourer's Strongbox; FFFEC076
+Metadata/Chests/StrongBoxes/ArmoryStrongBox.ao; Armourer's Strongbox; FFFEC076
+Metadata/Chests/StrongBoxes/Arcanist; Arcanist's Strongbox; FFFF00FF
+Metadata/Chests/StrongBoxes/ArcanistStrongBox.ao; Arcanist's Strongbox; FFFF00FF
+Metadata/Chests/CopperChestEpic3; Large Chest; FFFEC076
+Metadata/Chests/CopperChests/CopperChestEpic3.ao; Large Chest; FFFEC076
+Metadata/Chests/StrongBoxes/PerandusBox.ao; Perandus Strongbox; FFFEC076
+Metadata/Chests/StrongBoxes/KaomBox.ao; Kaom Strongbox; FFFEC076
+Metadata/Chests/StrongBoxes/MalachaisBox.ao; Malachai Strongbox; FFFEC076
+
+
+Metadata/Monsters/Exiles/ExileRanger1; Orra Greengate
+Metadata/Monsters/Exiles/ExileRanger2; Thena Moga
+Metadata/Monsters/Exiles/ExileRanger3; Antalie Napora
+Metadata/Monsters/Exiles/ExileDuelist1; Torr Olgosso
+Metadata/Monsters/Exiles/ExileDuelist2; Armios Bell
+Metadata/Monsters/Exiles/ExileDuelist4; Zacharie Desmarais
+Metadata/Monsters/Exiles/ExileWitch1; Minara Anenima
+Metadata/Monsters/Exiles/ExileWitch2; Igna Phoenix
+Metadata/Monsters/Exiles/ExileMarauder1; Jonah Unchained
+Metadata/Monsters/Exiles/ExileMarauder2; Damoi Tui
+Metadata/Monsters/Exiles/ExileMarauder3; Xandro Blooddrinker
+Metadata/Monsters/Exiles/ExileMarauder5; Vickas Giantbone
+Metadata/Monsters/Exiles/ExileTemplar1; Eoin Greyfur
+Metadata/Monsters/Exiles/ExileTemplar2; Tinevin Highdove
+Metadata/Monsters/Exiles/ExileTemplar4; Magnus Stonethorn
+Metadata/Monsters/Exiles/ExileShadow1_; Ion Darkshroud
+Metadata/Monsters/Exiles/ExileShadow2; Ash Lessard
+Metadata/Monsters/Exiles/ExileShadow4; Wilorin Demontamer
+Metadata/Monsters/Exiles/ExileScion2; Augustina Solaria
+
 
 Metadata/Monsters/Squid/SquidBossSideArea; The All-seeing Eye
 Metadata/Monsters/Goatman/GoatmanLeapBossSideArea; Konu, Maker of Wind
@@ -92,6 +165,29 @@ Metadata/Monsters/GhostPirates/GhostPirateBossInvasion; Droolscar
 Metadata/Monsters/Rhoas/RhoaAlbino; Albino Rhoa
 
 
+Metadata/NPC/Missions/Wild/Dex; Tora, Master of the Hunt; FFFEC076
+Metadata/NPC/Missions/Wild/DexInt; Vorici, Master Assassin; FFFEC076
+Metadata/NPC/Missions/Wild/Int; Catarina, Master of the Dead; FFFEC076
+Metadata/NPC/Missions/Wild/Str; Haku, Armourmaster; FFFEC076
+Metadata/NPC/Missions/Wild/StrDex; Vagan, Weaponmaster; FFFEC076
+Metadata/Monsters/Missions/MasterStrDex1; Vagan, Weaponmaster (2HSword); FFFEC076
+Metadata/Monsters/Missions/MasterStrDex2; Vagan, Weaponmaster (Staff); FFFEC076
+Metadata/Monsters/Missions/MasterStrDex3; Vagan, Weaponmaster (Bow); FFFEC076
+Metadata/Monsters/Missions/MasterStrDex4; Vagan, Weaponmaster (DaggerRapier); FFFEC076
+Metadata/Monsters/Missions/MasterStrDex5; Vagan, Weaponmaster (Blunt); FFFEC076
+Metadata/Monsters/Missions/MasterStrDex6; Vagan, Weaponmaster (Blades); FFFEC076
+Metadata/Monsters/Missions/MasterStrDex7; Vagan, Weaponmaster (SwordAxe); FFFEC076
+Metadata/Monsters/Missions/MasterStrDex8; Vagan, Weaponmaster (Punching); FFFEC076
+Metadata/Monsters/Missions/MasterStrDex9; Vagan, Weaponmaster (Flickerstrike); FFFEC076
+Metadata/Monsters/Missions/MasterStrDex10; Vagan, Weaponmaster (Elementalist); FFFEC076
+Metadata/Monsters/Missions/MasterStrDex11; Vagan, Weaponmaster (Cyclone); FFFEC076
+Metadata/Monsters/Missions/MasterStrDex12; Vagan, Weaponmaster (PhysSpells); FFFEC076
+Metadata/Monsters/Missions/MasterStrDex13; Vagan, Weaponmaster (Traps); FFFEC076
+Metadata/Monsters/Missions/MasterStrDex14; Vagan, Weaponmaster (RighteousFire); FFFEC076
+Metadata/Monsters/Missions/MasterStrDex15; Vagan, Weaponmaster (CastOnHit); FFFEC076
+Metadata/NPC/Missions/Wild/StrDexInt; Zana, Master Cartographer; FFFEC076
+Metadata/NPC/Missions/Wild/StrInt; Elreon, Loremaster; FFFEC076
+Metadata/NPC/Missions/Wild/Fish; Krillson, Master Fisherman; FFFF00FF
 Metadata/Monsters/Spirit/TormentedArsonist; Tormented Arsonist
 Metadata/Monsters/Spirit/TormentedFreezer; Tormented Aurora Cultist
 Metadata/Monsters/Spirit/TormentedBlasphemer; Tormented Blasphemer
