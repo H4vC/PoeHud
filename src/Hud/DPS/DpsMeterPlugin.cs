@@ -1,6 +1,5 @@
 ﻿using PoeHUD.Controllers;
 using PoeHUD.Framework.Helpers;
-using PoeHUD.Hud.Settings;
 using PoeHUD.Hud.UI;
 using PoeHUD.Models;
 using PoeHUD.Poe.Components;
@@ -21,8 +20,8 @@ namespace PoeHUD.Hud.Dps
         private int damageMemoryIndex;
         private int maxDps;
 
-        public DpsMeterPlugin(GameController gameController, Graphics graphics, DpsMeterSettings settings, SettingsHub settingsHub)
-            : base(gameController, graphics, settings, settingsHub)
+        public DpsMeterPlugin(GameController gameController, Graphics graphics, DpsMeterSettings settings)
+            : base(gameController, graphics, settings)
         {
             lastTime = DateTime.Now;
             GameController.Area.OnAreaChange += area =>
@@ -36,7 +35,7 @@ namespace PoeHUD.Hud.Dps
 
         public override void Render()
         {
-            base.Render(); HideAll();
+            base.Render();
 
             if (!Settings.Enable || GameController.Area.CurrentArea.Name.Contains("Hideout") || GameController.Area.CurrentArea.IsTown)
             {

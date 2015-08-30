@@ -23,10 +23,10 @@ namespace PoeHUD.Hud
         {
             const int RGBINIT = 0x1;
             const int FULL_OPEN = 0x2;
-            const int ENABLE_HOOK = 0x10;
+            const int Enabled_HOOK = 0x10;
             chooseColor.lStructSize = Marshal.SizeOf(chooseColor);
             chooseColor.lpfnHook = HookProc;
-            chooseColor.Flags = RGBINIT | FULL_OPEN | ENABLE_HOOK;
+            chooseColor.Flags = RGBINIT | FULL_OPEN | Enabled_HOOK;
             chooseColor.lpCustColors = Marshal.AllocCoTaskMem(16 * sizeof(int));
             chooseColor.rgbResult = 0x00ffffff & color.ToArgb();
 

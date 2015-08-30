@@ -147,7 +147,7 @@ namespace PoeHUD.Hud
         private async void OnLoad(object sender, EventArgs e)
         {
             Bounds = WinApi.GetClientRectangle(gameHandle);
-            WinApi.EnableTransparent(Handle, Bounds);
+            WinApi.EnabledTransparent(Handle, Bounds);
             graphics = new Graphics2D(this, Bounds.Width, Bounds.Height);
             graphics.Render += OnRender;
 
@@ -158,10 +158,10 @@ namespace PoeHUD.Hud
             plugins.Add(new PoiTracker(gameController, graphics, settings.PoiTrackerSettings));
 
             var leftPanel = new PluginPanel(GetLeftCornerMap);
-            leftPanel.AddChildren(new XpRatePlugin(gameController, graphics, settings.XpRateSettings, settings));
-            leftPanel.AddChildren(new PreloadAlertPlugin(gameController, graphics, settings.PreloadAlertSettings, settings));
-            leftPanel.AddChildren(new DpsMeterPlugin(gameController, graphics, settings.DpsMeterSettings, settings));
-            leftPanel.AddChildren(new KillCounterPlugin(gameController, graphics, settings.KillCounterSettings, settings));
+            leftPanel.AddChildren(new XpRatePlugin(gameController, graphics, settings.XpRateSettings));
+            leftPanel.AddChildren(new PreloadAlertPlugin(gameController, graphics, settings.PreloadAlertSettings));
+            leftPanel.AddChildren(new DpsMeterPlugin(gameController, graphics, settings.DpsMeterSettings));
+            leftPanel.AddChildren(new KillCounterPlugin(gameController, graphics, settings.KillCounterSettings));
             var horizontalPanel = new PluginPanel(Direction.Left);
             leftPanel.AddChildren(horizontalPanel);
             plugins.AddRange(leftPanel.GetPlugins());

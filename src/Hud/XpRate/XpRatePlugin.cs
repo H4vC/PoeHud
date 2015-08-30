@@ -7,6 +7,8 @@ using PoeHUD.Poe.Components;
 using SharpDX;
 using SharpDX.Direct3D9;
 using System;
+using System.Windows.Forms;
+using PoeHUD.Framework;
 
 namespace PoeHUD.Hud.XpRate
 {
@@ -15,9 +17,9 @@ namespace PoeHUD.Hud.XpRate
         private string xpRate, timeLeft;
         private DateTime startTime, lastTime;
         private long startXp;
-
-        public XpRatePlugin(GameController gameController, Graphics graphics, XpRateSettings settings, SettingsHub settingsHub)
-            : base(gameController, graphics, settings, settingsHub)
+        private bool holdKey;
+        public XpRatePlugin(GameController gameController, Graphics graphics, XpRateSettings settings)
+            : base(gameController, graphics, settings)
         {
             Reset();
             GameController.Area.OnAreaChange += area => Reset();
@@ -25,7 +27,17 @@ namespace PoeHUD.Hud.XpRate
 
         public override void Render()
         {
-            base.Render(); HideAll();
+            base.Render();
+
+            if (!holdKey && WinApi.IsKeyDown(Keys.F10))
+            {
+                holdKey = true;
+                Settings.Enable.Value = !Settings.Enable.Value;
+            }
+            else if (holdKey && !WinApi.IsKeyDown(Keys.F10))
+            {
+                holdKey = false;
+            }
 
             if (!Settings.Enable || (GameController.Player != null && GameController.Player.GetComponent<Player>().Level >= 100))
             {
@@ -73,8 +85,8 @@ namespace PoeHUD.Hud.XpRate
                 float boxHeight = xpRateSize.Height + xpLeftSize.Height + areaNameSize.Height;
                 var bounds = new RectangleF(position.X - boxWidth - 81, position.Y - 5, boxWidth + 90, boxHeight + 13);
 
-                string fps = $"fps({GameController.Game.IngameState.CurFps})";
-                string ping = $"ping({GameController.Game.IngameState.CurLatency})";
+                string fps = $"fps ( {GameController.Game.IngameState.CurFps} )";
+                string ping = $"ping ( {GameController.Game.IngameState.CurLatency} )";
                 Size2 timeFpsSize = Graphics.MeasureText(fps, Settings.FontSize);
                 var dif = bounds.Width - (12 + timeFpsSize.Width + xpRateSize.Width);
                 if (dif < 0)

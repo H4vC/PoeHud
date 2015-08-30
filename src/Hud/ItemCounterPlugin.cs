@@ -29,8 +29,8 @@ namespace PoeHUD.Hud.ICounter
         private readonly HashSet<long> countedIds;
         private int totalDrops;
 
-        public ItemCounterPlugin(GameController gameController, Graphics graphics, ItemCounterSettings settings, SettingsHub settingsHub)
-            : base(gameController, graphics, settings, settingsHub)
+        public ItemCounterPlugin(GameController gameController, Graphics graphics, ItemCounterSettings settings)
+            : base(gameController, graphics, settings)
         {
             countedIds = new HashSet<long>();
             counters = new Dictionary<ItemRarity, int>();
@@ -42,7 +42,7 @@ namespace PoeHUD.Hud.ICounter
                 counters.Add(rarity, 0);
             GameController.Area.OnAreaChange += area =>
             {
-                if (!Settings.Enable) // no need to do Anything if this plugin isnt enabled
+                if (!Settings.Enable) // no need to do Anything if this plugin isnt Enable
                         return;
                 totalDrops = 0;
                 countedIds.Clear();
@@ -79,7 +79,7 @@ namespace PoeHUD.Hud.ICounter
 
         protected override void OnEntityAdded(EntityWrapper entity)
         {
-            if (!Settings.Enable) // Plugin not enabled
+            if (!Settings.Enable) // Plugin not Enable
                 return;
             if (entity.HasComponent<WorldItem>()) // Dropped in World ?
             {

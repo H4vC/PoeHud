@@ -44,7 +44,5 @@ namespace PoeHUD.Hud.Menu
         public RangeNode<int> MenuFontSize { get; set; }
 
         public RangeNode<int> PickerFontSize { get; set; }
-
-        
     }
 }

@@ -126,8 +126,6 @@
     <Compile Include="Hud\InventoryPreview\CellData.cs" />
     <Compile Include="Hud\InventoryPreview\InventoryPreviewSettings.cs" />
     <Compile Include="Hud\InventoryPreview\InventoryPreviewPlugin.cs" />
-    <Compile Include="Hud\ItemCounterPlugin.cs" />
-    <Compile Include="Hud\ItemCounterSettings.cs" />
     <Compile Include="Hud\KillCounter\KillCounterSettings.cs" />
     <Compile Include="Hud\KillCounter\KillCounterPlugin.cs" />
     <Compile Include="Hud\Loot\BorderSettings.cs" />

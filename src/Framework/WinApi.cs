@@ -13,7 +13,7 @@ namespace PoeHUD.Framework
     {
         #region Methods
 
-        public static void EnableTransparent(IntPtr handle, Rectangle size)
+        public static void EnabledTransparent(IntPtr handle, Rectangle size)
         {
             int windowLong = GetWindowLong(handle, GWL_EXSTYLE) | WS_EX_LAYERED | WS_EX_TRANSPARENT;
             SetWindowLong(handle, GWL_EXSTYLE, new IntPtr(windowLong));

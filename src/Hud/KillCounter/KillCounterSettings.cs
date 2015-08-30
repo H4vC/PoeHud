@@ -7,7 +7,7 @@ namespace PoeHUD.Hud.KillCounter
     {
         public KillCounterSettings()
         {
-            Enable = true;
+            Enable = false;
             ShowDetail = true;
             FontColor = new ColorBGRA(254, 192, 118, 255);
             BackgroundColor = new ColorBGRA(255, 255, 255, 255);

@@ -3,6 +3,7 @@ using PoeHUD.Framework;
 using PoeHUD.Framework.InputHooks;
 using PoeHUD.Hud.AdvancedTooltip;
 using PoeHUD.Hud.Health;
+
 //using PoeHUD.Hud.Loot;
 using PoeHUD.Hud.Settings;
 using PoeHUD.Hud.UI;
@@ -215,8 +216,7 @@ namespace PoeHUD.Hud.Menu
             AddChild(weaponDpsMenu, "Font color", tooltipSettings.WeaponDps.FontColor);
             AddChild(weaponDpsMenu, "Font size", tooltipSettings.WeaponDps.FontSize);
             AddChild(weaponDpsMenu, "Damage size", tooltipSettings.WeaponDps.DamageFontSize);
-            
-            
+
             // Boss warnings
             MenuItem bossWarningsMenu = AddChild(root, "Boss warnings", settingsHub.MonsterTrackerSettings.Enable);
             AddChild(bossWarningsMenu, "Sound warning", settingsHub.MonsterTrackerSettings.PlaySound);
@@ -238,7 +238,6 @@ namespace PoeHUD.Hud.Menu
             AddChild(xpRateMenu, "Timer font color", settingsHub.XpRateSettings.TimerFontColor);
             AddChild(xpRateMenu, "Ping font color", settingsHub.XpRateSettings.PingFontColor);
             AddChild(xpRateMenu, "Background color", settingsHub.XpRateSettings.BackgroundColor);
-            
 
             // Preload Alert
             var preloadMenu = AddChild(root, "Preload Alert", settingsHub.PreloadAlertSettings.Enable);
@@ -324,7 +323,7 @@ namespace PoeHUD.Hud.Menu
             var menuSettings = AddChild(root, "Menu Settings", settingsHub.MenuSettings.ShowIncrements, "F12");
             AddChild(menuSettings, "Menu font color", settingsHub.MenuSettings.MenuFontColor);
             AddChild(menuSettings, "Title font color", settingsHub.MenuSettings.TitleFontColor);
-            AddChild(menuSettings, "Enabled color", settingsHub.MenuSettings.EnabledBoxColor);
+            AddChild(menuSettings, "Enable color", settingsHub.MenuSettings.EnabledBoxColor);
             AddChild(menuSettings, "Disabled color", settingsHub.MenuSettings.DisabledBoxColor);
             AddChild(menuSettings, "Slider color", settingsHub.MenuSettings.SliderColor);
             AddChild(menuSettings, "Background color", settingsHub.MenuSettings.BackgroundColor);

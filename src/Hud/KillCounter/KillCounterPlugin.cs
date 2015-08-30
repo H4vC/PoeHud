@@ -20,8 +20,8 @@ namespace PoeHUD.Hud.KillCounter
         private readonly Dictionary<MonsterRarity, int> counters;
         private int summaryCounter;
 
-        public KillCounterPlugin(GameController gameController, Graphics graphics, KillCounterSettings settings, SettingsHub settingsHub)
-            : base(gameController, graphics, settings, settingsHub)
+        public KillCounterPlugin(GameController gameController, Graphics graphics, KillCounterSettings settings)
+            : base(gameController, graphics, settings)
         {
             aliveEntities = new HashSet<EntityWrapper>();
             countedIds = new HashSet<long>();
@@ -43,7 +43,7 @@ namespace PoeHUD.Hud.KillCounter
 
         public override void Render()
         {
-            base.Render(); HideAll();
+            base.Render();
 
             if (!Settings.Enable || GameController.Area.CurrentArea.Name.Contains("Hideout") || GameController.Area.CurrentArea.IsTown)
             {

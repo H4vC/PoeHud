@@ -8,7 +8,7 @@ namespace PoeHUD.Hud.Health
         public HealthBarSettings()
         {
             Enable = true;
-            ShowInTown = true;
+            ShowInTown = false;
             ShowES = true;
             ShowIncrements = true;
             ShowEnemies = true;

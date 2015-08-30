@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Windows.Forms;
-
-using PoeHUD.Controllers;
+﻿using PoeHUD.Controllers;
 using PoeHUD.Framework;
 using PoeHUD.Framework.Helpers;
+using PoeHUD.Hud.Settings;
 using PoeHUD.Hud.UI;
 using PoeHUD.Models.Enums;
 using PoeHUD.Poe;
@@ -14,17 +10,20 @@ using PoeHUD.Poe.Elements;
 using PoeHUD.Poe.FilesInMemory;
 using PoeHUD.Poe.RemoteMemoryObjects;
 using PoeHUD.Poe.UI;
-using PoeHUD.Hud.Settings;
-
 using SharpDX;
 using SharpDX.Direct3D9;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Windows.Forms;
 
 namespace PoeHUD.Hud.AdvancedTooltip
-{   
+{
     public class AdvancedTooltipPlugin : Plugin<AdvancedTooltipSettings>
     {
         private bool holdKey;
         private readonly SettingsHub settingsHub;
+
         private static readonly Color[] elementalDmgColors =
         {
             Color.White, HudSkin.DmgFireColor, HudSkin.DmgColdColor, HudSkin.DmgLightingColor, HudSkin.DmgChaosColor
@@ -42,10 +41,6 @@ namespace PoeHUD.Hud.AdvancedTooltip
 
         public override void Render()
         {
-            if (!Settings.Enable)
-            {
-                return;
-            }
             if (!holdKey && WinApi.IsKeyDown(Keys.F9))
             {
                 holdKey = true;
@@ -58,6 +53,11 @@ namespace PoeHUD.Hud.AdvancedTooltip
             else if (holdKey && !WinApi.IsKeyDown(Keys.F9))
             {
                 holdKey = false;
+            }
+
+            if (!Settings.Enable)
+            {
+                return;
             }
 
             Element uiHover = GameController.Game.IngameState.UIHover;
@@ -196,29 +196,35 @@ namespace PoeHUD.Hud.AdvancedTooltip
                         case "local_physical_damage_+%":
                             physDmgMultiplier += value / 100f;
                             break;
+
                         case "local_attack_speed_+%":
                             aSpd *= (100f + value) / 100;
                             break;
+
                         case "local_minimum_added_physical_damage":
                         case "local_maximum_added_physical_damage":
                             doubleDpsPerStat[(int)DamageType.Physical] += value;
                             break;
+
                         case "local_minimum_added_fire_damage":
                         case "local_maximum_added_fire_damage":
                         case "unique_local_minimum_added_fire_damage_when_in_main_hand":
                         case "unique_local_maximum_added_fire_damage_when_in_main_hand":
                             doubleDpsPerStat[(int)DamageType.Fire] += value;
                             break;
+
                         case "local_minimum_added_cold_damage":
                         case "local_maximum_added_cold_damage":
                         case "unique_local_minimum_added_cold_damage_when_in_off_hand":
                         case "unique_local_maximum_added_cold_damage_when_in_off_hand":
                             doubleDpsPerStat[(int)DamageType.Cold] += value;
                             break;
+
                         case "local_minimum_added_lightning_damage":
                         case "local_maximum_added_lightning_damage":
                             doubleDpsPerStat[(int)DamageType.Lightning] += value;
                             break;
+
                         case "unique_local_minimum_added_chaos_damage_when_in_off_hand":
                         case "unique_local_maximum_added_chaos_damage_when_in_off_hand":
                         case "local_minimum_added_chaos_damage":

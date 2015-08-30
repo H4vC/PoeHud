@@ -1,14 +1,14 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Windows.Forms;
 using PoeHUD.Controllers;
 using PoeHUD.Framework;
 using PoeHUD.Framework.Helpers;
-using PoeHUD.Hud.Settings;
 using PoeHUD.Hud.UI;
 using PoeHUD.Models;
 using SharpDX;
 using SharpDX.Direct3D9;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace PoeHUD.Hud.Preload
 {
@@ -19,9 +19,10 @@ namespace PoeHUD.Hud.Preload
         private bool areaChanged = true;
         private DateTime maxParseTime = DateTime.Now;
         private int lastCount;
+        private bool holdKey;
 
-        public PreloadAlertPlugin(GameController gameController, Graphics graphics, PreloadAlertSettings settings, SettingsHub settingsHub)
-            : base(gameController, graphics, settings, settingsHub)
+        public PreloadAlertPlugin(GameController gameController, Graphics graphics, PreloadAlertSettings settings)
+            : base(gameController, graphics, settings)
         {
             alerts = new HashSet<PreloadConfigLine>();
             alertStrings = LoadConfig("config/preload_alerts.txt");
@@ -43,7 +44,17 @@ namespace PoeHUD.Hud.Preload
 
         public override void Render()
         {
-            base.Render(); HideAll();
+            base.Render();
+
+            if (!holdKey && WinApi.IsKeyDown(Keys.F10))
+            {
+                holdKey = true;
+                Settings.Enable.Value = !Settings.Enable.Value;
+            }
+            else if (holdKey && !WinApi.IsKeyDown(Keys.F10))
+            {
+                holdKey = false;
+            }
 
             if (!Settings.Enable)
             {
