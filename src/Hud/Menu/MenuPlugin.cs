@@ -229,7 +229,9 @@ namespace PoeHUD.Hud.Menu
 
             // Xph Display
             MenuItem xpRateMenu = AddChild(root, "Experience", settingsHub.XpRateSettings.Enable, "F10");
-            AddChild(xpRateMenu, "Show only area name", settingsHub.XpRateSettings.OnlyArea);
+            MenuItem areaName = AddChild(xpRateMenu, "Only area name", settingsHub.XpRateSettings.OnlyAreaName);
+            AddChild(areaName, "Show latency", settingsHub.XpRateSettings.ShowLatency);
+            AddChild(areaName, "Latency color", settingsHub.XpRateSettings.AreaPingFontColor);
             AddChild(xpRateMenu, "Font size", settingsHub.XpRateSettings.FontSize);
             AddChild(xpRateMenu, "Fps font color", settingsHub.XpRateSettings.FpsFontColor);
             AddChild(xpRateMenu, "Xph font color", settingsHub.XpRateSettings.XphFontColor);

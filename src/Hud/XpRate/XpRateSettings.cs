@@ -9,7 +9,8 @@ namespace PoeHUD.Hud.XpRate
         public XpRateSettings()
         {
             Enable = true;
-            OnlyArea = false;
+            OnlyAreaName = false;
+            ShowLatency = true;
             FontSize = new RangeNode<int>(16, 10, 20);
             BackgroundColor = new ColorBGRA(255, 255, 255, 255);
 
@@ -19,8 +20,10 @@ namespace PoeHUD.Hud.XpRate
             FpsFontColor = new ColorBGRA(254, 192, 118, 255);
             TimerFontColor = new ColorBGRA(254, 192, 118, 255);
             PingFontColor = new ColorBGRA(254, 192, 118, 255);
+            AreaPingFontColor = new ColorBGRA(254, 192, 118, 255);
         }
-        public ToggleNode OnlyArea { get; set; }
+        public ToggleNode ShowLatency { get; set; }
+        public ToggleNode OnlyAreaName { get; set; }
         public RangeNode<int> FontSize { get; set; }
         public ColorNode BackgroundColor { get; set; }
         public ColorNode AreaFontColor { get; set; }
@@ -29,5 +32,6 @@ namespace PoeHUD.Hud.XpRate
         public ColorNode FpsFontColor { get; set; }
         public ColorNode TimerFontColor { get; set; }
         public ColorNode PingFontColor { get; set; }
+        public ColorNode AreaPingFontColor { get; set; }
     }
 }

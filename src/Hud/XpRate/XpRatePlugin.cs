@@ -1,14 +1,13 @@
-﻿using PoeHUD.Controllers;
+﻿using System;
+using System.Windows.Forms;
+using PoeHUD.Controllers;
+using PoeHUD.Framework;
 using PoeHUD.Framework.Helpers;
-using PoeHUD.Hud.Settings;
 using PoeHUD.Hud.UI;
 using PoeHUD.Models;
 using PoeHUD.Poe.Components;
 using SharpDX;
 using SharpDX.Direct3D9;
-using System;
-using System.Windows.Forms;
-using PoeHUD.Framework;
 
 namespace PoeHUD.Hud.XpRate
 {
@@ -53,23 +52,31 @@ namespace PoeHUD.Hud.XpRate
             }
 
             //this should be simplified or combined with xph
-            if (Settings.OnlyArea)
+            if (Settings.OnlyAreaName)
             {
                 var position = StartDrawPointFunc();
+                //string fps = $"f({GameController.Game.IngameState.CurFps})";
+                string latency = $"( {GameController.Game.IngameState.CurLatency} )";
                 string areaName = $"{GameController.Area.CurrentArea.DisplayName}";
                 var areaNameSize = Graphics.MeasureText(areaName, Settings.FontSize);
                 float boxHeight = areaNameSize.Height;
-                float boxWidth = MathHepler.Max(areaNameSize.Width + 13);
-                var bounds = new RectangleF(position.X - boxWidth - 22, position.Y - 5, boxWidth + 30, boxHeight + 10);
+                float boxWidth = MathHepler.Max(areaNameSize.Width);
+                var bounds = new RectangleF(position.X - 72 - boxWidth, position.Y - 5, boxWidth + 80, boxHeight + 12);
 
-                Graphics.DrawText(areaName, Settings.FontSize, new Vector2(bounds.X + 34, position.Y - 1), Settings.AreaFontColor);
+                Graphics.DrawText(areaName, Settings.FontSize, new Vector2(bounds.X + 74, position.Y), Settings.AreaFontColor);
                 Graphics.DrawImage("preload-start.png", bounds, Settings.BackgroundColor);
                 Graphics.DrawImage("preload-end.png", bounds, Settings.BackgroundColor);
+                if (Settings.ShowLatency)
+                {
+                    Graphics.DrawText(latency, Settings.FontSize, new Vector2(bounds.X + 25, position.Y), Settings.AreaPingFontColor);
+                }
+                //Graphics.DrawText(Settings.SwitchFP ? fps : ping, Settings.FontSize,
+                //    new Vector2(bounds.X - 5, position.Y - 1), Settings.FpsFontColor);
                 Size = bounds.Size;
                 Margin = new Vector2(0, 5);
             }
 
-            if (!Settings.OnlyArea)
+            if (!Settings.OnlyAreaName)
             {
                 Vector2 position = StartDrawPointFunc();
                 string areaName = GameController.Area.CurrentArea.DisplayName;
