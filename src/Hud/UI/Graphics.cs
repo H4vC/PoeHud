@@ -31,7 +31,7 @@ namespace PoeHUD.Hud.UI
 
         private bool running = true;
 
-        private ManualResetEventSlim renderLocker = new ManualResetEventSlim(false);
+        private readonly ManualResetEventSlim renderLocker = new ManualResetEventSlim(false);
 
         public Graphics(RenderForm form, int width, int height)
         {
@@ -175,7 +175,7 @@ namespace PoeHUD.Hud.UI
             }
             catch (Exception e)
             {
-                MessageBox.Show(string.Format("Failed to load texture {0}: {1}", fileName, e.Message));
+                MessageBox.Show($"Failed to load texture {fileName}: {e.Message}");
                 Environment.Exit(0);
             }
         }
@@ -188,7 +188,7 @@ namespace PoeHUD.Hud.UI
             }
             catch (Exception e)
             {
-                MessageBox.Show(string.Format("Failed to load texture {0}: {1}", fileName, e.Message));
+                MessageBox.Show($"Failed to load texture {fileName}: {e.Message}");
                 Environment.Exit(0);
             }
         }

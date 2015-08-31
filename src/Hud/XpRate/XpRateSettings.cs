@@ -19,8 +19,7 @@ namespace PoeHUD.Hud.XpRate
             TimeLeftColor = new ColorBGRA(254, 192, 118, 255);
             FpsFontColor = new ColorBGRA(254, 192, 118, 255);
             TimerFontColor = new ColorBGRA(254, 192, 118, 255);
-            PingFontColor = new ColorBGRA(254, 192, 118, 255);
-            AreaPingFontColor = new ColorBGRA(254, 192, 118, 255);
+            LatencyFontColor = new ColorBGRA(254, 192, 118, 255);
         }
         public ToggleNode ShowLatency { get; set; }
         public ToggleNode OnlyAreaName { get; set; }
@@ -31,7 +30,6 @@ namespace PoeHUD.Hud.XpRate
         public ColorNode TimeLeftColor { get; set; }
         public ColorNode FpsFontColor { get; set; }
         public ColorNode TimerFontColor { get; set; }
-        public ColorNode PingFontColor { get; set; }
-        public ColorNode AreaPingFontColor { get; set; }
+        public ColorNode LatencyFontColor { get; set; }
     }
 }

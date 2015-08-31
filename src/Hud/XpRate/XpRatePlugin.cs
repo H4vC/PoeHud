@@ -55,7 +55,6 @@ namespace PoeHUD.Hud.XpRate
             if (Settings.OnlyAreaName)
             {
                 var position = StartDrawPointFunc();
-                //string fps = $"f({GameController.Game.IngameState.CurFps})";
                 string latency = $"( {GameController.Game.IngameState.CurLatency} )";
                 string areaName = $"{GameController.Area.CurrentArea.DisplayName}";
                 var areaNameSize = Graphics.MeasureText(areaName, Settings.FontSize);
@@ -68,10 +67,8 @@ namespace PoeHUD.Hud.XpRate
                 Graphics.DrawImage("preload-end.png", bounds, Settings.BackgroundColor);
                 if (Settings.ShowLatency)
                 {
-                    Graphics.DrawText(latency, Settings.FontSize, new Vector2(bounds.X + 25, position.Y), Settings.AreaPingFontColor);
+                    Graphics.DrawText(latency, Settings.FontSize, new Vector2(bounds.X + 25, position.Y), Settings.LatencyFontColor);
                 }
-                //Graphics.DrawText(Settings.SwitchFP ? fps : ping, Settings.FontSize,
-                //    new Vector2(bounds.X - 5, position.Y - 1), Settings.FpsFontColor);
                 Size = bounds.Size;
                 Margin = new Vector2(0, 5);
             }
@@ -103,7 +100,7 @@ namespace PoeHUD.Hud.XpRate
                 }
                 Graphics.DrawText(fps, Settings.FontSize, new Vector2(bounds.X + 45, position.Y), Settings.FpsFontColor);
                 Graphics.DrawText(timer, Settings.FontSize, new Vector2(bounds.X + 45, secondLine.Y), Settings.TimerFontColor);
-                Graphics.DrawText(ping, Settings.FontSize, new Vector2(bounds.X + 45, thirdLine.Y), Settings.PingFontColor);
+                Graphics.DrawText(ping, Settings.FontSize, new Vector2(bounds.X + 45, thirdLine.Y), Settings.LatencyFontColor);
                 Graphics.DrawImage("preload-start.png", bounds, Settings.BackgroundColor);
                 Graphics.DrawImage("preload-end.png", bounds, Settings.BackgroundColor);
                 Size = bounds.Size;

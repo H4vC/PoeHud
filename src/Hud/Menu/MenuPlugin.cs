@@ -228,17 +228,17 @@ namespace PoeHUD.Hud.Menu
             AddChild(warningTextMenu, "Position Y", settingsHub.MonsterTrackerSettings.TextPositionY);
 
             // Xph Display
-            MenuItem xpRateMenu = AddChild(root, "Experience", settingsHub.XpRateSettings.Enable, "F10");
+            MenuItem xpRateMenu = AddChild(root, "Xph & Area", settingsHub.XpRateSettings.Enable, "F10");
             MenuItem areaName = AddChild(xpRateMenu, "Only area name", settingsHub.XpRateSettings.OnlyAreaName);
-            AddChild(areaName, "Show latency", settingsHub.XpRateSettings.ShowLatency);
-            AddChild(areaName, "Latency color", settingsHub.XpRateSettings.AreaPingFontColor);
+            AddChild(areaName, "Show Latency", settingsHub.XpRateSettings.ShowLatency);
+            AddChild(areaName, "Latency color", settingsHub.XpRateSettings.LatencyFontColor);
             AddChild(xpRateMenu, "Font size", settingsHub.XpRateSettings.FontSize);
             AddChild(xpRateMenu, "Fps font color", settingsHub.XpRateSettings.FpsFontColor);
             AddChild(xpRateMenu, "Xph font color", settingsHub.XpRateSettings.XphFontColor);
             AddChild(xpRateMenu, "Area font color", settingsHub.XpRateSettings.AreaFontColor);
             AddChild(xpRateMenu, "Time left color", settingsHub.XpRateSettings.TimeLeftColor);
             AddChild(xpRateMenu, "Timer font color", settingsHub.XpRateSettings.TimerFontColor);
-            AddChild(xpRateMenu, "Ping font color", settingsHub.XpRateSettings.PingFontColor);
+            AddChild(xpRateMenu, "Latency font color", settingsHub.XpRateSettings.LatencyFontColor);
             AddChild(xpRateMenu, "Background color", settingsHub.XpRateSettings.BackgroundColor);
 
             // Preload Alert
