@@ -1,12 +1,8 @@
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Windows.Forms;
 using Antlr4.Runtime;
 using PoeFilterParser;
 using PoeFilterParser.Model;
 using PoeHUD.Controllers;
+using PoeHUD.Framework;
 using PoeHUD.Framework.Helpers;
 using PoeHUD.Hud.Settings;
 using PoeHUD.Hud.UI;
@@ -20,6 +16,11 @@ using PoeHUD.Poe.RemoteMemoryObjects;
 using PoeHUD.Poe.UI.Elements;
 using SharpDX;
 using SharpDX.Direct3D9;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Windows.Forms;
 
 namespace PoeHUD.Hud.Loot
 {
@@ -36,6 +37,8 @@ namespace PoeHUD.Hud.Loot
         private Dictionary<int, ItemsOnGroundLabelElement> currentLabels;
 
         private PoeFilterVisitor visitor;
+
+        private bool holdKey;
 
         public ItemAlertPlugin(GameController gameController, Graphics graphics, ItemAlertSettings settings)
             : base(gameController, graphics, settings)
@@ -96,6 +99,16 @@ namespace PoeHUD.Hud.Loot
         public override void Render()
         {
             base.Render();
+            if (!holdKey && WinApi.IsKeyDown(Keys.F10))
+            {
+                holdKey = true;
+                Settings.Enable.Value = !Settings.Enable.Value;
+            }
+            else if (holdKey && !WinApi.IsKeyDown(Keys.F10))
+            {
+                holdKey = false;
+            }
+
             if (Settings.Enable)
             {
                 Vector2 playerPos = GameController.Player.GetComponent<Positioned>().GridPos;

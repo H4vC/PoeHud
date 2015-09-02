@@ -147,7 +147,7 @@ namespace PoeHUD.Hud
         private async void OnLoad(object sender, EventArgs e)
         {
             Bounds = WinApi.GetClientRectangle(gameHandle);
-            WinApi.EnabledTransparent(Handle, Bounds);
+            WinApi.EnableTransparent(Handle, Bounds);
             graphics = new Graphics2D(this, Bounds.Width, Bounds.Height);
             graphics.Render += OnRender;
 

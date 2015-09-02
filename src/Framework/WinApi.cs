@@ -13,7 +13,7 @@ namespace PoeHUD.Framework
     {
         #region Methods
 
-        public static void EnabledTransparent(IntPtr handle, Rectangle size)
+        public static void EnableTransparent(IntPtr handle, Rectangle size)
         {
             int windowLong = GetWindowLong(handle, GWL_EXSTYLE) | WS_EX_LAYERED | WS_EX_TRANSPARENT;
             SetWindowLong(handle, GWL_EXSTYLE, new IntPtr(windowLong));
@@ -142,11 +142,13 @@ namespace PoeHUD.Framework
 
             public static Margins FromRectangle(Rectangle rectangle)
             {
-                var margins = new Margins();
-                margins.left = rectangle.Left;
-                margins.right = rectangle.Right;
-                margins.top = rectangle.Top;
-                margins.bottom = rectangle.Bottom;
+                var margins = new Margins
+                {
+                    left = rectangle.Left,
+                    right = rectangle.Right,
+                    top = rectangle.Top,
+                    bottom = rectangle.Bottom
+                };
                 return margins;
             }
         }
