@@ -1,6 +1,6 @@
 ﻿using PoeHUD.Hud.Settings;
 
-namespace PoeHUD.Hud.ICounter
+namespace PoeHUD.Hud
 {
     public sealed class ItemCounterSettings : SettingsBase
     {

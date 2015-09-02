@@ -1,42 +1,63 @@
-using PoeHUD.Models.Enums;
-using SharpDX;
 using System.Collections.Generic;
+
+using PoeHUD.Models.Enums;
+
+using SharpDX;
 
 namespace PoeHUD.Hud.Loot
 {
     public sealed class AlertDrawStyle
     {
+        public static readonly Color DefaultBackgroundColor = new ColorBGRA(0, 0, 0, 180);
         private static readonly Dictionary<ItemRarity, Color> colors = new Dictionary<ItemRarity, Color>
         {
-            { ItemRarity.White, Color.White },
+            { ItemRarity.Normal, Color.White },
             { ItemRarity.Magic, HudSkin.MagicColor },
             { ItemRarity.Rare, HudSkin.RareColor },
             { ItemRarity.Unique, HudSkin.UniqueColor },
         };
 
-        public AlertDrawStyle(object colorRef, int frameWidth, string text, int iconIndex, Color frameColor)
+        public AlertDrawStyle(object colorRef, int borderWidth, string text, int iconIndex)
         {
-            FrameWidth = frameWidth;
+            BorderWidth = borderWidth;
             Text = text;
             IconIndex = iconIndex;
 
             if (colorRef is Color)
             {
-                FrameColor = frameColor;
-                AlertColor = (Color)colorRef;
+                TextColor = (Color)colorRef;
             }
             else
             {
-                Color tempColor;
-                AlertColor = colors.TryGetValue((ItemRarity)colorRef, out tempColor) ? tempColor : Color.White;
+                TextColor = GetTextColorByRarity((ItemRarity)colorRef);
             }
+            BorderColor = TextColor;
+            BackgroundColor = DefaultBackgroundColor;
+        }
+        public static Color GetTextColorByRarity(ItemRarity itemRarity)
+        {
+            Color tempColor;
+            return colors.TryGetValue(itemRarity, out tempColor) ? tempColor : Color.White;
         }
 
-        public Color FrameColor { get; private set; }
 
-        public Color AlertColor { get; private set; }
+        public AlertDrawStyle(string text, Color textColor, int borderWidth, Color borderColor, Color backgroundColor, int iconIndex)
+        {
+            TextColor = textColor;
+            BorderWidth = borderWidth;
+            BorderColor = borderColor;
+            Text = text;
+            IconIndex = iconIndex;
+            BackgroundColor = backgroundColor;
+        }
 
-        public int FrameWidth { get; private set; }
+        public Color TextColor { get; private set; }
+
+        public int BorderWidth { get; private set; }
+
+        public Color BorderColor { get; private set; }
+
+        public Color BackgroundColor { get; private set; }
 
         public string Text { get; private set; }
 

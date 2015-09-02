@@ -4,11 +4,12 @@ using PoeHUD.Framework.InputHooks;
 using PoeHUD.Hud.AdvancedTooltip;
 using PoeHUD.Hud.Health;
 
-//using PoeHUD.Hud.Loot;
+using PoeHUD.Hud.Loot;
 using PoeHUD.Hud.Settings;
 using PoeHUD.Hud.UI;
 using SharpDX;
 using System;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace PoeHUD.Hud.Menu
@@ -62,9 +63,16 @@ namespace PoeHUD.Hud.Menu
             }
         }
 
-        private static MenuItem AddChild(MenuItem parent, string text, ToggleNode node, string key = null)
+        private static MenuItem AddChild(MenuItem parent, string text, ToggleNode node, string key = null, Func<MenuItem, bool> hide = null)
         {
-            var item = new ToggleButton(text, node, key);
+            var item = new ToggleButton(parent, text, node, key, hide);
+            parent.AddChild(item);
+            return item;
+        }
+
+        private static MenuItem AddChild(MenuItem parent, FileNode path)
+        {
+            var item = new FileButton(path);
             parent.AddChild(item);
             return item;
         }
@@ -137,73 +145,43 @@ namespace PoeHUD.Hud.Menu
             AddChild(mapIconsMenu, "Masters", settingsHub.PoiTrackerSettings.Masters);
 
             // Item Alert
-            var itemAlertMenu = AddChild(root, "Item alert", settingsHub.ItemAlertSettings.Enable);
-            //AddChild(itemAlertMenu, "Uniques", settingsHub.ItemAlertSettings.Uniques);
-            //AddChild(itemAlertMenu, "Rares", settingsHub.ItemAlertSettings.Rares);
-
-            var exaltedColor = AddChild(itemAlertMenu, "Expensive Currency", settingsHub.ItemAlertSettings.Exalted);
-            AddChild(exaltedColor, "font", settingsHub.ItemAlertSettings.ExaltedColor);
-            AddChild(exaltedColor, "border", settingsHub.ItemAlertSettings.FrameExaltedColor);
-
-            var chaosColor = AddChild(itemAlertMenu, "Normal Currency", settingsHub.ItemAlertSettings.Chaos);
-            AddChild(chaosColor, "font", settingsHub.ItemAlertSettings.ChaosColor);
-            AddChild(chaosColor, "border", settingsHub.ItemAlertSettings.FrameChaosColor);
-
-            var currencyColor = AddChild(itemAlertMenu, "Cheap Currency", settingsHub.ItemAlertSettings.Currency);
-            AddChild(currencyColor, "font", settingsHub.ItemAlertSettings.CurrencyColor);
-            AddChild(currencyColor, "border", settingsHub.ItemAlertSettings.FrameCurrencyColor);
-
-            var jewelsColor = AddChild(itemAlertMenu, "Jewels", settingsHub.ItemAlertSettings.Jewels);
-            AddChild(jewelsColor, "font", settingsHub.ItemAlertSettings.JewelsColor);
-            AddChild(jewelsColor, "border", settingsHub.ItemAlertSettings.FrameJewelsColor);
-
-            var cardsColor = AddChild(itemAlertMenu, "Cards", settingsHub.ItemAlertSettings.Cards);
-            AddChild(cardsColor, "font", settingsHub.ItemAlertSettings.CardsColor);
-            AddChild(cardsColor, "border", settingsHub.ItemAlertSettings.FrameCardsColor);
-
-            var mapsColor = AddChild(itemAlertMenu, "Maps", settingsHub.ItemAlertSettings.Maps);
-            AddChild(mapsColor, "font", settingsHub.ItemAlertSettings.MapsColor);
-            AddChild(mapsColor, "border", settingsHub.ItemAlertSettings.FrameMapsColor);
-
-            var rgbColor = AddChild(itemAlertMenu, "Rgb", settingsHub.ItemAlertSettings.Rgb);
-            AddChild(rgbColor, "font", settingsHub.ItemAlertSettings.RGBColor);
-            AddChild(rgbColor, "border", settingsHub.ItemAlertSettings.FrameRGBColor);
-
-            var craftingColor = AddChild(itemAlertMenu, "Crafting", settingsHub.ItemAlertSettings.Crafting);
-            AddChild(craftingColor, "font", settingsHub.ItemAlertSettings.CraftingColor);
-            AddChild(craftingColor, "border", settingsHub.ItemAlertSettings.FrameCraftingColor);
-
-            var socketsColor = AddChild(itemAlertMenu, "Sockets", settingsHub.ItemAlertSettings.Sockets);
-            AddChild(socketsColor, "font", settingsHub.ItemAlertSettings.SocketsColor);
-            AddChild(socketsColor, "border", settingsHub.ItemAlertSettings.SocketsColor);
-
-            var linkedColor = AddChild(itemAlertMenu, "Linked", settingsHub.ItemAlertSettings.Linked);
-            AddChild(linkedColor, "font", settingsHub.ItemAlertSettings.LinkedColor);
-            AddChild(linkedColor, "border", settingsHub.ItemAlertSettings.FrameLinkedColor);
-
-            var qualityItemsSettings = settingsHub.ItemAlertSettings.QualityItems;
-            var qualityMenu = AddChild(itemAlertMenu, "Quality items", qualityItemsSettings.Enable);
-            var qualityWeaponMenu = AddChild(qualityMenu, "Weapons", qualityItemsSettings.Weapon.Enable);
-            AddChild(qualityWeaponMenu, "Min. quality", qualityItemsSettings.Weapon.MinQuality);
-            var qualityArmourMenu = AddChild(qualityMenu, "Armours", qualityItemsSettings.Armour.Enable);
-            AddChild(qualityArmourMenu, "Min. quality", qualityItemsSettings.Armour.MinQuality);
-            var qualityFlaskMenu = AddChild(qualityMenu, "Flasks", qualityItemsSettings.Flask.Enable);
-            AddChild(qualityFlaskMenu, "Min. quality", qualityItemsSettings.Flask.MinQuality);
-            var qualitySkillGemMenu = AddChild(qualityMenu, "Skill gems", qualityItemsSettings.SkillGem.Enable);
-            AddChild(qualitySkillGemMenu, "Min. quality", qualityItemsSettings.SkillGem.MinQuality);
-            AddChild(itemAlertMenu, "Play sound", settingsHub.ItemAlertSettings.PlaySound);
-            var alertTextMenu = AddChild(itemAlertMenu, "Show text", settingsHub.ItemAlertSettings.ShowText);
-            AddChild(itemAlertMenu, "Hide Others", settingsHub.ItemAlertSettings.HideOthers);
+            MenuItem itemAlertMenu = AddChild(root, "Item alert", settingsHub.ItemAlertSettings.Enable);
+            var itemAlertStaticMenuList = new[] { "Alternative", "Play sound", "Show text", "Hide Others", "Show border" };
+            MenuItem alternative = AddChild(itemAlertMenu, itemAlertStaticMenuList[0], settingsHub.ItemAlertSettings.Alternative, null, y => itemAlertStaticMenuList.All(x => x != (y as ToggleButton)?.Name));
+            AddChild(alternative, settingsHub.ItemAlertSettings.FilePath);
+            AddChild(alternative, "With border", settingsHub.ItemAlertSettings.WithBorder);
+            AddChild(alternative, "With sound", settingsHub.ItemAlertSettings.WithSound);
+            
+            AddChild(itemAlertMenu, itemAlertStaticMenuList[1], settingsHub.ItemAlertSettings.PlaySound);
+            MenuItem alertTextMenu = AddChild(itemAlertMenu, itemAlertStaticMenuList[2], settingsHub.ItemAlertSettings.ShowText);
             AddChild(alertTextMenu, "Font size", settingsHub.ItemAlertSettings.TextSize);
-            var borderSettings = settingsHub.ItemAlertSettings.BorderSettings;
-            var showBorderMenu = AddChild(itemAlertMenu, "Show border", borderSettings.Enable);
+            AddChild(itemAlertMenu, itemAlertStaticMenuList[3], settingsHub.ItemAlertSettings.HideOthers);
+            BorderSettings borderSettings = settingsHub.ItemAlertSettings.BorderSettings;
+            MenuItem showBorderMenu = AddChild(itemAlertMenu, itemAlertStaticMenuList[4], borderSettings.Enable);
             AddChild(showBorderMenu, "Border width", borderSettings.BorderWidth);
-            AddChild(showBorderMenu, "Border color", borderSettings.BorderColor);
-            AddChild(showBorderMenu, "Can't pick up", borderSettings.CantPickUpBorderColor);
-            AddChild(showBorderMenu, "Not my item", borderSettings.NotMyItemBorderColor);
+            AddChild(showBorderMenu, "Border color:", borderSettings.BorderColor);
+            AddChild(showBorderMenu, "Cn't pck up color:", borderSettings.CantPickUpBorderColor);
+            AddChild(showBorderMenu, "Not my item color:", borderSettings.NotMyItemBorderColor);
             AddChild(showBorderMenu, "Show timer", borderSettings.ShowTimer);
             AddChild(showBorderMenu, "Timer text size", borderSettings.TimerTextSize);
-            AddChild(itemAlertMenu, "Background color", settingsHub.ItemAlertSettings.BackgroundColor);
+            AddChild(itemAlertMenu, "Rares", settingsHub.ItemAlertSettings.Rares);
+            AddChild(itemAlertMenu, "Uniques", settingsHub.ItemAlertSettings.Uniques);
+            AddChild(itemAlertMenu, "Currency", settingsHub.ItemAlertSettings.Currency);
+            AddChild(itemAlertMenu, "Maps", settingsHub.ItemAlertSettings.Maps);
+            AddChild(itemAlertMenu, "RGB", settingsHub.ItemAlertSettings.Rgb);
+            AddChild(itemAlertMenu, "Crafting bases", settingsHub.ItemAlertSettings.Crafting);
+            AddChild(itemAlertMenu, "Divination cards", settingsHub.ItemAlertSettings.DivinationCards);
+            AddChild(itemAlertMenu, "Jewels", settingsHub.ItemAlertSettings.Jewels);
+            QualityItemsSettings qualityItemsSettings = settingsHub.ItemAlertSettings.QualityItems;
+            MenuItem qualityMenu = AddChild(itemAlertMenu, "Show quality items", qualityItemsSettings.Enable);
+            MenuItem qualityWeaponMenu = AddChild(qualityMenu, "Weapons", qualityItemsSettings.Weapon.Enable);
+            AddChild(qualityWeaponMenu, "Min. quality", qualityItemsSettings.Weapon.MinQuality);
+            MenuItem qualityArmourMenu = AddChild(qualityMenu, "Armours", qualityItemsSettings.Armour.Enable);
+            AddChild(qualityArmourMenu, "Min. quality", qualityItemsSettings.Armour.MinQuality);
+            MenuItem qualityFlaskMenu = AddChild(qualityMenu, "Flasks", qualityItemsSettings.Flask.Enable);
+            AddChild(qualityFlaskMenu, "Min. quality", qualityItemsSettings.Flask.MinQuality);
+            MenuItem qualitySkillGemMenu = AddChild(qualityMenu, "Skill gems", qualityItemsSettings.SkillGem.Enable);
+            AddChild(qualitySkillGemMenu, "Min. quality", qualityItemsSettings.SkillGem.MinQuality);
 
             // Advanced tooltip
             AdvancedTooltipSettings tooltipSettings = settingsHub.AdvancedTooltipSettings;

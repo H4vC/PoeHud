@@ -1,8 +1,11 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
+
 using PoeHUD.Models.Enums;
 using PoeHUD.Models.Interfaces;
 using PoeHUD.Poe.Components;
+
 using SharpDX;
 
 namespace PoeHUD.Hud.Loot
@@ -17,11 +20,11 @@ namespace PoeHUD.Hud.Loot
 
         private ItemRarity rarity;
 
-        private int quality, frameWidth, alertIcon = -1;
+        private int quality, borderWidth, alertIcon = -1;
 
         private string alertText;
 
-        private Color fontColor, frameColor;
+        private Color color; // Fully qualify to prevent confusion on Component
 
         public ItemUsefulProperties(string name, IEntity item, CraftingBase craftingBase)
         {
@@ -32,7 +35,7 @@ namespace PoeHUD.Hud.Loot
 
         public AlertDrawStyle GetDrawStyle()
         {
-            return new AlertDrawStyle((new Color().Equals(fontColor) ? (object)rarity : fontColor), frameWidth, alertText, alertIcon, frameColor);
+            return new AlertDrawStyle((new Color().Equals(color) ? (object)rarity : color), borderWidth, alertText, alertIcon);
         }
 
         public bool ShouldAlert(HashSet<string> currencyNames, ItemAlertSettings settings)
@@ -40,176 +43,113 @@ namespace PoeHUD.Hud.Loot
             Mods mods = _item.GetComponent<Mods>();
             QualityItemsSettings qualitySettings = settings.QualityItems;
 
-            rarity = mods.ItemRarity;
+            rarity = mods.ItemRarity; // set rarity
 
             if (_item.HasComponent<Quality>())
             {
-                quality = _item.GetComponent<Quality>().ItemQuality;
+                quality = _item.GetComponent<Quality>().ItemQuality; // update quality variable
             }
 
-            alertText = string.Concat(quality > 0 ? "Superior " : string.Empty, _name);
+            alertText = string.Concat(quality > 0 ? "Superior " : String.Empty, _name);
 
+            // Check if Map/Vaal Frag
             if (settings.Maps && (_item.HasComponent<Map>() || _item.Path.Contains("VaalFragment")))
             {
-                frameWidth = 1;
-                frameColor = settings.FrameMapsColor;
-                fontColor = settings.MapsColor;
+                borderWidth = 1;
                 return true;
             }
 
+            // Check if Currency
             if (settings.Currency && _item.Path.Contains("Currency"))
             {
-                if (_name.Contains("Divine Orb") ||
-                    _name.Contains("Exalted Orb") ||
-                    _name.Contains("Mirror of Kalandra") ||
-                    _name.Contains("Fishing Rod"))
-                {
-                    frameWidth = 1;
-                    frameColor = settings.FrameExaltedColor;
-                    fontColor = settings.ExaltedColor;
-                    return true;
-                }
-                if (_name.Contains("Chaos Orb") ||
-                    _name.Contains("Blessed Orb") ||
-                    _name.Contains("Regal Orb") ||
-                    _name.Contains("Vaal Orb") ||
-                    _name.Contains("Gemcutter's Prism") ||
-                    _name.Contains("Orb of Regret") ||
-                    _name.Contains("Orb of Alchemy") ||
-                    _name.Contains("Orb of Scouring") ||
-                    _name.Contains("Orb of Fusing") ||
-                    _name.Contains("Albino Rhoa Feather"))
-                {
-                    frameWidth = 1;
-                    frameColor = settings.FrameChaosColor;
-                    fontColor = settings.ChaosColor;
-                    return true;
-                }
-                if (_name.Contains("Jeweller's Orb") ||
-                    _name.Contains("Cartographer's Chisel") ||
-                    _name.Contains("Chromatic Orb") ||
-                    _name.Contains("Orb of Chance") ||
-                    _name.Contains("Orb of Alteration") ||
-                    _name.Contains("Orb of Augmentation") ||
-                    _name.Contains("Orb of Transmutation"))
-                {
-                    frameWidth = 1;
-                    frameColor = settings.FrameCurrencyColor;
-                    fontColor = settings.CurrencyColor;
-                    return true;
-                }
+                color = HudSkin.CurrencyColor;
+                return currencyNames?.Contains(_name) ?? (!_name.Contains("Wisdom") && !_name.Contains("Portal"));
             }
 
-            if (settings.Jewels && _item.Path.Contains("Jewels"))
+            // Check if DivinationCard
+            if (settings.DivinationCards && _item.Path.Contains("DivinationCards"))
             {
-                switch (rarity)
-                {
-                    case ItemRarity.Rare:
-                        frameWidth = 1;
-                        frameColor = settings.FrameJewelsColor;
-                        fontColor = HudSkin.RareColor;
-                        return true;
-                    case ItemRarity.Unique:
-                        frameWidth = 1;
-                        frameColor = HudSkin.UniqueColor;
-                        fontColor = HudSkin.UniqueColor;
-                        return true;
-                }
-                frameWidth = 1;
-                frameColor = settings.FrameJewelsColor;
-                fontColor = settings.JewelsColor;
-                return true;
-            }
-
-            if (settings.Cards && _item.Path.Contains("DivinationCards"))
-            {
-                frameWidth = 1;
-                frameColor = settings.FrameCardsColor;
-                fontColor = settings.CardsColor;
+                color = HudSkin.DivinationCardColor;
                 return true;
             }
 
             Sockets sockets = _item.GetComponent<Sockets>();
-
+            // Check link REQ.
             if (sockets.LargestLinkSize >= settings.MinLinks)
             {
-                alertIcon = 3;
-                frameWidth = 1;
-                frameColor = settings.FrameLinkedColor;
-                fontColor = settings.LinkedColor;
+                if (sockets.LargestLinkSize == 6) // If 6 link change icon
+                {
+                    alertIcon = 3;
+                }
                 return true;
             }
 
+            // Check if Crafting Base
             if (IsCraftingBase(mods.ItemLevel))
             {
                 alertIcon = 2;
-                frameWidth = 1;
-                frameColor = settings.FrameCraftingColor;
-                fontColor = settings.CraftingColor;
                 return true;
             }
 
+            // Check # socket REQ.
             if (sockets.NumberOfSockets >= settings.MinSockets)
             {
                 alertIcon = 0;
-                frameWidth = 1;
-                frameColor = settings.FrameSocketsColor;
-                fontColor = settings.SocketsColor;
                 return true;
             }
 
+            // RGB
             if (settings.Rgb && sockets.IsRGB)
             {
                 alertIcon = 1;
-                frameWidth = 1;
-                frameColor = settings.FrameRGBColor;
-                fontColor = settings.RGBColor;
                 return true;
             }
 
+            // Check if Jewel
+            if (settings.Jewels && _item.Path.Contains("Jewels"))
+            {
+                return true;
+            }
+
+            // meets rarity conidtions
             switch (rarity)
             {
                 case ItemRarity.Rare:
                     return settings.Rares;
-
                 case ItemRarity.Unique:
-                    frameWidth = 1;
-                    frameColor = HudSkin.UniqueColor;
-                    fontColor = HudSkin.UniqueColor;
-                    return true;
+                    return settings.Uniques;
+                default:
+                    break;
             }
 
-            if (!qualitySettings.Enable) return false;
-
-            if (qualitySettings.Flask.Enable && _item.HasComponent<Flask>())
+            // Other (no icon change)
+            if (qualitySettings.Enable)
             {
-                return (quality >= qualitySettings.Flask.MinQuality);
-            }
-            if (qualitySettings.SkillGem.Enable && _item.HasComponent<SkillGem>())
-            {
-                if (quality > 0)
+                if (qualitySettings.Flask.Enable && _item.HasComponent<Flask>())
                 {
-                    frameWidth = 1;
-                    frameColor = HudSkin.SkillGemColor;
+                    return (quality >= qualitySettings.Flask.MinQuality);
                 }
-                fontColor = HudSkin.SkillGemColor;
-                return (quality >= qualitySettings.SkillGem.MinQuality);
-            }
-            if (qualitySettings.Weapon.Enable && _item.HasComponent<Weapon>())
-            {
-                return (quality >= qualitySettings.Weapon.MinQuality);
-            }
-            if (qualitySettings.Armour.Enable && _item.HasComponent<Armour>())
-            {
-                return (quality >= qualitySettings.Armour.MinQuality);
+                else if (qualitySettings.SkillGem.Enable && _item.HasComponent<SkillGem>())
+                {
+                    color = HudSkin.SkillGemColor;
+                    return (quality >= qualitySettings.SkillGem.MinQuality);
+                }
+                else if (qualitySettings.Weapon.Enable && _item.HasComponent<Weapon>())
+                {
+                    return (quality >= qualitySettings.Weapon.MinQuality);
+                }
+                else if (qualitySettings.Armour.Enable && _item.HasComponent<Armour>())
+                {
+                    return (quality >= qualitySettings.Armour.MinQuality);
+                }
             }
 
-            return false;
+            return false; // Meets no checks
         }
 
         private bool IsCraftingBase(int itemLevel)
         {
-            return (!string.IsNullOrEmpty(_craftingBase.Name) && itemLevel >= _craftingBase.MinItemLevel && quality >= _craftingBase.MinQuality && (_craftingBase.Rarities == null || _craftingBase.Rarities.Contains(rarity)));
+            return (!String.IsNullOrEmpty(_craftingBase.Name) && itemLevel >= _craftingBase.MinItemLevel && quality >= _craftingBase.MinQuality && (_craftingBase.Rarities == null || _craftingBase.Rarities.Contains(rarity)));
         }
     }
 }

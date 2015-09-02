@@ -1,9 +1,10 @@
 using PoeHUD.Framework.Helpers;
 using PoeHUD.Hud.Settings;
 using PoeHUD.Hud.UI;
-
 using SharpDX;
 using SharpDX.Direct3D9;
+using System;
+using System.Linq;
 
 namespace PoeHUD.Hud.Menu
 {
@@ -11,15 +12,30 @@ namespace PoeHUD.Hud.Menu
     {
         private readonly string key;
 
-        private readonly string name;
+        public readonly string Name;
 
         private readonly ToggleNode node;
 
-        public ToggleButton(string name, ToggleNode node, string key)
+        private MenuItem parent;
+
+        private Func<MenuItem, bool> hide;
+
+        public ToggleButton(MenuItem parent, string name, ToggleNode node, string key, Func<MenuItem, bool> hide)
         {
-            this.key = key;
-            this.name = name;
+            this.Name = name;
             this.node = node;
+            this.key = key;
+            this.parent = parent;
+            this.hide = hide;
+            if (hide != null)
+            {
+                node.OnValueChanged = Hide;
+            }
+        }
+
+        private void Hide()
+        {
+            parent.Children.Where(hide).ForEach(y => y.SetVisible(!node.Value));
         }
 
         public override int DesiredWidth => 170;
@@ -34,7 +50,7 @@ namespace PoeHUD.Hud.Menu
             Color color = node.Value ? settings.EnabledBoxColor : settings.DisabledBoxColor;
             var textPosition = new Vector2(Bounds.X - 45 + Bounds.Width / 3, Bounds.Y + Bounds.Height / 2);
             if (key != null) graphics.DrawText(string.Concat("[", key, "]"), 12, Bounds.TopRight.Translate(-45, 0), settings.MenuFontColor);
-            graphics.DrawText(name, settings.MenuFontSize, textPosition, settings.MenuFontColor, FontDrawFlags.VerticalCenter | FontDrawFlags.Left);
+            graphics.DrawText(Name, settings.MenuFontSize, textPosition, settings.MenuFontColor, FontDrawFlags.VerticalCenter | FontDrawFlags.Left);
             graphics.DrawImage("menu-background.png", new RectangleF(Bounds.X, Bounds.Y, Bounds.Width, Bounds.Height), settings.BackgroundColor);
             graphics.DrawImage("menu-slider.png", new RectangleF(Bounds.X + 5, Bounds.Y + 3 * Bounds.Height / 4 + 2, Bounds.Width - 10, 4), color);
 
@@ -54,6 +70,21 @@ namespace PoeHUD.Hud.Menu
             {
                 node.Value = !node.Value;
             }
+        }
+
+        public override void SetHovered(bool hover)
+        {
+            Action func = null;
+            Children.ForEach(x =>
+            {
+                x.SetVisible(hover);
+                var toggleButton = (x as ToggleButton);
+                if (hover && toggleButton?.hide != null)
+                {
+                    func = toggleButton.Hide;
+                }
+            });
+            func?.Invoke();
         }
     }
 }

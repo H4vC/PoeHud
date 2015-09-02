@@ -30,7 +30,9 @@ namespace PoeHUD.Hud.Settings
                 Converters = new JsonConverter[]
                 {
                     new ColorNodeConverter(),
-                    new ToggleNodeConverter()
+                    new ToggleNodeConverter(),
+                    new ToggleNodeConverter(),
+                    new FileNodeConverter()
                 }
             };
         }

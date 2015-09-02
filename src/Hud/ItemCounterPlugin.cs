@@ -1,10 +1,10 @@
 ﻿/*
  * (c) chuede (Siriais)
- * 
+ *
  * this Plugin cant be used currently as the Item id Always changes ins therefore can be counted a lot more than one time.
  * Als long as i cannot find a Uniqe Id to avoid an item beeing counted multiple times, this can never beused.
- * 
- * to Enable this in the Hud , Uncomment the entries in ExternalOverlay.cs and 
+ *
+ * to Enable this in the Hud , Uncomment the entries in ExternalOverlay.cs and
  * */
 
 using System;
@@ -12,7 +12,6 @@ using System.Collections.Generic;
 using System.IO;
 using PoeHUD.Controllers;
 using PoeHUD.Framework.Helpers;
-using PoeHUD.Hud.Settings;
 using PoeHUD.Hud.UI;
 using PoeHUD.Models;
 using PoeHUD.Models.Enums;
@@ -21,9 +20,9 @@ using PoeHUD.Poe.Components;
 using SharpDX;
 using SharpDX.Direct3D9;
 
-namespace PoeHUD.Hud.ICounter
+namespace PoeHUD.Hud
 {
-    class ItemCounterPlugin : SizedPlugin<ItemCounterSettings>
+    internal class ItemCounterPlugin : SizedPlugin<ItemCounterSettings>
     {
         private readonly Dictionary<ItemRarity, int> counters;
         private readonly HashSet<long> countedIds;
@@ -43,7 +42,7 @@ namespace PoeHUD.Hud.ICounter
             GameController.Area.OnAreaChange += area =>
             {
                 if (!Settings.Enable) // no need to do Anything if this plugin isnt Enable
-                        return;
+                    return;
                 totalDrops = 0;
                 countedIds.Clear();
                 // Initialize Rarity-Counter
@@ -91,7 +90,7 @@ namespace PoeHUD.Hud.ICounter
                 ItemRarity rarity = mods.ItemRarity;
                 counters[rarity] += 1;
                 totalDrops += 1;
-                File.AppendAllText(Environment.CurrentDirectory+"\\drops.txt",
+                File.AppendAllText(Environment.CurrentDirectory + "\\drops.txt",
                     $"{item.Id} -> {item}{Environment.NewLine}");
             }
         }
@@ -99,7 +98,7 @@ namespace PoeHUD.Hud.ICounter
         private Size2 DrawDetail(Vector2 position)
         {
             const int INNER_MARGIN = 7;
-            Size2 size = DrawSingleCounter(position, "white", counters[ItemRarity.White].ToString(), Color.White);
+            Size2 size = DrawSingleCounter(position, "white", counters[ItemRarity.Normal].ToString(), Color.White);
 
             size = new Size2(
                     DrawSingleCounter(position.Translate(-size.Width - INNER_MARGIN, 0), "magic",
@@ -135,6 +134,5 @@ namespace PoeHUD.Hud.ICounter
                 return new Size2(size2.Width, size.Height + size2.Height);
             }
         }
-
     }
 }

@@ -8,7 +8,8 @@ namespace PoeHUD.Hud.Menu
         public MenuSettings()
         {
             Enable = true;
-            X = 10; Y = 100;
+            X = 10;
+            Y = 100;
             ShowIncrements = true;
             TitleFontColor = new ColorBGRA(200, 100, 0, 255);
             EnabledBoxColor = new ColorBGRA(128, 128, 128, 255);

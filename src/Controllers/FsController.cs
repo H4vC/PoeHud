@@ -10,6 +10,7 @@ namespace PoeHUD.Controllers
     public class FsController
     {
         public readonly BaseItemTypes BaseItemTypes;
+        public readonly ItemClassesDisplay ItemClassesDisplay;
         public readonly ModsDat Mods;
         public readonly StatsDat Stats;
         public readonly TagsDat Tags;
@@ -21,7 +22,8 @@ namespace PoeHUD.Controllers
         {
             files = new Dictionary<string, int>();
             this.mem = mem;
-            BaseItemTypes = new BaseItemTypes(mem, FindFile("Data/BaseItemTypes.dat"));
+            ItemClassesDisplay = new ItemClassesDisplay();
+            BaseItemTypes = new BaseItemTypes(mem, FindFile("Data/BaseItemTypes.dat"), ItemClassesDisplay);
             Tags = new TagsDat(mem, FindFile("Data/Tags.dat"));
             Stats = new StatsDat(mem, FindFile("Data/Stats.dat"));
             Mods = new ModsDat(mem, FindFile("Data/Mods.dat"), Stats, Tags);

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 
 namespace PoeHUD.Poe.Components
 {
@@ -89,10 +90,7 @@ namespace PoeHUD.Poe.Components
             }
         }
 
-        public int NumberOfSockets
-        {
-            get { return SocketList.Count; }
-        }
+        public int NumberOfSockets => SocketList.Count;
 
         public bool IsRGB
         {
@@ -110,6 +108,34 @@ namespace PoeHUD.Poe.Components
                     }
                 }
                 return false;
+            }
+        }
+
+        public List<string> SocketGroup
+        {
+            get
+            {
+                var list = new List<string>();
+                foreach (var current in Links)
+                {
+                    var sb = new StringBuilder();
+                    foreach (var color in current)
+                    {
+                        switch (color)
+                        {
+                            case 1:
+                                sb.Append("R"); break;
+                            case 2:
+                                sb.Append("G"); break;
+                            case 3:
+                                sb.Append("B"); break;
+                            case 4:
+                                sb.Append("W"); break;
+                        }
+                    }
+                    list.Add(sb.ToString());
+                }
+                return list;
             }
         }
     }

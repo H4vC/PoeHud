@@ -31,10 +31,8 @@ namespace PoeHUD
 
 	    private static int chooseSingleProcess(List<Tuple<Process, Offsets>> clients)
 	    {
-	        String o1 = String.Format("Yes - process #{0}, started at {1}", clients[0].Item1.Id,
-	            clients[0].Item1.StartTime.ToLongTimeString());
-	        String o2 = String.Format("No - process #{0}, started at {1}", clients[1].Item1.Id,
-	            clients[1].Item1.StartTime.ToLongTimeString());
+	        String o1 = $"Yes - process #{clients[0].Item1.Id}, started at {clients[0].Item1.StartTime.ToLongTimeString()}";
+	        String o2 = $"No - process #{clients[1].Item1.Id}, started at {clients[1].Item1.StartTime.ToLongTimeString()}";
 	        const string o3 = "Cancel - quit this application";
 	        var answer = MessageBox.Show(null, String.Join(Environment.NewLine, o1, o2, o3),
 	            "Choose a PoE instance to attach to", MessageBoxButtons.YesNoCancel);
@@ -47,7 +45,7 @@ namespace PoeHUD
             AppDomain.CurrentDomain.UnhandledException += (sender, exceptionArgs) =>
             {
                 var errorText = "Program exited with message:\n " + exceptionArgs.ExceptionObject;
-                File.AppendAllText("Error.log", string.Format("{0} {1}\r\n{2}\r\n",DateTime.Now.ToString("g") , errorText, new string('-', 30)));
+                File.AppendAllText("Error.log", $"{DateTime.Now.ToString("g")} {errorText}\r\n{new string('-', 30)}\r\n");
                 MessageBox.Show(errorText);
                 Environment.Exit(1);
             };

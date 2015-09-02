@@ -9,9 +9,9 @@ namespace PoeHUD.Hud.Menu
 {
     public abstract class MenuItem
     {
-        protected readonly List<MenuItem> Children;
+        public readonly List<MenuItem> Children;
 
-        protected bool IsVisible;
+        public bool IsVisible;
 
         private MenuItem currentHover;
 
@@ -78,10 +78,9 @@ namespace PoeHUD.Hud.Menu
                 }
             }
         }
-
         public abstract void Render(Graphics graphics, MenuSettings settings);
 
-        public void SetHovered(bool hover)
+        public virtual void SetHovered(bool hover)
         {
             Children.ForEach(x => x.SetVisible(hover));
         }

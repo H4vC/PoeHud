@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PoeHUD", "PoeHUD.csproj", "
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Tools", "Tools\Tools.fsproj", "{5F2AE016-51D1-42C4-95CD-4E12118E3A6E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PoeFilterParser", "PoeFilterParser\PoeFilterParser.csproj", "{8F5D7D56-7A81-433A-B358-AB297A136183}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +33,14 @@ Global
 		{5F2AE016-51D1-42C4-95CD-4E12118E3A6E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5F2AE016-51D1-42C4-95CD-4E12118E3A6E}.Release|x86.ActiveCfg = Release|Any CPU
 		{5F2AE016-51D1-42C4-95CD-4E12118E3A6E}.Release|x86.Build.0 = Release|Any CPU
+		{8F5D7D56-7A81-433A-B358-AB297A136183}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F5D7D56-7A81-433A-B358-AB297A136183}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F5D7D56-7A81-433A-B358-AB297A136183}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{8F5D7D56-7A81-433A-B358-AB297A136183}.Debug|x86.Build.0 = Debug|Any CPU
+		{8F5D7D56-7A81-433A-B358-AB297A136183}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F5D7D56-7A81-433A-B358-AB297A136183}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F5D7D56-7A81-433A-B358-AB297A136183}.Release|x86.ActiveCfg = Release|Any CPU
+		{8F5D7D56-7A81-433A-B358-AB297A136183}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
