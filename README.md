@@ -1,3 +1,5 @@
+[![Build status](https://ci.appveyor.com/api/projects/status/hiii0rp62djxptcn/branch/master?svg=true)](https://ci.appveyor.com/project/smad2005/poehud/branch/master) [![GitHub release](https://img.shields.io/github/release/smad2005/poehud.svg)]() [![Github Releases](https://img.shields.io/github/downloads/smad2005/poehud/latest/total.svg)](https://github.com/smad2005/PoeHud/releases)
+
 PoeHud
 ======
 
