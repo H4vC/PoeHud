@@ -37,7 +37,7 @@ namespace PoeHUD.Hud.Menu
             graphics.DrawImage(string.IsNullOrEmpty(path) ? "openFile.png" : "done.png", rectangle);
         }
 
-        protected override async void HandleEvent(MouseEventID id, Vector2 pos)
+        protected override void HandleEvent(MouseEventID id, Vector2 pos)
         {
             if (id != MouseEventID.LeftButtonDown) return;
             Thread thread = new Thread(() =>

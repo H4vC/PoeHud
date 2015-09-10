@@ -41,8 +41,7 @@ namespace PoeHUD.Hud.UI.Renderers
             }
             catch (Exception)
             {
-                //Console.WriteLine("Exception! X: " + position.X + ", Y: " + position.Y + ", Text: " + text);
-                //Console.WriteLine(exception.StackTrace);
+                // ignored
             }
             return new Size2();
         }

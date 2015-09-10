@@ -274,7 +274,6 @@ namespace PoeHUD.Hud.Loot
             {
                 var poeValue = Convert.ToInt32(y.GetText());
                 return compareFunc(value, poeValue);
-                return true;
             });
         }
 
