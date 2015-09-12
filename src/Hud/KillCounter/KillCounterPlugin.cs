@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using PoeHUD.Controllers;
 using PoeHUD.Framework.Helpers;
-using PoeHUD.Hud.Settings;
 using PoeHUD.Hud.UI;
 using PoeHUD.Models;
 using PoeHUD.Models.Enums;

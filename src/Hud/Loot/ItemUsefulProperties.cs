@@ -118,8 +118,6 @@ namespace PoeHUD.Hud.Loot
                     return settings.Rares;
                 case ItemRarity.Unique:
                     return settings.Uniques;
-                default:
-                    break;
             }
 
             // Other (no icon change)

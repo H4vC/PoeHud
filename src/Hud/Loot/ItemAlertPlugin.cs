@@ -126,7 +126,7 @@ namespace PoeHUD.Hud.Loot
                         {
                             shouldUpdate = true;
                         }
-                    };
+                    }
                 }
 
                 foreach (KeyValuePair<EntityWrapper, AlertDrawStyle> kv in currentAlerts.Where(x => x.Key.IsValid))
@@ -226,7 +226,7 @@ namespace PoeHUD.Hud.Loot
             string[] array = File.ReadAllLines("config/crafting_bases.txt");
             foreach (string text in array.Select(x => x.Trim()).Where(x => !string.IsNullOrWhiteSpace(x) && !x.StartsWith("#")))
             {
-                string[] parts = text.Split(new[] { ',' });
+                string[] parts = text.Split(',');
                 string itemName = parts[0].Trim();
 
                 var item = new CraftingBase { Name = itemName };
@@ -248,7 +248,7 @@ namespace PoeHUD.Hud.Loot
                     item.Rarities = new ItemRarity[parts.Length - 3];
                     for (int i = RARITY_POSITION; i < parts.Length; i++)
                     {
-                        if (!Enum.TryParse(parts[i], true, out item.Rarities[i - RARITY_POSITION]))
+                        if (item.Rarities != null && !Enum.TryParse(parts[i], true, out item.Rarities[i - RARITY_POSITION]))
                         {
                             parseErrors.Add("Incorrect rarity definition at line: " + text);
                             item.Rarities = null;

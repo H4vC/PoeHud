@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-
-using PoeHUD.Framework.Helpers;
-
+﻿using PoeHUD.Framework.Helpers;
 using SharpDX;
 using SharpDX.Direct3D9;
+using System;
+using System.Collections.Generic;
 
 namespace PoeHUD.Hud.UI.Renderers
 {
@@ -34,14 +32,15 @@ namespace PoeHUD.Hud.UI.Renderers
             {
                 var font = GetFont(fontName, height);
                 var rectangle = new Rectangle((int)position.X, (int)position.Y, 0, 0);
-                var fontDimension = font.MeasureText(null, text, rectangle, align);
+                Rectangle fontDimension = font.MeasureText(null, text, rectangle, align);
                 if (!sprite.IsDisposed)
                     font.DrawText(sprite, text, fontDimension, align, color);
                 return new Size2(fontDimension.Width, fontDimension.Height);
             }
             catch (Exception)
             {
-                // ignored
+                //Console.WriteLine("Exception! X: " + position.X + ", Y: " + position.Y + ", Text: " + text);
+                //Console.WriteLine(exception.StackTrace);
             }
             return new Size2();
         }
