@@ -14,7 +14,7 @@ namespace PoeHUD.Hud.Loot
             { ItemRarity.Normal, Color.White },
             { ItemRarity.Magic, HudSkin.MagicColor },
             { ItemRarity.Rare, HudSkin.RareColor },
-            { ItemRarity.Unique, HudSkin.UniqueColor },
+            { ItemRarity.Unique, HudSkin.UniqueColor }
         };
 
         public AlertDrawStyle(object colorRef, int borderWidth, string text, int iconIndex)

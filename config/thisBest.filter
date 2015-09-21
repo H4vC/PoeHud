@@ -1,0 +1,75 @@
+﻿Show
+    Rarity = Unique
+	SetBorderColor 175 96 37
+	
+Show
+    BaseType "Flask"
+
+Show
+    Rarity >= Rare
+
+Show
+    BaseType "Fishing Rod" "Mirror of Kalandra" "Exalted Orb" "Divine Orb" "Alchemy Shard"
+    SetTextColor 220 0 0
+    SetBorderColor 220 0 0
+
+Show
+    BaseType "Chaos Orb" "Vaal Orb" "Gemcutter's Prism" "Orb of Regret" "Regal Orb" "Orb of Alchemy" "Orb of Scouring" "Orb of Fusing" "Albino Rhoa Feather"
+    SetTextColor 180 0 180
+    SetBorderColor 153 0 153
+
+Show
+    BaseType "Blessed Orb" "Jeweller's Orb" "Cartographer's Chisel" "Orb of Chance" "Chromatic Orb" "Orb of Alteration" "Orb of Augmentation" "Orb of Transmutation"
+    SetBorderColor 153 0 153
+
+Show
+    Class "Gem" "Currency"
+
+Show
+    Class "Divination Card"
+    SetTextColor 220 0 0
+    SetBorderColor 220 0 0
+
+Show
+    LinkedSockets >= 5
+    SetTextColor 0 150 255
+    SetBorderColor 0 150 255
+
+Show
+    Class "Jewel"
+    SetTextColor 255 255 255
+    SetBorderColor 74 230 58
+
+Show
+    Quality > 0
+    Class "Gem"
+    SetBorderColor 27 162 155
+
+Show
+    Sockets = 6
+    SetTextColor 74 230 58
+    SetBorderColor 74 230 58
+
+Show
+    Class "Maps" "Map Fragments"
+    SetTextColor 222 184 135
+    SetBorderColor 222 184 135
+
+Show
+    SocketGroup "RGB"
+    SetTextColor 255 255 255
+    SetBorderColor 220 0 0
+
+Show
+    Rarity = Normal
+    BaseType "Coiled Staff" "Maelström Staff" "Serpentine Staff" "Golden Kris" "Platinum Kris" "Quartz Sceptre" "Crystal Sceptre" "Amethyst Ring" "Two-Stone Ring" "Gold Ring" "Gold Amulet"
+    SetTextColor 255 255 255
+    SetBorderColor 0 150 255
+
+Show
+    Rarity = Rare
+    BaseType "Quartz Sceptre" "Crystal Sceptre" "Golden Kris" "Golden Kris" "Platinum Kris" "Serpentine Staff" "Maelström Staff" "Coiled Staff"
+    SetBorderColor 0 150 255
+
+Hide
+

@@ -256,7 +256,7 @@
   "XP per hour": {
     "Enable": true,
     "ShowLatency": true,
-    "OnlyAreaName": true,
+    "OnlyAreaName": false,
     "FontSize": {
       "Value": 16,
       "Min": 10,
@@ -277,7 +277,7 @@
     "ShowIncrements": true,
     "ShowEnemies": true,
     "Players": {
-      "Enable": true,
+      "Enable": false,
       "Width": {
         "Value": 160.0,
         "Min": 50.0,
