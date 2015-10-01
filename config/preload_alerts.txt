@@ -1,5 +1,5 @@
 #Metadata;Text;colour (ARGB)
-#Example Metadata/Chests/StrongBoxes/Strongbox; Strongbox; FFFEC076
+#Example Metadata/Chests/StrongBoxes/Strongbox; Strongbox; danger.wav; FFFEC076
 
 
 Metadata/Monsters/Squid/SquidBossSideArea; The All-seeing Eye

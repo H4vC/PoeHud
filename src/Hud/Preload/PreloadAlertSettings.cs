@@ -12,6 +12,7 @@ namespace PoeHUD.Hud.Preload
             Masters = true;
             Exiles = true;
             Strongboxes = true;
+            PlaySound = true;
             FontSize = new RangeNode<int>(16, 10, 20);
             BackgroundColor = new ColorBGRA(255, 255, 255, 220);
             DefaultFontColor = new ColorBGRA(254, 192, 118, 255);
@@ -61,7 +62,7 @@ namespace PoeHUD.Hud.Preload
             WilorinDemontamer = new ColorBGRA(254, 192, 118, 255);
             AugustinaSolaria = new ColorBGRA(254, 192, 118, 255);
         }
-
+        public ToggleNode PlaySound { get; set; }
         public ToggleNode Masters { get; set; }
         public ToggleNode Exiles { get; set; }
         public ToggleNode Strongboxes { get; set; }

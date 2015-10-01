@@ -36,8 +36,11 @@ namespace PoeHUD.Hud.Preload
                 var preloadConfigLine = new PreloadConfigLine
                 {
                     Text = line[1],
-                    Color = line.ConfigColorValueExtractor(2)
+                    Color = line.ConfigColorValueExtractor(2),
+                    SoundFile = line.ConfigValueExtractor(3)
                 };
+                if (preloadConfigLine.SoundFile != null)
+                    Sounds.AddSound(preloadConfigLine.SoundFile);
                 return preloadConfigLine;
             });
         }
@@ -120,14 +123,19 @@ namespace PoeHUD.Hud.Preload
                 listIterator = memory.ReadInt(listIterator);
                 if (memory.ReadInt(listIterator + 8) != 0 && memory.ReadInt(listIterator + 12, 36) == areaChangeCount)
                 {
+                    //PreloadConfigLine PreloadConfigLine = null;
                     string text = memory.ReadStringU(memory.ReadInt(listIterator + 8));
                     if (text.Contains('@')) text = text.Split('@')[0];
                     if (alertStrings.ContainsKey(text)) alerts.Add(alertStrings[text]);
                     if (text.EndsWith("BossInvasion"))
                         alerts.Add(new PreloadConfigLine { Text = "Invasion Boss" });
-                    else if (text.Contains("human_heart") || text.Contains("Demonic_NoRain.ogg"))
+                    if (text.Contains("human_heart") || text.Contains("Demonic_NoRain.ogg"))
+                    {
                         alerts.Add(new PreloadConfigLine { Text = "Corrupted Area", FastColor = () => Settings.CorruptedColor });
-
+                        PlaySound();
+                    }
+                        
+                    
 
                     else if (text.EndsWith("Metadata/NPC/Missions/Wild/StrDexInt"))
                         alerts.Add(new PreloadConfigLine { Text = "Zana, Master Cartographer", FastColor = () => Settings.MasterZana });
@@ -245,6 +253,12 @@ namespace PoeHUD.Hud.Preload
                         alerts.Add(new PreloadConfigLine { Text = "Augustina Solaria", FastColor = () => Settings.AugustinaSolaria });
                 }
             }
+        }
+
+        public void PlaySound()
+        {
+            if (!Settings.PlaySound) return;
+            Sounds.AlertSound.Play();
         }
     }
 }

@@ -268,6 +268,7 @@ namespace PoeHUD.Hud.Menu
             AddChild(strongboxes, "Epic", settingsHub.PreloadAlertSettings.EpicStrongbox);
             AddChild(strongboxes, "Simple", settingsHub.PreloadAlertSettings.SimpleStrongbox);
 
+            AddChild(preloadMenu, "Sound warning", settingsHub.PreloadAlertSettings.PlaySound);
             AddChild(preloadMenu, "Corrupted color", settingsHub.PreloadAlertSettings.CorruptedColor);
             AddChild(preloadMenu, "Background color", settingsHub.PreloadAlertSettings.BackgroundColor);
             AddChild(preloadMenu, "Font color", settingsHub.PreloadAlertSettings.DefaultFontColor);
