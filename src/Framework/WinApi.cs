@@ -131,9 +131,6 @@ namespace PoeHUD.Framework
         [DllImport("user32.dll", SetLastError = true)]
         private static extern int SetWindowLong(IntPtr hWnd, int nIndex, IntPtr dwNewLong);
 
-        [DllImport("winmm.dll")]
-        public static extern int waveOutSetVolume(IntPtr hwo, uint dwVolume);
-
         #endregion
 
         #region Structures

@@ -55,11 +55,6 @@
     "ShowText": true,
     "HideOthers": false,
     "PlaySound": true,
-    "SoundVolume": {
-      "Value": 20,
-      "Min": 0,
-      "Max": 100
-    },
     "TextSize": {
       "Value": 16,
       "Min": 10,
@@ -134,10 +129,10 @@
         "Max": 40
       }
     },
-    "WithBorder": true,
+    "WithBorder": false,
     "WithSound": false,
-    "Alternative": true,
-    "FilePath": "C:\\Users\\mVm\\Documents\\My Games\\Path of Exile\\thisBest.filter"
+    "Alternative": false,
+    "FilePath": ""
   },
   "Advanced tooltip": {
     "Enable": true,

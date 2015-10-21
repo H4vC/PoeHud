@@ -1,0 +1,103 @@
+; minimap Icon Config-file,
+; Lines with ; are comments
+; empty lines are ignored
+; Lines Without ; are ignored too;
+; none existing Textures are ignored too
+;-------------------------------------------------------------------
+;Default Values for crafting, gems ... 
+default;minimap_default_icon.png
+currency;dot_yellow.png
+crafting;dot_orange.png
+gem;dot_blue.png
+rgb;dot_rgb.png
+map;dot_map.png
+fragment;dot_green.png
+-------------------------------------------------------------------
+;Default Values for Enemys
+ally; monster_ally.png
+white; monster_enemy.png
+magic;monster_enemy_blue.png
+rare; monster_enemy_yellow.png
+rare; monster_rare_pref.png
+unique; monster_enemy_orange.png
+;-------------------------------------------------------------------
+;Special Mods
+;use:
+;[ModName];[Texture-File]
+--------------------------------------------------------------------
+; Elemental reflect 
+MonsterAuraElementalThorns1;monster_rare_1.png
+MonsterElementalThorns;monster_rare_1.png
+;Corrupted Blood
+MonsterNemesisCorruptedBlood;monster_rare_3
+;Physical reflect
+MonsterAuraPhysicalThorns1;monster_rare_4
+MonsterPhysicalThorns;monster_rare_4
+;Violate Stormblood
+MonsterExplodesOnDeathLightning1;monster_rare_2
+;Violate Iceblood
+MonsterExplodesOnDeathCold1;monster_rare_2
+
+--------------------------------------------------------------------
+;Collection of mods. Some might be missing
+;-------------------------------------------------------------------
+MonsterAuraSpeed1
+MonsterFastAttack1
+MonsterFastRun1
+MonsterImmuneToCurses1
+MonsterIncreasedLife1
+MonsterNecromancerRaisable
+MonsterNemesisLightningStormDaemon
+MonsterResists1
+onsterAuraSpeed1
+MonsterGainsFrenzyChargeAsKilled1
+MonsterAuraResists1
+MonsterLifeRegen1
+MonsterAuraEnergyShield1
+MonsterMultipleProjectiles1
+MonsterGrantsFrenzyChargesToAlliesOnDeath1
+MonsterCastsFreezingPulseText
+MonsterImplicitCold1
+MonsterPhysicalDamage1
+MonsterCriticals1
+MonsterGainsEnduranceChargeOnHit1
+MonsterCold1
+MonsterDamageReduction1
+MonsterAuraSlow1
+MonsterCannotBeStunned1
+MonsterAuraAccuracyAndCrits1
+MonsterMultipleProjectilesImplicit1
+MonsterAuraLifeRegen1
+MonsterGainsFrenzyChargeOnHit1
+MonsterEnergyShield1
+MonsterCastsAugmentedFireballsText
+MonsterGainsPowerChargeOnKinDeath
+MonsterUsesFlickerStrikeText
+MonsterCastsDischargeText
+MonsterLifeLeech1
+MonsterFire1
+MonsterAccurate1
+MonsterCastsElementalHitText
+MonsterAuraElementalThorns1
+MonsterDisplayCastsSpikeNovaOnDeath
+MonsterNemesisSummonSkeletons
+MonsterGainsPowerChargeOnHit1
+MonsterNemesisProximityShield
+MonsterAuraLargeDamage1
+MonsterNemesisCorruptedBlood
+MonsterSpeedAndDamageFixupSmall
+MonsterNemesisElementalHit
+MonsterSnakeChaos
+MonsterAuraMediumDamage1
+MonsterSpeedAndDamageFixupLarge
+MonsterSummonsMonkeysText
+MonsterCastsPunctureText
+MonsterSpeedAndDamageFixupComplete
+MonsterRollsOverEnemiesText
+MonsterNemesisRaisesAfterDeath
+MonsterNemesisApparition
+MonsterNemesisSoulEater
+MonsterNemesisCurseDaemon
+MonsterFiresBurningArrowsText
+MonsterNemesisTransformOnLowLife
+MonsterNemesisEnfeebleOnHit

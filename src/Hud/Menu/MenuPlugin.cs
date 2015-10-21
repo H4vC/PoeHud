@@ -151,9 +151,8 @@ namespace PoeHUD.Hud.Menu
             AddChild(alternative, settingsHub.ItemAlertSettings.FilePath);
             AddChild(alternative, "With border", settingsHub.ItemAlertSettings.WithBorder);
             AddChild(alternative, "With sound", settingsHub.ItemAlertSettings.WithSound);
-
-            MenuItem sound = AddChild(itemAlertMenu, itemAlertStaticMenuList[1], settingsHub.ItemAlertSettings.PlaySound);
-            AddChild(sound, "Sound Volume", settingsHub.ItemAlertSettings.SoundVolume);
+            
+            AddChild(itemAlertMenu, itemAlertStaticMenuList[1], settingsHub.ItemAlertSettings.PlaySound);
             MenuItem alertTextMenu = AddChild(itemAlertMenu, itemAlertStaticMenuList[2], settingsHub.ItemAlertSettings.ShowText);
             AddChild(alertTextMenu, "Font size", settingsHub.ItemAlertSettings.TextSize);
             AddChild(itemAlertMenu, itemAlertStaticMenuList[3], settingsHub.ItemAlertSettings.HideOthers);
@@ -165,14 +164,14 @@ namespace PoeHUD.Hud.Menu
             AddChild(showBorderMenu, "Not my item color:", borderSettings.NotMyItemBorderColor);
             AddChild(showBorderMenu, "Show timer", borderSettings.ShowTimer);
             AddChild(showBorderMenu, "Timer text size", borderSettings.TimerTextSize);
-            //AddChild(itemAlertMenu, "Rares", settingsHub.ItemAlertSettings.Rares);
-            //AddChild(itemAlertMenu, "Uniques", settingsHub.ItemAlertSettings.Uniques);
-            //AddChild(itemAlertMenu, "Currency", settingsHub.ItemAlertSettings.Currency);
-            //AddChild(itemAlertMenu, "Maps", settingsHub.ItemAlertSettings.Maps);
-            //AddChild(itemAlertMenu, "RGB", settingsHub.ItemAlertSettings.Rgb);
-            //AddChild(itemAlertMenu, "Crafting bases", settingsHub.ItemAlertSettings.Crafting);
-            //AddChild(itemAlertMenu, "Divination cards", settingsHub.ItemAlertSettings.DivinationCards);
-            //AddChild(itemAlertMenu, "Jewels", settingsHub.ItemAlertSettings.Jewels);
+            AddChild(itemAlertMenu, "Rares", settingsHub.ItemAlertSettings.Rares);
+            AddChild(itemAlertMenu, "Uniques", settingsHub.ItemAlertSettings.Uniques);
+            AddChild(itemAlertMenu, "Currency", settingsHub.ItemAlertSettings.Currency);
+            AddChild(itemAlertMenu, "Maps", settingsHub.ItemAlertSettings.Maps);
+            AddChild(itemAlertMenu, "RGB", settingsHub.ItemAlertSettings.Rgb);
+            AddChild(itemAlertMenu, "Crafting bases", settingsHub.ItemAlertSettings.Crafting);
+            AddChild(itemAlertMenu, "Divination cards", settingsHub.ItemAlertSettings.DivinationCards);
+            AddChild(itemAlertMenu, "Jewels", settingsHub.ItemAlertSettings.Jewels);
             QualityItemsSettings qualityItemsSettings = settingsHub.ItemAlertSettings.QualityItems;
             MenuItem qualityMenu = AddChild(itemAlertMenu, "Show quality items", qualityItemsSettings.Enable);
             MenuItem qualityWeaponMenu = AddChild(qualityMenu, "Weapons", qualityItemsSettings.Weapon.Enable);
@@ -196,10 +195,10 @@ namespace PoeHUD.Hud.Menu
             AddChild(weaponDpsMenu, "Font size", tooltipSettings.WeaponDps.FontSize);
             AddChild(weaponDpsMenu, "Damage size", tooltipSettings.WeaponDps.DamageFontSize);
 
-            // MonsterTracker options
-            MenuItem MonsterTrackerMenu = AddChild(root, "Monster Tracker", settingsHub.MonsterTrackerSettings.Enable);
-            AddChild(MonsterTrackerMenu, "Sound warning", settingsHub.MonsterTrackerSettings.PlaySound);
-            MenuItem warningTextMenu = AddChild(MonsterTrackerMenu, "Text warning", settingsHub.MonsterTrackerSettings.ShowText);
+            // Boss warnings
+            MenuItem bossWarningsMenu = AddChild(root, "Boss warnings", settingsHub.MonsterTrackerSettings.Enable);
+            AddChild(bossWarningsMenu, "Sound warning", settingsHub.MonsterTrackerSettings.PlaySound);
+            MenuItem warningTextMenu = AddChild(bossWarningsMenu, "Text warning", settingsHub.MonsterTrackerSettings.ShowText);
             AddChild(warningTextMenu, "Font size", settingsHub.MonsterTrackerSettings.TextSize);
             AddChild(warningTextMenu, "Font color", settingsHub.MonsterTrackerSettings.DefaultTextColor);
             AddChild(warningTextMenu, "Background color", settingsHub.MonsterTrackerSettings.BackgroundColor);
