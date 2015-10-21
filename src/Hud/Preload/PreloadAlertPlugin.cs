@@ -131,115 +131,121 @@ namespace PoeHUD.Hud.Preload
                     alerts.Add(new PreloadConfigLine { Text = "Corrupted Area", FastColor = () => Settings.CorruptedColor });
                     //PlaySound();
                 }
-                else if (text.EndsWith("Metadata/NPC/Missions/Wild/StrDexInt"))
+
+                //masters
+                if (text.EndsWith("Metadata/NPC/Missions/Wild/StrDexInt"))
                     alerts.Add(new PreloadConfigLine { Text = "Zana, Master Cartographer", FastColor = () => Settings.MasterZana });
-                else if (text.EndsWith("Metadata/NPC/Missions/Wild/Int"))
+                if (text.EndsWith("Metadata/NPC/Missions/Wild/Int"))
                     alerts.Add(new PreloadConfigLine { Text = "Catarina, Master of the Dead", FastColor = () => Settings.MasterCatarina });
-                else if (text.EndsWith("Metadata/NPC/Missions/Wild/Dex"))
+                if (text.EndsWith("Metadata/NPC/Missions/Wild/Dex"))
                     alerts.Add(new PreloadConfigLine { Text = "Tora, Master of the Hunt", FastColor = () => Settings.MasterTora });
-                else if (text.EndsWith("Metadata/NPC/Missions/Wild/DexInt"))
+                if (text.EndsWith("Metadata/NPC/Missions/Wild/DexInt"))
                     alerts.Add(new PreloadConfigLine { Text = "Vorici, Master Assassin", FastColor = () => Settings.MasterVorici });
-                else if (text.EndsWith("Metadata/NPC/Missions/Wild/Str"))
+                if (text.EndsWith("Metadata/NPC/Missions/Wild/Str"))
                     alerts.Add(new PreloadConfigLine { Text = "Haku, Armourmaster", FastColor = () => Settings.MasterHaku });
-                else if (text.EndsWith("Metadata/NPC/Missions/Wild/StrInt"))
+                if (text.EndsWith("Metadata/NPC/Missions/Wild/StrInt"))
                     alerts.Add(new PreloadConfigLine { Text = "Elreon, Loremaster", FastColor = () => Settings.MasterElreon });
-                else if (text.EndsWith("Metadata/NPC/Missions/Wild/Fish"))
+                if (text.EndsWith("Metadata/NPC/Missions/Wild/Fish"))
                     alerts.Add(new PreloadConfigLine { Text = "Krillson, Master Fisherman", FastColor = () => Settings.MasterKrillson });
-                else if (text.EndsWith("Metadata/Monsters/Missions/MasterStrDex1"))
+                if (text.EndsWith("Metadata/Monsters/Missions/MasterStrDex1"))
                     alerts.Add(new PreloadConfigLine { Text = "Vagan, (2HSword)", FastColor = () => Settings.MasterVagan });
-                else if (text.EndsWith("Metadata/Monsters/Missions/MasterStrDex2"))
+                if (text.EndsWith("Metadata/Monsters/Missions/MasterStrDex2"))
                     alerts.Add(new PreloadConfigLine { Text = "Vagan, (Staff)", FastColor = () => Settings.MasterVagan });
-                else if (text.EndsWith("Metadata/Monsters/Missions/MasterStrDex3"))
+                if (text.EndsWith("Metadata/Monsters/Missions/MasterStrDex3"))
                     alerts.Add(new PreloadConfigLine { Text = "Vagan, (Bow)", FastColor = () => Settings.MasterVagan });
-                else if (text.EndsWith("Metadata/Monsters/Missions/MasterStrDex4"))
+                if (text.EndsWith("Metadata/Monsters/Missions/MasterStrDex4"))
                     alerts.Add(new PreloadConfigLine { Text = "Vagan, (DaggerRapier)", FastColor = () => Settings.MasterVagan });
-                else if (text.EndsWith("Metadata/Monsters/Missions/MasterStrDex5"))
+                if (text.EndsWith("Metadata/Monsters/Missions/MasterStrDex5"))
                     alerts.Add(new PreloadConfigLine { Text = "Vagan, (Blunt)", FastColor = () => Settings.MasterVagan });
-                else if (text.EndsWith("Metadata/Monsters/Missions/MasterStrDex6"))
+                if (text.EndsWith("Metadata/Monsters/Missions/MasterStrDex6"))
                     alerts.Add(new PreloadConfigLine { Text = "Vagan, (Blades)", FastColor = () => Settings.MasterVagan });
-                else if (text.EndsWith("Metadata/Monsters/Missions/MasterStrDex7"))
+                if (text.EndsWith("Metadata/Monsters/Missions/MasterStrDex7"))
                     alerts.Add(new PreloadConfigLine { Text = "Vagan, (SwordAxe)", FastColor = () => Settings.MasterVagan });
-                else if (text.EndsWith("Metadata/Monsters/Missions/MasterStrDex8"))
+                if (text.EndsWith("Metadata/Monsters/Missions/MasterStrDex8"))
                     alerts.Add(new PreloadConfigLine { Text = "Vagan, (Punching)", FastColor = () => Settings.MasterVagan });
-                else if (text.EndsWith("Metadata/Monsters/Missions/MasterStrDex9"))
+                if (text.EndsWith("Metadata/Monsters/Missions/MasterStrDex9"))
                     alerts.Add(new PreloadConfigLine { Text = "Vagan, (Flickerstrike)", FastColor = () => Settings.MasterVagan });
-                else if (text.EndsWith("Metadata/Monsters/Missions/MasterStrDex10"))
+                if (text.EndsWith("Metadata/Monsters/Missions/MasterStrDex10"))
                     alerts.Add(new PreloadConfigLine { Text = "Vagan, (Elementalist)", FastColor = () => Settings.MasterVagan });
-                else if (text.EndsWith("Metadata/Monsters/Missions/MasterStrDex11"))
+                if (text.EndsWith("Metadata/Monsters/Missions/MasterStrDex11"))
                     alerts.Add(new PreloadConfigLine { Text = "Vagan, (Cyclone)", FastColor = () => Settings.MasterVagan });
-                else if (text.EndsWith("Metadata/Monsters/Missions/MasterStrDex12"))
+                if (text.EndsWith("Metadata/Monsters/Missions/MasterStrDex12"))
                     alerts.Add(new PreloadConfigLine { Text = "Vagan, (PhysSpells)", FastColor = () => Settings.MasterVagan });
-                else if (text.EndsWith("Metadata/Monsters/Missions/MasterStrDex13"))
+                if (text.EndsWith("Metadata/Monsters/Missions/MasterStrDex13"))
                     alerts.Add(new PreloadConfigLine { Text = "Vagan, (Traps)", FastColor = () => Settings.MasterVagan });
-                else if (text.EndsWith("Metadata/Monsters/Missions/MasterStrDex14"))
+                if (text.EndsWith("Metadata/Monsters/Missions/MasterStrDex14"))
                     alerts.Add(new PreloadConfigLine { Text = "Vagan, (RighteousFire)", FastColor = () => Settings.MasterVagan });
-                else if (text.EndsWith("Metadata/Monsters/Missions/MasterStrDex15"))
+                if (text.EndsWith("Metadata/Monsters/Missions/MasterStrDex15"))
                     alerts.Add(new PreloadConfigLine { Text = "Vagan, (CastOnHit)", FastColor = () => Settings.MasterVagan });
-                else if (text.Contains("Metadata/Chests/StrongBoxes/Arcanist"))
+
+                //strongboxes
+                if (text.Contains("Metadata/Chests/StrongBoxes/Arcanist"))
                     alerts.Add(new PreloadConfigLine { Text = "Arcanist Strongbox", FastColor = () => Settings.ArcanistStrongbox });
-                else if (text.Contains("Metadata/Chests/StrongBoxes/Artisan"))
+                if (text.Contains("Metadata/Chests/StrongBoxes/Artisan"))
                     alerts.Add(new PreloadConfigLine { Text = "Artisan Strongbox", FastColor = () => Settings.ArtisanStrongbox });
-                else if (text.Contains("Metadata/Chests/StrongBoxes/Cartographer"))
+                if (text.Contains("Metadata/Chests/StrongBoxes/Cartographer"))
                     alerts.Add(new PreloadConfigLine { Text = "Cartographer Strongbox", FastColor = () => Settings.CartographerStrongbox });
-                else if (text.Contains("Metadata/Chests/StrongBoxes/Gemcutter"))
+                if (text.Contains("Metadata/Chests/StrongBoxes/Gemcutter"))
                     alerts.Add(new PreloadConfigLine { Text = "Gemcutter Strongbox", FastColor = () => Settings.GemcutterStrongbox });
-                else if (text.Contains("Metadata/Chests/StrongBoxes/Jeweller"))
+                if (text.Contains("Metadata/Chests/StrongBoxes/Jeweller"))
                     alerts.Add(new PreloadConfigLine { Text = "Jeweller Strongbox", FastColor = () => Settings.JewellerStrongbox });
-                else if (text.Contains("Metadata/Chests/StrongBoxes/ArsenalStrongBox"))
+                if (text.Contains("Metadata/Chests/StrongBoxes/ArsenalStrongBox"))
                     alerts.Add(new PreloadConfigLine { Text = "Blacksmith Strongbox", FastColor = () => Settings.BlacksmithStrongbox });
-                else if (text.Contains("Metadata/Chests/StrongBoxes/ArmoryStrongBox"))
+                if (text.Contains("Metadata/Chests/StrongBoxes/ArmoryStrongBox"))
                     alerts.Add(new PreloadConfigLine { Text = "Armourer Strongbox", FastColor = () => Settings.ArmourerStrongbox });
-                else if (text.Contains("Metadata/Chests/StrongBoxes/Ornate"))
+                if (text.Contains("Metadata/Chests/StrongBoxes/Ornate"))
                     alerts.Add(new PreloadConfigLine { Text = "Ornate Strongbox", FastColor = () => Settings.OrnateStrongbox });
-                else if (text.Contains("Metadata/Chests/StrongBoxes/Large"))
+                if (text.Contains("Metadata/Chests/StrongBoxes/Large"))
                     alerts.Add(new PreloadConfigLine { Text = "Large Strongbox", FastColor = () => Settings.LargeStrongbox });
-                else if (text.Contains("Metadata/Chests/StrongBoxes/PerandusBox"))
+                if (text.Contains("Metadata/Chests/StrongBoxes/PerandusBox"))
                     alerts.Add(new PreloadConfigLine { Text = "Perandus Strongbox", FastColor = () => Settings.PerandusStrongbox });
-                else if (text.Contains("Metadata/Chests/StrongBoxes/KaomBox"))
+                if (text.Contains("Metadata/Chests/StrongBoxes/KaomBox"))
                     alerts.Add(new PreloadConfigLine { Text = "Kaom Strongbox", FastColor = () => Settings.KaomStrongbox });
-                else if (text.Contains("Metadata/Chests/StrongBoxes/MalachaisBox"))
+                if (text.Contains("Metadata/Chests/StrongBoxes/MalachaisBox"))
                     alerts.Add(new PreloadConfigLine { Text = "Malachai Strongbox", FastColor = () => Settings.MalachaiStrongbox });
-                else if (text.Contains("Metadata/Chests/CopperChestEpic3"))
+                if (text.Contains("Metadata/Chests/CopperChestEpic3"))
                     alerts.Add(new PreloadConfigLine { Text = "Epic Strongbox", FastColor = () => Settings.EpicStrongbox });
-                else if (text.Contains("Metadata/Chests/StrongBoxes/Strongbox"))
+                if (text.Contains("Metadata/Chests/StrongBoxes/Strongbox"))
                     alerts.Add(new PreloadConfigLine { Text = "Simple Strongbox", FastColor = () => Settings.SimpleStrongbox });
-                else if (text.EndsWith("Metadata/Monsters/Exiles/ExileRanger1"))
+
+                //exiles
+                if (text.EndsWith("Metadata/Monsters/Exiles/ExileRanger1"))
                     alerts.Add(new PreloadConfigLine { Text = "Orra Greengate", FastColor = () => Settings.OrraGreengate });
-                else if (text.EndsWith("Metadata/Monsters/Exiles/ExileRanger2"))
+                if (text.EndsWith("Metadata/Monsters/Exiles/ExileRanger2"))
                     alerts.Add(new PreloadConfigLine { Text = "Thena Moga", FastColor = () => Settings.ThenaMoga });
-                else if (text.EndsWith("Metadata/Monsters/Exiles/ExileRanger3"))
+                if (text.EndsWith("Metadata/Monsters/Exiles/ExileRanger3"))
                     alerts.Add(new PreloadConfigLine { Text = "Antalie Napora", FastColor = () => Settings.AntalieNapora });
-                else if (text.EndsWith("Metadata/Monsters/Exiles/ExileDuelist1"))
+                if (text.EndsWith("Metadata/Monsters/Exiles/ExileDuelist1"))
                     alerts.Add(new PreloadConfigLine { Text = "Torr Olgosso", FastColor = () => Settings.TorrOlgosso });
-                else if (text.EndsWith("Metadata/Monsters/Exiles/ExileDuelist2"))
+                if (text.EndsWith("Metadata/Monsters/Exiles/ExileDuelist2"))
                     alerts.Add(new PreloadConfigLine { Text = "Armios Bell", FastColor = () => Settings.ArmiosBell });
-                else if (text.EndsWith("Metadata/Monsters/Exiles/ExileDuelist4"))
+                if (text.EndsWith("Metadata/Monsters/Exiles/ExileDuelist4"))
                     alerts.Add(new PreloadConfigLine { Text = "Zacharie Desmarais", FastColor = () => Settings.ZacharieDesmarais });
-                else if (text.EndsWith("Metadata/Monsters/Exiles/ExileWitch1"))
+                if (text.EndsWith("Metadata/Monsters/Exiles/ExileWitch1"))
                     alerts.Add(new PreloadConfigLine { Text = "Minara Anenima", FastColor = () => Settings.MinaraAnenima });
-                else if (text.EndsWith("Metadata/Monsters/Exiles/ExileWitch2"))
+                if (text.EndsWith("Metadata/Monsters/Exiles/ExileWitch2"))
                     alerts.Add(new PreloadConfigLine { Text = "Igna Phoenix", FastColor = () => Settings.IgnaPhoenix });
-                else if (text.EndsWith("Metadata/Monsters/Exiles/ExileMarauder1"))
+                if (text.EndsWith("Metadata/Monsters/Exiles/ExileMarauder1"))
                     alerts.Add(new PreloadConfigLine { Text = "Jonah Unchained", FastColor = () => Settings.JonahUnchained });
-                else if (text.EndsWith("Metadata/Monsters/Exiles/ExileMarauder2"))
+                if (text.EndsWith("Metadata/Monsters/Exiles/ExileMarauder2"))
                     alerts.Add(new PreloadConfigLine { Text = "Damoi Tui", FastColor = () => Settings.DamoiTui });
-                else if (text.EndsWith("Metadata/Monsters/Exiles/ExileMarauder3"))
+                if (text.EndsWith("Metadata/Monsters/Exiles/ExileMarauder3"))
                     alerts.Add(new PreloadConfigLine { Text = "Xandro Blooddrinker", FastColor = () => Settings.XandroBlooddrinker });
-                else if (text.EndsWith("Metadata/Monsters/Exiles/ExileMarauder5"))
+                if (text.EndsWith("Metadata/Monsters/Exiles/ExileMarauder5"))
                     alerts.Add(new PreloadConfigLine { Text = "Vickas Giantbone", FastColor = () => Settings.VickasGiantbone });
-                else if (text.EndsWith("Metadata/Monsters/Exiles/ExileTemplar1"))
+                if (text.EndsWith("Metadata/Monsters/Exiles/ExileTemplar1"))
                     alerts.Add(new PreloadConfigLine { Text = "Eoin Greyfur", FastColor = () => Settings.EoinGreyfur });
-                else if (text.EndsWith("Metadata/Monsters/Exiles/ExileTemplar2"))
+                if (text.EndsWith("Metadata/Monsters/Exiles/ExileTemplar2"))
                     alerts.Add(new PreloadConfigLine { Text = "Tinevin Highdove", FastColor = () => Settings.TinevinHighdove });
-                else if (text.EndsWith("Metadata/Monsters/Exiles/ExileTemplar4"))
+                if (text.EndsWith("Metadata/Monsters/Exiles/ExileTemplar4"))
                     alerts.Add(new PreloadConfigLine { Text = "Magnus Stonethorn", FastColor = () => Settings.MagnusStonethorn });
-                else if (text.EndsWith("Metadata/Monsters/Exiles/ExileShadow1_"))
+                if (text.EndsWith("Metadata/Monsters/Exiles/ExileShadow1_"))
                     alerts.Add(new PreloadConfigLine { Text = "Ion Darkshroud", FastColor = () => Settings.IonDarkshroud });
-                else if (text.EndsWith("Metadata/Monsters/Exiles/ExileShadow2"))
+                if (text.EndsWith("Metadata/Monsters/Exiles/ExileShadow2"))
                     alerts.Add(new PreloadConfigLine { Text = "Ash Lessard", FastColor = () => Settings.AshLessard });
-                else if (text.EndsWith("Metadata/Monsters/Exiles/ExileShadow4"))
+                if (text.EndsWith("Metadata/Monsters/Exiles/ExileShadow4"))
                     alerts.Add(new PreloadConfigLine { Text = "Wilorin Demontamer", FastColor = () => Settings.WilorinDemontamer });
-                else if (text.EndsWith("Metadata/Monsters/Exiles/ExileScion2"))
+                if (text.EndsWith("Metadata/Monsters/Exiles/ExileScion2"))
                     alerts.Add(new PreloadConfigLine { Text = "Augustina Solaria", FastColor = () => Settings.AugustinaSolaria });
             }
         }
