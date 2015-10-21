@@ -137,7 +137,7 @@
     "WithBorder": true,
     "WithSound": false,
     "Alternative": true,
-    "FilePath": "C:\\Users\\mVm\\Documents\\My Games\\Path of Exile\\thisBest.filter"
+    "FilePath": "C:\\Users\\mVm\\Documents\\GitHub\\PoeHud\\config\\thisBest.filter"
   },
   "Advanced tooltip": {
     "Enable": true,
@@ -285,7 +285,7 @@
     "Players": {
       "Enable": true,
       "Width": {
-        "Value": 140.0,
+        "Value": 160.0,
         "Min": 50.0,
         "Max": 180.0
       },
@@ -335,7 +335,7 @@
       }
     },
     "NormalEnemy": {
-      "Enable": true,
+      "Enable": false,
       "Width": {
         "Value": 140.0,
         "Min": 50.0,
@@ -361,7 +361,7 @@
       }
     },
     "MagicEnemy": {
-      "Enable": true,
+      "Enable": false,
       "Width": {
         "Value": 140.0,
         "Min": 50.0,
@@ -389,7 +389,7 @@
     "RareEnemy": {
       "Enable": true,
       "Width": {
-        "Value": 140.0,
+        "Value": 160.0,
         "Min": 50.0,
         "Max": 180.0
       },
@@ -415,7 +415,7 @@
     "UniqueEnemy": {
       "Enable": true,
       "Width": {
-        "Value": 140.0,
+        "Value": 180.0,
         "Min": 50.0,
         "Max": 180.0
       },
@@ -438,7 +438,7 @@
         "Max": 50
       }
     },
-    "ShowDebuffPanel": true,
+    "ShowDebuffPanel": false,
     "DebuffPanelIconSize": {
       "Value": 20,
       "Min": 15,
