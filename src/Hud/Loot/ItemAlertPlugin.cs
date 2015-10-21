@@ -205,7 +205,7 @@ namespace PoeHUD.Hud.Loot
             if (Settings.PlaySound && !playedSoundsCache.Contains(entity.LongId))
             {
                 playedSoundsCache.Add(entity.LongId);
-                Sounds.AlertSound.Play();
+                Sounds.AlertSound.Play(Settings.SoundVolume);
             }
         }
 
