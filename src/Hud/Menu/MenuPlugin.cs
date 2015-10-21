@@ -254,13 +254,13 @@ namespace PoeHUD.Hud.Menu
             AddChild(exiles, "Augustina Solaria", settingsHub.PreloadAlertSettings.AugustinaSolaria);
 
             var strongboxes = AddChild(preloadMenu, "Strongboxes", settingsHub.PreloadAlertSettings.Strongboxes);
-            AddChild(strongboxes, "Arcanist's", settingsHub.PreloadAlertSettings.ArcanistStrongbox);
-            AddChild(strongboxes, "Artisan's", settingsHub.PreloadAlertSettings.ArtisanStrongbox);
-            AddChild(strongboxes, "Cartographer's", settingsHub.PreloadAlertSettings.CartographerStrongbox);
-            AddChild(strongboxes, "Gemcutter's", settingsHub.PreloadAlertSettings.GemcutterStrongbox);
-            AddChild(strongboxes, "Jeweller's", settingsHub.PreloadAlertSettings.JewellerStrongbox);
-            AddChild(strongboxes, "Blacksmith's", settingsHub.PreloadAlertSettings.BlacksmithStrongbox);
-            AddChild(strongboxes, "Armourer's", settingsHub.PreloadAlertSettings.ArmourerStrongbox);
+            AddChild(strongboxes, "Arcanist", settingsHub.PreloadAlertSettings.ArcanistStrongbox);
+            AddChild(strongboxes, "Artisan", settingsHub.PreloadAlertSettings.ArtisanStrongbox);
+            AddChild(strongboxes, "Cartographer", settingsHub.PreloadAlertSettings.CartographerStrongbox);
+            AddChild(strongboxes, "Gemcutter", settingsHub.PreloadAlertSettings.GemcutterStrongbox);
+            AddChild(strongboxes, "Jeweller", settingsHub.PreloadAlertSettings.JewellerStrongbox);
+            AddChild(strongboxes, "Blacksmith", settingsHub.PreloadAlertSettings.BlacksmithStrongbox);
+            AddChild(strongboxes, "Armourer", settingsHub.PreloadAlertSettings.ArmourerStrongbox);
             AddChild(strongboxes, "Ornate", settingsHub.PreloadAlertSettings.OrnateStrongbox);
             AddChild(strongboxes, "Large", settingsHub.PreloadAlertSettings.LargeStrongbox);
             AddChild(strongboxes, "Perandus", settingsHub.PreloadAlertSettings.PerandusStrongbox);
@@ -269,7 +269,7 @@ namespace PoeHUD.Hud.Menu
             AddChild(strongboxes, "Epic", settingsHub.PreloadAlertSettings.EpicStrongbox);
             AddChild(strongboxes, "Simple", settingsHub.PreloadAlertSettings.SimpleStrongbox);
 
-            AddChild(preloadMenu, "Sound warning", settingsHub.PreloadAlertSettings.PlaySound);
+            //AddChild(preloadMenu, "Sound warning", settingsHub.PreloadAlertSettings.PlaySound);
             AddChild(preloadMenu, "Corrupted color", settingsHub.PreloadAlertSettings.CorruptedColor);
             AddChild(preloadMenu, "Background color", settingsHub.PreloadAlertSettings.BackgroundColor);
             AddChild(preloadMenu, "Font color", settingsHub.PreloadAlertSettings.DefaultFontColor);
