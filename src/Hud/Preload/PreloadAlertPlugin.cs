@@ -189,30 +189,32 @@ namespace PoeHUD.Hud.Preload
                         alerts.Add(new PreloadConfigLine { Text = "Vagan, (CastOnHit)", FastColor = () => Settings.MasterVagan });
 
                     //strongboxes
+                    if (text.Contains("Metadata/Chests/StrongBoxes/Arcanist"))
+                        alerts.Add(new PreloadConfigLine { Text = "Arcanist Strongbox", FastColor = () => Settings.ArcanistStrongbox });
                     if (text.Contains("Metadata/Chests/StrongBoxes/Artisan"))
-                        alerts.Add(new PreloadConfigLine { FastColor = () => Settings.ArtisanStrongbox });
+                        alerts.Add(new PreloadConfigLine { Text = "Artisan Strongbox", FastColor = () => Settings.ArtisanStrongbox });
                     if (text.Contains("Metadata/Chests/StrongBoxes/Cartographer"))
-                        alerts.Add(new PreloadConfigLine { FastColor = () => Settings.CartographerStrongbox });
+                        alerts.Add(new PreloadConfigLine { Text = "Cartographer Strongbox", FastColor = () => Settings.CartographerStrongbox });
                     if (text.Contains("Metadata/Chests/StrongBoxes/Gemcutter"))
-                        alerts.Add(new PreloadConfigLine { FastColor = () => Settings.GemcutterStrongbox });
-                    if (text.Contains("Metadata/Chests/StrongBoxes/JewellerStrongBox"))
+                        alerts.Add(new PreloadConfigLine { Text = "Gemcutter Strongbox", FastColor = () => Settings.GemcutterStrongbox });
+                    if (text.Contains("Metadata/Chests/StrongBoxes/Jeweller"))
                         alerts.Add(new PreloadConfigLine { Text = "Jeweller Strongbox", FastColor = () => Settings.JewellerStrongbox });
                     if (text.Contains("Metadata/Chests/StrongBoxes/ArsenalStrongBox"))
-                        alerts.Add(new PreloadConfigLine { FastColor = () => Settings.BlacksmithStrongbox });
+                        alerts.Add(new PreloadConfigLine { Text = "Blacksmith Strongbox", FastColor = () => Settings.BlacksmithStrongbox });
                     if (text.Contains("Metadata/Chests/StrongBoxes/ArmoryStrongBox"))
                         alerts.Add(new PreloadConfigLine { Text = "Armourer Strongbox", FastColor = () => Settings.ArmourerStrongbox });
                     if (text.Contains("Metadata/Chests/StrongBoxes/Ornate"))
-                        alerts.Add(new PreloadConfigLine { FastColor = () => Settings.OrnateStrongbox });
+                        alerts.Add(new PreloadConfigLine { Text = "Ornate Strongbox", FastColor = () => Settings.OrnateStrongbox });
                     if (text.Contains("Metadata/Chests/StrongBoxes/Large"))
-                        alerts.Add(new PreloadConfigLine { FastColor = () => Settings.LargeStrongbox });
+                        alerts.Add(new PreloadConfigLine { Text = "Large Strongbox", FastColor = () => Settings.LargeStrongbox });
                     if (text.Contains("Metadata/Chests/StrongBoxes/PerandusBox"))
-                        alerts.Add(new PreloadConfigLine { FastColor = () => Settings.PerandusStrongbox });
+                        alerts.Add(new PreloadConfigLine { Text = "Perandus Strongbox", FastColor = () => Settings.PerandusStrongbox });
                     if (text.Contains("Metadata/Chests/StrongBoxes/KaomBox"))
-                        alerts.Add(new PreloadConfigLine { FastColor = () => Settings.KaomStrongbox });
+                        alerts.Add(new PreloadConfigLine { Text = "Kaom Strongbox", FastColor = () => Settings.KaomStrongbox });
                     if (text.Contains("Metadata/Chests/StrongBoxes/MalachaisBox"))
-                        alerts.Add(new PreloadConfigLine { FastColor = () => Settings.MalachaiStrongbox });
+                        alerts.Add(new PreloadConfigLine { Text = "Malachai Strongbox", FastColor = () => Settings.MalachaiStrongbox });
                     if (text.Contains("Metadata/Chests/CopperChestEpic3"))
-                        alerts.Add(new PreloadConfigLine { FastColor = () => Settings.EpicStrongbox });
+                        alerts.Add(new PreloadConfigLine { Text = "Epic Strongbox", FastColor = () => Settings.EpicStrongbox });
                     if (text.Contains("Metadata/Chests/StrongBoxes/Strongbox"))
                         alerts.Add(new PreloadConfigLine { Text = "Simple Strongbox", FastColor = () => Settings.SimpleStrongbox });
 
