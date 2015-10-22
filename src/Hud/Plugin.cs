@@ -59,9 +59,7 @@ namespace PoeHUD.Hud
                 .Where(line => !string.IsNullOrWhiteSpace(line) && line.IndexOf(';') >= 0 && !line.StartsWith("#"))
                 .Select(line => line.Split(new[] {';'}, columnsCount).Select(parts => parts.Trim()).ToArray());
         }
-
-
-
+        
         /// <summary>
         /// Loads a Comma separated file into a list of Strings
         /// </summary>

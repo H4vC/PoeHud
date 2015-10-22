@@ -77,14 +77,11 @@ namespace PoeHUD.Hud.Preload
             Vector2 startPosition = StartDrawPointFunc();
             Vector2 position = startPosition;
             int maxWidth = 0;
-
-            foreach (
-                Size2 size in
-                    alerts.Select(
-                        preloadConfigLine =>
-                            Graphics.DrawText(preloadConfigLine.Text, Settings.FontSize, position + 1,
-                                preloadConfigLine.FastColor?.Invoke() ??
-                                preloadConfigLine.Color ?? Settings.DefaultFontColor, FontDrawFlags.Right)))
+            foreach ( Size2 size in alerts.Select( 
+                preloadConfigLine => Graphics.DrawText(
+                preloadConfigLine.Text, Settings.FontSize, position + 1,
+                preloadConfigLine.FastColor?.Invoke() ??
+                preloadConfigLine.Color ?? Settings.DefaultFontColor, FontDrawFlags.Right)))
             {
                 maxWidth = Math.Max(size.Width, maxWidth);
                 position.Y += size.Height;

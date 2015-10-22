@@ -39,6 +39,7 @@ namespace PoeHUD.Hud.Settings
 
         public SettingsHub()
         {
+            TitleName = new MenuSettings();
             MenuSettings = new MenuSettings();
             DpsMeterSettings = new DpsMeterSettings();
             MapIconsSettings = new MapIconsSettings();
@@ -54,7 +55,7 @@ namespace PoeHUD.Hud.Settings
         }
 
         [JsonProperty("Menu")]
-        public MenuSettings TitleSettings { get; private set; }
+        public MenuSettings TitleName { get; private set; }
 
         [JsonProperty("Menu Settings")]
         public MenuSettings MenuSettings { get; private set; }

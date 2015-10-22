@@ -1,11 +1,39 @@
 {
-  "Menu": null,
-  "Menu Settings": {
+  "Menu": {
     "Enable": true,
+    "TitleName": "X",
     "X": 10.0,
     "Y": 100.0,
     "ShowIncrements": true,
     "TitleFontColor": "c86400ff",
+    "EnabledBoxColor": "808080ff",
+    "DisabledBoxColor": "dc143cff",
+    "MenuFontColor": "fec076ff",
+    "SliderColor": "808080ff",
+    "BackgroundColor": "ffffffdc",
+    "TitleFontSize": {
+      "Value": 16,
+      "Min": 10,
+      "Max": 20
+    },
+    "MenuFontSize": {
+      "Value": 16,
+      "Min": 10,
+      "Max": 20
+    },
+    "PickerFontSize": {
+      "Value": 16,
+      "Min": 10,
+      "Max": 20
+    }
+  },
+  "Menu Settings": {
+    "Enable": true,
+    "TitleName": "X",
+    "X": 10.0,
+    "Y": 100.0,
+    "ShowIncrements": true,
+    "TitleFontColor": "ff0000ff",
     "EnabledBoxColor": "808080ff",
     "DisabledBoxColor": "dc143cff",
     "MenuFontColor": "fec076ff",
@@ -136,8 +164,8 @@
     },
     "WithBorder": true,
     "WithSound": false,
-    "Alternative": true,
-    "FilePath": "C:\\Users\\mVm\\Documents\\My Games\\Path of Exile\\thisBest.filter"
+    "Alternative": false,
+    "FilePath": ""
   },
   "Advanced tooltip": {
     "Enable": true,
@@ -310,7 +338,7 @@
     "Minions": {
       "Enable": true,
       "Width": {
-        "Value": 140.0,
+        "Value": 160.0,
         "Min": 50.0,
         "Max": 180.0
       },
@@ -334,9 +362,9 @@
       }
     },
     "NormalEnemy": {
-      "Enable": false,
+      "Enable": true,
       "Width": {
-        "Value": 140.0,
+        "Value": 160.0,
         "Min": 50.0,
         "Max": 180.0
       },
@@ -360,9 +388,9 @@
       }
     },
     "MagicEnemy": {
-      "Enable": false,
+      "Enable": true,
       "Width": {
-        "Value": 140.0,
+        "Value": 160.0,
         "Min": 50.0,
         "Max": 180.0
       },
@@ -414,7 +442,7 @@
     "UniqueEnemy": {
       "Enable": true,
       "Width": {
-        "Value": 180.0,
+        "Value": 160.0,
         "Min": 50.0,
         "Max": 180.0
       },
@@ -437,7 +465,7 @@
         "Max": 50
       }
     },
-    "ShowDebuffPanel": false,
+    "ShowDebuffPanel": true,
     "DebuffPanelIconSize": {
       "Value": 20,
       "Min": 15,

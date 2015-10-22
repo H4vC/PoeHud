@@ -60,7 +60,7 @@ namespace PoeHUD.Hud.Menu
 
         public override void Render(Graphics graphics, MenuSettings settings)
         {
-            graphics.DrawText("Menu", settings.TitleFontSize, Bounds.TopLeft.Translate(25, 12), settings.TitleFontColor, FontDrawFlags.VerticalCenter | FontDrawFlags.Center);
+            graphics.DrawText(settings.TitleName, settings.TitleFontSize, Bounds.TopLeft.Translate(25, 12), settings.TitleFontColor, FontDrawFlags.VerticalCenter | FontDrawFlags.Center);
             graphics.DrawImage("menu-background.png", Bounds, settings.BackgroundColor);
             Children.ForEach(x => x.Render(graphics, settings));
         }

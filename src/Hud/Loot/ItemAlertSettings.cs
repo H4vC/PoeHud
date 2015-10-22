@@ -14,7 +14,7 @@ namespace PoeHUD.Hud.Loot
             ShowText = true;
             HideOthers = false;
             PlaySound = true;
-            SoundVolume = new RangeNode<int>(10, 0, 100);
+            SoundVolume = new RangeNode<int>(20, 0, 100);
             TextSize = new RangeNode<int>(16, 10, 50);
             Rares = true;
             Uniques = true;
@@ -27,7 +27,7 @@ namespace PoeHUD.Hud.Loot
             MinSockets = new RangeNode<int>(6, 0, 6);
             QualityItems = new QualityItemsSettings();
             BorderSettings = new BorderSettings();
-            WithBorder = false;
+            WithBorder = true;
             WithSound = false;
             Alternative = true;
             FilePath = string.Empty;

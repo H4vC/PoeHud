@@ -11,6 +11,7 @@ namespace PoeHUD.Hud.Menu
             X = 10;
             Y = 100;
             ShowIncrements = true;
+            TitleName = "Menu";
             TitleFontColor = new ColorBGRA(200, 100, 0, 255);
             EnabledBoxColor = new ColorBGRA(128, 128, 128, 255);
             DisabledBoxColor = new ColorBGRA(220, 20, 60, 255);
@@ -21,7 +22,7 @@ namespace PoeHUD.Hud.Menu
             MenuFontSize = new RangeNode<int>(16, 10, 20);
             PickerFontSize = new RangeNode<int>(16, 10, 20);
         }
-
+        public string TitleName { get; set; }
         public float X { get; set; }
 
         public float Y { get; set; }
