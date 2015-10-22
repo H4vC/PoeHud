@@ -189,74 +189,74 @@ namespace PoeHUD.Hud.Preload
                         alerts.Add(new PreloadConfigLine { Text = "Vagan, (CastOnHit)", FastColor = () => Settings.MasterVagan });
 
                     //strongboxes
-                    if (text.Contains("Metadata/Chests/StrongBoxes/Arcanist"))
+                    if (text.Contains("Metadata/Chests/StrongBoxes/Arcanist") || text.Contains("Metadata/Chests/StrongBoxes/ArcanistStrongBox.ao"))
                         alerts.Add(new PreloadConfigLine { Text = "Arcanist Strongbox", FastColor = () => Settings.ArcanistStrongbox });
-                    if (text.Contains("Metadata/Chests/StrongBoxes/Artisan"))
+                    if (text.Contains("Metadata/Chests/StrongBoxes/Artisan") || text.Contains("Metadata/Chests/StrongBoxes/ArtisanStrongBox.ao"))
                         alerts.Add(new PreloadConfigLine { Text = "Artisan Strongbox", FastColor = () => Settings.ArtisanStrongbox });
-                    if (text.Contains("Metadata/Chests/StrongBoxes/Cartographer"))
+                    if (text.Contains("Metadata/Chests/StrongBoxes/Cartographer") || text.Contains("Metadata/Chests/StrongBoxes/CartographerStrongBox.ao"))
                         alerts.Add(new PreloadConfigLine { Text = "Cartographer Strongbox", FastColor = () => Settings.CartographerStrongbox });
-                    if (text.Contains("Metadata/Chests/StrongBoxes/Gemcutter"))
+                    if (text.Contains("Metadata/Chests/StrongBoxes/GemcutterStrongBox") || text.Contains("Metadata/Chests/StrongBoxes/GemcutterStrongBox.ao"))
                         alerts.Add(new PreloadConfigLine { Text = "Gemcutter Strongbox", FastColor = () => Settings.GemcutterStrongbox });
-                    if (text.Contains("Metadata/Chests/StrongBoxes/Jeweller"))
+                    if (text.Contains("Metadata/Chests/StrongBoxes/Jeweller") || text.Contains("Metadata/Chests/StrongBoxes/JewellerStrongBox.ao"))
                         alerts.Add(new PreloadConfigLine { Text = "Jeweller Strongbox", FastColor = () => Settings.JewellerStrongbox });
-                    if (text.Contains("Metadata/Chests/StrongBoxes/ArsenalStrongBox"))
+                    if (text.Contains("Metadata/Chests/StrongBoxes/Arsenal") || text.Contains("Metadata/Chests/StrongBoxes/ArsenalStrongBox.ao"))
                         alerts.Add(new PreloadConfigLine { Text = "Blacksmith Strongbox", FastColor = () => Settings.BlacksmithStrongbox });
-                    if (text.Contains("Metadata/Chests/StrongBoxes/ArmoryStrongBox"))
+                    if (text.Contains("Metadata/Chests/StrongBoxes/Armory") || text.Contains("Metadata/Chests/StrongBoxes/ArmoryStrongBox.ao"))
                         alerts.Add(new PreloadConfigLine { Text = "Armourer Strongbox", FastColor = () => Settings.ArmourerStrongbox });
-                    if (text.Contains("Metadata/Chests/StrongBoxes/Ornate"))
+                    if (text.Contains("Metadata/Chests/StrongBoxes/Ornate") || text.Contains("Metadata/Chests/StrongBoxes/OrnateStrongbox.ao"))
                         alerts.Add(new PreloadConfigLine { Text = "Ornate Strongbox", FastColor = () => Settings.OrnateStrongbox });
-                    if (text.Contains("Metadata/Chests/StrongBoxes/Large"))
+                    if (text.Contains("Metadata/Chests/StrongBoxes/Large") || text.Contains("Metadata/Chests/StrongBoxes/LargeStrongbox.ao"))
                         alerts.Add(new PreloadConfigLine { Text = "Large Strongbox", FastColor = () => Settings.LargeStrongbox });
+                    if (text.Contains("Metadata/Chests/StrongBoxes/Strongbox") || text.Contains("Metadata/Chests/StrongBoxes/Strongbox.ao"))
+                        alerts.Add(new PreloadConfigLine { Text = "Simple Strongbox", FastColor = () => Settings.SimpleStrongbox });
+                    if (text.Contains("Metadata/Chests/CopperChestEpic3") || text.Contains("Metadata/Chests/CopperChestEpic3.ao"))
+                        alerts.Add(new PreloadConfigLine { Text = "Epic Chest", FastColor = () => Settings.EpicStrongbox });
                     if (text.Contains("Metadata/Chests/StrongBoxes/PerandusBox"))
                         alerts.Add(new PreloadConfigLine { Text = "Perandus Strongbox", FastColor = () => Settings.PerandusStrongbox });
                     if (text.Contains("Metadata/Chests/StrongBoxes/KaomBox"))
                         alerts.Add(new PreloadConfigLine { Text = "Kaom Strongbox", FastColor = () => Settings.KaomStrongbox });
                     if (text.Contains("Metadata/Chests/StrongBoxes/MalachaisBox"))
                         alerts.Add(new PreloadConfigLine { Text = "Malachai Strongbox", FastColor = () => Settings.MalachaiStrongbox });
-                    if (text.Contains("Metadata/Chests/CopperChestEpic3"))
-                        alerts.Add(new PreloadConfigLine { Text = "Epic Strongbox", FastColor = () => Settings.EpicStrongbox });
-                    if (text.Contains("Metadata/Chests/StrongBoxes/Strongbox"))
-                        alerts.Add(new PreloadConfigLine { Text = "Simple Strongbox", FastColor = () => Settings.SimpleStrongbox });
-
+                    
                     //exiles
                     if (text.EndsWith("Metadata/Monsters/Exiles/ExileRanger1"))
-                        alerts.Add(new PreloadConfigLine { Text = "Orra Greengate", FastColor = () => Settings.OrraGreengate });
+                        alerts.Add(new PreloadConfigLine { Text = "Exile Orra Greengate", FastColor = () => Settings.OrraGreengate });
                     if (text.EndsWith("Metadata/Monsters/Exiles/ExileRanger2"))
-                        alerts.Add(new PreloadConfigLine { Text = "Thena Moga", FastColor = () => Settings.ThenaMoga });
+                        alerts.Add(new PreloadConfigLine { Text = "Exile Thena Moga", FastColor = () => Settings.ThenaMoga });
                     if (text.EndsWith("Metadata/Monsters/Exiles/ExileRanger3"))
-                        alerts.Add(new PreloadConfigLine { Text = "Antalie Napora", FastColor = () => Settings.AntalieNapora });
+                        alerts.Add(new PreloadConfigLine { Text = "Exile Antalie Napora", FastColor = () => Settings.AntalieNapora });
                     if (text.EndsWith("Metadata/Monsters/Exiles/ExileDuelist1"))
-                        alerts.Add(new PreloadConfigLine { Text = "Torr Olgosso", FastColor = () => Settings.TorrOlgosso });
+                        alerts.Add(new PreloadConfigLine { Text = "Exile Torr Olgosso", FastColor = () => Settings.TorrOlgosso });
                     if (text.EndsWith("Metadata/Monsters/Exiles/ExileDuelist2"))
-                        alerts.Add(new PreloadConfigLine { Text = "Armios Bell", FastColor = () => Settings.ArmiosBell });
+                        alerts.Add(new PreloadConfigLine { Text = "Exile Armios Bell", FastColor = () => Settings.ArmiosBell });
                     if (text.EndsWith("Metadata/Monsters/Exiles/ExileDuelist4"))
-                        alerts.Add(new PreloadConfigLine { Text = "Zacharie Desmarais", FastColor = () => Settings.ZacharieDesmarais });
+                        alerts.Add(new PreloadConfigLine { Text = "Exile Zacharie Desmarais", FastColor = () => Settings.ZacharieDesmarais });
                     if (text.EndsWith("Metadata/Monsters/Exiles/ExileWitch1"))
-                        alerts.Add(new PreloadConfigLine { Text = "Minara Anenima", FastColor = () => Settings.MinaraAnenima });
+                        alerts.Add(new PreloadConfigLine { Text = "Exile Minara Anenima", FastColor = () => Settings.MinaraAnenima });
                     if (text.EndsWith("Metadata/Monsters/Exiles/ExileWitch2"))
-                        alerts.Add(new PreloadConfigLine { Text = "Igna Phoenix", FastColor = () => Settings.IgnaPhoenix });
+                        alerts.Add(new PreloadConfigLine { Text = "Exile Igna Phoenix", FastColor = () => Settings.IgnaPhoenix });
                     if (text.EndsWith("Metadata/Monsters/Exiles/ExileMarauder1"))
-                        alerts.Add(new PreloadConfigLine { Text = "Jonah Unchained", FastColor = () => Settings.JonahUnchained });
+                        alerts.Add(new PreloadConfigLine { Text = "Exile Jonah Unchained", FastColor = () => Settings.JonahUnchained });
                     if (text.EndsWith("Metadata/Monsters/Exiles/ExileMarauder2"))
-                        alerts.Add(new PreloadConfigLine { Text = "Damoi Tui", FastColor = () => Settings.DamoiTui });
+                        alerts.Add(new PreloadConfigLine { Text = "Exile Damoi Tui", FastColor = () => Settings.DamoiTui });
                     if (text.EndsWith("Metadata/Monsters/Exiles/ExileMarauder3"))
-                        alerts.Add(new PreloadConfigLine { Text = "Xandro Blooddrinker", FastColor = () => Settings.XandroBlooddrinker });
+                        alerts.Add(new PreloadConfigLine { Text = "Exile Xandro Blooddrinker", FastColor = () => Settings.XandroBlooddrinker });
                     if (text.EndsWith("Metadata/Monsters/Exiles/ExileMarauder5"))
-                        alerts.Add(new PreloadConfigLine { Text = "Vickas Giantbone", FastColor = () => Settings.VickasGiantbone });
+                        alerts.Add(new PreloadConfigLine { Text = "Exile Vickas Giantbone", FastColor = () => Settings.VickasGiantbone });
                     if (text.EndsWith("Metadata/Monsters/Exiles/ExileTemplar1"))
-                        alerts.Add(new PreloadConfigLine { Text = "Eoin Greyfur", FastColor = () => Settings.EoinGreyfur });
+                        alerts.Add(new PreloadConfigLine { Text = "Exile Eoin Greyfur", FastColor = () => Settings.EoinGreyfur });
                     if (text.EndsWith("Metadata/Monsters/Exiles/ExileTemplar2"))
-                        alerts.Add(new PreloadConfigLine { Text = "Tinevin Highdove", FastColor = () => Settings.TinevinHighdove });
+                        alerts.Add(new PreloadConfigLine { Text = "Exile Tinevin Highdove", FastColor = () => Settings.TinevinHighdove });
                     if (text.EndsWith("Metadata/Monsters/Exiles/ExileTemplar4"))
-                        alerts.Add(new PreloadConfigLine { Text = "Magnus Stonethorn", FastColor = () => Settings.MagnusStonethorn });
+                        alerts.Add(new PreloadConfigLine { Text = "Exile Magnus Stonethorn", FastColor = () => Settings.MagnusStonethorn });
                     if (text.EndsWith("Metadata/Monsters/Exiles/ExileShadow1_"))
-                        alerts.Add(new PreloadConfigLine { Text = "Ion Darkshroud", FastColor = () => Settings.IonDarkshroud });
+                        alerts.Add(new PreloadConfigLine { Text = "Exile Ion Darkshroud", FastColor = () => Settings.IonDarkshroud });
                     if (text.EndsWith("Metadata/Monsters/Exiles/ExileShadow2"))
-                        alerts.Add(new PreloadConfigLine { Text = "Ash Lessard", FastColor = () => Settings.AshLessard });
+                        alerts.Add(new PreloadConfigLine { Text = "Exile Ash Lessard", FastColor = () => Settings.AshLessard });
                     if (text.EndsWith("Metadata/Monsters/Exiles/ExileShadow4"))
-                        alerts.Add(new PreloadConfigLine { Text = "Wilorin Demontamer", FastColor = () => Settings.WilorinDemontamer });
+                        alerts.Add(new PreloadConfigLine { Text = "Exile Wilorin Demontamer", FastColor = () => Settings.WilorinDemontamer });
                     if (text.EndsWith("Metadata/Monsters/Exiles/ExileScion2"))
-                        alerts.Add(new PreloadConfigLine { Text = "Augustina Solaria", FastColor = () => Settings.AugustinaSolaria });
+                        alerts.Add(new PreloadConfigLine { Text = "Exile Augustina Solaria", FastColor = () => Settings.AugustinaSolaria });
                 }
             }
         }
