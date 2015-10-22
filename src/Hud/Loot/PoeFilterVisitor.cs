@@ -59,6 +59,10 @@ namespace PoeHUD.Hud.Loot
             var path = entity.Path;
 
             Color defaultTextColor;
+            if (basename.Contains("Portal") || basename.Contains("Wisdom"))
+            {
+                return null;
+            }
             if (path.Contains("Currency"))
             {
                 defaultTextColor = HudSkin.CurrencyColor;
