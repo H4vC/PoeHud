@@ -1,5 +1,6 @@
 #Metadata;Text;colour (ARGB)
-#Example Metadata/Chests/StrongBoxes/Strongbox; Strongbox; danger.wav; FFFEC076
+#Example Metadata/Chests/StrongBoxes/Strongbox; Strongbox; FFFEC076
+#Example Metadata/Monsters/Spirit/TormentedEmbezzler; Tormented Embezzler;FFB400B4
 
 
 Metadata/Monsters/Squid/SquidBossSideArea; The All-seeing Eye
@@ -98,7 +99,7 @@ Metadata/Monsters/Spirit/TormentedBlasphemer; Tormented Blasphemer
 Metadata/Monsters/Spirit/TormentedCannibal; Tormented Cannibal
 Metadata/Monsters/Spirit/TormentedCharlatan; Tormented Charlatan
 Metadata/Monsters/Spirit/TormentedCutthroat; Tormented Cutthroat
-Metadata/Monsters/Spirit/TormentedEmbezzler; Tormented Embezzler
+Metadata/Monsters/Spirit/TormentedEmbezzler; Tormented Embezzler;FFB400B4
 Metadata/Monsters/Spirit/TormentedCounterfeiter; Tormented Forger
 Metadata/Monsters/Spirit/TormentedMartyr; Tormented Martyr
 Metadata/Monsters/Spirit/TormentedMutilator; Tormented Mutilator

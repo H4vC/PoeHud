@@ -165,14 +165,6 @@ namespace PoeHUD.Hud.Menu
             AddChild(showBorderMenu, "Not my item color:", borderSettings.NotMyItemBorderColor);
             AddChild(showBorderMenu, "Show timer", borderSettings.ShowTimer);
             AddChild(showBorderMenu, "Timer text size", borderSettings.TimerTextSize);
-            //AddChild(itemAlertMenu, "Rares", settingsHub.ItemAlertSettings.Rares);
-            //AddChild(itemAlertMenu, "Uniques", settingsHub.ItemAlertSettings.Uniques);
-            //AddChild(itemAlertMenu, "Currency", settingsHub.ItemAlertSettings.Currency);
-            //AddChild(itemAlertMenu, "Maps", settingsHub.ItemAlertSettings.Maps);
-            //AddChild(itemAlertMenu, "RGB", settingsHub.ItemAlertSettings.Rgb);
-            //AddChild(itemAlertMenu, "Crafting bases", settingsHub.ItemAlertSettings.Crafting);
-            //AddChild(itemAlertMenu, "Divination cards", settingsHub.ItemAlertSettings.DivinationCards);
-            //AddChild(itemAlertMenu, "Jewels", settingsHub.ItemAlertSettings.Jewels);
             QualityItemsSettings qualityItemsSettings = settingsHub.ItemAlertSettings.QualityItems;
             MenuItem qualityMenu = AddChild(itemAlertMenu, "Show quality items", qualityItemsSettings.Enable);
             MenuItem qualityWeaponMenu = AddChild(qualityMenu, "Weapons", qualityItemsSettings.Weapon.Enable);
@@ -184,7 +176,7 @@ namespace PoeHUD.Hud.Menu
             MenuItem qualitySkillGemMenu = AddChild(qualityMenu, "Skill gems", qualityItemsSettings.SkillGem.Enable);
             AddChild(qualitySkillGemMenu, "Min. quality", qualityItemsSettings.SkillGem.MinQuality);
 
-            // Advanced tooltip
+            // Advanced Tooltip
             AdvancedTooltipSettings tooltipSettings = settingsHub.AdvancedTooltipSettings;
             MenuItem tooltipMenu = AddChild(root, "Tooltips", tooltipSettings.Enable);
             MenuItem itemLevelMenu = AddChild(tooltipMenu, "Item level", tooltipSettings.ItemLevel.Enable);
@@ -196,7 +188,7 @@ namespace PoeHUD.Hud.Menu
             AddChild(weaponDpsMenu, "Font size", tooltipSettings.WeaponDps.FontSize);
             AddChild(weaponDpsMenu, "Damage size", tooltipSettings.WeaponDps.DamageFontSize);
 
-            // MonsterTracker options
+            // Monster Tracker
             MenuItem MonsterTrackerMenu = AddChild(root, "Monster Tracker", settingsHub.MonsterTrackerSettings.Enable);
             AddChild(MonsterTrackerMenu, "Sound warning", settingsHub.MonsterTrackerSettings.PlaySound);
             MenuItem warningTextMenu = AddChild(MonsterTrackerMenu, "Text warning", settingsHub.MonsterTrackerSettings.ShowText);
@@ -269,13 +261,12 @@ namespace PoeHUD.Hud.Menu
             AddChild(strongboxes, "Epic", settingsHub.PreloadAlertSettings.EpicStrongbox);
             AddChild(strongboxes, "Simple", settingsHub.PreloadAlertSettings.SimpleStrongbox);
 
-            //AddChild(preloadMenu, "Sound warning", settingsHub.PreloadAlertSettings.PlaySound);
             AddChild(preloadMenu, "Corrupted color", settingsHub.PreloadAlertSettings.CorruptedColor);
             AddChild(preloadMenu, "Background color", settingsHub.PreloadAlertSettings.BackgroundColor);
             AddChild(preloadMenu, "Font color", settingsHub.PreloadAlertSettings.DefaultFontColor);
             AddChild(preloadMenu, "Font size", settingsHub.PreloadAlertSettings.FontSize);
 
-            // Show DPS
+            // DPS
             MenuItem showDpsMenu = AddChild(root, "Show Dps", settingsHub.DpsMeterSettings.Enable);
             AddChild(showDpsMenu, "Dps font size", settingsHub.DpsMeterSettings.DpsTextSize);
             AddChild(showDpsMenu, "Top dps font size", settingsHub.DpsMeterSettings.PeakDpsTextSize);
@@ -283,7 +274,7 @@ namespace PoeHUD.Hud.Menu
             AddChild(showDpsMenu, "Dps font color", settingsHub.DpsMeterSettings.DpsFontColor);
             AddChild(showDpsMenu, "Top dps font color", settingsHub.DpsMeterSettings.PeakFontColor);
 
-            // Show monster kills
+            // Monster Kills
             MenuItem showMonsterKillsMenu = AddChild(root, "Monster kills", settingsHub.KillCounterSettings.Enable);
             AddChild(showMonsterKillsMenu, "Show details", settingsHub.KillCounterSettings.ShowDetail);
             AddChild(showMonsterKillsMenu, "Font color", settingsHub.KillCounterSettings.FontColor);
@@ -291,7 +282,7 @@ namespace PoeHUD.Hud.Menu
             AddChild(showMonsterKillsMenu, "Label font size", settingsHub.KillCounterSettings.LabelFontSize);
             AddChild(showMonsterKillsMenu, "Kills font size", settingsHub.KillCounterSettings.KillsFontSize);
 
-            // Show inventory preview
+            // Inventory Preview
             MenuItem showInventoryPreviewMenu = AddChild(root, "Inventory preview", settingsHub.InventoryPreviewSettings.Enable);
             AddChild(showInventoryPreviewMenu, "Auto update", settingsHub.InventoryPreviewSettings.AutoUpdate);
             AddChild(showInventoryPreviewMenu, "Free cell color", settingsHub.InventoryPreviewSettings.CellFreeColor);

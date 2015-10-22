@@ -121,7 +121,7 @@ Metadata/Monsters/Spirit/TormentedBlasphemer; Tormented Blasphemer
 Metadata/Monsters/Spirit/TormentedCannibal; Tormented Cannibal
 Metadata/Monsters/Spirit/TormentedCharlatan; Tormented Charlatan
 Metadata/Monsters/Spirit/TormentedCutthroat; Tormented Cutthroat
-Metadata/Monsters/Spirit/TormentedEmbezzler; Tormented Embezzler;;FFB400B4
+Metadata/Monsters/Spirit/TormentedEmbezzler; Tormented Embezzler
 Metadata/Monsters/Spirit/TormentedCounterfeiter; Tormented Forger
 Metadata/Monsters/Spirit/TormentedMartyr; Tormented Martyr
 Metadata/Monsters/Spirit/TormentedMutilator; Tormented Mutilator
