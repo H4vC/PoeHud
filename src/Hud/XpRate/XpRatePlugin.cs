@@ -89,8 +89,8 @@ namespace PoeHUD.Hud.XpRate
                 float boxHeight = xpRateSize.Height + xpLeftSize.Height + areaNameSize.Height;
                 var bounds = new RectangleF(position.X - boxWidth - 81, position.Y - 5, boxWidth + 90, boxHeight + 13);
 
-                string fps = $"fps ( {GameController.Game.IngameState.CurFps} )";
-                string ping = $"ping ( {GameController.Game.IngameState.CurLatency} )";
+                string fps = $"ping ( {GameController.Game.IngameState.CurLatency} )";
+                string ping = $"fps ( {GameController.Game.IngameState.CurFps} )";
                 Size2 timeFpsSize = Graphics.MeasureText(fps, Settings.FontSize);
                 var dif = bounds.Width - (12 + timeFpsSize.Width + xpRateSize.Width);
                 if (dif < 0)

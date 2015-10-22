@@ -3,25 +3,25 @@
 #Example Metadata/Monsters/Exiles/ExileRanger1; Orra Greengate;danger.wav;FFFF0000
 #Example Metadata/Monsters/Exiles/ExileRanger1; Orra Greengate;;FFFF0000
 
-Metadata/Monsters/Exiles/ExileRanger1; Orra Greengate;danger.wav
-Metadata/Monsters/Exiles/ExileRanger2; Thena Moga
-Metadata/Monsters/Exiles/ExileRanger3; Antalie Napora
-Metadata/Monsters/Exiles/ExileDuelist1; Torr Olgosso
-Metadata/Monsters/Exiles/ExileDuelist2; Armios Bell
-Metadata/Monsters/Exiles/ExileDuelist4; Zacharie Desmarais
-Metadata/Monsters/Exiles/ExileWitch1; Minara Anenima
-Metadata/Monsters/Exiles/ExileWitch2; Igna Phoenix
-Metadata/Monsters/Exiles/ExileMarauder1; Jonah Unchained
-Metadata/Monsters/Exiles/ExileMarauder2; Damoi Tui
-Metadata/Monsters/Exiles/ExileMarauder3; Xandro Blooddrinker
-Metadata/Monsters/Exiles/ExileMarauder5; Vickas Giantbone
-Metadata/Monsters/Exiles/ExileTemplar1; Eoin Greyfur
-Metadata/Monsters/Exiles/ExileTemplar2; Tinevin Highdove
-Metadata/Monsters/Exiles/ExileTemplar4; Magnus Stonethorn
-Metadata/Monsters/Exiles/ExileShadow1_; Ion Darkshroud
-Metadata/Monsters/Exiles/ExileShadow2; Ash Lessard
-Metadata/Monsters/Exiles/ExileShadow4; Wilorin Demontamer
-Metadata/Monsters/Exiles/ExileScion2; Augustina Solaria
+Metadata/Monsters/Exiles/ExileRanger1; Orra Greengate;atention.wav
+Metadata/Monsters/Exiles/ExileRanger2; Thena Moga;atention.wav
+Metadata/Monsters/Exiles/ExileRanger3; Antalie Napora;atention.wav
+Metadata/Monsters/Exiles/ExileDuelist1; Torr Olgosso;atention.wav
+Metadata/Monsters/Exiles/ExileDuelist2; Armios Bell;atention.wav
+Metadata/Monsters/Exiles/ExileDuelist4; Zacharie Desmarais;atention.wav
+Metadata/Monsters/Exiles/ExileWitch1; Minara Anenima;atention.wav
+Metadata/Monsters/Exiles/ExileWitch2; Igna Phoenix;atention.wav
+Metadata/Monsters/Exiles/ExileMarauder1; Jonah Unchained;atention.wav
+Metadata/Monsters/Exiles/ExileMarauder2; Damoi Tui;atention.wav
+Metadata/Monsters/Exiles/ExileMarauder3; Xandro Blooddrinker;atention.wav
+Metadata/Monsters/Exiles/ExileMarauder5; Vickas Giantbone;atention.wav
+Metadata/Monsters/Exiles/ExileTemplar1; Eoin Greyfur;atention.wav
+Metadata/Monsters/Exiles/ExileTemplar2; Tinevin Highdove;atention.wav
+Metadata/Monsters/Exiles/ExileTemplar4; Magnus Stonethorn;atention.wav
+Metadata/Monsters/Exiles/ExileShadow1_; Ion Darkshroud;atention.wav
+Metadata/Monsters/Exiles/ExileShadow2; Ash Lessard;atention.wav
+Metadata/Monsters/Exiles/ExileShadow4; Wilorin Demontamer;atention.wav
+Metadata/Monsters/Exiles/ExileScion2; Augustina Solaria;atention.wav
 Metadata/Monsters/Squid/SquidBossSideArea; The All-seeing Eye
 Metadata/Monsters/Goatman/GoatmanLeapBossSideArea; Konu, Maker of Wind
 Metadata/Monsters/GhostPirates/GhostPirateBossSideArea; Coniraya, Shadow of Malice
