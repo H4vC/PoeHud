@@ -11,8 +11,8 @@ namespace PoeHUD.Hud.Menu
             X = 10;
             Y = 100;
             ShowIncrements = true;
-            TitleName = "Menu";
-            TitleFontColor = new ColorBGRA(200, 100, 0, 255);
+            TitleName = "X";
+            TitleFontColor = new ColorBGRA(255, 0, 0, 255);
             EnabledBoxColor = new ColorBGRA(128, 128, 128, 255);
             DisabledBoxColor = new ColorBGRA(220, 20, 60, 255);
             MenuFontColor = new ColorBGRA(254, 192, 118, 255);

@@ -30,7 +30,8 @@ namespace PoeHUD.Hud.Loot
             WithBorder = true;
             WithSound = false;
             Alternative = true;
-            FilePath = string.Empty;
+            //FilePath = string.Empty;
+            FilePath = "config/thisBest.filter";
         }
 
         public ToggleNode ShowItemOnMap { get; set; }
