@@ -195,7 +195,7 @@ namespace PoeHUD.Hud.Preload
                         alerts.Add(new PreloadConfigLine { Text = "Artisan Strongbox", FastColor = () => Settings.ArtisanStrongbox });
                     if (text.Contains("Metadata/Chests/StrongBoxes/Cartographer") || text.Contains("Metadata/Chests/StrongBoxes/CartographerStrongBox.ao"))
                         alerts.Add(new PreloadConfigLine { Text = "Cartographer Strongbox", FastColor = () => Settings.CartographerStrongbox });
-                    if (text.Contains("Metadata/Chests/StrongBoxes/GemcutterStrongBox") || text.Contains("Metadata/Chests/StrongBoxes/GemcutterStrongBox.ao"))
+                    if (text.Contains("Metadata/Chests/StrongBoxes/Gemcutter") || text.Contains("Metadata/Chests/StrongBoxes/GemcutterStrongBox.ao"))
                         alerts.Add(new PreloadConfigLine { Text = "Gemcutter Strongbox", FastColor = () => Settings.GemcutterStrongbox });
                     if (text.Contains("Metadata/Chests/StrongBoxes/Jeweller") || text.Contains("Metadata/Chests/StrongBoxes/JewellerStrongBox.ao"))
                         alerts.Add(new PreloadConfigLine { Text = "Jeweller Strongbox", FastColor = () => Settings.JewellerStrongbox });
