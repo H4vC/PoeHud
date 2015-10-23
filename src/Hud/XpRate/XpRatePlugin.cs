@@ -58,6 +58,7 @@ namespace PoeHUD.Hud.XpRate
                 var position = StartDrawPointFunc();
                 string latency = $"( {GameController.Game.IngameState.CurLatency} )";
                 string areaName = $"{GameController.Area.CurrentArea.DisplayName}";
+                //string areaName = string.Concat(GameController.Area.CurrentArea.DisplayName, XPPenalty());
                 var areaNameSize = Graphics.MeasureText(areaName, Settings.FontSize);
                 float boxHeight = areaNameSize.Height;
                 float boxWidth = MathHepler.Max(areaNameSize.Width);
@@ -76,22 +77,24 @@ namespace PoeHUD.Hud.XpRate
 
             if (!Settings.OnlyAreaName)
             {
+                string xpGain = XPPenalty();
                 Vector2 position = StartDrawPointFunc();
                 string areaName = GameController.Area.CurrentArea.DisplayName;
+                string fps = $"fps ( {GameController.Game.IngameState.CurFps} )";
+                string ping = $"ping ( {GameController.Game.IngameState.CurLatency} )";
+                //string areaName = string.Concat(GameController.Area.CurrentArea.DisplayName, XPPenalty());
                 Size2 areaNameSize = Graphics.DrawText(areaName, Settings.FontSize, position, Settings.AreaFontColor, FontDrawFlags.Right);
                 Vector2 secondLine = position.Translate(0, areaNameSize.Height);
                 Size2 xpRateSize = Graphics.DrawText(timeLeft, Settings.FontSize, secondLine, Settings.TimeLeftColor, FontDrawFlags.Right);
                 Vector2 thirdLine = secondLine.Translate(0, xpRateSize.Height);
-                Size2 xpLeftSize = Graphics.DrawText(xpRate, Settings.FontSize, thirdLine, Settings.TimeLeftColor, FontDrawFlags.Right);
+                Size2 xpLeftSize = Graphics.DrawText(xpRate + xpGain, Settings.FontSize, thirdLine, Settings.TimeLeftColor, FontDrawFlags.Right);
                 string timer = AreaInstance.GetTimeString(nowTime - GameController.Area.CurrentArea.TimeEntered);
                 Size2 timerSize = Graphics.MeasureText(timer, Settings.FontSize);
 
                 float boxWidth = MathHepler.Max(xpRateSize.Width, xpLeftSize.Width, areaNameSize.Width + 85, timerSize.Width);
                 float boxHeight = xpRateSize.Height + xpLeftSize.Height + areaNameSize.Height;
                 var bounds = new RectangleF(position.X - boxWidth - 81, position.Y - 5, boxWidth + 90, boxHeight + 13);
-
-                string fps = $"ping ( {GameController.Game.IngameState.CurLatency} )";
-                string ping = $"fps ( {GameController.Game.IngameState.CurFps} )";
+                
                 Size2 timeFpsSize = Graphics.MeasureText(fps, Settings.FontSize);
                 var dif = bounds.Width - (12 + timeFpsSize.Width + xpRateSize.Width);
                 if (dif < 0)
@@ -99,14 +102,29 @@ namespace PoeHUD.Hud.XpRate
                     bounds.X += dif;
                     bounds.Width -= dif;
                 }
-                Graphics.DrawText(fps, Settings.FontSize, new Vector2(bounds.X + 45, position.Y), Settings.FpsFontColor);
+                Graphics.DrawText(ping, Settings.FontSize, new Vector2(bounds.X + 45, position.Y), Settings.LatencyFontColor);
                 Graphics.DrawText(timer, Settings.FontSize, new Vector2(bounds.X + 45, secondLine.Y), Settings.TimerFontColor);
-                Graphics.DrawText(ping, Settings.FontSize, new Vector2(bounds.X + 45, thirdLine.Y), Settings.LatencyFontColor);
+                Graphics.DrawText(fps, Settings.FontSize, new Vector2(bounds.X + 45, thirdLine.Y), Settings.FpsFontColor);
                 Graphics.DrawImage("preload-start.png", bounds, Settings.BackgroundColor);
                 Graphics.DrawImage("preload-end.png", bounds, Settings.BackgroundColor);
                 Size = bounds.Size;
                 Margin = new Vector2(0, 5);
             }
+        }
+
+        private string XPPenalty()
+        {
+            string percentage = "";
+            if (!GameController.Area.CurrentArea.IsTown && !GameController.Area.CurrentArea.Name.Contains("Hideout"))
+            {
+                int arenaLevel = GameController.Area.CurrentArea.RealLevel;
+                int characterLevel = GameController.Player.GetComponent<Player>().Level;
+                double safeZone = Math.Floor(Convert.ToDouble(characterLevel) / 16) + 3;
+                double EffectiveDifference = Math.Max(Math.Abs(characterLevel - arenaLevel) - safeZone, 0);
+                double XPMultiplier = Math.Max(Math.Pow((characterLevel + 5) / (characterLevel + 5 + Math.Pow(EffectiveDifference, 2.5)), 1.5), 0.01);
+                percentage = $"    xp:{XPMultiplier:P0}";
+            }
+            return percentage;
         }
 
         private void CalculateXp(DateTime nowTime)

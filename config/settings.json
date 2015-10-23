@@ -266,7 +266,7 @@
   "XP per hour": {
     "Enable": true,
     "ShowLatency": true,
-    "OnlyAreaName": true,
+    "OnlyAreaName": false,
     "FontSize": {
       "Value": 16,
       "Min": 10,
