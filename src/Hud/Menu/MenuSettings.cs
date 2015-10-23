@@ -8,9 +8,8 @@ namespace PoeHUD.Hud.Menu
         public MenuSettings()
         {
             Enable = true;
-            X = 10;
-            Y = 100;
-            ShowIncrements = true;
+            X = 10; Y = 102;
+            ShowMenu = true;
             TitleName = "X";
             TitleFontColor = new ColorBGRA(255, 0, 0, 255);
             EnabledBoxColor = new ColorBGRA(128, 128, 128, 255);
@@ -27,7 +26,7 @@ namespace PoeHUD.Hud.Menu
 
         public float Y { get; set; }
 
-        public ToggleNode ShowIncrements { get; set; }
+        public ToggleNode ShowMenu { get; set; }
 
         public ColorNode TitleFontColor { get; set; }
 

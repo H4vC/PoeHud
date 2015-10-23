@@ -293,7 +293,7 @@ namespace PoeHUD.Hud.Menu
             AddChild(showInventoryPreviewMenu, "Position Y", settingsHub.InventoryPreviewSettings.PositionY);
 
             //Menu Settings
-            var menuSettings = AddChild(root, "Menu Settings", settingsHub.MenuSettings.ShowIncrements, "F12");
+            var menuSettings = AddChild(root, "Menu Settings", settingsHub.MenuSettings.ShowMenu, "F12");
             AddChild(menuSettings, "Menu font color", settingsHub.MenuSettings.MenuFontColor);
             AddChild(menuSettings, "Title font color", settingsHub.MenuSettings.TitleFontColor);
             AddChild(menuSettings, "Enable color", settingsHub.MenuSettings.EnabledBoxColor);
