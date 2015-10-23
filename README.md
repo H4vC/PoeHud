@@ -1,5 +1,3 @@
-[![Build status](https://ci.appveyor.com/api/projects/status/hiii0rp62djxptcn/branch/master?svg=true)](https://ci.appveyor.com/project/vmv/poehud/branch/master) [![GitHub release](https://img.shields.io/github/release/vmv/poehud.svg)]() [![Github Releases](https://img.shields.io/github/downloads/vmv/poehud/latest/total.svg)](https://github.com/vmv/PoeHud/releases)
-
 PoeHud
 ======
 
@@ -29,16 +27,12 @@ Without writing to it so no map hack, disabling particles, zoom hack, fullbright
 The file config/crafting_bases.txt has the following syntax:
 `Name,[Level],[Quality],[Rarity1,[Rarity2,[Rarity3]]]`
 
-```
-    Rarity: Normal, Magic, Rare, Unique 
-```
-
 Examples of valid declarations:
 ```
 Vaal Regalia,78
 Corsair Sword,78,10
-Gold Ring,75,,Normal,Rare
-Ironscale Gauntlets,,10,Normal,Magic
+Gold Ring,75,,White,Rare
+Ironscale Gauntlets,,10,White,Magic
 Quicksilver Flask,1,5
 Portal Scroll
 Iron Ring
