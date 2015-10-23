@@ -178,6 +178,11 @@
     "Monsters": true,
     "Minions": true,
     "PlaySound": true,
+    "SoundVolume": {
+      "Value": 50,
+      "Min": 0,
+      "Max": 100
+    },
     "ShowText": true,
     "TextSize": {
       "Value": 20,

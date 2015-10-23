@@ -80,14 +80,14 @@ Show
 
 Show
     Rarity = Normal
-    BaseType "Quartz Sceptre" "Crystal Sceptre" "Amethyst Ring" "Two-Stone Ring" "Gold Ring" "Topaz Ring" "Gold Amulet" "Citrine Amulet"
+    BaseType "Quartz Sceptre" "Horned Sceptre" "Crystal Sceptre" "Amethyst Ring" "Two-Stone Ring" "Gold Ring" "Topaz Ring" "Gold Amulet" "Citrine Amulet"
     SetTextColor 255 255 255
     SetBorderColor 0 150 255
 	#PlayAlertSound 7 100
 
 Show
     Rarity = Rare
-    BaseType "Quartz Sceptre" "Crystal Sceptre"
+    BaseType "Quartz Sceptre" "Horned Sceptre" "Crystal Sceptre"
     SetBorderColor 0 150 255
 	#PlayAlertSound 7 100
 

@@ -152,8 +152,8 @@ namespace PoeHUD.Hud.Menu
             AddChild(alternative, "With border", settingsHub.ItemAlertSettings.WithBorder);
             AddChild(alternative, "With sound", settingsHub.ItemAlertSettings.WithSound);
 
-            MenuItem sound = AddChild(itemAlertMenu, itemAlertStaticMenuList[1], settingsHub.ItemAlertSettings.PlaySound);
-            AddChild(sound, "Sound Volume", settingsHub.ItemAlertSettings.SoundVolume);
+            MenuItem itemSound = AddChild(itemAlertMenu, itemAlertStaticMenuList[1], settingsHub.ItemAlertSettings.PlaySound);
+            AddChild(itemSound, "Sound Volume", settingsHub.ItemAlertSettings.SoundVolume);
             MenuItem alertTextMenu = AddChild(itemAlertMenu, itemAlertStaticMenuList[2], settingsHub.ItemAlertSettings.ShowText);
             AddChild(alertTextMenu, "Font size", settingsHub.ItemAlertSettings.TextSize);
             AddChild(itemAlertMenu, itemAlertStaticMenuList[3], settingsHub.ItemAlertSettings.HideOthers);
@@ -190,7 +190,8 @@ namespace PoeHUD.Hud.Menu
 
             // Monster Tracker
             MenuItem MonsterTrackerMenu = AddChild(root, "Monster Tracker", settingsHub.MonsterTrackerSettings.Enable);
-            AddChild(MonsterTrackerMenu, "Sound warning", settingsHub.MonsterTrackerSettings.PlaySound);
+            MenuItem alertSound = AddChild(MonsterTrackerMenu, "Sound warning", settingsHub.MonsterTrackerSettings.PlaySound);
+            AddChild(alertSound, "Sound Volume", settingsHub.MonsterTrackerSettings.SoundVolume);
             MenuItem warningTextMenu = AddChild(MonsterTrackerMenu, "Text warning", settingsHub.MonsterTrackerSettings.ShowText);
             AddChild(warningTextMenu, "Font size", settingsHub.MonsterTrackerSettings.TextSize);
             AddChild(warningTextMenu, "Font color", settingsHub.MonsterTrackerSettings.DefaultTextColor);

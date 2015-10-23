@@ -181,7 +181,7 @@ namespace PoeHUD.Hud.Trackers
         private void PlaySound(IEntity entity, string soundFile)
         {
             if (!Settings.PlaySound || alreadyAlertedOf.Contains(entity.Id)) return;
-            if (!string.IsNullOrEmpty(soundFile)) Sounds.GetSound(soundFile).Play();
+            if (!string.IsNullOrEmpty(soundFile)) Sounds.GetSound(soundFile).Play(Settings.SoundVolume);
             alreadyAlertedOf.Add(entity.Id);
         }
     }
