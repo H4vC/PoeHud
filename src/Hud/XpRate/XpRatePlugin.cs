@@ -52,13 +52,11 @@ namespace PoeHUD.Hud.XpRate
                 lastTime = nowTime;
             }
 
-            //this should be simplified or combined with xph
             if (Settings.OnlyAreaName)
             {
                 var position = StartDrawPointFunc();
-                string latency = $"( {GameController.Game.IngameState.CurLatency} )";
+                string latency = $"({GameController.Game.IngameState.CurLatency})";
                 string areaName = $"{GameController.Area.CurrentArea.DisplayName}";
-                //string areaName = string.Concat(GameController.Area.CurrentArea.DisplayName, XPPenalty());
                 var areaNameSize = Graphics.MeasureText(areaName, Settings.FontSize);
                 float boxHeight = areaNameSize.Height;
                 float boxWidth = MathHepler.Max(areaNameSize.Width);
@@ -80,9 +78,8 @@ namespace PoeHUD.Hud.XpRate
                 string xpGain = XPPenalty();
                 Vector2 position = StartDrawPointFunc();
                 string areaName = GameController.Area.CurrentArea.DisplayName;
-                string fps = $"fps ( {GameController.Game.IngameState.CurFps} )";
-                string ping = $"ping ( {GameController.Game.IngameState.CurLatency} )";
-                //string areaName = string.Concat(GameController.Area.CurrentArea.DisplayName, XPPenalty());
+                string fps = $"fps:({GameController.Game.IngameState.CurFps})";
+                string ping = $"ping:({GameController.Game.IngameState.CurLatency})";
                 Size2 areaNameSize = Graphics.DrawText(areaName, Settings.FontSize, position, Settings.AreaFontColor, FontDrawFlags.Right);
                 Vector2 secondLine = position.Translate(0, areaNameSize.Height);
                 Size2 xpRateSize = Graphics.DrawText(timeLeft, Settings.FontSize, secondLine, Settings.TimeLeftColor, FontDrawFlags.Right);
@@ -102,9 +99,9 @@ namespace PoeHUD.Hud.XpRate
                     bounds.X += dif;
                     bounds.Width -= dif;
                 }
-                Graphics.DrawText(ping, Settings.FontSize, new Vector2(bounds.X + 45, position.Y), Settings.LatencyFontColor);
-                Graphics.DrawText(timer, Settings.FontSize, new Vector2(bounds.X + 45, secondLine.Y), Settings.TimerFontColor);
-                Graphics.DrawText(fps, Settings.FontSize, new Vector2(bounds.X + 45, thirdLine.Y), Settings.FpsFontColor);
+                Graphics.DrawText(ping, Settings.FontSize, new Vector2(bounds.X + 25, position.Y), Settings.LatencyFontColor);
+                Graphics.DrawText(timer, Settings.FontSize, new Vector2(bounds.X + 25, secondLine.Y), Settings.TimerFontColor);
+                Graphics.DrawText(fps, Settings.FontSize, new Vector2(bounds.X + 25, thirdLine.Y), Settings.FpsFontColor);
                 Graphics.DrawImage("preload-start.png", bounds, Settings.BackgroundColor);
                 Graphics.DrawImage("preload-end.png", bounds, Settings.BackgroundColor);
                 Size = bounds.Size;
