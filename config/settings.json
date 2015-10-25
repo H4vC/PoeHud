@@ -1,11 +1,11 @@
 {
-  "Menu": null,
-  "Menu Settings": {
+  "Menu settings": {
     "Enable": true,
+    "TitleName": "X",
     "X": 10.0,
-    "Y": 100.0,
-    "ShowIncrements": true,
-    "TitleFontColor": "c86400ff",
+    "Y": 102.0,
+    "ShowMenu": true,
+    "TitleFontColor": "ff0000ff",
     "EnabledBoxColor": "808080ff",
     "DisabledBoxColor": "dc143cff",
     "MenuFontColor": "fec076ff",
@@ -55,6 +55,11 @@
     "ShowText": true,
     "HideOthers": false,
     "PlaySound": true,
+    "SoundVolume": {
+      "Value": 20,
+      "Min": 0,
+      "Max": 100
+    },
     "TextSize": {
       "Value": 16,
       "Min": 10,
@@ -129,10 +134,10 @@
         "Max": 40
       }
     },
-    "WithBorder": false,
+    "WithBorder": true,
     "WithSound": false,
-    "Alternative": false,
-    "FilePath": ""
+    "Alternative": true,
+    "FilePath": "config/thisBest.filter"
   },
   "Advanced tooltip": {
     "Enable": true,
@@ -173,6 +178,11 @@
     "Monsters": true,
     "Minions": true,
     "PlaySound": true,
+    "SoundVolume": {
+      "Value": 50,
+      "Min": 0,
+      "Max": 100
+    },
     "ShowText": true,
     "TextSize": {
       "Value": 20,
@@ -200,7 +210,6 @@
   },
   "Preload alert": {
     "Enable": true,
-    "PlaySound": true,
     "Masters": true,
     "Exiles": true,
     "Strongboxes": true,
@@ -214,7 +223,7 @@
     "CorruptedColor": "ff0000ff",
     "MasterZana": "ffff00ff",
     "MasterCatarina": "fec076ff",
-    "MasterTora": "fec076ff",
+    "MasterTora": "00ff00ff",
     "MasterVorici": "fec076ff",
     "MasterHaku": "fec076ff",
     "MasterElreon": "fec076ff",
@@ -280,7 +289,7 @@
     "Players": {
       "Enable": true,
       "Width": {
-        "Value": 140.0,
+        "Value": 160.0,
         "Min": 50.0,
         "Max": 180.0
       },
@@ -304,9 +313,9 @@
       }
     },
     "Minions": {
-      "Enable": true,
+      "Enable": false,
       "Width": {
-        "Value": 140.0,
+        "Value": 160.0,
         "Min": 50.0,
         "Max": 180.0
       },
@@ -330,9 +339,9 @@
       }
     },
     "NormalEnemy": {
-      "Enable": true,
+      "Enable": false,
       "Width": {
-        "Value": 140.0,
+        "Value": 160.0,
         "Min": 50.0,
         "Max": 180.0
       },
@@ -356,9 +365,9 @@
       }
     },
     "MagicEnemy": {
-      "Enable": true,
+      "Enable": false,
       "Width": {
-        "Value": 140.0,
+        "Value": 160.0,
         "Min": 50.0,
         "Max": 180.0
       },
@@ -384,7 +393,7 @@
     "RareEnemy": {
       "Enable": true,
       "Width": {
-        "Value": 140.0,
+        "Value": 160.0,
         "Min": 50.0,
         "Max": 180.0
       },
@@ -410,7 +419,7 @@
     "UniqueEnemy": {
       "Enable": true,
       "Width": {
-        "Value": 140.0,
+        "Value": 180.0,
         "Min": 50.0,
         "Max": 180.0
       },
@@ -433,7 +442,7 @@
         "Max": 50
       }
     },
-    "ShowDebuffPanel": true,
+    "ShowDebuffPanel": false,
     "DebuffPanelIconSize": {
       "Value": 20,
       "Min": 15,

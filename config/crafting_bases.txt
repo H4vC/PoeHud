@@ -1,3 +1,2 @@
 #Gold Ring,10,0,Normal
-Vaal Regalia,78
-Corsair Sword,78
+

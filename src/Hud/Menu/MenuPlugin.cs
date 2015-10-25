@@ -151,8 +151,9 @@ namespace PoeHUD.Hud.Menu
             AddChild(alternative, settingsHub.ItemAlertSettings.FilePath);
             AddChild(alternative, "With border", settingsHub.ItemAlertSettings.WithBorder);
             AddChild(alternative, "With sound", settingsHub.ItemAlertSettings.WithSound);
-            
-            AddChild(itemAlertMenu, itemAlertStaticMenuList[1], settingsHub.ItemAlertSettings.PlaySound);
+
+            MenuItem itemSound = AddChild(itemAlertMenu, itemAlertStaticMenuList[1], settingsHub.ItemAlertSettings.PlaySound);
+            AddChild(itemSound, "Sound Volume", settingsHub.ItemAlertSettings.SoundVolume);
             MenuItem alertTextMenu = AddChild(itemAlertMenu, itemAlertStaticMenuList[2], settingsHub.ItemAlertSettings.ShowText);
             AddChild(alertTextMenu, "Font size", settingsHub.ItemAlertSettings.TextSize);
             AddChild(itemAlertMenu, itemAlertStaticMenuList[3], settingsHub.ItemAlertSettings.HideOthers);
@@ -164,14 +165,6 @@ namespace PoeHUD.Hud.Menu
             AddChild(showBorderMenu, "Not my item color:", borderSettings.NotMyItemBorderColor);
             AddChild(showBorderMenu, "Show timer", borderSettings.ShowTimer);
             AddChild(showBorderMenu, "Timer text size", borderSettings.TimerTextSize);
-            AddChild(itemAlertMenu, "Rares", settingsHub.ItemAlertSettings.Rares);
-            AddChild(itemAlertMenu, "Uniques", settingsHub.ItemAlertSettings.Uniques);
-            AddChild(itemAlertMenu, "Currency", settingsHub.ItemAlertSettings.Currency);
-            AddChild(itemAlertMenu, "Maps", settingsHub.ItemAlertSettings.Maps);
-            AddChild(itemAlertMenu, "RGB", settingsHub.ItemAlertSettings.Rgb);
-            AddChild(itemAlertMenu, "Crafting bases", settingsHub.ItemAlertSettings.Crafting);
-            AddChild(itemAlertMenu, "Divination cards", settingsHub.ItemAlertSettings.DivinationCards);
-            AddChild(itemAlertMenu, "Jewels", settingsHub.ItemAlertSettings.Jewels);
             QualityItemsSettings qualityItemsSettings = settingsHub.ItemAlertSettings.QualityItems;
             MenuItem qualityMenu = AddChild(itemAlertMenu, "Show quality items", qualityItemsSettings.Enable);
             MenuItem qualityWeaponMenu = AddChild(qualityMenu, "Weapons", qualityItemsSettings.Weapon.Enable);
@@ -183,7 +176,7 @@ namespace PoeHUD.Hud.Menu
             MenuItem qualitySkillGemMenu = AddChild(qualityMenu, "Skill gems", qualityItemsSettings.SkillGem.Enable);
             AddChild(qualitySkillGemMenu, "Min. quality", qualityItemsSettings.SkillGem.MinQuality);
 
-            // Advanced tooltip
+            // Advanced Tooltip
             AdvancedTooltipSettings tooltipSettings = settingsHub.AdvancedTooltipSettings;
             MenuItem tooltipMenu = AddChild(root, "Tooltips", tooltipSettings.Enable);
             MenuItem itemLevelMenu = AddChild(tooltipMenu, "Item level", tooltipSettings.ItemLevel.Enable);
@@ -195,10 +188,11 @@ namespace PoeHUD.Hud.Menu
             AddChild(weaponDpsMenu, "Font size", tooltipSettings.WeaponDps.FontSize);
             AddChild(weaponDpsMenu, "Damage size", tooltipSettings.WeaponDps.DamageFontSize);
 
-            // Boss warnings
-            MenuItem bossWarningsMenu = AddChild(root, "Boss warnings", settingsHub.MonsterTrackerSettings.Enable);
-            AddChild(bossWarningsMenu, "Sound warning", settingsHub.MonsterTrackerSettings.PlaySound);
-            MenuItem warningTextMenu = AddChild(bossWarningsMenu, "Text warning", settingsHub.MonsterTrackerSettings.ShowText);
+            // Monster Tracker
+            MenuItem MonsterTrackerMenu = AddChild(root, "Monster Tracker", settingsHub.MonsterTrackerSettings.Enable);
+            MenuItem alertSound = AddChild(MonsterTrackerMenu, "Sound warning", settingsHub.MonsterTrackerSettings.PlaySound);
+            AddChild(alertSound, "Sound Volume", settingsHub.MonsterTrackerSettings.SoundVolume);
+            MenuItem warningTextMenu = AddChild(MonsterTrackerMenu, "Text warning", settingsHub.MonsterTrackerSettings.ShowText);
             AddChild(warningTextMenu, "Font size", settingsHub.MonsterTrackerSettings.TextSize);
             AddChild(warningTextMenu, "Font color", settingsHub.MonsterTrackerSettings.DefaultTextColor);
             AddChild(warningTextMenu, "Background color", settingsHub.MonsterTrackerSettings.BackgroundColor);
@@ -253,13 +247,13 @@ namespace PoeHUD.Hud.Menu
             AddChild(exiles, "Augustina Solaria", settingsHub.PreloadAlertSettings.AugustinaSolaria);
 
             var strongboxes = AddChild(preloadMenu, "Strongboxes", settingsHub.PreloadAlertSettings.Strongboxes);
-            AddChild(strongboxes, "Arcanist's", settingsHub.PreloadAlertSettings.ArcanistStrongbox);
-            AddChild(strongboxes, "Artisan's", settingsHub.PreloadAlertSettings.ArtisanStrongbox);
-            AddChild(strongboxes, "Cartographer's", settingsHub.PreloadAlertSettings.CartographerStrongbox);
-            AddChild(strongboxes, "Gemcutter's", settingsHub.PreloadAlertSettings.GemcutterStrongbox);
-            AddChild(strongboxes, "Jeweller's", settingsHub.PreloadAlertSettings.JewellerStrongbox);
-            AddChild(strongboxes, "Blacksmith's", settingsHub.PreloadAlertSettings.BlacksmithStrongbox);
-            AddChild(strongboxes, "Armourer's", settingsHub.PreloadAlertSettings.ArmourerStrongbox);
+            AddChild(strongboxes, "Arcanist", settingsHub.PreloadAlertSettings.ArcanistStrongbox);
+            AddChild(strongboxes, "Artisan", settingsHub.PreloadAlertSettings.ArtisanStrongbox);
+            AddChild(strongboxes, "Cartographer", settingsHub.PreloadAlertSettings.CartographerStrongbox);
+            AddChild(strongboxes, "Gemcutter", settingsHub.PreloadAlertSettings.GemcutterStrongbox);
+            AddChild(strongboxes, "Jeweller", settingsHub.PreloadAlertSettings.JewellerStrongbox);
+            AddChild(strongboxes, "Blacksmith", settingsHub.PreloadAlertSettings.BlacksmithStrongbox);
+            AddChild(strongboxes, "Armourer", settingsHub.PreloadAlertSettings.ArmourerStrongbox);
             AddChild(strongboxes, "Ornate", settingsHub.PreloadAlertSettings.OrnateStrongbox);
             AddChild(strongboxes, "Large", settingsHub.PreloadAlertSettings.LargeStrongbox);
             AddChild(strongboxes, "Perandus", settingsHub.PreloadAlertSettings.PerandusStrongbox);
@@ -268,13 +262,12 @@ namespace PoeHUD.Hud.Menu
             AddChild(strongboxes, "Epic", settingsHub.PreloadAlertSettings.EpicStrongbox);
             AddChild(strongboxes, "Simple", settingsHub.PreloadAlertSettings.SimpleStrongbox);
 
-            AddChild(preloadMenu, "Sound warning", settingsHub.PreloadAlertSettings.PlaySound);
             AddChild(preloadMenu, "Corrupted color", settingsHub.PreloadAlertSettings.CorruptedColor);
             AddChild(preloadMenu, "Background color", settingsHub.PreloadAlertSettings.BackgroundColor);
             AddChild(preloadMenu, "Font color", settingsHub.PreloadAlertSettings.DefaultFontColor);
             AddChild(preloadMenu, "Font size", settingsHub.PreloadAlertSettings.FontSize);
 
-            // Show DPS
+            // DPS
             MenuItem showDpsMenu = AddChild(root, "Show Dps", settingsHub.DpsMeterSettings.Enable);
             AddChild(showDpsMenu, "Dps font size", settingsHub.DpsMeterSettings.DpsTextSize);
             AddChild(showDpsMenu, "Top dps font size", settingsHub.DpsMeterSettings.PeakDpsTextSize);
@@ -282,7 +275,7 @@ namespace PoeHUD.Hud.Menu
             AddChild(showDpsMenu, "Dps font color", settingsHub.DpsMeterSettings.DpsFontColor);
             AddChild(showDpsMenu, "Top dps font color", settingsHub.DpsMeterSettings.PeakFontColor);
 
-            // Show monster kills
+            // Monster Kills
             MenuItem showMonsterKillsMenu = AddChild(root, "Monster kills", settingsHub.KillCounterSettings.Enable);
             AddChild(showMonsterKillsMenu, "Show details", settingsHub.KillCounterSettings.ShowDetail);
             AddChild(showMonsterKillsMenu, "Font color", settingsHub.KillCounterSettings.FontColor);
@@ -290,7 +283,7 @@ namespace PoeHUD.Hud.Menu
             AddChild(showMonsterKillsMenu, "Label font size", settingsHub.KillCounterSettings.LabelFontSize);
             AddChild(showMonsterKillsMenu, "Kills font size", settingsHub.KillCounterSettings.KillsFontSize);
 
-            // Show inventory preview
+            // Inventory Preview
             MenuItem showInventoryPreviewMenu = AddChild(root, "Inventory preview", settingsHub.InventoryPreviewSettings.Enable);
             AddChild(showInventoryPreviewMenu, "Auto update", settingsHub.InventoryPreviewSettings.AutoUpdate);
             AddChild(showInventoryPreviewMenu, "Free cell color", settingsHub.InventoryPreviewSettings.CellFreeColor);
@@ -301,7 +294,7 @@ namespace PoeHUD.Hud.Menu
             AddChild(showInventoryPreviewMenu, "Position Y", settingsHub.InventoryPreviewSettings.PositionY);
 
             //Menu Settings
-            var menuSettings = AddChild(root, "Menu Settings", settingsHub.MenuSettings.ShowIncrements, "F12");
+            var menuSettings = AddChild(root, "Menu Settings", settingsHub.MenuSettings.ShowMenu, "F12");
             AddChild(menuSettings, "Menu font color", settingsHub.MenuSettings.MenuFontColor);
             AddChild(menuSettings, "Title font color", settingsHub.MenuSettings.TitleFontColor);
             AddChild(menuSettings, "Enable color", settingsHub.MenuSettings.EnabledBoxColor);

@@ -1,11 +1,10 @@
-﻿using System;
+﻿using PoeHUD.Framework.Enums;
+using PoeHUD.Framework.InputHooks;
+using System;
 using System.Diagnostics;
 using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
-
-using PoeHUD.Framework.Enums;
-using PoeHUD.Framework.InputHooks;
 
 namespace PoeHUD.Framework
 {
@@ -52,8 +51,7 @@ namespace PoeHUD.Framework
             return ReadProcessMemory(handle, baseAddress, buffer, buffer.Length, out bytesRead);
         }
 
-
-        #endregion
+        #endregion Methods
 
         #region Constants
 
@@ -65,7 +63,7 @@ namespace PoeHUD.Framework
 
         private const int LWA_ALPHA = 0x2;
 
-        #endregion
+        #endregion Constants
 
         #region Imports
 
@@ -131,7 +129,10 @@ namespace PoeHUD.Framework
         [DllImport("user32.dll", SetLastError = true)]
         private static extern int SetWindowLong(IntPtr hWnd, int nIndex, IntPtr dwNewLong);
 
-        #endregion
+        [DllImport("winmm.dll")]
+        public static extern int waveOutSetVolume(IntPtr hwo, uint dwVolume);
+
+        #endregion Imports
 
         #region Structures
 
@@ -164,6 +165,6 @@ namespace PoeHUD.Framework
             }
         }
 
-        #endregion
+        #endregion Structures
     }
 }

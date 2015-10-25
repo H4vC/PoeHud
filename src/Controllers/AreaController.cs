@@ -1,6 +1,5 @@
 using System;
 using PoeHUD.Models;
-using PoeHUD.Poe;
 using PoeHUD.Poe.RemoteMemoryObjects;
 
 namespace PoeHUD.Controllers
@@ -15,7 +14,7 @@ namespace PoeHUD.Controllers
 			Root = gameController;
 		}
 
-		public event Action<AreaController> OnAreaChange; // TODO rename to AreaChanging
+		public event Action<AreaController> OnAreaChange;
 
 		public AreaInstance CurrentArea { get; private set; }
         

@@ -97,8 +97,14 @@ namespace PoeHUD.Hud.UI.Renderers
 
         public void Flush()
         {
-            textures.ForEach((key, texture) => texture.Dispose());
-            textures.Clear();
+            lock (textures)
+            {
+                textures.ForEach((key, texture) => texture.Dispose());
+            }
+            lock (textures)
+            {
+                textures.Clear();
+            }
         }
 
         public void Dispose()

@@ -53,10 +53,7 @@ namespace PoeHUD.Hud.Settings
             KillCounterSettings = new KillCounterSettings();
         }
 
-        [JsonProperty("Menu")]
-        public MenuSettings TitleSettings { get; private set; }
-
-        [JsonProperty("Menu Settings")]
+        [JsonProperty("Menu settings")]
         public MenuSettings MenuSettings { get; private set; }
 
         [JsonProperty("DPS meter")]

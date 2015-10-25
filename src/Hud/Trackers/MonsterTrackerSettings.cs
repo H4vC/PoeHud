@@ -13,6 +13,7 @@ namespace PoeHUD.Hud.Trackers
             Minions = true;
             PlaySound = true;
             ShowText = true;
+            SoundVolume = new RangeNode<int>(50, 0, 100);
             TextSize = new RangeNode<int>(20, 10, 50);
             BackgroundColor = new ColorBGRA(255, 255, 255, 255);
             TextPositionX = new RangeNode<int>(50, 0, 100);
@@ -25,6 +26,8 @@ namespace PoeHUD.Hud.Trackers
         public ToggleNode Minions { get; set; }
 
         public ToggleNode PlaySound { get; set; }
+
+        public RangeNode<int> SoundVolume { get; set; }
 
         public ToggleNode ShowText { get; set; }
 
