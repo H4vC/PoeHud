@@ -9,24 +9,29 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
+using PoeHUD.Hud.Settings;
 
 namespace PoeHUD.Hud.Preload
 {
     public class PreloadAlertPlugin : SizedPlugin<PreloadAlertSettings>
     {
+        private bool holdKey;
+        private int lastCount;
+        private bool areaChanged = true;
+        private Color OldAreaFontColor { get; }
+        private readonly SettingsHub settingsHub;
+        private DateTime maxParseTime = DateTime.Now;
         private readonly HashSet<PreloadConfigLine> alerts;
         private readonly Dictionary<string, PreloadConfigLine> alertStrings;
-        private bool areaChanged = true;
-        private DateTime maxParseTime = DateTime.Now;
-        private int lastCount;
-        private bool holdKey;
-
-        public PreloadAlertPlugin(GameController gameController, Graphics graphics, PreloadAlertSettings settings)
-            : base(gameController, graphics, settings)
+        
+        public PreloadAlertPlugin(GameController gameController, Graphics graphics, SettingsHub settingsHub)
+            : base(gameController, graphics, settingsHub.PreloadAlertSettings)
         {
+            this.settingsHub = settingsHub;
             alerts = new HashSet<PreloadConfigLine>();
             alertStrings = LoadConfig("config/preload_alerts.txt");
             GameController.Area.OnAreaChange += OnAreaChange;
+            OldAreaFontColor = settingsHub.XpRateSettings.AreaFontColor;
         }
 
         public Dictionary<string, PreloadConfigLine> LoadConfig(string path)
@@ -109,9 +114,10 @@ namespace PoeHUD.Hud.Preload
 
         private void Parse()
         {
-            areaChanged = false;
             alerts.Clear();
+            areaChanged = false;
             Memory memory = GameController.Memory;
+            settingsHub.XpRateSettings.AreaFontColor = OldAreaFontColor;
             int pFileRoot = memory.ReadInt(memory.AddressOfProcess + memory.offsets.FileRoot);
             int count = memory.ReadInt(pFileRoot + 12);
             int listIterator = memory.ReadInt(pFileRoot + 20);
@@ -128,16 +134,17 @@ namespace PoeHUD.Hud.Preload
                     }
                     if (text.Contains("human_heart") || text.Contains("Demonic_NoRain.ogg"))
                     {
-                        alerts.Add(new PreloadConfigLine { Text = "Corrupted Area", FastColor = () => Settings.CorruptedColor });
+                        settingsHub.XpRateSettings.AreaFontColor = Settings.CorruptedColor;
+                        //alerts.Add(new PreloadConfigLine { Text = "Corrupted Area", FastColor = () => Settings.CorruptedColor });
                     }
                     if (alertStrings.ContainsKey(text))
                     {
                         alerts.Add(alertStrings[text]);
                     }
-                    if (text.EndsWith("BossInvasion"))
-                    {
-                        alerts.Add(new PreloadConfigLine { Text = "Invasion Boss" });
-                    }
+                    //if (text.EndsWith("BossInvasion"))
+                    //{
+                    //    alerts.Add(new PreloadConfigLine { Text = "Invasion Boss" });
+                    //}
 
                     //masters
                     if (text.EndsWith("Metadata/NPC/Missions/Wild/StrDexInt"))
