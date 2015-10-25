@@ -73,93 +73,94 @@
 #Metadata/NPC/Missions/Wild/StrInt; Elreon, Loremaster
 #Metadata/NPC/Missions/Wild/Fish; Krillson, Master Fisherman
 
-Metadata/Monsters/Squid/SquidBossSideArea; The All-seeing Eye
-Metadata/Monsters/Goatman/GoatmanLeapBossSideArea; Konu, Maker of Wind
-Metadata/Monsters/GhostPirates/GhostPirateBossSideArea; Coniraya, Shadow of Malice
-Metadata/Monsters/DemonModular/DemonModularElementsBossSideArea; Atziri's Pride
-Metadata/Monsters/Goatman/GoatmanShamanBossSideArea; Sheaq, Maker of Floods
-Metadata/Monsters/Skeleton/SkeletonMeleeLargeBossSideArea; Ossecati, Boneshaper
-Metadata/Monsters/RootSpiders/RootSpiderBossSideArea; Kamaq, Soilmaker
-Metadata/Monsters/Kiweth/KiwethBossSideArea; Inti of the Blood Moon
-Metadata/Monsters/incaminion/FragmentBossSideArea; Shrapnelbearer
-Metadata/Monsters/Snake/SnakeRoboBossSideArea; Wiraqucha, Ancient Guardian
-Metadata/Monsters/DemonFemale/WhipDemonBossSideArea; Cava, Artist of Pain
-Metadata/Monsters/Pyromaniac/PyromaniacBossSideArea; Curator Miem
-Metadata/Monsters/BloodChieftain/MonkeyChiefBossSideArea; Simi, the Nature Touched
-Metadata/Monsters/InsectSpawner/CarrionQueenBossSideArea; The Sunburst Queen
-Metadata/Monsters/Totems/TotemBossSideArea; M'gaska, the Living Pyre
-Metadata/Monsters/Spiders/SpiderBossSideArea; Cintiq, the Inescapable
-Metadata/Monsters/Snake/SnakeScorpionBossSideArea; Thornrunner
-Metadata/Monsters/Cannibal/CannibalBossSideArea; Perquil the Lucky
-Metadata/Monsters/Skeletons/ConstructMeleeBossSideArea; Haviri, Vaal Metalsmith
-Metadata/Monsters/Skeletons/ConstructRangedBossSideArea; Kutec, Vaal Fleshsmith
-Metadata/Monsters/AnimatedItem/AnimatedArmourBossSideArea; Shadow of Vengeance
-Metadata/Monsters/DemonBosses/DemonBoss1/Demon1BossSideArea; Beheader Ataguchu
-Metadata/Monsters/DemonBosses/DemonBoss2/Demon2BossSideArea; Wiraq, the Impaler
-Metadata/Monsters/DemonBosses/DemonBoss3/Demon3BossSideArea; Ch'aska, Maker of Rain
-Metadata/Monsters/SandSpitterEmerge/SandSpitterBossSideArea; Mother of the Hive
-Metadata/Monsters/Seawitch/SeaWitchBossSideArea; Rima, Deep Temptress
-Metadata/Monsters/Axis/AxisCasterBossInvasion; Evocata Apocalyptica
-Metadata/Monsters/Axis/AxisExperimenterBossInvasion; Docere Incarnatis
-Metadata/Monsters/Axis/AxisSoldierBossInvasion; Corrector Draconides
-Metadata/Monsters/Bandits/BanditMeleeBossInvasion; Balus Stoneskull
-Metadata/Monsters/Bandits/BanditBowBossInvasion; Kall Foxfly
-Metadata/Monsters/Beasts/BeastBossInvasion; Marrowcrush
-Metadata/Monsters/Rhoas/RhoaBossInvasion; The Cadaver Bull
-Metadata/Monsters/BloodChieftain/BloodChieftainBossInvasion; Junglemare
-Metadata/Monsters/BloodElemental/BloodElementalBossInvasion; The Sanguine Wave
-Metadata/Monsters/Cannibal/CannibalMaleBossInvasion; Graveblood
-Metadata/Monsters/Cannibal/CannibalFemaleBossInvasion; Nighteater
-Metadata/Monsters/Undying/CityStalkerMaleBossInvasion; The Book Burner
-Metadata/Monsters/Undying/CityStalkerFemaleBossInvasion; The Bolt Juggler
-Metadata/Monsters/DemonFemale/DemonFemaleBossInvasion; Avatar of Pain
-Metadata/Monsters/DemonModular/DemonModularBossInvasion; Rancor
-Metadata/Monsters/DemonModular/DemonFemaleRangedBossInvasion; Hatespitter
-Metadata/Monsters/MossMonster/FireMonsterBossInvasion; Bluntslag
-Metadata/Monsters/Monkeys/FlameBearerBossInvasion; The Revenant
-Metadata/Monsters/incaminion/FragmentBossInvasion; Judgement Apparatus
-Metadata/Monsters/Frog/FrogBossInvasion; Spinesnap
-Metadata/Monsters/GemMonster/GemFrogBossInvasion; Genesis Paradisae
-Metadata/Monsters/Goatman/GoatmanBossInvasion; Death from Above
-Metadata/Monsters/Goatman/GoatmanShamanBossInvasion; Guardian of the Mound
-Metadata/Monsters/Grappler/GrapplerBossInvasion; Wonderwalker
-Metadata/Monsters/Guardians/GuardianFireBossInvasion; The Raging Mask
-Metadata/Monsters/Guardians/GuardianLightningBossInvasion; The Teetering Mask
-Metadata/Monsters/Guardians/GuardianHeadFireBossInvasion; The Furious Mask
-Metadata/Monsters/Guardians/GuardianHeadColdBossInvasion; The Callous Mask
-Metadata/Monsters/Guardians/GuardianHeadLightningBossInvasion; The Capricious Mask
-Metadata/Monsters/GemMonster/IguanaBossInvasion; Alpha Paradisae
-Metadata/Monsters/InsectSpawner/CarrionQueenBossInvasion; Mother of the Swarm
-Metadata/Monsters/Kiweth/KiwethBossInvasion; Deathflutter
-Metadata/Monsters/Lion/LionBossInvasion; Bladetooth
-Metadata/Monsters/MossMonster/MossMonsterBossInvasion; Granitecrush
-Metadata/Monsters/Necromancer/NecromancerBossInvasion; Corpsestitch
-Metadata/Monsters/Pyromaniac/PyromaniacBossInvasion; The Firestarter
-Metadata/Monsters/RootSpiders/RootSpiderBossInvasion; Wrigglechaw
-Metadata/Monsters/SandSpitterEmerge/SandSpitterBossInvasion; Blinkflame
-Metadata/Monsters/Seawitch/SeaWitchBossInvasion; The Duchess
-Metadata/Monsters/ShieldCrabs/ShieldCrabBossInvasion; Shivershell
-Metadata/Monsters/SandSpitters/SandSpitterFromCrabBossInvasion; Shivershell
-Metadata/Monsters/Beasts/BeastSkeletonBossInvasion; Mammothcage
-Metadata/Monsters/Skeletons/SkeletonElementalBossInvasion; Harbinger of Elements
-Metadata/Monsters/Skeletons/SkeletonBowBossInvasion; Nightsight
-Metadata/Monsters/Snake/SnakeMeleeBossInvasion; Tailsinger
-Metadata/Monsters/Snake/SnakeRangedBossInvasion; Razorleaf
-Metadata/Monsters/Spawn/SpawnBossInvasion; Stranglecreep
-Metadata/Monsters/Spiders/SpiderBossInvasion; Pewterfang
-Metadata/Monsters/Spikers/SpikerBossInvasion; Bladeback Guardian
-Metadata/Monsters/Squid/SquidBossInvasion; Strangledrift
-Metadata/Monsters/Totems/TotemBossInvasion; Jikeji
-Metadata/Monsters/Rhoas/RhoaUndeadBossInvasion; Ghostram
-Metadata/Monsters/Undying/UndyingBossInvasion; Stranglecrawl
-Metadata/Monsters/WaterElemental/WaterElementalBossInvasion; Mirageblast
-Metadata/Monsters/ZombieDismember/ZombieBossInvasion; The Walking Waste
-Metadata/Monsters/Monkeys/MonkeyBossInvasion1; Blood Stasis 
-Metadata/Monsters/Monkeys/MonkeyBossInvasion2; Blood Morpher
-Metadata/Monsters/Skeletons/SkeletonMeleeBossInvasion; Glassmaul
-Metadata/Monsters/Skeletons/SkeletonLargeBossInvasion; Grath
-Metadata/Monsters/Skeletons/ConstructBossInvasion; The Spiritless
-Metadata/Monsters/GhostPirates/GhostPirateBossInvasion; Droolscar
+Metadata/Monsters/Squid/SquidBossSideArea; The All-seeing Eye; FFDC143C
+Metadata/Monsters/Goatman/GoatmanLeapBossSideArea; Konu, Maker of Wind; FFDC143C
+Metadata/Monsters/GhostPirates/GhostPirateBossSideArea; Coniraya, Shadow of Malice; FFDC143C
+Metadata/Monsters/DemonModular/DemonModularElementsBossSideArea; Atziri's Pride; FFDC143C
+Metadata/Monsters/Goatman/GoatmanShamanBossSideArea; Sheaq, Maker of Floods; FFDC143C
+Metadata/Monsters/Skeleton/SkeletonMeleeLargeBossSideArea; Ossecati, Boneshaper; FFDC143C
+Metadata/Monsters/RootSpiders/RootSpiderBossSideArea; Kamaq, Soilmaker; FFDC143C
+Metadata/Monsters/Kiweth/KiwethBossSideArea; Inti of the Blood Moon; FFDC143C
+Metadata/Monsters/incaminion/FragmentBossSideArea; Shrapnelbearer; FFDC143C
+Metadata/Monsters/Snake/SnakeRoboBossSideArea; Wiraqucha, Ancient Guardian; FFDC143C
+Metadata/Monsters/DemonFemale/WhipDemonBossSideArea; Cava, Artist of Pain; FFDC143C
+Metadata/Monsters/Pyromaniac/PyromaniacBossSideArea; Curator Miem; FFDC143C
+Metadata/Monsters/BloodChieftain/MonkeyChiefBossSideArea; Simi, the Nature Touched; FFDC143C
+Metadata/Monsters/InsectSpawner/CarrionQueenBossSideArea; The Sunburst Queen; FFDC143C
+Metadata/Monsters/Totems/TotemBossSideArea; M'gaska, the Living Pyre; FFDC143C
+Metadata/Monsters/Spiders/SpiderBossSideArea; Cintiq, the Inescapable; FFDC143C
+Metadata/Monsters/Snake/SnakeScorpionBossSideArea; Thornrunner; FFDC143C
+Metadata/Monsters/Cannibal/CannibalBossSideArea; Perquil the Lucky; FFDC143C
+Metadata/Monsters/Skeletons/ConstructMeleeBossSideArea; Haviri, Vaal Metalsmith; FFDC143C
+Metadata/Monsters/Skeletons/ConstructRangedBossSideArea; Kutec, Vaal Fleshsmith; FFDC143C
+Metadata/Monsters/AnimatedItem/AnimatedArmourBossSideArea; Shadow of Vengeance; FFDC143C
+Metadata/Monsters/DemonBosses/DemonBoss1/Demon1BossSideArea; Beheader Ataguchu; FFDC143C
+Metadata/Monsters/DemonBosses/DemonBoss2/Demon2BossSideArea; Wiraq, the Impaler; FFDC143C
+Metadata/Monsters/DemonBosses/DemonBoss3/Demon3BossSideArea; Ch'aska, Maker of Rain; FFDC143C
+Metadata/Monsters/SandSpitterEmerge/SandSpitterBossSideArea; Mother of the Hive; FFDC143C
+Metadata/Monsters/Seawitch/SeaWitchBossSideArea; Rima, Deep Temptress; FFDC143C
+
+Metadata/Monsters/Axis/AxisCasterBossInvasion; Evocata Apocalyptica; FFDC143C
+Metadata/Monsters/Axis/AxisExperimenterBossInvasion; Docere Incarnatis; FFDC143C
+Metadata/Monsters/Axis/AxisSoldierBossInvasion; Corrector Draconides; FFDC143C
+Metadata/Monsters/Bandits/BanditMeleeBossInvasion; Balus Stoneskull; FFDC143C
+Metadata/Monsters/Bandits/BanditBowBossInvasion; Kall Foxfly; FFDC143C
+Metadata/Monsters/Beasts/BeastBossInvasion; Marrowcrush; FFDC143C
+Metadata/Monsters/Rhoas/RhoaBossInvasion; The Cadaver Bull; FFDC143C
+Metadata/Monsters/BloodChieftain/BloodChieftainBossInvasion; Junglemare; FFDC143C
+Metadata/Monsters/BloodElemental/BloodElementalBossInvasion; The Sanguine Wave; FFDC143C
+Metadata/Monsters/Cannibal/CannibalMaleBossInvasion; Graveblood; FFDC143C
+Metadata/Monsters/Cannibal/CannibalFemaleBossInvasion; Nighteater; FFDC143C
+Metadata/Monsters/Undying/CityStalkerMaleBossInvasion; The Book Burner; FFDC143C
+Metadata/Monsters/Undying/CityStalkerFemaleBossInvasion; The Bolt Juggler; FFDC143C
+Metadata/Monsters/DemonFemale/DemonFemaleBossInvasion; Avatar of Pain; FFDC143C
+Metadata/Monsters/DemonModular/DemonModularBossInvasion; Rancor; FFDC143C
+Metadata/Monsters/DemonModular/DemonFemaleRangedBossInvasion; Hatespitter; FFDC143C
+Metadata/Monsters/MossMonster/FireMonsterBossInvasion; Bluntslag; FFDC143C
+Metadata/Monsters/Monkeys/FlameBearerBossInvasion; The Revenant; FFDC143C
+Metadata/Monsters/incaminion/FragmentBossInvasion; Judgement Apparatus; FFDC143C
+Metadata/Monsters/Frog/FrogBossInvasion; Spinesnap; FFDC143C
+Metadata/Monsters/GemMonster/GemFrogBossInvasion; Genesis Paradisae; FFDC143C
+Metadata/Monsters/Goatman/GoatmanBossInvasion; Death from Above; FFDC143C
+Metadata/Monsters/Goatman/GoatmanShamanBossInvasion; Guardian of the Mound; FFDC143C
+Metadata/Monsters/Grappler/GrapplerBossInvasion; Wonderwalker; FFDC143C
+Metadata/Monsters/Guardians/GuardianFireBossInvasion; The Raging Mask; FFDC143C
+Metadata/Monsters/Guardians/GuardianLightningBossInvasion; The Teetering Mask; FFDC143C
+Metadata/Monsters/Guardians/GuardianHeadFireBossInvasion; The Furious Mask; FFDC143C
+Metadata/Monsters/Guardians/GuardianHeadColdBossInvasion; The Callous Mask; FFDC143C
+Metadata/Monsters/Guardians/GuardianHeadLightningBossInvasion; The Capricious Mask; FFDC143C
+Metadata/Monsters/GemMonster/IguanaBossInvasion; Alpha Paradisae; FFDC143C
+Metadata/Monsters/InsectSpawner/CarrionQueenBossInvasion; Mother of the Swarm; FFDC143C
+Metadata/Monsters/Kiweth/KiwethBossInvasion; Deathflutter; FFDC143C
+Metadata/Monsters/Lion/LionBossInvasion; Bladetooth; FFDC143C
+Metadata/Monsters/MossMonster/MossMonsterBossInvasion; Granitecrush; FFDC143C
+Metadata/Monsters/Necromancer/NecromancerBossInvasion; Corpsestitch; FFDC143C
+Metadata/Monsters/Pyromaniac/PyromaniacBossInvasion; The Firestarter; FFDC143C
+Metadata/Monsters/RootSpiders/RootSpiderBossInvasion; Wrigglechaw; FFDC143C
+Metadata/Monsters/SandSpitterEmerge/SandSpitterBossInvasion; Blinkflame; FFDC143C
+Metadata/Monsters/Seawitch/SeaWitchBossInvasion; The Duchess; FFDC143C
+Metadata/Monsters/ShieldCrabs/ShieldCrabBossInvasion; Shivershell; FFDC143C
+Metadata/Monsters/SandSpitters/SandSpitterFromCrabBossInvasion; Shivershell; FFDC143C
+Metadata/Monsters/Beasts/BeastSkeletonBossInvasion; Mammothcage; FFDC143C
+Metadata/Monsters/Skeletons/SkeletonElementalBossInvasion; Harbinger of Elements; FFDC143C
+Metadata/Monsters/Skeletons/SkeletonBowBossInvasion; Nightsight; FFDC143C
+Metadata/Monsters/Snake/SnakeMeleeBossInvasion; Tailsinger; FFDC143C
+Metadata/Monsters/Snake/SnakeRangedBossInvasion; Razorleaf; FFDC143C
+Metadata/Monsters/Spawn/SpawnBossInvasion; Stranglecreep; FFDC143C
+Metadata/Monsters/Spiders/SpiderBossInvasion; Pewterfang; FFDC143C
+Metadata/Monsters/Spikers/SpikerBossInvasion; Bladeback Guardian; FFDC143C
+Metadata/Monsters/Squid/SquidBossInvasion; Strangledrift; FFDC143C
+Metadata/Monsters/Totems/TotemBossInvasion; Jikeji; FFDC143C
+Metadata/Monsters/Rhoas/RhoaUndeadBossInvasion; Ghostram; FFDC143C
+Metadata/Monsters/Undying/UndyingBossInvasion; Stranglecrawl; FFDC143C
+Metadata/Monsters/WaterElemental/WaterElementalBossInvasion; Mirageblast; FFDC143C
+Metadata/Monsters/ZombieDismember/ZombieBossInvasion; The Walking Waste; FFDC143C
+Metadata/Monsters/Monkeys/MonkeyBossInvasion1; Blood Stasis; FFDC143C 
+Metadata/Monsters/Monkeys/MonkeyBossInvasion2; Blood Morpher; FFDC143C
+Metadata/Monsters/Skeletons/SkeletonMeleeBossInvasion; Glassmaul; FFDC143C
+Metadata/Monsters/Skeletons/SkeletonLargeBossInvasion; Grath; FFDC143C
+Metadata/Monsters/Skeletons/ConstructBossInvasion; The Spiritless; FFDC143C
+Metadata/Monsters/GhostPirates/GhostPirateBossInvasion; Droolscar; FFDC143C
 Metadata/Monsters/Rhoas/RhoaAlbino; Albino Rhoa
 
 Metadata/Monsters/Spirit/TormentedArsonist; Tormented Arsonist
