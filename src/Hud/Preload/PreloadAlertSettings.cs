@@ -13,7 +13,7 @@ namespace PoeHUD.Hud.Preload
             Strongboxes = true;
             FontSize = new RangeNode<int>(16, 10, 20);
             BackgroundColor = new ColorBGRA(255, 255, 255, 220);
-            DefaultFontColor = new ColorBGRA(254, 192, 118, 255);
+            DefaultFontColor = new ColorBGRA(220, 190, 130, 255);
             AreaFontColor = new ColorBGRA(150, 200, 250, 255);
             HasCorruptedArea = new ColorBGRA(208, 31, 144, 255);
 
@@ -27,39 +27,39 @@ namespace PoeHUD.Hud.Preload
             MasterKrillson = new ColorBGRA(255, 0, 255, 255);
 
             ArcanistStrongbox = new ColorBGRA(255, 0, 255, 255);
-            ArtisanStrongbox = new ColorBGRA(240, 240, 240, 255);
+            ArtisanStrongbox = new ColorBGRA(210, 210, 210, 255);
             CartographerStrongbox = new ColorBGRA(255, 0, 255, 255);
             GemcutterStrongbox = new ColorBGRA(27, 162, 155, 255);
-            JewellerStrongbox = new ColorBGRA(240, 240, 240, 255);
-            BlacksmithStrongbox = new ColorBGRA(240, 240, 240, 255);
-            ArmourerStrongbox = new ColorBGRA(240, 240, 240, 255);
-            OrnateStrongbox = new ColorBGRA(240, 240, 240, 255);
-            LargeStrongbox = new ColorBGRA(240, 240, 240, 255);
+            JewellerStrongbox = new ColorBGRA(210, 210, 210, 255);
+            BlacksmithStrongbox = new ColorBGRA(210, 210, 210, 255);
+            ArmourerStrongbox = new ColorBGRA(210, 210, 210, 255);
+            OrnateStrongbox = new ColorBGRA(210, 210, 210, 255);
+            LargeStrongbox = new ColorBGRA(210, 210, 210, 255);
             PerandusStrongbox = new ColorBGRA(175, 96, 37, 255);
             KaomStrongbox = new ColorBGRA(175, 96, 37, 255);
             MalachaiStrongbox = new ColorBGRA(175, 96, 37, 255);
             EpicStrongbox = new ColorBGRA(175, 96, 37, 255);
-            SimpleStrongbox = new ColorBGRA(240, 240, 240, 255);
+            SimpleStrongbox = new ColorBGRA(210, 210, 210, 255);
 
-            OrraGreengate = new ColorBGRA(255, 155, 100, 255);
-            ThenaMoga = new ColorBGRA(255, 155, 100, 255);
-            AntalieNapora = new ColorBGRA(255, 155, 100, 255);
-            TorrOlgosso = new ColorBGRA(255, 155, 100, 255);
-            ArmiosBell = new ColorBGRA(255, 155, 100, 255);
-            ZacharieDesmarais = new ColorBGRA(255, 155, 100, 255);
-            MinaraAnenima = new ColorBGRA(255, 155, 100, 255);
-            IgnaPhoenix = new ColorBGRA(255, 155, 100, 255);
-            JonahUnchained = new ColorBGRA(255, 155, 100, 255);
-            DamoiTui = new ColorBGRA(255, 155, 100, 255);
-            XandroBlooddrinker = new ColorBGRA(255, 155, 100, 255);
-            VickasGiantbone = new ColorBGRA(255, 155, 100, 255);
-            EoinGreyfur = new ColorBGRA(255, 155, 100, 255);
-            TinevinHighdove = new ColorBGRA(255, 155, 100, 255);
-            MagnusStonethorn = new ColorBGRA(255, 155, 100, 255);
-            IonDarkshroud = new ColorBGRA(255, 155, 100, 255);
-            AshLessard = new ColorBGRA(255, 155, 100, 255);
-            WilorinDemontamer = new ColorBGRA(255, 155, 100, 255);
-            AugustinaSolaria = new ColorBGRA(255, 155, 100, 255);
+            OrraGreengate = new ColorBGRA(254, 192, 118, 255);
+            ThenaMoga = new ColorBGRA(254, 192, 118, 255);
+            AntalieNapora = new ColorBGRA(254, 192, 118, 255);
+            TorrOlgosso = new ColorBGRA(254, 192, 118, 255);
+            ArmiosBell = new ColorBGRA(254, 192, 118, 255);
+            ZacharieDesmarais = new ColorBGRA(254, 192, 118, 255);
+            MinaraAnenima = new ColorBGRA(254, 192, 118, 255);
+            IgnaPhoenix = new ColorBGRA(254, 192, 118, 255);
+            JonahUnchained = new ColorBGRA(254, 192, 118, 255);
+            DamoiTui = new ColorBGRA(254, 192, 118, 255);
+            XandroBlooddrinker = new ColorBGRA(254, 192, 118, 255);
+            VickasGiantbone = new ColorBGRA(254, 192, 118, 255);
+            EoinGreyfur = new ColorBGRA(254, 192, 118, 255);
+            TinevinHighdove = new ColorBGRA(254, 192, 118, 255);
+            MagnusStonethorn = new ColorBGRA(254, 192, 118, 255);
+            IonDarkshroud = new ColorBGRA(254, 192, 118, 255);
+            AshLessard = new ColorBGRA(254, 192, 118, 255);
+            WilorinDemontamer = new ColorBGRA(254, 192, 118, 255);
+            AugustinaSolaria = new ColorBGRA(254, 192, 118, 255);
         }
 
         public ToggleNode Masters { get; set; }

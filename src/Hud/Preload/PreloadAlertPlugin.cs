@@ -114,7 +114,7 @@ namespace PoeHUD.Hud.Preload
                     if (text.Contains("human_heart") || text.Contains("Demonic_NoRain.ogg"))
                     {
                         hasCorruptedArea = Settings.HasCorruptedArea;
-                        alerts.Add(new PreloadConfigLine { Text = "Corrupted Area", FastColor = () => Settings.HasCorruptedArea });
+                        //alerts.Add(new PreloadConfigLine { Text = "Corrupted Area", FastColor = () => Settings.HasCorruptedArea });
                     }
                     
                     //if (text.EndsWith("BossInvasion"))

@@ -13,11 +13,11 @@ namespace PoeHUD.Hud.XpRate
             FontSize = new RangeNode<int>(16, 10, 20);
             BackgroundColor = new ColorBGRA(255, 255, 255, 255);
             AreaFontColor = new ColorBGRA(140, 200, 255, 255);
-            XphFontColor = new ColorBGRA(254, 192, 118, 255);
-            TimeLeftColor = new ColorBGRA(254, 192, 118, 255);
-            FpsFontColor = new ColorBGRA(254, 192, 118, 255);
-            TimerFontColor = new ColorBGRA(254, 192, 118, 255);
-            LatencyFontColor = new ColorBGRA(254, 192, 118, 255);
+            XphFontColor = new ColorBGRA(220, 190, 130, 255);
+            TimeLeftColor = new ColorBGRA(220, 190, 130, 255);
+            FpsFontColor = new ColorBGRA(220, 190, 130, 255);
+            TimerFontColor = new ColorBGRA(220, 190, 130, 255);
+            LatencyFontColor = new ColorBGRA(220, 190, 130, 255);
             ShowXpReceiving = true;
             LevelPenalty = true;
             PartyPenalty = true;

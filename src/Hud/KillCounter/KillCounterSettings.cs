@@ -10,7 +10,7 @@ namespace PoeHUD.Hud.KillCounter
             Enable = false;
             ShowDetail = true;
             PerSession = true;
-            FontColor = new ColorBGRA(254, 192, 118, 255);
+            FontColor = new ColorBGRA(220, 190, 130, 255);
             BackgroundColor = new ColorBGRA(255, 255, 255, 255);
             LabelFontSize = new RangeNode<int>(16, 10, 20);
             KillsFontSize = new RangeNode<int>(16, 10, 20);
