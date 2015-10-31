@@ -22,7 +22,7 @@ Without writing to it so no map hack, disabling particles, zoom hack, fullbright
 * Item Filter Parser - working with any item filter
 * Health bars
 * Icons on minimap & large map
-* Item alerts
+* Item drop alerts & sounds
 * Latency & fps info
 * Advenced tooltip: item level, item mods, weapon DPS
 * Monster alerts
