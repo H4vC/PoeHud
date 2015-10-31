@@ -134,12 +134,8 @@ namespace PoeHUD.Poe
         public int IgsOffset { get; private set; }
         //public string PoeConfigIni { get; private set; }
 
-        public int IgsOffsetDelta
-        {
-            get { return IgsOffset - IgsDelta; }
-        }
-
-
+        public int IgsOffsetDelta => IgsOffset - IgsDelta;
+        
         public void DoPatternScans(Memory m)
         {
             int[] array = m.FindPatterns(basePtrPattern, fileRootPattern, areaChangePattern);//, configPattern);
