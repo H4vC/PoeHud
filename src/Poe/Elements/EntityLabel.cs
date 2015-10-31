@@ -1,4 +1,4 @@
-namespace PoeHUD.Poe.UI.Elements
+namespace PoeHUD.Poe.Elements
 {
     public class EntityLabel : Element
     {
@@ -11,11 +11,7 @@ namespace PoeHUD.Poe.UI.Elements
                 {
                     return "";
                 }
-                if (num >= 8)
-                {
-                    return M.ReadStringU(M.ReadInt(Address + 2452), num * 2);
-                }
-                return M.ReadStringU(Address + 2452, num * 2);
+                return num >= 8 ? M.ReadStringU(M.ReadInt(Address + 2452), num * 2) : M.ReadStringU(Address + 2452, num * 2);
             }
         }
     }

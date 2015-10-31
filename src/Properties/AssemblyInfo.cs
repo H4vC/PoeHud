@@ -1,11 +1,9 @@
-using System;
 using System.Diagnostics;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
-using System.Runtime.Versioning;
 using System.Security;
-using System.Security.Permissions;
+
 [assembly: AssemblyVersion("6.3.9600.0")]
 [assembly: Debuggable(DebuggableAttribute.DebuggingModes.IgnoreSymbolStoreSequencePoints)]
 [assembly: AssemblyCompany("Microsoft")]

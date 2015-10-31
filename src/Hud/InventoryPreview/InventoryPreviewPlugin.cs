@@ -9,8 +9,6 @@ using PoeHUD.Framework.InputHooks;
 using PoeHUD.Poe;
 using PoeHUD.Poe.Elements;
 using PoeHUD.Poe.RemoteMemoryObjects;
-using PoeHUD.Poe.UI;
-
 using SharpDX;
 using Graphics = PoeHUD.Hud.UI.Graphics;
 using RectangleF = SharpDX.RectangleF;
@@ -20,11 +18,8 @@ namespace PoeHUD.Hud.InventoryPreview
     public class InventoryPreviewPlugin : Plugin<InventoryPreviewSettings>
     {
         private const int CELLS_Y_COUNT = 5;
-
         private const int CELLS_X_COUNT = 12;
-
         private CellData[,] cells;
-
         private IngameUIElements ingameUiElements;
         private readonly Action<MouseInfo> onMouseDown;
 
@@ -38,10 +33,7 @@ namespace PoeHUD.Hud.InventoryPreview
 
         public override void Render()
         {
-            if (!Settings.Enable)
-            {
-                return;
-            }
+            if (!Settings.Enable){ return; }
 
             ingameUiElements = GameController.Game.IngameState.IngameUi;
             if (ingameUiElements.OpenLeftPanel.IsVisible || ingameUiElements.OpenRightPanel.IsVisible)

@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Threading;
 using System.Windows.Forms;
-
 using PoeHUD.Framework.Helpers;
 using PoeHUD.Hud.UI.Renderers;
-
 using SharpDX;
 using SharpDX.Direct3D9;
 using SharpDX.Windows;

@@ -1,7 +1,5 @@
 using System.Collections.Generic;
-
 using PoeHUD.Models.Enums;
-
 using SharpDX;
 
 namespace PoeHUD.Hud.Loot
@@ -51,7 +49,7 @@ namespace PoeHUD.Hud.Loot
             BackgroundColor = backgroundColor;
         }
 
-        public Color TextColor { get; private set; }
+        public Color TextColor { get; }
 
         public int BorderWidth { get; private set; }
 

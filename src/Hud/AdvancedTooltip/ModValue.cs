@@ -5,7 +5,6 @@ using PoeHUD.Controllers;
 using PoeHUD.Framework;
 using PoeHUD.Poe.FilesInMemory;
 using PoeHUD.Poe.RemoteMemoryObjects;
-
 using SharpDX;
 
 namespace PoeHUD.Hud.AdvancedTooltip
@@ -72,7 +71,7 @@ namespace PoeHUD.Hud.AdvancedTooltip
 
         public Color Color { get; private set; }
 
-        public ModsDat.ModRecord Record { get; private set; }
+        public ModsDat.ModRecord Record { get; }
 
         public int[] StatValue { get; private set; }
 

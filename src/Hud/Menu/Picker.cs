@@ -1,8 +1,8 @@
+using System;
 using PoeHUD.Hud.Settings;
 using PoeHUD.Hud.UI;
 using SharpDX;
 using SharpDX.Direct3D9;
-using System;
 
 namespace PoeHUD.Hud.Menu
 {

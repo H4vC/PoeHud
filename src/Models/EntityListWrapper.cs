@@ -1,10 +1,8 @@
 using System;
-using System.Collections.Concurrent;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using PoeHUD.Controllers;
 using PoeHUD.Poe;
-using PoeHUD.Poe.UI.Elements;
+using PoeHUD.Poe.Elements;
 
 namespace PoeHUD.Models
 {
@@ -23,27 +21,28 @@ namespace PoeHUD.Models
             gameController.Area.OnAreaChange += OnAreaChanged;
         }
 
-        public ICollection<EntityWrapper> Entities
+        public ICollection<EntityWrapper> Entities => entityCache.Values;
+
+        private EntityWrapper player;
+
+        public EntityWrapper Player
         {
-            get { return entityCache.Values; }
+            get
+            {
+                if (player == null)
+                    UpdatePlayer();
+                return player;
+            }
         }
 
-        public EntityWrapper Player { get; private set; }
         public event Action<EntityWrapper> EntityAdded;
 
         public event Action<EntityWrapper> EntityRemoved;
-
 
         private void OnAreaChanged(AreaController area)
         {
             ignoredEntities.Clear();
             RemoveOldEntitiesFromCache();
-
-            //int address = gameController.Game.IngameState.Data.LocalPlayer.Address;
-            //if (Player == null || Player.Address != address)
-            //{
-            //    Player = new EntityWrapper(gameController, address);
-            //}
         }
 
         private void RemoveOldEntitiesFromCache()
@@ -58,14 +57,10 @@ namespace PoeHUD.Models
 
         public void RefreshState()
         {
-            int address = gameController.Game.IngameState.Data.LocalPlayer.Address;
-            if ((Player == null) || (Player.Address != address))
-            {
-                Player = new EntityWrapper(gameController, address);
-            }
+            UpdatePlayer();
             if (gameController.Area.CurrentArea == null)
                 return;
-            
+
             Dictionary<int, Entity> newEntities = gameController.Game.IngameState.Data.EntityList.EntitiesAsDictionary;
             var newCache = new Dictionary<int, EntityWrapper>();
             foreach (var keyEntity in newEntities)
@@ -100,12 +95,20 @@ namespace PoeHUD.Models
             entityCache = newCache;
         }
 
+        private void UpdatePlayer()
+        {
+            int address = gameController.Game.IngameState.Data.LocalPlayer.Address;
+            if ((player == null) || (player.Address != address))
+            {
+                player = new EntityWrapper(gameController, address);
+            }
+        }
+
         public EntityWrapper GetEntityById(int id)
         {
             EntityWrapper result;
             return entityCache.TryGetValue(id, out result) ? result : null;
         }
-
 
         public EntityLabel GetLabelForEntity(EntityWrapper entity)
         {

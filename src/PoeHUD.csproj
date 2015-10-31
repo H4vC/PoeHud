@@ -128,14 +128,13 @@
     <Compile Include="Hud\AdvancedTooltip\AdvancedTooltipPlugin.cs" />
     <Compile Include="Hud\AdvancedTooltip\AdvancedTooltipSettings.cs" />
     <Compile Include="Hud\CustomColorDialog.cs" />
-    <Compile Include="Hud\Dps\DpsMeterSettings.cs" />
     <Compile Include="Hud\AdvancedTooltip\WeaponDpsSettings.cs" />
+    <Compile Include="Hud\Dps\DpsMeterPlugin.cs" />
+    <Compile Include="Hud\Dps\DpsMeterSettings.cs" />
     <Compile Include="Hud\ExternalOverlay.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Hud\Health\AllyUnitSettings.cs" />
     <Compile Include="Hud\Health\DebuffPanelConfig.cs" />
-    <Compile Include="Hud\Health\EnemyUnitSettings.cs" />
     <Compile Include="Hud\Health\HealthBarSettings.cs" />
     <Compile Include="Hud\Health\UnitSettings.cs" />
     <Compile Include="Hud\Icons\MapIconsSettings.cs" />
@@ -144,8 +143,6 @@
     <Compile Include="Hud\InventoryPreview\CellData.cs" />
     <Compile Include="Hud\InventoryPreview\InventoryPreviewSettings.cs" />
     <Compile Include="Hud\InventoryPreview\InventoryPreviewPlugin.cs" />
-    <Compile Include="Hud\ItemCounterPlugin.cs" />
-    <Compile Include="Hud\ItemCounterSettings.cs" />
     <Compile Include="Hud\KillCounter\KillCounterPlugin.cs" />
     <Compile Include="Hud\KillCounter\KillCounterSettings.cs" />
     <Compile Include="Hud\Loot\BorderSettings.cs" />
@@ -211,7 +208,6 @@
     <Compile Include="Poe\FilesInMemory\ModsDat.cs" />
     <Compile Include="Framework\ColorUtils.cs" />
     <Compile Include="Framework\IntRange.cs" />
-    <Compile Include="Hud\Dps\DpsMeterPlugin.cs" />
     <Compile Include="Hud\HudSkin.cs" />
     <Compile Include="Hud\HudTexture.cs" />
     <Compile Include="Hud\Icons\MinimapPlugin.cs" />

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Runtime.InteropServices;
 using PoeHUD.Framework.Helpers;
 using PoeHUD.Hud.Interfaces;
 using SharpDX;
@@ -91,7 +90,7 @@ namespace PoeHUD.Hud
                 startDrawPointFunc = value;
             }
         }
-        public Vector2 Margin { get; private set; }
+        public Vector2 Margin { get; }
 
         public IEnumerable<IPlugin> GetPlugins()
         {

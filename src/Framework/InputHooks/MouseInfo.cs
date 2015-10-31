@@ -1,5 +1,4 @@
 ﻿using System.Windows.Forms;
-
 using PointDX = SharpDX.Point;
 using PointGdi = System.Drawing.Point;
 

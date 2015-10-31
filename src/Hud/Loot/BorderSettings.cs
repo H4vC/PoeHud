@@ -1,5 +1,4 @@
 using PoeHUD.Hud.Settings;
-
 using SharpDX;
 
 namespace PoeHUD.Hud.Loot

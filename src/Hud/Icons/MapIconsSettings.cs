@@ -12,7 +12,6 @@ namespace PoeHUD.Hud.Icons
         }
 
         public ToggleNode IconsOnMinimap { get; set; }
-
         public ToggleNode IconsOnLargeMap { get; set; }
     }
 }

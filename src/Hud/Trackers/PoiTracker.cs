@@ -1,8 +1,8 @@
+using System.Collections.Generic;
 using PoeHUD.Controllers;
 using PoeHUD.Hud.UI;
 using PoeHUD.Models;
 using PoeHUD.Poe.Components;
-using System.Collections.Generic;
 
 namespace PoeHUD.Hud.Trackers
 {

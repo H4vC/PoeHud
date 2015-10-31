@@ -1,14 +1,10 @@
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
 
 namespace PoeHUD.Poe.RemoteMemoryObjects
 {
-    public  class EntityList : RemoteMemoryObject
+    public class EntityList : RemoteMemoryObject
     {
-        
-        public List<Entity> Entities => EntitiesAsDictionary.Values.ToList();
-
+        public IEnumerable<Entity> Entities => EntitiesAsDictionary.Values;
         public Dictionary<int, Entity> EntitiesAsDictionary
         {
             get

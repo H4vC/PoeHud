@@ -1,8 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
-
 using PoeHUD.Hud.UI;
-
 using SharpDX;
 
 namespace PoeHUD.Hud.Menu

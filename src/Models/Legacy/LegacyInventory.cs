@@ -1,13 +1,15 @@
 using System;
 using System.Collections.Generic;
 using PoeHUD.Controllers;
+using PoeHUD.Poe;
+using PoeHUD.Poe.RemoteMemoryObjects;
 
 namespace PoeHUD.Models.Legacy
 {
     [Obsolete]
 	public class LegacyInventory
 	{
-		private Poe.RemoteMemoryObjects.Inventory InternalInventory;
+		private Inventory InternalInventory;
 		private GameController Poe;
 		public int Width
 		{
@@ -28,19 +30,19 @@ namespace PoeHUD.Models.Legacy
 			get
 			{
 				List<EntityWrapper> list = new List<EntityWrapper>();
-				foreach (Poe.Entity current in this.InternalInventory.Items)
+				foreach (Entity current in this.InternalInventory.Items)
 				{
 					list.Add(new EntityWrapper(this.Poe, current));
 				}
 				return list;
 			}
 		}
-		public LegacyInventory(GameController poe, Poe.RemoteMemoryObjects.Inventory internalInventory)
+		public LegacyInventory(GameController poe, Inventory internalInventory)
 		{
 			Poe = poe;
 			InternalInventory = internalInventory;
 		}
-		public LegacyInventory(GameController poe, int address) : this(poe, poe.Game.GetObject<Poe.RemoteMemoryObjects.Inventory>(address))
+		public LegacyInventory(GameController poe, int address) : this(poe, poe.Game.GetObject<Inventory>(address))
 		{
 		}
 	}

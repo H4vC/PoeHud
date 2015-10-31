@@ -1,4 +1,3 @@
-using System.Linq;
 using PoeHUD.Framework;
 using PoeHUD.Models;
 
@@ -115,33 +114,39 @@ namespace PoeHUD.Poe
 			75 12                   jnz     short loc_542DBB
 		 */
 
+        //private static readonly Pattern configPattern = new Pattern(@"\x53\x55\x33\xDB\x56\x57\x3B\xC3\x0F\x85\x00\x00\x00\x00\x68\x00\x00\x00\x00", "xxxxxxxxxx????x????");
+        ///*
+        //      53                       push    ebx
+        //      55                       push    ebp
+        //      33 DB                    xor     ebx, ebx
+        //      56                       push    esi
+        //      57                       push    edi
+        //      3B C3                    cmp     eax, ebx
+        //      0F 85 2A 02 00 00        jnz     loc_6358E8
+        //      68 98 A1 C7 00           push    offset aProduction_con ; "production_Config.ini"
+        //*/
 
-   
         public int AreaChangeCount { get; private set; }
         public int Base { get; private set; }
         public string ExeName { get; private set; }
         public int FileRoot { get; private set; }
         public int IgsDelta { get; private set; }
         public int IgsOffset { get; private set; }
+        //public string PoeConfigIni { get; private set; }
 
-        public int IgsOffsetDelta 
+        public int IgsOffsetDelta
         {
             get { return IgsOffset - IgsDelta; }
         }
 
 
-
         public void DoPatternScans(Memory m)
         {
-            int[] array = m.FindPatterns(new[]
-            {
-                basePtrPattern,
-                fileRootPattern,
-                areaChangePattern,
-            });
+            int[] array = m.FindPatterns(basePtrPattern, fileRootPattern, areaChangePattern);//, configPattern);
             Base = m.ReadInt(m.AddressOfProcess + array[0] + 22) - m.AddressOfProcess;
             FileRoot = m.ReadInt(m.AddressOfProcess + array[1] + 40) - m.AddressOfProcess;
             AreaChangeCount = m.ReadInt(m.AddressOfProcess + array[2] + 13) - m.AddressOfProcess;
+            //PoeConfigIni = m.ReadString(m.ReadInt(m.AddressOfProcess + array[3] + 0xF));
         }
     }
 }

@@ -1,5 +1,4 @@
 ﻿using PoeHUD.Hud.Settings;
-
 using SharpDX;
 
 namespace PoeHUD.Hud.Preload
@@ -15,51 +14,52 @@ namespace PoeHUD.Hud.Preload
             FontSize = new RangeNode<int>(16, 10, 20);
             BackgroundColor = new ColorBGRA(255, 255, 255, 220);
             DefaultFontColor = new ColorBGRA(254, 192, 118, 255);
-            CorruptedColor = new ColorBGRA(255, 0, 0, 255);
+            AreaFontColor = new ColorBGRA(150, 200, 250, 255);
+            HasCorruptedArea = new ColorBGRA(208, 31, 144, 255);
 
-            MasterZana = new ColorBGRA(255, 255, 0, 255);
-            MasterCatarina = new ColorBGRA(254, 192, 118, 255);
-            MasterTora = new ColorBGRA(254, 192, 118, 255);
-            MasterVorici = new ColorBGRA(254, 192, 118, 255);
-            MasterHaku = new ColorBGRA(254, 192, 118, 255);
-            MasterElreon = new ColorBGRA(254, 192, 118, 255);
-            MasterVagan = new ColorBGRA(254, 192, 118, 255);
-            MasterKrillson = new ColorBGRA(240, 0, 240, 255);
+            MasterZana = new ColorBGRA(255, 0, 255, 255);
+            MasterCatarina = new ColorBGRA(100, 255, 255, 255);
+            MasterTora = new ColorBGRA(100, 255, 255, 255);
+            MasterVorici = new ColorBGRA(100, 255, 255, 255);
+            MasterHaku = new ColorBGRA(100, 255, 255, 255);
+            MasterElreon = new ColorBGRA(100, 255, 255, 255);
+            MasterVagan = new ColorBGRA(100, 255, 255, 255);
+            MasterKrillson = new ColorBGRA(255, 0, 255, 255);
 
             ArcanistStrongbox = new ColorBGRA(255, 0, 255, 255);
-            ArtisanStrongbox = new ColorBGRA(0, 255, 0, 255);
+            ArtisanStrongbox = new ColorBGRA(240, 240, 240, 255);
             CartographerStrongbox = new ColorBGRA(255, 0, 255, 255);
             GemcutterStrongbox = new ColorBGRA(27, 162, 155, 255);
-            JewellerStrongbox = new ColorBGRA(254, 192, 118, 255);
-            BlacksmithStrongbox = new ColorBGRA(254, 192, 118, 255);
-            ArmourerStrongbox = new ColorBGRA(254, 192, 118, 255);
-            OrnateStrongbox = new ColorBGRA(254, 192, 118, 255);
-            LargeStrongbox = new ColorBGRA(254, 192, 118, 255);
+            JewellerStrongbox = new ColorBGRA(240, 240, 240, 255);
+            BlacksmithStrongbox = new ColorBGRA(240, 240, 240, 255);
+            ArmourerStrongbox = new ColorBGRA(240, 240, 240, 255);
+            OrnateStrongbox = new ColorBGRA(240, 240, 240, 255);
+            LargeStrongbox = new ColorBGRA(240, 240, 240, 255);
             PerandusStrongbox = new ColorBGRA(175, 96, 37, 255);
             KaomStrongbox = new ColorBGRA(175, 96, 37, 255);
             MalachaiStrongbox = new ColorBGRA(175, 96, 37, 255);
             EpicStrongbox = new ColorBGRA(175, 96, 37, 255);
-            SimpleStrongbox = new ColorBGRA(254, 192, 118, 255);
+            SimpleStrongbox = new ColorBGRA(240, 240, 240, 255);
 
-            OrraGreengate = new ColorBGRA(254, 192, 118, 255);
-            ThenaMoga = new ColorBGRA(254, 192, 118, 255);
-            AntalieNapora = new ColorBGRA(254, 192, 118, 255);
-            TorrOlgosso = new ColorBGRA(254, 192, 118, 255);
-            ArmiosBell = new ColorBGRA(254, 192, 118, 255);
-            ZacharieDesmarais = new ColorBGRA(254, 192, 118, 255);
-            MinaraAnenima = new ColorBGRA(254, 192, 118, 255);
-            IgnaPhoenix = new ColorBGRA(254, 192, 118, 255);
-            JonahUnchained = new ColorBGRA(254, 192, 118, 255);
-            DamoiTui = new ColorBGRA(254, 192, 118, 255);
-            XandroBlooddrinker = new ColorBGRA(254, 192, 118, 255);
-            VickasGiantbone = new ColorBGRA(254, 192, 118, 255);
-            EoinGreyfur = new ColorBGRA(254, 192, 118, 255);
-            TinevinHighdove = new ColorBGRA(254, 192, 118, 255);
-            MagnusStonethorn = new ColorBGRA(254, 192, 118, 255);
-            IonDarkshroud = new ColorBGRA(254, 192, 118, 255);
-            AshLessard = new ColorBGRA(254, 192, 118, 255);
-            WilorinDemontamer = new ColorBGRA(254, 192, 118, 255);
-            AugustinaSolaria = new ColorBGRA(254, 192, 118, 255);
+            OrraGreengate = new ColorBGRA(255, 155, 100, 255);
+            ThenaMoga = new ColorBGRA(255, 155, 100, 255);
+            AntalieNapora = new ColorBGRA(255, 155, 100, 255);
+            TorrOlgosso = new ColorBGRA(255, 155, 100, 255);
+            ArmiosBell = new ColorBGRA(255, 155, 100, 255);
+            ZacharieDesmarais = new ColorBGRA(255, 155, 100, 255);
+            MinaraAnenima = new ColorBGRA(255, 155, 100, 255);
+            IgnaPhoenix = new ColorBGRA(255, 155, 100, 255);
+            JonahUnchained = new ColorBGRA(255, 155, 100, 255);
+            DamoiTui = new ColorBGRA(255, 155, 100, 255);
+            XandroBlooddrinker = new ColorBGRA(255, 155, 100, 255);
+            VickasGiantbone = new ColorBGRA(255, 155, 100, 255);
+            EoinGreyfur = new ColorBGRA(255, 155, 100, 255);
+            TinevinHighdove = new ColorBGRA(255, 155, 100, 255);
+            MagnusStonethorn = new ColorBGRA(255, 155, 100, 255);
+            IonDarkshroud = new ColorBGRA(255, 155, 100, 255);
+            AshLessard = new ColorBGRA(255, 155, 100, 255);
+            WilorinDemontamer = new ColorBGRA(255, 155, 100, 255);
+            AugustinaSolaria = new ColorBGRA(255, 155, 100, 255);
         }
 
         public ToggleNode Masters { get; set; }
@@ -68,7 +68,8 @@ namespace PoeHUD.Hud.Preload
         public RangeNode<int> FontSize { get; set; }
         public ColorNode BackgroundColor { get; set; }
         public ColorNode DefaultFontColor { get; set; }
-        public ColorNode CorruptedColor { get; set; }
+        public ColorNode AreaFontColor { get; set; }
+        public ColorNode HasCorruptedArea { get; set; }
         public ColorNode MasterZana { get; set; }
         public ColorNode MasterCatarina { get; set; }
         public ColorNode MasterTora { get; set; }

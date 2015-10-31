@@ -28,7 +28,7 @@
     }
   },
   "DPS meter": {
-    "Enable": false,
+    "Enable": true,
     "DpsTextSize": {
       "Value": 16,
       "Min": 10,
@@ -220,48 +220,49 @@
     },
     "BackgroundColor": "ffffffdc",
     "DefaultFontColor": "fec076ff",
-    "CorruptedColor": "ff0000ff",
-    "MasterZana": "ffff00ff",
-    "MasterCatarina": "fec076ff",
-    "MasterTora": "00ff00ff",
-    "MasterVorici": "fec076ff",
-    "MasterHaku": "fec076ff",
-    "MasterElreon": "fec076ff",
-    "MasterVagan": "fec076ff",
-    "MasterKrillson": "f000f0ff",
+    "AreaFontColor": "96c8faff",
+    "HasCorruptedArea": "d01f90ff",
+    "MasterZana": "ff00ffff",
+    "MasterCatarina": "64ffffff",
+    "MasterTora": "64ffffff",
+    "MasterVorici": "64ffffff",
+    "MasterHaku": "64ffffff",
+    "MasterElreon": "64ffffff",
+    "MasterVagan": "64ffffff",
+    "MasterKrillson": "ff00ffff",
     "ArcanistStrongbox": "ff00ffff",
-    "ArtisanStrongbox": "00ff00ff",
+    "ArtisanStrongbox": "f0f0f0ff",
     "CartographerStrongbox": "ff00ffff",
     "GemcutterStrongbox": "1ba29bff",
-    "JewellerStrongbox": "fec076ff",
-    "BlacksmithStrongbox": "fec076ff",
-    "ArmourerStrongbox": "fec076ff",
-    "OrnateStrongbox": "fec076ff",
-    "LargeStrongbox": "fec076ff",
+    "JewellerStrongbox": "f0f0f0ff",
+    "BlacksmithStrongbox": "f0f0f0ff",
+    "ArmourerStrongbox": "f0f0f0ff",
+    "OrnateStrongbox": "f0f0f0ff",
+    "LargeStrongbox": "f0f0f0ff",
     "PerandusStrongbox": "af6025ff",
     "KaomStrongbox": "af6025ff",
     "MalachaiStrongbox": "af6025ff",
     "EpicStrongbox": "af6025ff",
-    "SimpleStrongbox": "fec076ff",
-    "OrraGreengate": "fec076ff",
-    "ThenaMoga": "fec076ff",
-    "AntalieNapora": "fec076ff",
-    "TorrOlgosso": "fec076ff",
-    "ArmiosBell": "fec076ff",
-    "ZacharieDesmarais": "fec076ff",
-    "MinaraAnenima": "fec076ff",
-    "IgnaPhoenix": "fec076ff",
-    "JonahUnchained": "fec076ff",
-    "DamoiTui": "fec076ff",
-    "XandroBlooddrinker": "fec076ff",
-    "VickasGiantbone": "fec076ff",
-    "EoinGreyfur": "fec076ff",
-    "TinevinHighdove": "fec076ff",
-    "MagnusStonethorn": "fec076ff",
-    "IonDarkshroud": "fec076ff",
-    "AshLessard": "fec076ff",
-    "WilorinDemontamer": "fec076ff",
-    "AugustinaSolaria": "fec076ff"
+    "SimpleStrongbox": "f0f0f0ff",
+    "OrraGreengate": "ff9b64ff",
+    "ThenaMoga": "ff9b64ff",
+    "AntalieNapora": "ff9b64ff",
+    "TorrOlgosso": "ff9b64ff",
+    "ArmiosBell": "ff9b64ff",
+    "ZacharieDesmarais": "ff9b64ff",
+    "MinaraAnenima": "ff9b64ff",
+    "IgnaPhoenix": "ff9b64ff",
+    "JonahUnchained": "ff9b64ff",
+    "DamoiTui": "ff9b64ff",
+    "XandroBlooddrinker": "ff9b64ff",
+    "VickasGiantbone": "ff9b64ff",
+    "EoinGreyfur": "ff9b64ff",
+    "TinevinHighdove": "ff9b64ff",
+    "MagnusStonethorn": "ff9b64ff",
+    "IonDarkshroud": "ff9b64ff",
+    "AshLessard": "ff9b64ff",
+    "WilorinDemontamer": "ff9b64ff",
+    "AugustinaSolaria": "ff9b64ff"
   },
   "XP per hour": {
     "Enable": true,
@@ -278,7 +279,10 @@
     "TimeLeftColor": "fec076ff",
     "FpsFontColor": "fec076ff",
     "TimerFontColor": "fec076ff",
-    "LatencyFontColor": "fec076ff"
+    "LatencyFontColor": "fec076ff",
+    "ShowXpReceiving": true,
+    "LevelPenalty": true,
+    "PartyPenalty": true
   },
   "Health bar": {
     "Enable": true,
@@ -310,17 +314,30 @@
         "Value": 15,
         "Min": 10,
         "Max": 50
+      },
+      "ShowFloatingCombatDamage": true,
+      "FloatingCombatFontSize": {
+        "Value": 15,
+        "Min": 10,
+        "Max": 30
+      },
+      "FloatingCombatDamageColor": "ffff00ff",
+      "FloatingCombatHealColor": "00ff00ff",
+      "FloatingCombatStackSize": {
+        "Value": 1,
+        "Min": 1,
+        "Max": 10
       }
     },
     "Minions": {
-      "Enable": false,
+      "Enable": true,
       "Width": {
-        "Value": 160.0,
+        "Value": 100.0,
         "Min": 50.0,
         "Max": 180.0
       },
       "Height": {
-        "Value": 20.0,
+        "Value": 12.0,
         "Min": 10.0,
         "Max": 50.0
       },
@@ -336,17 +353,30 @@
         "Value": 15,
         "Min": 10,
         "Max": 50
+      },
+      "ShowFloatingCombatDamage": false,
+      "FloatingCombatFontSize": {
+        "Value": 15,
+        "Min": 10,
+        "Max": 30
+      },
+      "FloatingCombatDamageColor": "ffff00ff",
+      "FloatingCombatHealColor": "00ff00ff",
+      "FloatingCombatStackSize": {
+        "Value": 1,
+        "Min": 1,
+        "Max": 10
       }
     },
     "NormalEnemy": {
       "Enable": false,
       "Width": {
-        "Value": 160.0,
+        "Value": 80.0,
         "Min": 50.0,
         "Max": 180.0
       },
       "Height": {
-        "Value": 20.0,
+        "Value": 10.0,
         "Min": 10.0,
         "Max": 50.0
       },
@@ -362,17 +392,30 @@
         "Value": 15,
         "Min": 10,
         "Max": 50
+      },
+      "ShowFloatingCombatDamage": false,
+      "FloatingCombatFontSize": {
+        "Value": 15,
+        "Min": 10,
+        "Max": 30
+      },
+      "FloatingCombatDamageColor": "ffff00ff",
+      "FloatingCombatHealColor": "00ff00ff",
+      "FloatingCombatStackSize": {
+        "Value": 1,
+        "Min": 1,
+        "Max": 10
       }
     },
     "MagicEnemy": {
       "Enable": false,
       "Width": {
-        "Value": 160.0,
+        "Value": 100.0,
         "Min": 50.0,
         "Max": 180.0
       },
       "Height": {
-        "Value": 20.0,
+        "Value": 12.0,
         "Min": 10.0,
         "Max": 50.0
       },
@@ -388,6 +431,19 @@
         "Value": 15,
         "Min": 10,
         "Max": 50
+      },
+      "ShowFloatingCombatDamage": false,
+      "FloatingCombatFontSize": {
+        "Value": 15,
+        "Min": 10,
+        "Max": 30
+      },
+      "FloatingCombatDamageColor": "ffff00ff",
+      "FloatingCombatHealColor": "00ff00ff",
+      "FloatingCombatStackSize": {
+        "Value": 1,
+        "Min": 1,
+        "Max": 10
       }
     },
     "RareEnemy": {
@@ -414,6 +470,19 @@
         "Value": 15,
         "Min": 10,
         "Max": 50
+      },
+      "ShowFloatingCombatDamage": false,
+      "FloatingCombatFontSize": {
+        "Value": 15,
+        "Min": 10,
+        "Max": 30
+      },
+      "FloatingCombatDamageColor": "ffff00ff",
+      "FloatingCombatHealColor": "00ff00ff",
+      "FloatingCombatStackSize": {
+        "Value": 1,
+        "Min": 1,
+        "Max": 10
       }
     },
     "UniqueEnemy": {
@@ -440,6 +509,19 @@
         "Value": 15,
         "Min": 10,
         "Max": 50
+      },
+      "ShowFloatingCombatDamage": true,
+      "FloatingCombatFontSize": {
+        "Value": 15,
+        "Min": 10,
+        "Max": 30
+      },
+      "FloatingCombatDamageColor": "ffff00ff",
+      "FloatingCombatHealColor": "00ff00ff",
+      "FloatingCombatStackSize": {
+        "Value": 1,
+        "Min": 1,
+        "Max": 10
       }
     },
     "ShowDebuffPanel": false,
@@ -476,8 +558,9 @@
     }
   },
   "Kills Counter": {
-    "Enable": false,
+    "Enable": true,
     "ShowDetail": true,
+    "PerSession": true,
     "FontColor": "fec076ff",
     "BackgroundColor": "ffffffff",
     "LabelFontSize": {

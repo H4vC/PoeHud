@@ -1,8 +1,6 @@
 using System;
-
 using PoeHUD.Models;
 using PoeHUD.Poe.Components;
-
 using SharpDX;
 
 namespace PoeHUD.Hud
@@ -36,25 +34,17 @@ namespace PoeHUD.Hud
         public MapIcon(EntityWrapper entityWrapper, HudTexture hudTexture, Func<bool> show, int iconSize = 10)
         {
             EntityWrapper = entityWrapper;
-            MinimapIcon = hudTexture;
+            TextureIcon = hudTexture;
             this.show = show;
             Size = iconSize;
         }
 
         public int? SizeOfLargeIcon { get; set; }
-
-        public EntityWrapper EntityWrapper { get; private set; }
-
-        public HudTexture MinimapIcon { get; private set; }
-
+        public EntityWrapper EntityWrapper { get; }
+        public HudTexture TextureIcon { get; private set; }
         public HudTexture LargeMapIcon { get; set; }
-
         public int Size { get; private set; }
-
-        public Vector2 WorldPosition
-        {
-            get { return EntityWrapper.GetComponent<Positioned>().GridPos; }
-        }
+        public Vector2 WorldPosition => EntityWrapper.GetComponent<Positioned>().GridPos;
 
         public static Vector2 DeltaInWorldToMinimapDelta(Vector2 delta, double diag, float scale, float deltaZ = 0)
         {

@@ -1,8 +1,8 @@
-﻿using PoeHUD.Hud.Settings;
+﻿using System.Threading.Tasks;
+using PoeHUD.Hud.Settings;
 using PoeHUD.Hud.UI;
 using SharpDX;
 using SharpDX.Direct3D9;
-using System.Threading.Tasks;
 using ColorGdi = System.Drawing.Color;
 
 namespace PoeHUD.Hud.Menu

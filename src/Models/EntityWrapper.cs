@@ -2,12 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using PoeHUD.Controllers;
-using PoeHUD.Framework;
 using PoeHUD.Models.Interfaces;
 using PoeHUD.Poe;
 using PoeHUD.Poe.Components;
-
-using Vector3 = SharpDX.Vector3;
+using SharpDX;
 
 namespace PoeHUD.Models
 {
@@ -33,7 +31,7 @@ namespace PoeHUD.Models
         {
         }
 
-        public string Path { get; private set; }
+        public string Path { get; }
 
         public bool IsValid => internalEntity.IsValid && IsInList && cachedId == internalEntity.Id;
 
@@ -43,7 +41,7 @@ namespace PoeHUD.Models
 
         public bool IsHostile => internalEntity.IsHostile;
 
-        public long LongId { get; private set; }
+        public long LongId { get; }
 
         public bool IsAlive => GetComponent<Life>().CurHP > 0;
 
