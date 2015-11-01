@@ -73,8 +73,8 @@ namespace PoeHUD.Hud.Preload
                 position.Y += size.Height;
             }
             if (maxWidth <= 0) return;
-            var bounds = new RectangleF(startPosition.X - 42 - maxWidth, startPosition.Y - 7,
-                maxWidth + 50, position.Y - startPosition.Y + 15);
+            var bounds = new RectangleF(startPosition.X - 42 - maxWidth - 15, startPosition.Y - 7,
+                maxWidth + 65, position.Y - startPosition.Y + 15);
             Graphics.DrawImage("preload-end.png", bounds, Settings.BackgroundColor);
             Graphics.DrawImage("preload-start.png", bounds, Settings.BackgroundColor);
             Size = bounds.Size;
