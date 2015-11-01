@@ -101,7 +101,7 @@ namespace PoeHUD.Hud.XpRate
 
                 float boxWidth = MathHepler.Max(xpRateSize.Width, xpLeftSize.Width, areaNameSize.Width + 90, timerSize.Width);
                 float boxHeight = xpRateSize.Height + xpLeftSize.Height + areaNameSize.Height;
-                var bounds = new RectangleF(position.X - boxWidth - 81, position.Y - 5, boxWidth + 90, boxHeight + 16);
+                var bounds = new RectangleF(position.X - boxWidth - 101, position.Y - 5, boxWidth + 110, boxHeight + 16);
 
                 Size2 timeFpsSize = Graphics.MeasureText(fps, Settings.FontSize);
                 var dif = bounds.Width - (12 + timeFpsSize.Width + xpRateSize.Width);
@@ -110,9 +110,9 @@ namespace PoeHUD.Hud.XpRate
                     bounds.X += dif;
                     bounds.Width -= dif;
                 }
-                Graphics.DrawText(ping, Settings.FontSize, new Vector2(bounds.X + 50, position.Y), Settings.LatencyFontColor);
-                Graphics.DrawText(timer, Settings.FontSize, new Vector2(bounds.X + 50, secondLine.Y), Settings.TimerFontColor);
-                Graphics.DrawText(fps, Settings.FontSize, new Vector2(bounds.X + 50, thirdLine.Y), Settings.FpsFontColor);
+                Graphics.DrawText(ping, Settings.FontSize, new Vector2(bounds.X + 70, position.Y), Settings.LatencyFontColor);
+                Graphics.DrawText(timer, Settings.FontSize, new Vector2(bounds.X + 70, secondLine.Y), Settings.TimerFontColor);
+                Graphics.DrawText(fps, Settings.FontSize, new Vector2(bounds.X + 70, thirdLine.Y), Settings.FpsFontColor);
                 Graphics.DrawImage("preload-start.png", bounds, Settings.BackgroundColor);
                 Graphics.DrawImage("preload-end.png", bounds, Settings.BackgroundColor);
                 Size = bounds.Size;

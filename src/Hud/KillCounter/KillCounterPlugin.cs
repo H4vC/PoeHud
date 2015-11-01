@@ -70,7 +70,7 @@ namespace PoeHUD.Hud.KillCounter
             var perSessionText = Settings.PerSession ? $" ({summaryCounterPerSession + summaryCounter})" : string.Empty;
             Size2 size2 = Graphics.DrawText($"kills: {summaryCounter} {perSessionText}", Settings.KillsFontSize, position.Translate(-size.Width / 1.5f - 7, size.Height + 4), Settings.FontColor, Settings.ShowDetail ? FontDrawFlags.Center : FontDrawFlags.Right);
             int width = Math.Max(size.Width, size2.Width);
-            var bounds = new RectangleF(position.X - width - 49, position.Y - 1, width + 50, size.Height + size2.Height + 10);
+            var bounds = new RectangleF(position.X - width - 69, position.Y - 1, width + 70, size.Height + size2.Height + 10);
             Graphics.DrawImage("preload-end.png", bounds, Settings.BackgroundColor);
             Graphics.DrawImage("preload-start.png", bounds, Settings.BackgroundColor);
             Size = bounds.Size;
