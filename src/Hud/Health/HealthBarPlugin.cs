@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using Newtonsoft.Json;
 using PoeHUD.Controllers;
+using PoeHUD.Framework;
 using PoeHUD.Framework.Helpers;
 using PoeHUD.Hud.UI;
 using PoeHUD.Models;
@@ -19,6 +21,7 @@ namespace PoeHUD.Hud.Health
     {
         private readonly Dictionary<CreatureType, List<HealthBar>> healthBars;
         private readonly DebuffPanelConfig debuffPanelConfig;
+        private bool holdKey;
         public HealthBarPlugin(GameController gameController, Graphics graphics, HealthBarSettings settings)
             : base(gameController, graphics, settings)
         {
@@ -36,10 +39,10 @@ namespace PoeHUD.Hud.Health
 
         public override void Render()
         {
-            if (!Settings.Enable || !GameController.InGame || !Settings.ShowInTown && GameController.Area.CurrentArea.IsTown)
-            {
-                return;
-            }
+            if (!holdKey && WinApi.IsKeyDown(Keys.F10)) { return; }
+            if (!Settings.Enable || !GameController.InGame || 
+                !Settings.ShowInTown && GameController.Area.CurrentArea.IsTown || 
+                !Settings.ShowInTown && GameController.Area.CurrentArea.IsHideout) { return; }
 
             RectangleF windowRectangle = GameController.Window.GetWindowRectangle();
             var windowSize = new Size2F(windowRectangle.Width / 2560, windowRectangle.Height / 1600);

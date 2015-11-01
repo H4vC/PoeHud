@@ -321,7 +321,7 @@
         "Min": 10,
         "Max": 30
       },
-      "FloatingCombatDamageColor": "ffff00ff",
+      "FloatingCombatDamageColor": "ff0000ff",
       "FloatingCombatHealColor": "00ff00ff",
       "FloatingCombatStackSize": {
         "Value": 1,
