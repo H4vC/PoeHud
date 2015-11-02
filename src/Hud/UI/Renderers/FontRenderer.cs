@@ -81,16 +81,14 @@ namespace PoeHUD.Hud.UI.Renderers
             {
                 Font font;
                 Tuple<string, int> key = Tuple.Create(name, height);
-                if (!fonts.TryGetValue(key, out font))
+                if (fonts.TryGetValue(key, out font)) return font;
+                font = new Font(device, new FontDescription
                 {
-                    font = new Font(device, new FontDescription
-                    {
-                        FaceName = name,
-                        Quality = FontQuality.ClearType,
-                        Height = height
-                    });
-                    fonts.Add(key, font);
-                }
+                    FaceName = name,
+                    Quality = FontQuality.ClearType,
+                    Height = height
+                });
+                fonts.Add(key, font);
                 return font;
             }
         }

@@ -315,7 +315,7 @@
         "Min": 10,
         "Max": 50
       },
-      "ShowFloatingCombatDamage": true,
+      "ShowFloatingCombatDamage": false,
       "FloatingCombatFontSize": {
         "Value": 15,
         "Min": 10,
@@ -324,7 +324,7 @@
       "FloatingCombatDamageColor": "ff0000ff",
       "FloatingCombatHealColor": "00ff00ff",
       "FloatingCombatStackSize": {
-        "Value": 1,
+        "Value": 4,
         "Min": 1,
         "Max": 10
       }
@@ -369,7 +369,7 @@
       }
     },
     "NormalEnemy": {
-      "Enable": false,
+      "Enable": true,
       "Width": {
         "Value": 80.0,
         "Min": 50.0,
@@ -408,7 +408,7 @@
       }
     },
     "MagicEnemy": {
-      "Enable": false,
+      "Enable": true,
       "Width": {
         "Value": 100.0,
         "Min": 50.0,
@@ -471,7 +471,7 @@
         "Min": 10,
         "Max": 50
       },
-      "ShowFloatingCombatDamage": true,
+      "ShowFloatingCombatDamage": false,
       "FloatingCombatFontSize": {
         "Value": 15,
         "Min": 10,
@@ -510,7 +510,7 @@
         "Min": 10,
         "Max": 50
       },
-      "ShowFloatingCombatDamage": true,
+      "ShowFloatingCombatDamage": false,
       "FloatingCombatFontSize": {
         "Value": 15,
         "Min": 10,

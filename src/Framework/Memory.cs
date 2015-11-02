@@ -124,11 +124,7 @@ namespace PoeHUD.Framework
         private static string RTrimNull(string text)
         {
             int num = text.IndexOf('\0');
-            if (num > 0)
-            {
-                return text.Substring(0, num);
-            }
-            return String.Empty;
+            return num > 0 ? text.Substring(0, num) : String.Empty;
         }
 
         /// <summary>
@@ -148,9 +144,7 @@ namespace PoeHUD.Framework
             if (mem[0] == 0 && mem[1] == 0)
                 return string.Empty;
             string @string = Encoding.Unicode.GetString(mem);
-            if (replaceNull)
-                return RTrimNull(@string);
-            return @string;
+            return replaceNull ? RTrimNull(@string) : @string;
         }
 
         public byte ReadByte(int addr)
@@ -170,12 +164,9 @@ namespace PoeHUD.Framework
 
         private bool Close()
         {
-            if (!closed)
-            {
-                closed = true;
-                return WinApi.CloseHandle(procHandle);
-            }
-            return true;
+            if (closed) return true;
+            closed = true;
+            return WinApi.CloseHandle(procHandle);
         }
 
         private byte[] ReadMem(int addr, int size)

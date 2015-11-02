@@ -6,26 +6,17 @@ namespace PoeHUD.Framework.Helpers
     {
         public static void SafeInvoke<T>(this Action<T> action, T parameter)
         {
-            if (action != null)
-            {
-                action(parameter);
-            }
+            action?.Invoke(parameter);
         }
 
         public static void SafeInvoke<T1, T2, T3>(this Action<T1, T2, T3> action, T1 parameter1, T2 parameter2, T3 parameter3)
         {
-            if (action != null)
-            {
-                action(parameter1, parameter2, parameter3);
-            }
+            action?.Invoke(parameter1, parameter2, parameter3);
         }
 
         public static void SafeInvoke(this Action action)
         {
-            if (action != null)
-            {
-                action();
-            }
+            action?.Invoke();
         }
 
         public static void ThrowIf<TException>(bool condition)
