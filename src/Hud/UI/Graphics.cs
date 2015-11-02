@@ -12,23 +12,14 @@ namespace PoeHUD.Hud.UI
     public sealed class Graphics : IDisposable
     {
         private const CreateFlags CREATE_FLAGS = CreateFlags.Multithreaded | CreateFlags.HardwareVertexProcessing;
-
         private readonly DeviceEx device;
-
         private readonly Direct3DEx direct3D;
-
         private readonly FontRenderer fontRenderer;
-
         private readonly TextureRenderer textureRenderer;
-
         private readonly Action reset;
-
         private PresentParameters presentParameters;
-
         private bool resized;
-
         private bool running = true;
-
         private readonly ManualResetEventSlim renderLocker = new ManualResetEventSlim(false);
 
         public Graphics(RenderForm form, int width, int height)
@@ -65,32 +56,17 @@ namespace PoeHUD.Hud.UI
 
         public void RenderLoop()
         {
-            while (running)
-            {
-                try
-                {
-                    if (resized)
-                    {
-                        reset();
-                    }
-
-                    device.Clear(ClearFlags.Target, Color.Transparent, 0, 0);
-                    device.SetRenderState(RenderState.AlphaBlendEnable, true);
-                    device.SetRenderState(RenderState.CullMode, Cull.Clockwise);
-                    device.BeginScene();
-
-                    fontRenderer.Begin();
-                    textureRenderer.Begin();
-
-                    try
-                    {
-                        Render.SafeInvoke();
-                    }
-                    finally
-                    {
-                        textureRenderer.End();
+            while (running) {
+                try { if (resized) { reset(); }
+                device.Clear(ClearFlags.Target, Color.Transparent, 0, 0);
+                device.SetRenderState(RenderState.AlphaBlendEnable, true);
+                device.SetRenderState(RenderState.CullMode, Cull.Clockwise);
+                device.BeginScene();
+                fontRenderer.Begin();
+                textureRenderer.Begin();
+                    try { Render.SafeInvoke(); }
+                    finally { textureRenderer.End();
                         fontRenderer.End();
-
                         device.EndScene();
                         device.Present();
                     }
@@ -102,26 +78,22 @@ namespace PoeHUD.Hud.UI
 
         public void Dispose()
         {
-            if (!device.IsDisposed)
-            {
-                running = false;
-                renderLocker.Wait();
-                renderLocker.Dispose();
-                device.Dispose();
-                direct3D.Dispose();
-                fontRenderer.Dispose();
-                textureRenderer.Dispose();
-            }
+            if (device.IsDisposed) return;
+            running = false;
+            renderLocker.Wait();
+            renderLocker.Dispose();
+            device.Dispose();
+            direct3D.Dispose();
+            fontRenderer.Dispose();
+            textureRenderer.Dispose();
         }
 
         private void Resize(int width, int height)
         {
-            if (width > 0 && height > 0)
-            {
-                presentParameters.BackBufferWidth = width;
-                presentParameters.BackBufferHeight = height;
-                resized = true;
-            }
+            if (width <= 0 || height <= 0) return;
+            presentParameters.BackBufferWidth = width;
+            presentParameters.BackBufferHeight = height;
+            resized = true;
         }
 
         #region FontRenderer Methods
