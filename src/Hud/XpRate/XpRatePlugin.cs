@@ -29,6 +29,7 @@ namespace PoeHUD.Hud.XpRate
 
         public override void Render()
         {
+            base.Render();
             if (!holdKey && WinApi.IsKeyDown(Keys.F10)) { return; }
 
             //if (!holdKey && WinApi.IsKeyDown(Keys.F10))

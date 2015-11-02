@@ -92,6 +92,7 @@ namespace PoeHUD.Hud.Loot
 
         public override void Render()
         {
+            base.Render();
             if (!holdKey && WinApi.IsKeyDown(Keys.F10)) { return; }
             if (Settings.Enable)
             {

@@ -44,6 +44,7 @@ namespace PoeHUD.Hud.Preload
 
         public override void Render()
         {
+            base.Render();
             if (!holdKey && WinApi.IsKeyDown(Keys.F10)) { return; }
             if (!Settings.Enable){ return; }
             if (areaChanged)

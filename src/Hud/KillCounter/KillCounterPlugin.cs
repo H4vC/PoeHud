@@ -49,6 +49,7 @@ namespace PoeHUD.Hud.KillCounter
 
         public override void Render()
         {
+            base.Render();
             if (!holdKey && WinApi.IsKeyDown(Keys.F10)){ return; }
             if (!Settings.Enable || GameController.Area.CurrentArea.IsHideout || GameController.Area.CurrentArea.IsTown)
             {

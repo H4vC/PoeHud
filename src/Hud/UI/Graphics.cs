@@ -128,17 +128,17 @@ namespace PoeHUD.Hud.UI
 
         public Size2 DrawText(string text, int height, Vector2 position, Color color, FontDrawFlags align = FontDrawFlags.Left)
         {
-            return fontRenderer.DrawText(text, "Verdana", height, position, color, align);
+            return fontRenderer.DrawText(text, "", height, position, color, align);
         }
 
         public Size2 DrawText(string text, int height, Vector2 position, FontDrawFlags align = FontDrawFlags.Left)
         {
-            return fontRenderer.DrawText(text, "Verdana", height, position, Color.White, align);
+            return fontRenderer.DrawText(text, "", height, position, Color.White, align);
         }
 
         public Size2 MeasureText(string text, int height, FontDrawFlags align = FontDrawFlags.Left)
         {
-            return fontRenderer.MeasureText(text, "Verdana", height, align);
+            return fontRenderer.MeasureText(text, "", height, align);
         }
 
         #endregion
