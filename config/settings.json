@@ -150,7 +150,7 @@
       }
     },
     "Item mods": {
-      "Enable": false,
+      "Enable": true,
       "ModTextSize": {
         "Value": 13,
         "Min": 10,

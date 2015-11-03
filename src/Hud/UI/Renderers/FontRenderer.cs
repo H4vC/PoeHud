@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text;
 using PoeHUD.Framework.Helpers;
 using SharpDX;
 using SharpDX.Direct3D9;
@@ -38,8 +39,7 @@ namespace PoeHUD.Hud.UI.Renderers
             }
             catch (Exception)
             {
-                //Console.WriteLine("Exception! X: " + position.X + ", Y: " + position.Y + ", Text: " + text);
-                //Console.WriteLine(exception.StackTrace);
+                //
             }
             return new Size2();
         }

@@ -32,7 +32,7 @@ namespace PoeHUD.Hud.Loot
         private readonly HashSet<string> currencyNames;
         private Dictionary<int, ItemsOnGroundLabelElement> currentLabels;
         private PoeFilterVisitor visitor;
-        private bool holdKey;
+
         public ItemAlertPlugin(GameController gameController, Graphics graphics, ItemAlertSettings settings)
             : base(gameController, graphics, settings)
         {
@@ -93,7 +93,7 @@ namespace PoeHUD.Hud.Loot
         public override void Render()
         {
             base.Render();
-            if (!holdKey && WinApi.IsKeyDown(Keys.F10)) { return; }
+            if (WinApi.IsKeyDown(Keys.F10)) { return; }
             if (Settings.Enable)
             {
                 Vector2 playerPos = GameController.Player.GetComponent<Positioned>().GridPos;

@@ -21,7 +21,6 @@ namespace PoeHUD.Hud.Dps
         private double[] damageMemory = new double[10];
         private int damageMemoryIndex;
         private int maxDps;
-        private bool holdKey;
 
         public DpsMeterPlugin(GameController gameController, Graphics graphics, DpsMeterSettings settings)
             : base(gameController, graphics, settings)
@@ -39,7 +38,7 @@ namespace PoeHUD.Hud.Dps
         public override void Render()
         {
             base.Render();
-            if (!holdKey && WinApi.IsKeyDown(Keys.F10)){ return; }
+            if (WinApi.IsKeyDown(Keys.F10)){ return; }
             if (!Settings.Enable || GameController.Area.CurrentArea.IsHideout || GameController.Area.CurrentArea.IsTown)
             {
                 return;

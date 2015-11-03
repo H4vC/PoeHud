@@ -23,7 +23,6 @@ namespace PoeHUD.Hud.KillCounter
         private int summaryCounterPerSession;
         private readonly GameController gameController;
         private readonly Dictionary<int, HashSet<long>> countedIds;
-        private bool holdKey;
 
         public KillCounterPlugin(GameController gameController, Graphics graphics, KillCounterSettings settings)
             : base(gameController, graphics, settings)
@@ -50,7 +49,7 @@ namespace PoeHUD.Hud.KillCounter
         public override void Render()
         {
             base.Render();
-            if (!holdKey && WinApi.IsKeyDown(Keys.F10)){ return; }
+            if (WinApi.IsKeyDown(Keys.F10)){ return; }
             if (!Settings.Enable || GameController.Area.CurrentArea.IsHideout || GameController.Area.CurrentArea.IsTown)
             {
                 return;

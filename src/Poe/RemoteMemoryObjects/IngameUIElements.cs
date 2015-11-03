@@ -58,6 +58,6 @@ namespace PoeHUD.Poe.RemoteMemoryObjects
         public Element InstanceManagerPanel2 => ReadObjectAt<Element>(0x1a4);
         public Element SwitchingZoneInfo => ReadObjectAt<Element>(0x1CC);
         public Element GemLvlUpPanel => ReadObjectAt<Element>(0x220);// + M.Server.IngameUIElementsOffset);
-        public ItemOnGroundTooltip ItemOnGroundTooltip => ReadObjectAt<ItemOnGroundTooltip>(0x22c);// + M.Server.IngameUIElementsOffset);
+        public ItemOnGroundTooltip ItemOnGroundTooltip => ReadObjectAt<ItemOnGroundTooltip>(0x230);// + M.Server.IngameUIElementsOffset);
     }
 }

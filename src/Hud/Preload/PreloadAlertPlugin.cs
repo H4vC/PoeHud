@@ -46,7 +46,7 @@ namespace PoeHUD.Hud.Preload
         {
             base.Render();
             if (!holdKey && WinApi.IsKeyDown(Keys.F10)) { return; }
-            if (!Settings.Enable){ return; }
+            if (!Settings.Enable) { return; }
             if (areaChanged)
             {
                 Parse();
@@ -117,7 +117,7 @@ namespace PoeHUD.Hud.Preload
                         hasCorruptedArea = Settings.HasCorruptedArea;
                         //alerts.Add(new PreloadConfigLine { Text = "Corrupted Area", FastColor = () => Settings.HasCorruptedArea });
                     }
-                    
+
                     //if (text.EndsWith("BossInvasion"))
                     //{
                     //    alerts.Add(new PreloadConfigLine { Text = "Invasion Boss" });
