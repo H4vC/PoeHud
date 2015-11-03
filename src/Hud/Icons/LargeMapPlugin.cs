@@ -1,16 +1,13 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-
 using PoeHUD.Controllers;
 using PoeHUD.Framework.Helpers;
 using PoeHUD.Hud.UI;
 using PoeHUD.Poe.Components;
 using PoeHUD.Poe.RemoteMemoryObjects;
-
 using SharpDX;
-
-using Map = PoeHUD.Poe.UI.Elements.Map;
+using Map = PoeHUD.Poe.Elements.Map;
 
 namespace PoeHUD.Hud.Icons
 {
@@ -51,7 +48,7 @@ namespace PoeHUD.Hud.Icons
                 Vector2 point = screenCenter
                     + MapIcon.DeltaInWorldToMinimapDelta(icon.WorldPosition - playerPos, diag, scale, (iconZ - posZ) / 20);
 
-                HudTexture texture = icon.LargeMapIcon ?? icon.MinimapIcon;
+                HudTexture texture = icon.TextureIcon;
                 int size = icon.SizeOfLargeIcon.GetValueOrDefault(icon.Size * 2);
                 texture.Draw(Graphics, new RectangleF(point.X - size / 2f, point.Y - size / 2f, size, size));
             }

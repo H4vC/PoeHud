@@ -1,5 +1,4 @@
 using System;
-using PoeHUD.Poe.UI;
 
 namespace PoeHUD.Poe.Elements
 {
@@ -17,10 +16,7 @@ namespace PoeHUD.Poe.Elements
             itemInChatTooltip = () => ReadObject<Element>(Address + 0x808); //bug wrong
         }
 
-        public ToolTipType ToolTipType
-        {
-            get { return (ToolTipType) (toolTip ?? (toolTip = GetToolTipType())); }
-        }
+        public ToolTipType ToolTipType => (ToolTipType) (toolTip ?? (toolTip = GetToolTipType()));
 
 
         public Element Tooltip

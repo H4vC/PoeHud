@@ -15,11 +15,7 @@ namespace PoeHUD.Poe.Components
                 {
                     return "";
                 }
-                if (num < 8)
-                {
-                    return M.ReadStringU(Address + 16, num*2);
-                }
-                return M.ReadStringU(M.ReadInt(Address + 16), num*2);
+                return num < 8 ? M.ReadStringU(Address + 16, num*2) : M.ReadStringU(M.ReadInt(Address + 16), num*2);
             }
         }
 
@@ -35,16 +31,6 @@ namespace PoeHUD.Poe.Components
             }
         }
 
-        public int Level
-        {
-            get
-            {
-                if (Address != 0)
-                {
-                    return M.ReadInt(Address + 68);
-                }
-                return 1;
-            }
-        }
+        public int Level => Address != 0 ? M.ReadInt(Address + 68) : 1;
     }
 }

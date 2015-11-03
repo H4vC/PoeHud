@@ -1,10 +1,7 @@
-namespace PoeHUD.Poe.UI.Elements
+namespace PoeHUD.Poe.Elements
 {
     public class Inventory : Element
     {
-        public RemoteMemoryObjects.Inventory InventoryModel
-        {
-            get { return base.ReadObject<RemoteMemoryObjects.Inventory>(Address + 2436); }
-        }
+        public RemoteMemoryObjects.Inventory InventoryModel => base.ReadObject<RemoteMemoryObjects.Inventory>(Address + 2436);
     }
 }

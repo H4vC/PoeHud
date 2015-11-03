@@ -1,6 +1,5 @@
 ﻿using PoeHUD.Hud.UI;
 using PoeHUD.Models.Enums;
-
 using SharpDX;
 
 namespace PoeHUD.Hud
@@ -9,7 +8,7 @@ namespace PoeHUD.Hud
     {
         private string fileName;
 
-        private Color color;
+        private readonly Color color;
 
         public HudTexture(string fileName) : this(fileName, Color.White) {}
 

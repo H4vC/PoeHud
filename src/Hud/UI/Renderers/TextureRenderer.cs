@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-
 using PoeHUD.Framework.Helpers;
 using PoeHUD.Hud.UI.Vertexes;
-
 using SharpDX;
 using SharpDX.Direct3D9;
 

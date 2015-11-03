@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Windows.Forms;
 using PoeHUD.Controllers;
+using PoeHUD.Framework;
 using PoeHUD.Framework.Helpers;
 using PoeHUD.Hud.UI;
 using PoeHUD.Models;
 using PoeHUD.Models.Enums;
+using PoeHUD.Models.Interfaces;
 using PoeHUD.Poe.Components;
 using SharpDX;
 using SharpDX.Direct3D9;
@@ -15,15 +18,18 @@ namespace PoeHUD.Hud.KillCounter
     public class KillCounterPlugin : SizedPlugin<KillCounterSettings>
     {
         private readonly HashSet<EntityWrapper> aliveEntities;
-        private readonly HashSet<long> countedIds;
         private readonly Dictionary<MonsterRarity, int> counters;
         private int summaryCounter;
+        private int summaryCounterPerSession;
+        private readonly GameController gameController;
+        private readonly Dictionary<int, HashSet<long>> countedIds;
 
         public KillCounterPlugin(GameController gameController, Graphics graphics, KillCounterSettings settings)
             : base(gameController, graphics, settings)
         {
+            this.gameController = gameController;
             aliveEntities = new HashSet<EntityWrapper>();
-            countedIds = new HashSet<long>();
+            countedIds = new Dictionary<int, HashSet<long>>();
             counters = new Dictionary<MonsterRarity, int>();
             Init();
             GameController.Area.OnAreaChange += area =>
@@ -33,8 +39,8 @@ namespace PoeHUD.Hud.KillCounter
                     return;
                 }
                 aliveEntities.Clear();
-                countedIds.Clear();
                 counters.Clear();
+                summaryCounterPerSession += summaryCounter;
                 summaryCounter = 0;
                 Init();
             };
@@ -43,12 +49,11 @@ namespace PoeHUD.Hud.KillCounter
         public override void Render()
         {
             base.Render();
-
-            if (!Settings.Enable || GameController.Area.CurrentArea.Name.Contains("Hideout") || GameController.Area.CurrentArea.IsTown)
+            if (WinApi.IsKeyDown(Keys.F10)){ return; }
+            if (!Settings.Enable || GameController.Area.CurrentArea.IsHideout || GameController.Area.CurrentArea.IsTown)
             {
                 return;
             }
-
             List<EntityWrapper> deadEntities = aliveEntities.Where(entity => !entity.IsAlive).ToList();
             foreach (EntityWrapper entity in deadEntities)
             {
@@ -62,9 +67,10 @@ namespace PoeHUD.Hud.KillCounter
             {
                 size = DrawCounters(position - 4);
             }
-            Size2 size2 = Graphics.DrawText($"kills - {summaryCounter}", Settings.KillsFontSize, position.Translate(-size.Width / 2f - 3, size.Height + 4), Settings.FontColor, Settings.ShowDetail ? FontDrawFlags.Center : FontDrawFlags.Right);
+            var perSessionText = Settings.PerSession ? $" ({summaryCounterPerSession + summaryCounter})" : string.Empty;
+            Size2 size2 = Graphics.DrawText($"kills: {summaryCounter} {perSessionText}", Settings.KillsFontSize, position.Translate(-size.Width / 1.5f - 7, size.Height + 4), Settings.FontColor, Settings.ShowDetail ? FontDrawFlags.Center : FontDrawFlags.Right);
             int width = Math.Max(size.Width, size2.Width);
-            var bounds = new RectangleF(position.X - width - 30, position.Y - 1, width + 30, size.Height + size2.Height + 10);
+            var bounds = new RectangleF(position.X - width - 69, position.Y - 1, width + 70, size.Height + size2.Height + 10);
             Graphics.DrawImage("preload-end.png", bounds, Settings.BackgroundColor);
             Graphics.DrawImage("preload-start.png", bounds, Settings.BackgroundColor);
             Size = bounds.Size;
@@ -77,16 +83,14 @@ namespace PoeHUD.Hud.KillCounter
             {
                 return;
             }
-            if (entityWrapper.HasComponent<Monster>())
+            if (!entityWrapper.HasComponent<Monster>()) return;
+            if (entityWrapper.IsAlive)
             {
-                if (entityWrapper.IsAlive)
-                {
-                    aliveEntities.Add(entityWrapper);
-                }
-                else
-                {
-                    Calc(entityWrapper);
-                }
+                aliveEntities.Add(entityWrapper);
+            }
+            else
+            {
+                Calc(entityWrapper);
             }
         }
 
@@ -98,18 +102,21 @@ namespace PoeHUD.Hud.KillCounter
             }
         }
 
-        private void Calc(EntityWrapper entityWrapper)
+        private void Calc(IEntity entityWrapper)
         {
-            if (!countedIds.Contains(entityWrapper.LongId))
+            HashSet<long> monsterHashSet;
+            var areaHash = gameController.Area.CurrentArea.Hash;
+            if (!countedIds.TryGetValue(areaHash, out monsterHashSet))
             {
-                countedIds.Add(entityWrapper.LongId);
-                MonsterRarity rarity = entityWrapper.GetComponent<ObjectMagicProperties>().Rarity;
-                if (entityWrapper.IsHostile && counters.ContainsKey(rarity))
-                {
-                    counters[rarity]++;
-                    summaryCounter++;
-                }
+                monsterHashSet = new HashSet<long>();
+                countedIds[areaHash] = monsterHashSet;
             }
+            if (monsterHashSet.Contains(entityWrapper.LongId)) return;
+            monsterHashSet.Add(entityWrapper.LongId);
+            MonsterRarity rarity = entityWrapper.GetComponent<ObjectMagicProperties>().Rarity;
+            if (!entityWrapper.IsHostile || !counters.ContainsKey(rarity)) return;
+            counters[rarity]++;
+            summaryCounter++;
         }
 
         private Size2 DrawCounter(Vector2 position, string label, string counterValue, Color color)
@@ -119,7 +126,7 @@ namespace PoeHUD.Hud.KillCounter
             if (measuredSize1.Width > measuredSize2.Width)
             {
                 Size2 size = Graphics.DrawText(counterValue, Settings.LabelFontSize, position, color, FontDrawFlags.Right);
-                Size2 size2 = Graphics.DrawText(label, 10, position.Translate(-size.Width / 2f, size.Height), Settings.FontColor,
+                Size2 size2 = Graphics.DrawText(label, 10, position.Translate(-size.Width / 1f, size.Height), Settings.FontColor,
                     FontDrawFlags.Center);
                 return new Size2(size.Width, size.Height + size2.Height);
             }
@@ -127,7 +134,7 @@ namespace PoeHUD.Hud.KillCounter
             {
                 Size2 size2 = Graphics.DrawText(label, 10, position.Translate(0, measuredSize1.Height), Settings.FontColor,
                     FontDrawFlags.Right);
-                Size2 size = Graphics.DrawText(counterValue, Settings.LabelFontSize, position.Translate(-size2.Width / 2f, 0), color,
+                Size2 size = Graphics.DrawText(counterValue, Settings.LabelFontSize, position.Translate(-size2.Width / 1f, 0), color,
                     FontDrawFlags.Center);
                 return new Size2(size2.Width, size.Height + size2.Height);
             }
@@ -135,15 +142,14 @@ namespace PoeHUD.Hud.KillCounter
 
         private Size2 DrawCounters(Vector2 position)
         {
-            const int INNER_MARGIN = 6;
-            Size2 size = DrawCounter(position.Translate(INNER_MARGIN - 6, 6), "", counters[MonsterRarity.White].ToString(), Settings.FontColor);
-            size = new Size2(DrawCounter(position.Translate(-size.Width - INNER_MARGIN, 6), "", counters[MonsterRarity.Magic].ToString(), HudSkin.MagicColor).Width + size.Width + INNER_MARGIN,
-                    size.Height);
-            size = new Size2(DrawCounter(position.Translate(-size.Width - INNER_MARGIN, 6), "", counters[MonsterRarity.Rare].ToString(),
-                        HudSkin.RareColor).Width + size.Width + INNER_MARGIN, size.Height);
-            size = new Size2(DrawCounter(position.Translate(-size.Width - INNER_MARGIN, 6), "",
-                        counters[MonsterRarity.Unique].ToString(), HudSkin.UniqueColor).Width + size.Width + INNER_MARGIN,
-                    size.Height);
+            const int INNER_MARGIN = 10;
+            Size2 size = DrawCounter(position.Translate(-2, 6), "", counters[MonsterRarity.White].ToString(), Settings.FontColor);
+            size = new Size2(DrawCounter(position.Translate(-size.Width - 20, 6), "",
+                counters[MonsterRarity.Magic].ToString(), HudSkin.MagicColor).Width + size.Width + INNER_MARGIN, size.Height);
+            size = new Size2(DrawCounter(position.Translate(-size.Width - 30, 6), "",
+                counters[MonsterRarity.Rare].ToString(), HudSkin.RareColor).Width + size.Width + INNER_MARGIN, size.Height);
+            size = new Size2(DrawCounter(position.Translate(-size.Width - 40, 6), "",
+                counters[MonsterRarity.Unique].ToString(), HudSkin.UniqueColor).Width + size.Width + INNER_MARGIN, size.Height);
             return size;
         }
 

@@ -1,38 +1,21 @@
 using System;
 using System.Numerics;
-using System.Threading;
-using PoeHUD.Framework;
 using PoeHUD.Models;
 using PoeHUD.Poe.Components;
-
-using SharpDX;
 using Vector2 = SharpDX.Vector2;
 using Vector3 = SharpDX.Vector3;
-using Vector4 = System.Numerics.Vector4;
 
 namespace PoeHUD.Poe.RemoteMemoryObjects
 {
     public class Camera : RemoteMemoryObject
     {
-        public int Width
-        {
-            get { return M.ReadInt(Address + 4); }
-        }
+        public int Width => M.ReadInt(Address + 4);
 
-        public int Height
-        {
-            get { return M.ReadInt(Address + 8); }
-        }
+        public int Height => M.ReadInt(Address + 8);
 
-        public float ZFar
-        {
-            get { return M.ReadFloat(Address + 392); }
-        }
+        public float ZFar => M.ReadFloat(Address + 392);
 
-        public Vector3 Position
-        {
-            get { return new Vector3(M.ReadFloat(Address + 256), M.ReadFloat(Address + 260), M.ReadFloat(Address + 264)); }
-        }
+        public Vector3 Position => new Vector3(M.ReadFloat(Address + 256), M.ReadFloat(Address + 260), M.ReadFloat(Address + 264));
 
 
         static Vector2 oldplayerCord;

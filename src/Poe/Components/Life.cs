@@ -5,112 +5,16 @@ namespace PoeHUD.Poe.Components
 {
     public class Life : Component
     {
-        public int MaxHP
-        {
-            get
-            {
-                if (Address != 0)
-                {
-                    return M.ReadInt(Address + 0x30);
-                }
-                return 1;
-            }
-        }
-
-        public int CurHP
-        {
-            get
-            {
-                if (Address != 0)
-                {
-                    return M.ReadInt(Address + 0x34);
-                }
-                return 1;
-            }
-        }
-
-        public int ReservedHP
-        {
-            get
-            {
-                if (Address != 0)
-                {
-                    return M.ReadInt(Address + 0x3C);
-                }
-                return 0;
-            }
-        }
-
-        public int MaxMana
-        {
-            get
-            {
-                if (Address != 0)
-                {
-                    return M.ReadInt(Address + 0x54);
-                }
-                return 1;
-            }
-        }
-
-        public int CurMana
-        {
-            get
-            {
-                if (Address != 0)
-                {
-                    return M.ReadInt(Address + 0x58);
-                }
-                return 1;
-            }
-        }
-
-        public int ReservedMana
-        {
-            get
-            {
-                if (Address != 0)
-                {
-                    return M.ReadInt(Address + 0x60);
-                }
-                return 0;
-            }
-        }
-
-        public int MaxES
-        {
-            get
-            {
-                if (Address != 0)
-                {
-                    return M.ReadInt(Address + 0x78);
-                }
-                return 0;
-            }
-        }
-
-        public int CurES
-        {
-            get
-            {
-                if (Address != 0)
-                {
-                    return M.ReadInt(Address + 0x7c);
-                }
-                return 0;
-            }
-        }
-
-        public float HPPercentage
-        {
-            get { return CurHP/(float) (MaxHP - ReservedHP); }
-        }
-
-        public float MPPercentage
-        {
-            get { return CurMana/(float) (MaxMana - ReservedMana); }
-        }
-
+        public int MaxHP => Address != 0 ? M.ReadInt(Address + 0x30) : 1;
+        public int CurHP => Address != 0 ? M.ReadInt(Address + 0x34) : 1;
+        public int ReservedHP => Address != 0 ? M.ReadInt(Address + 0x3C) : 0;
+        public int MaxMana => Address != 0 ? M.ReadInt(Address + 0x54) : 1;
+        public int CurMana => Address != 0 ? M.ReadInt(Address + 0x58) : 1;
+        public int ReservedMana => Address != 0 ? M.ReadInt(Address + 0x60) : 0;
+        public int MaxES => Address != 0 ? M.ReadInt(Address + 0x78) : 0;
+        public int CurES => Address != 0 ? M.ReadInt(Address + 0x7c) : 0;
+        public float HPPercentage => CurHP/(float) (MaxHP - ReservedHP);
+        public float MPPercentage => CurMana/(float) (MaxMana - ReservedMana);
         public float ESPercentage
         {
             get
@@ -123,10 +27,7 @@ namespace PoeHUD.Poe.Components
             }
         }
 
-        public bool CorpseUsable
-        {
-            get { return M.ReadBytes(Address + 212, 1)[0] == 1; }
-        }
+        public bool CorpseUsable => M.ReadBytes(Address + 212, 1)[0] == 1;
 
         public List<Buff> Buffs
         {

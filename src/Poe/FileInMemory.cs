@@ -11,8 +11,8 @@ namespace PoeHUD.Poe
             Address = address;
         }
 
-        public Memory M { get; private set; }
-        public int Address { get; private set; }
+        public Memory M { get; }
+        public int Address { get; }
 
         private int NumberOfRecords => M.ReadInt(Address + 0x44);
 

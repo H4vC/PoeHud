@@ -14,7 +14,7 @@ namespace PoeHUD.Hud.Menu
             TitleFontColor = new ColorBGRA(255, 0, 0, 255);
             EnabledBoxColor = new ColorBGRA(128, 128, 128, 255);
             DisabledBoxColor = new ColorBGRA(220, 20, 60, 255);
-            MenuFontColor = new ColorBGRA(254, 192, 118, 255);
+            MenuFontColor = new ColorBGRA(220, 190, 130, 255);
             SliderColor = new ColorBGRA(128, 128, 128, 255);
             BackgroundColor = new ColorBGRA(255, 255, 255, 220);
             TitleFontSize = new RangeNode<int>(16, 10, 20);

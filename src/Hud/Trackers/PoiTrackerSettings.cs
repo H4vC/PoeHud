@@ -13,9 +13,7 @@ namespace PoeHUD.Hud.Trackers
         }
 
         public ToggleNode Masters { get; set; }
-
         public ToggleNode Strongboxes { get; set; }
-
         public ToggleNode Chests { get; set; }
     }
 }

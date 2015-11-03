@@ -1,11 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-
 using PoeHUD.Models.Enums;
 using PoeHUD.Models.Interfaces;
 using PoeHUD.Poe.Components;
-
 using SharpDX;
 
 namespace PoeHUD.Hud.Loot
@@ -13,18 +11,12 @@ namespace PoeHUD.Hud.Loot
     public class ItemUsefulProperties
     {
         private readonly string _name;
-
         private readonly IEntity _item;
-
         private readonly CraftingBase _craftingBase;
-
         private ItemRarity rarity;
-
         private int quality, borderWidth, alertIcon = -1;
-
         private string alertText;
-
-        private Color color; // Fully qualify to prevent confusion on Component
+        private Color color;
 
         public ItemUsefulProperties(string name, IEntity item, CraftingBase craftingBase)
         {
@@ -116,6 +108,7 @@ namespace PoeHUD.Hud.Loot
             {
                 case ItemRarity.Rare:
                     return settings.Rares;
+
                 case ItemRarity.Unique:
                     return settings.Uniques;
             }

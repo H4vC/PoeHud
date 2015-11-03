@@ -1,11 +1,8 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using PoeHUD.Framework;
-
 using SharpDX;
 
-namespace PoeHUD.Poe.UI
+namespace PoeHUD.Poe
 {
     public  class Element : RemoteMemoryObject
     {

@@ -1,3 +1,7 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Windows.Forms;
 using PoeHUD.Controllers;
 using PoeHUD.Framework;
 using PoeHUD.Framework.Helpers;
@@ -5,10 +9,6 @@ using PoeHUD.Hud.UI;
 using PoeHUD.Models;
 using SharpDX;
 using SharpDX.Direct3D9;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Windows.Forms;
 
 namespace PoeHUD.Hud.Preload
 {
@@ -20,7 +20,7 @@ namespace PoeHUD.Hud.Preload
         private DateTime maxParseTime = DateTime.Now;
         private int lastCount;
         private bool holdKey;
-
+        public static Color hasCorruptedArea { get; set; }
         public PreloadAlertPlugin(GameController gameController, Graphics graphics, PreloadAlertSettings settings)
             : base(gameController, graphics, settings)
         {
@@ -45,21 +45,8 @@ namespace PoeHUD.Hud.Preload
         public override void Render()
         {
             base.Render();
-
-            if (!holdKey && WinApi.IsKeyDown(Keys.F10))
-            {
-                holdKey = true;
-                Settings.Enable.Value = !Settings.Enable.Value;
-            }
-            else if (holdKey && !WinApi.IsKeyDown(Keys.F10))
-            {
-                holdKey = false;
-            }
-
-            if (!Settings.Enable)
-            {
-                return;
-            }
+            if (!holdKey && WinApi.IsKeyDown(Keys.F10)) { return; }
+            if (!Settings.Enable) { return; }
             if (areaChanged)
             {
                 Parse();
@@ -77,9 +64,9 @@ namespace PoeHUD.Hud.Preload
             Vector2 startPosition = StartDrawPointFunc();
             Vector2 position = startPosition;
             int maxWidth = 0;
-            foreach ( Size2 size in alerts.Select( 
+            foreach (Size2 size in alerts.Select(
                 preloadConfigLine => Graphics.DrawText(
-                preloadConfigLine.Text, Settings.FontSize, position + 1,
+                preloadConfigLine.Text, Settings.FontSize, position - 1,
                 preloadConfigLine.FastColor?.Invoke() ??
                 preloadConfigLine.Color ?? Settings.DefaultFontColor, FontDrawFlags.Right)))
             {
@@ -87,8 +74,8 @@ namespace PoeHUD.Hud.Preload
                 position.Y += size.Height;
             }
             if (maxWidth <= 0) return;
-            var bounds = new RectangleF(startPosition.X - 42 - maxWidth, startPosition.Y - 4,
-                maxWidth + 50, position.Y - startPosition.Y + 11);
+            var bounds = new RectangleF(startPosition.X - 42 - maxWidth - 15, startPosition.Y - 7,
+                maxWidth + 65, position.Y - startPosition.Y + 15);
             Graphics.DrawImage("preload-end.png", bounds, Settings.BackgroundColor);
             Graphics.DrawImage("preload-start.png", bounds, Settings.BackgroundColor);
             Size = bounds.Size;
@@ -112,6 +99,7 @@ namespace PoeHUD.Hud.Preload
             areaChanged = false;
             alerts.Clear();
             Memory memory = GameController.Memory;
+            hasCorruptedArea = Settings.AreaFontColor;
             int pFileRoot = memory.ReadInt(memory.AddressOfProcess + memory.offsets.FileRoot);
             int count = memory.ReadInt(pFileRoot + 12);
             int listIterator = memory.ReadInt(pFileRoot + 20);
@@ -122,22 +110,18 @@ namespace PoeHUD.Hud.Preload
                 if (memory.ReadInt(listIterator + 8) != 0 && memory.ReadInt(listIterator + 12, 36) == areaChangeCount)
                 {
                     string text = memory.ReadStringU(memory.ReadInt(listIterator + 8));
-                    if (text.Contains('@'))
-                    {
-                        text = text.Split('@')[0];
-                    }
+                    if (text.Contains('@')) { text = text.Split('@')[0]; }
+                    if (alertStrings.ContainsKey(text)) { alerts.Add(alertStrings[text]); }
                     if (text.Contains("human_heart") || text.Contains("Demonic_NoRain.ogg"))
                     {
-                        alerts.Add(new PreloadConfigLine { Text = "Corrupted Area", FastColor = () => Settings.CorruptedColor });
+                        hasCorruptedArea = Settings.HasCorruptedArea;
+                        //alerts.Add(new PreloadConfigLine { Text = "Corrupted Area", FastColor = () => Settings.HasCorruptedArea });
                     }
-                    if (alertStrings.ContainsKey(text))
-                    {
-                        alerts.Add(alertStrings[text]);
-                    }
-                    if (text.EndsWith("BossInvasion"))
-                    {
-                        alerts.Add(new PreloadConfigLine { Text = "Invasion Boss" });
-                    }
+
+                    //if (text.EndsWith("BossInvasion"))
+                    //{
+                    //    alerts.Add(new PreloadConfigLine { Text = "Invasion Boss" });
+                    //}
 
                     //masters
                     if (text.EndsWith("Metadata/NPC/Missions/Wild/StrDexInt"))

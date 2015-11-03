@@ -1,5 +1,4 @@
 ﻿using System;
-
 using SharpDX;
 
 namespace PoeHUD.Hud.Interfaces

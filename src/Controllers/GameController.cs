@@ -18,10 +18,11 @@ namespace PoeHUD.Controllers
             Game = new TheGame(memory);
             Files = new FsController(memory);
         }
-        public EntityListWrapper EntityListWrapper { get; private set; }
+
+        public EntityListWrapper EntityListWrapper { get; }
         public GameWindow Window { get; private set; }
-        public TheGame Game { get; private set; }
-        public AreaController Area { get; private set; }
+        public TheGame Game { get; }
+        public AreaController Area { get; }
 
         public Memory Memory { get; private set; }
 
@@ -35,17 +36,14 @@ namespace PoeHUD.Controllers
 
         public void RefreshState()
         {
-            if (InGame)
-            {
-                EntityListWrapper.RefreshState();
-                Area.RefreshState();
-            }
+            if (!InGame) return;
+            Area.RefreshState();
+            EntityListWrapper.RefreshState();
         }
 
         public List<EntityWrapper> GetAllPlayerMinions()
         {
             return Entities.Where(x => x.HasComponent<Player>()).SelectMany(c => c.Minions).ToList();
         }
-
     }
 }

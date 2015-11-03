@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-
 using PoeHUD.Framework;
 using PoeHUD.Poe.FilesInMemory;
 
@@ -16,7 +15,7 @@ namespace PoeHUD.Controllers
         public readonly TagsDat Tags;
         private readonly Dictionary<string, int> files;
         private readonly Memory mem;
-        private bool isLoaded = false;
+        private bool isLoaded;
 
         public FsController(Memory mem)
         {

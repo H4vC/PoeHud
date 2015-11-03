@@ -12,7 +12,7 @@ namespace PoeHUD.Poe.FilesInMemory
             Value2 = 2,
             IntValue = 3,
             Boolean = 4,
-            Precents5 = 5,
+            Precents5 = 5
         }
 
         public Dictionary<string, StatRecord> records =

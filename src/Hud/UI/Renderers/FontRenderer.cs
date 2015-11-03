@@ -1,17 +1,17 @@
-﻿using PoeHUD.Framework.Helpers;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Text;
+using PoeHUD.Framework.Helpers;
 using SharpDX;
 using SharpDX.Direct3D9;
-using System;
-using System.Collections.Generic;
 
 namespace PoeHUD.Hud.UI.Renderers
 {
     public sealed class FontRenderer : IDisposable
     {
         private readonly Device device;
-
         private readonly Sprite sprite;
-
         private readonly Dictionary<Tuple<string, int>, Font> fonts;
 
         public FontRenderer(Device device)
@@ -39,8 +39,7 @@ namespace PoeHUD.Hud.UI.Renderers
             }
             catch (Exception)
             {
-                //Console.WriteLine("Exception! X: " + position.X + ", Y: " + position.Y + ", Text: " + text);
-                //Console.WriteLine(exception.StackTrace);
+                //
             }
             return new Size2();
         }
@@ -80,17 +79,19 @@ namespace PoeHUD.Hud.UI.Renderers
             lock (fonts)
             {
                 Font font;
-                Tuple<string, int> key = Tuple.Create(name, height);
-                if (!fonts.TryGetValue(key, out font))
+                using (var reader = new StreamReader("config/fonts.txt"))
                 {
-                    font = new Font(device, new FontDescription
-                    {
-                        FaceName = name,
-                        Quality = FontQuality.ClearType,
-                        Height = height
-                    });
-                    fonts.Add(key, font);
+                    name = reader.ReadLine();
                 }
+                Tuple<string, int> key = Tuple.Create(name, height);
+                if (fonts.TryGetValue(key, out font)) return font;
+                font = new Font(device, new FontDescription
+                {
+                    FaceName = name,
+                    Quality = FontQuality.ClearType,
+                    Height = height
+                });
+                fonts.Add(key, font);
                 return font;
             }
         }

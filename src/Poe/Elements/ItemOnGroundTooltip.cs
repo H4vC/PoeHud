@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using PoeHUD.Poe.UI;
-
-namespace PoeHUD.Poe.Elements
+﻿namespace PoeHUD.Poe.Elements
 {
     public class ItemOnGroundTooltip : Element
     {
@@ -19,12 +12,6 @@ namespace PoeHUD.Poe.Elements
             }
         }
 
-        public Element ToolTip
-        {
-            get
-            {
-                return GetChildAtIndex(0);
-            }
-        }
+        public Element ToolTip => GetChildAtIndex(0);
     }
 }

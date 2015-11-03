@@ -1,7 +1,5 @@
 using System;
-using System.Linq;
 using PoeHUD.Models.Enums;
-using PoeHUD.Poe.UI;
 
 namespace PoeHUD.Poe.RemoteMemoryObjects
 {

@@ -1,5 +1,4 @@
 ﻿using PoeHUD.Hud.Settings;
-
 using SharpDX;
 
 namespace PoeHUD.Hud.Dps
@@ -11,8 +10,8 @@ namespace PoeHUD.Hud.Dps
             Enable = false;
             DpsTextSize = new RangeNode<int>(16, 10, 20);
             PeakDpsTextSize = new RangeNode<int>(16, 10, 20);
-            DpsFontColor = new ColorBGRA(254, 192, 118, 255);
-            PeakFontColor = new ColorBGRA(254, 192, 118, 255);
+            DpsFontColor = new ColorBGRA(220, 190, 130, 255);
+            PeakFontColor = new ColorBGRA(220, 190, 130, 255);
             BackgroundColor = new ColorBGRA(255, 255, 255, 255);
         }
 

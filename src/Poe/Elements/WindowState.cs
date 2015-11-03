@@ -1,4 +1,4 @@
-﻿namespace PoeHUD.Poe.UI.Elements
+﻿namespace PoeHUD.Poe.Elements
 
 {
     public class WindowState : Element

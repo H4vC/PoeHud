@@ -9,22 +9,9 @@ namespace PoeHUD.Poe.Components
         ///     running = 2178 = bit 11 & 7
         ///     Maybe Bit-field : Bit 7 set = running
         /// </summary>
-        public int ActionId
-        {
-            get
-            {
-                if (Address != 0)
-                {
-                    return M.ReadInt(Address + 0x7C);
-                }
-                return 1;
-            }
-        }
+        public int ActionId => Address != 0 ? M.ReadInt(Address + 0x7C) : 1;
 
-        public bool isMoving
-        {
-            get { return (ActionId & 128) > 0; }
-        }
+        public bool isMoving => (ActionId & 128) > 0;
 
         public List<int> Minions
         {

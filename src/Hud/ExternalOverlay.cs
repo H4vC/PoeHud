@@ -20,7 +20,7 @@ using PoeHUD.Hud.Settings;
 using PoeHUD.Hud.Trackers;
 using PoeHUD.Hud.XpRate;
 using PoeHUD.Models.Enums;
-using PoeHUD.Poe.UI;
+using PoeHUD.Poe;
 using SharpDX;
 using SharpDX.Windows;
 using Color = System.Drawing.Color;
@@ -57,7 +57,6 @@ namespace PoeHUD.Hud
             BackColor = Color.Black;
             FormBorderStyle = FormBorderStyle.None;
             ShowIcon = false;
-            //ShowInTaskbar = false;
             TopMost = true;
             ResumeLayout(false);
             Load += OnLoad;
@@ -149,8 +148,7 @@ namespace PoeHUD.Hud
             Bounds = WinApi.GetClientRectangle(gameHandle);
             WinApi.EnableTransparent(Handle, Bounds);
             graphics = new Graphics2D(this, Bounds.Width, Bounds.Height);
-            graphics.Render += OnRender;
-
+            
             plugins.Add(new HealthBarPlugin(gameController, graphics, settings.HealthBarSettings));
             plugins.Add(new MinimapPlugin(gameController, graphics, GatherMapIcons, settings.MapIconsSettings));
             plugins.Add(new LargeMapPlugin(gameController, graphics, GatherMapIcons, settings.MapIconsSettings));
@@ -179,6 +177,7 @@ namespace PoeHUD.Hud
 
             CheckGameWindow();
             CheckGameState();
+            graphics.Render += OnRender;
             await Task.Run(() => graphics.RenderLoop());
         }
 

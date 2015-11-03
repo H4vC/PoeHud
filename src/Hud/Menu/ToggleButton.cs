@@ -1,10 +1,10 @@
+using System;
+using System.Linq;
 using PoeHUD.Framework.Helpers;
 using PoeHUD.Hud.Settings;
 using PoeHUD.Hud.UI;
 using SharpDX;
 using SharpDX.Direct3D9;
-using System;
-using System.Linq;
 
 namespace PoeHUD.Hud.Menu
 {
@@ -16,13 +16,13 @@ namespace PoeHUD.Hud.Menu
 
         private readonly ToggleNode node;
 
-        private MenuItem parent;
+        private readonly MenuItem parent;
 
-        private Func<MenuItem, bool> hide;
+        private readonly Func<MenuItem, bool> hide;
 
         public ToggleButton(MenuItem parent, string name, ToggleNode node, string key, Func<MenuItem, bool> hide)
         {
-            this.Name = name;
+            Name = name;
             this.node = node;
             this.key = key;
             this.parent = parent;

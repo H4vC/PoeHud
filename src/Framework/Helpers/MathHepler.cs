@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Linq;
-
 using SharpDX;
 
 namespace PoeHUD.Framework.Helpers
@@ -14,7 +13,7 @@ namespace PoeHUD.Framework.Helpers
             Randomizer = new Random();
         }
 
-        public static Random Randomizer { get; private set; }
+        public static Random Randomizer { get; }
 
         public static double GetPolarCoordinates(this Vector2 vector, out double phi)
         {

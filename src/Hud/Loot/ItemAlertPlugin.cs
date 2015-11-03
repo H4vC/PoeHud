@@ -1,3 +1,9 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text.RegularExpressions;
+using System.Windows.Forms;
 using Antlr4.Runtime;
 using PoeFilterParser;
 using PoeFilterParser.Model;
@@ -13,33 +19,19 @@ using PoeHUD.Poe;
 using PoeHUD.Poe.Components;
 using PoeHUD.Poe.Elements;
 using PoeHUD.Poe.RemoteMemoryObjects;
-using PoeHUD.Poe.UI.Elements;
 using SharpDX;
 using SharpDX.Direct3D9;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text.RegularExpressions;
-using System.Windows.Forms;
 
 namespace PoeHUD.Hud.Loot
 {
     public class ItemAlertPlugin : SizedPluginWithMapIcons<ItemAlertSettings>
     {
         private readonly HashSet<long> playedSoundsCache;
-
         private readonly Dictionary<EntityWrapper, AlertDrawStyle> currentAlerts;
-
-        private readonly Dictionary<string, CraftingBase> craftingBases;
-
+        private readonly HashSet<CraftingBase> craftingBases;
         private readonly HashSet<string> currencyNames;
-
         private Dictionary<int, ItemsOnGroundLabelElement> currentLabels;
-
         private PoeFilterVisitor visitor;
-
-        private bool holdKey;
 
         public ItemAlertPlugin(GameController gameController, Graphics graphics, ItemAlertSettings settings)
             : base(gameController, graphics, settings)
@@ -83,6 +75,7 @@ namespace PoeHUD.Hud.Loot
                 Settings.Alternative.Value = false;
                 MessageBox.Show($"Line: {ex.Line}:{ex.CharPositionInLine}, {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 visitor = null;
+
             }
             catch (Exception ex)
             {
@@ -100,16 +93,7 @@ namespace PoeHUD.Hud.Loot
         public override void Render()
         {
             base.Render();
-            if (!holdKey && WinApi.IsKeyDown(Keys.F10))
-            {
-                holdKey = true;
-                Settings.Enable.Value = !Settings.Enable.Value;
-            }
-            else if (holdKey && !WinApi.IsKeyDown(Keys.F10))
-            {
-                holdKey = false;
-            }
-
+            if (WinApi.IsKeyDown(Keys.F10)) { return; }
             if (Settings.Enable)
             {
                 Vector2 playerPos = GameController.Player.GetComponent<Positioned>().GridPos;
@@ -121,12 +105,9 @@ namespace PoeHUD.Hud.Loot
                 {
                     Dictionary<EntityWrapper, AlertDrawStyle> tempCopy = new Dictionary<EntityWrapper, AlertDrawStyle>(currentAlerts);
                     var keyValuePairs = tempCopy.AsParallel().Where(x => x.Key.IsValid).ToList();
-                    foreach (var kv in keyValuePairs)
+                    foreach (var kv in keyValuePairs.Where(kv => DrawBorder(kv.Key.Address) && !shouldUpdate))
                     {
-                        if (DrawBorder(kv.Key.Address) && !shouldUpdate)
-                        {
-                            shouldUpdate = true;
-                        }
+                        shouldUpdate = true;
                     }
                 }
 
@@ -144,10 +125,11 @@ namespace PoeHUD.Hud.Loot
                         shouldUpdate = true;
                     }
                     else
-                        if (Settings.ShowText & (!Settings.HideOthers | entityLabel.CanPickUp))
                     {
-                        position = DrawText(playerPos, position, BOTTOM_MARGIN, kv, text);
+                        if (Settings.ShowText & (!Settings.HideOthers | entityLabel.CanPickUp))
+                            position = DrawText(playerPos, position, BOTTOM_MARGIN, kv, text);
                     }
+
                 }
                 Size = new Size2F(0, position.Y); //bug absent width
 
@@ -216,18 +198,18 @@ namespace PoeHUD.Hud.Loot
             currentLabels.Remove(entity.Address);
         }
 
-        private static Dictionary<string, CraftingBase> LoadCraftingBases()
+        private static HashSet<CraftingBase> LoadCraftingBases()
         {
             if (!File.Exists("config/crafting_bases.txt"))
             {
-                return new Dictionary<string, CraftingBase>();
+                return new HashSet<CraftingBase>();
             }
-            var dictionary = new Dictionary<string, CraftingBase>(StringComparer.OrdinalIgnoreCase);
+            var hashSet = new HashSet<CraftingBase>();
             var parseErrors = new List<string>();
             string[] array = File.ReadAllLines("config/crafting_bases.txt");
             foreach (string text in array.Select(x => x.Trim()).Where(x => !string.IsNullOrWhiteSpace(x) && !x.StartsWith("#")))
             {
-                string[] parts = text.Split(',');
+                string[] parts = text.Split(new[] { ',' });
                 string itemName = parts[0].Trim();
 
                 var item = new CraftingBase { Name = itemName };
@@ -249,7 +231,7 @@ namespace PoeHUD.Hud.Loot
                     item.Rarities = new ItemRarity[parts.Length - 3];
                     for (int i = RARITY_POSITION; i < parts.Length; i++)
                     {
-                        if (item.Rarities != null && !Enum.TryParse(parts[i], true, out item.Rarities[i - RARITY_POSITION]))
+                        if (!Enum.TryParse(parts[i], true, out item.Rarities[i - RARITY_POSITION]))
                         {
                             parseErrors.Add("Incorrect rarity definition at line: " + text);
                             item.Rarities = null;
@@ -257,11 +239,7 @@ namespace PoeHUD.Hud.Loot
                     }
                 }
 
-                if (!dictionary.ContainsKey(itemName))
-                {
-                    dictionary.Add(itemName, item);
-                }
-                else
+                if (!hashSet.Add(item))
                 {
                     parseErrors.Add("Duplicate definition for item was ignored: " + text);
                 }
@@ -272,7 +250,7 @@ namespace PoeHUD.Hud.Loot
                 throw new Exception("Error parsing config/crafting_bases.txt\r\n" + string.Join(Environment.NewLine, parseErrors));
             }
 
-            return dictionary;
+            return hashSet;
         }
 
         private static HashSet<string> LoadCurrency()
@@ -299,7 +277,7 @@ namespace PoeHUD.Hud.Loot
                     RectangleF rect = entityLabel.Label.GetClientRect();
                     if ((ui.OpenLeftPanel.IsVisible && ui.OpenLeftPanel.GetClientRect().Intersects(rect)) || (ui.OpenRightPanel.IsVisible && ui.OpenRightPanel.GetClientRect().Intersects(rect)))
                     {
-                        return false;
+                        return shouldUpdate;
                     }
 
                     ColorNode borderColor = Settings.BorderSettings.BorderColor;
@@ -368,19 +346,13 @@ namespace PoeHUD.Hud.Loot
         private ItemUsefulProperties initItem(IEntity item)
         {
             string name = GameController.Files.BaseItemTypes.Translate(item.Path).BaseName;
-
             CraftingBase craftingBase = new CraftingBase();
-            if (Settings.Crafting)
+            if (!Settings.Crafting) return new ItemUsefulProperties(name, item, craftingBase);
+            foreach (CraftingBase cb in craftingBases.Where(cb => cb.Name.Equals(name, StringComparison.InvariantCultureIgnoreCase)
+                                                                  || (new Regex(cb.Name)).Match(name).Success))
             {
-                foreach (KeyValuePair<string, CraftingBase> cb in craftingBases)
-                {
-                    if (cb.Key.Equals(name)
-                        || (new Regex(cb.Value.Name)).Match(name).Success)
-                    {
-                        craftingBase = cb.Value;
-                        break;
-                    }
-                }
+                craftingBase = cb;
+                break;
             }
 
             return new ItemUsefulProperties(name, item, craftingBase);

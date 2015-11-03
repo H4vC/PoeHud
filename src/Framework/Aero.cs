@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
 using Microsoft.Win32;
 
 namespace PoeHUD.Framework
@@ -44,7 +42,7 @@ namespace PoeHUD.Framework
             {
                 bExited = p.HasExited;
                 counter++;
-                System.Threading.Thread.Sleep(1000);
+                Thread.Sleep(1000);
             } //while
             if (counter == seconds)
             {
@@ -62,12 +60,12 @@ namespace PoeHUD.Framework
                 /// Set the theme
                 Boolean bExited = false;
                 /// essentially runs the command line:  rundll32.exe %SystemRoot%\system32\shell32.dll,Control_RunDLL %SystemRoot%\system32\desk.cpl desk,@Themes /Action:OpenTheme /file:"%WINDIR%\Resources\Ease of Access Themes\classic.theme"
-                String ThemeOutput = this.StartProcessAndWait("rundll32.exe",System.Environment.GetFolderPath(Environment.SpecialFolder.System) + @"\shell32.dll,Control_RunDLL " +System.Environment.GetFolderPath(Environment.SpecialFolder.System) +"\\desk.cpl desk,@Themes /Action:OpenTheme /file:\"" + themePath + "\"", 30, ref bExited);
+                String ThemeOutput = this.StartProcessAndWait("rundll32.exe",Environment.GetFolderPath(Environment.SpecialFolder.System) + @"\shell32.dll,Control_RunDLL " +Environment.GetFolderPath(Environment.SpecialFolder.System) +"\\desk.cpl desk,@Themes /Action:OpenTheme /file:\"" + themePath + "\"", 30, ref bExited);
 
                 Console.WriteLine(ThemeOutput);
 
                 /// Wait for the theme to be set
-                System.Threading.Thread.Sleep(1000);
+                Thread.Sleep(1000);
 
                 /// Close the Theme UI Window
                 IntPtr hWndTheming = FindWindow("CabinetWClass", null);

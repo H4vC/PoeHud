@@ -1,5 +1,4 @@
 ﻿using System;
-
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
@@ -7,15 +6,9 @@ namespace PoeHUD.Hud.Settings.Converters
 {
     public class FileNodeConverter : CustomCreationConverter<FileNode>
     {
-        public override bool CanWrite
-        {
-            get { return true; }
-        }
+        public override bool CanWrite => true;
 
-        public override bool CanRead
-        {
-            get { return true; }
-        }
+        public override bool CanRead => true;
 
         public override FileNode Create(Type objectType)
         {

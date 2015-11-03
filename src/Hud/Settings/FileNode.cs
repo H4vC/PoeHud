@@ -1,5 +1,4 @@
 ﻿using System;
-using Antlr4.Runtime.Dfa;
 
 namespace PoeHUD.Hud.Settings
 {

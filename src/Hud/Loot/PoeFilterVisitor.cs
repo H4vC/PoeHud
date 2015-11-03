@@ -1,4 +1,7 @@
-﻿using Antlr4.Runtime;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using Antlr4.Runtime;
 using Antlr4.Runtime.Tree;
 using PoeFilterParser.Model;
 using PoeHUD.Controllers;
@@ -6,9 +9,6 @@ using PoeHUD.Models.Enums;
 using PoeHUD.Models.Interfaces;
 using PoeHUD.Poe.Components;
 using SharpDX;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace PoeHUD.Hud.Loot
 {
@@ -217,7 +217,7 @@ namespace PoeHUD.Hud.Loot
                                                                             var poeAlertSoundContext = statement.poeAlertSound();
                                                                             if (poeAlertSoundContext != null)
                                                                             {
-                                                                                sound = Convert.ToInt32(poeAlertSoundContext.DIGITS(0).GetText());
+                                                                                sound = Convert.ToInt32(poeAlertSoundContext.id().GetText());
                                                                             }
                                                                         }
                                                                     }

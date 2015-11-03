@@ -1,14 +1,13 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using PoeHUD.Controllers;
 using PoeHUD.Framework;
 using PoeHUD.Hud;
 using PoeHUD.Poe;
-using System.IO;
-
 using Tools;
 
 namespace PoeHUD
@@ -73,8 +72,6 @@ namespace PoeHUD
 			{
 				offs.DoPatternScans(memory);
 				var gameController = new GameController(memory);
-				gameController.RefreshState();
-
                 var overlay = new ExternalOverlay(gameController, memory.IsInvalid);
                 Application.Run(overlay);
 			}

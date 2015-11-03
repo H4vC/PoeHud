@@ -1,13 +1,11 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-
 using PoeHUD.Controllers;
 using PoeHUD.Framework.Helpers;
 using PoeHUD.Hud.UI;
+using PoeHUD.Poe;
 using PoeHUD.Poe.Components;
-using PoeHUD.Poe.UI;
-
 using SharpDX;
 
 namespace PoeHUD.Hud.Icons
@@ -49,7 +47,7 @@ namespace PoeHUD.Hud.Icons
                 Vector2 point = mapCenter
                     + MapIcon.DeltaInWorldToMinimapDelta(icon.WorldPosition - playerPos, diag, SCALE, (iconZ - posZ) / 20);
 
-                HudTexture texture = icon.MinimapIcon;
+                HudTexture texture = icon.TextureIcon;
                 int size = icon.Size;
                 var rect = new RectangleF(point.X - size / 2f, point.Y - size / 2f, size, size);
                 bool isContain;

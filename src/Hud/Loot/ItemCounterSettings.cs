@@ -1,10 +1,10 @@
 ﻿using PoeHUD.Hud.Settings;
 
-namespace PoeHUD.Hud.KC
+namespace PoeHUD.Hud.Loot
 {
-    public sealed class KillCounterSettings : SettingsBase
+    public sealed class ItemCounterSettings : SettingsBase
     {
-        public KillCounterSettings()
+        public ItemCounterSettings()
         {
             Enable = false;
             ShowDetail = true;
