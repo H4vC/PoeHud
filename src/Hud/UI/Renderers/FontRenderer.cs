@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Text;
 using PoeHUD.Framework.Helpers;
 using SharpDX;
 using SharpDX.Direct3D9;

@@ -294,7 +294,9 @@ namespace PoeHUD.Hud.Menu
             AddChild(strongboxes, "Epic", settingsHub.PreloadAlertSettings.EpicStrongbox);
             AddChild(strongboxes, "Simple", settingsHub.PreloadAlertSettings.SimpleStrongbox);
 
-            AddChild(preloadMenu, "Corrupted color", settingsHub.PreloadAlertSettings.HasCorruptedArea);
+            var corruptedMenu = AddChild(preloadMenu, "Corrupted Area", settingsHub.PreloadAlertSettings.Strongboxes);
+            AddChild(corruptedMenu, "Use corrupted title", settingsHub.PreloadAlertSettings.CorruptedTitle);
+            AddChild(corruptedMenu, "Corrupted color", settingsHub.PreloadAlertSettings.HasCorruptedArea);
             AddChild(preloadMenu, "Background color", settingsHub.PreloadAlertSettings.BackgroundColor);
             AddChild(preloadMenu, "Font color", settingsHub.PreloadAlertSettings.DefaultFontColor);
             AddChild(preloadMenu, "Font size", settingsHub.PreloadAlertSettings.FontSize);
