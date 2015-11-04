@@ -118,6 +118,8 @@ namespace PoeHUD.Hud.Preload
 
                 Dictionary<string, PreloadConfigLine> Preload = new Dictionary<string, PreloadConfigLine>
                 {
+                    {"DarkShrine", new PreloadConfigLine { Text = "Darkshrine Area", FastColor = () => Settings.DarkShrineArea }},
+
                     {"Wild/StrDexInt", new PreloadConfigLine { Text = "Zana, Master Cartographer", FastColor = () => Settings.MasterZana }},
                     {"Wild/Int", new PreloadConfigLine { Text = "Catarina, Master of the Dead", FastColor = () => Settings.MasterCatarina }},
                     {"Wild/Dex", new PreloadConfigLine { Text = "Tora, Master of the Hunt", FastColor = () => Settings.MasterTora }},
