@@ -78,18 +78,17 @@ namespace PoeHUD.Hud.UI.Renderers
             lock (fonts)
             {
                 Font font;
-                using (var reader = new StreamReader("config/fonts.txt"))
-                {
-                    name = reader.ReadLine();
-                }
                 Tuple<string, int> key = Tuple.Create(name, height);
                 if (fonts.TryGetValue(key, out font)) return font;
                 font = new Font(device, new FontDescription
                 {
+                    MipLevels = 1,
+                    Height = height,
                     FaceName = name,
-                    Quality = FontQuality.ClearType,
-                    Height = height
+                    OutputPrecision = FontPrecision.Default,
+                    Quality = FontQuality.ClearType
                 });
+                font.PreloadText(name);
                 fonts.Add(key, font);
                 return font;
             }
