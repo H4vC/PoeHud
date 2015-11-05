@@ -45,9 +45,14 @@ namespace PoeHUD.Hud.Preload
         public override void Render()
         {
             base.Render();
-            if (WinApi.IsKeyDown(Keys.F10)) { return; }
             if (!Settings.Enable) { return; }
-            if (areaChanged) { Parse(); lastCount = GetNumberOfObjects(); }
+            if (WinApi.IsKeyDown(Keys.F10)) { return; }
+            if (WinApi.IsKeyDown(Keys.F5)) { areaChanged = true; }
+
+            if (areaChanged)
+            {
+                Parse(); lastCount = GetNumberOfObjects();
+            }
             else if (DateTime.Now <= maxParseTime)
             {
                 int count = GetNumberOfObjects();
@@ -115,7 +120,8 @@ namespace PoeHUD.Hud.Preload
                         alerts.Add(new PreloadConfigLine { Text = "Corrupted Area", FastColor = () => Settings.HasCorruptedArea });
                     }
                 }
-
+                //if (text.EndsWith("BossInvasion")) { alerts.Add(new PreloadConfigLine { Text = "Area contains Invasion Boss" }); }
+                
                 Dictionary<string, PreloadConfigLine> Preload = new Dictionary<string, PreloadConfigLine>
                 {
                     {"DarkShrine", new PreloadConfigLine { Text = "Darkshrine Area", FastColor = () => Settings.DarkShrineArea }},
