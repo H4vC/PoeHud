@@ -1,4 +1,4 @@
-PoeHud
+PoeHud - Currently might be detected do not use until this disclaimer is removed
 ======
 
 Reads data from Path of Exile client application and displays it on transparent overlay, while you play PoE.
