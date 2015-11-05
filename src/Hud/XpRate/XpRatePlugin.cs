@@ -86,7 +86,7 @@ namespace PoeHUD.Hud.XpRate
             {
                 Vector2 position = StartDrawPointFunc();
                 string areaName = GameController.Area.CurrentArea.DisplayName;
-                string fps = $"fps:({GameController.Game.IngameState.CurFps})";
+                string fps = $"fps:({GameController.Game.IngameState.CurFps}  )";
                 string ping = $"ping:({GameController.Game.IngameState.CurLatency})";
 
                 var xpReceiving = (Settings.LevelPenalty ? levelXpPenalty : 1.0) * (Settings.PartyPenalty ? partyXpPenalty : 1.0);
