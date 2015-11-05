@@ -11,11 +11,13 @@ namespace PoeHUD.Hud.Preload
             Masters = true;
             Exiles = true;
             Strongboxes = true;
+            CorruptedTitle = true;
             FontSize = new RangeNode<int>(16, 10, 20);
             BackgroundColor = new ColorBGRA(255, 255, 255, 220);
             DefaultFontColor = new ColorBGRA(220, 190, 130, 255);
             AreaFontColor = new ColorBGRA(150, 200, 250, 255);
             HasCorruptedArea = new ColorBGRA(208, 31, 144, 255);
+            DarkShrineArea = new ColorBGRA(230, 0, 0, 255);
 
             MasterZana = new ColorBGRA(255, 0, 255, 255);
             MasterCatarina = new ColorBGRA(100, 255, 255, 255);
@@ -62,10 +64,12 @@ namespace PoeHUD.Hud.Preload
             AugustinaSolaria = new ColorBGRA(254, 192, 118, 255);
         }
 
+        public ToggleNode CorruptedTitle { get; set; }
         public ToggleNode Masters { get; set; }
         public ToggleNode Exiles { get; set; }
         public ToggleNode Strongboxes { get; set; }
         public RangeNode<int> FontSize { get; set; }
+        public ColorNode DarkShrineArea { get; set; }
         public ColorNode BackgroundColor { get; set; }
         public ColorNode DefaultFontColor { get; set; }
         public ColorNode AreaFontColor { get; set; }
